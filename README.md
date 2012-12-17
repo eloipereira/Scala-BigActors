@@ -1,1 +1,1 @@
-# This is my README
+# Implementation of the BigActor Model in Scala
