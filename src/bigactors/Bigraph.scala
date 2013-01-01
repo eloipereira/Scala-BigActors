@@ -1,5 +1,0 @@
-package bigactors
-
-class Bigraph {
-
-}

@@ -16,6 +16,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="scala-compiler-2.8.1" level="application" />
+    <orderEntry type="library" name="Bgm2Java" level="project" />
   </component>
 </module>
 

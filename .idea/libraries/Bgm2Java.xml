@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Bgm2Java">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Bgm2Java.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,9 @@
+%active u0_UAV : 0;
+%active l0_Location : 1;
+%active l1_Location : 1;
+
+%rule r0 l0_Location[x].(u0_UAV | $0) | l1_Location[x].$1 -> l0_Location[x].$0 | l1_Location[x].(u0_UAV | $1);
+
+l0_Location[x].u0_UAV | l1_Location[x];
+
+%check
