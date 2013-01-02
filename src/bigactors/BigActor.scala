@@ -3,7 +3,7 @@ package bigactors
 import scala.actors.Actor
 import edu.berkeley.eloi.bigraph._
 
-abstract class BigActor (name: String, host0: Node, bigraphSchdl: Actor) extends Actor{
+abstract class BigActor (val name: String, host0: Node, bigraphSchdl: Actor) extends Actor{
   var host: Node = host0
 
   def observe(q: Query) {
@@ -15,9 +15,9 @@ abstract class BigActor (name: String, host0: Node, bigraphSchdl: Actor) extends
   def migrate(h: Node) {
     bigraphSchdl ! h
   }
-  //def send(dest: BigActor, message: Message) {
-  //  Snd(host,dest,message) ! bigraphSchdl
-  //}
+  def send(dest: BigActor, message: Any) {
+    bigraphSchdl ! new Message(dest, message)
+  }
 
   override
   def toString: String =  name + "@" + host
