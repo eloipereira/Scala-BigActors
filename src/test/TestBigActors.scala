@@ -29,9 +29,13 @@ object TestBigActors {
   def main(args: Array[String]){
     val brs: BRS = ConcreteBgm2JavaCompiler.generate("/Users/eloipereira/Dropbox/IDEAWorkspace/BigActors/src/examples/simple.bgm")
     val scheduler = new BigraphSchdl(brs)
+    println(brs.bigraph)
+    println(brs.signature)
     println(brs.nodes) //TODO - fix the nodes list in bgm2java
-    val ba1 = new SimpleBigActor1("uav1",brs.nodes.get(1), scheduler)
-    val ba0 = new SimpleBigActor0("uav0", brs.nodes.get(8), brs.rules.get(0), ba1, scheduler)
+    println(brs.names)
+    println(brs.rules)
+    val ba1 = new SimpleBigActor1("uav1",brs.nodes.get(2), scheduler)
+    val ba0 = new SimpleBigActor0("uav0", brs.nodes.get(1), brs.rules.get(0), ba1, scheduler)
     scheduler.start()
     ba0.start()
 
