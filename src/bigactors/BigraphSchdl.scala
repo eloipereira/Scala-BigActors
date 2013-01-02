@@ -18,7 +18,7 @@ class BigraphSchdl(brs0 : BRS) extends Actor{
          case x: Node => println("got a mgrt request " + x + " from "+sender)
          case x: Message => {println("got a snd request " + x + " from "+sender)
                              if (sender.asInstanceOf[BigActor].host == x.dest.host || sender.asInstanceOf[BigActor].host.getNames.diff(x.dest.host.getNames).isEmpty){
-                                 println("Yap, they're connected!")
+                                 println("Yap, they're connected!")     //TODO - fix the connection check
                              } else println("Not connected!")
                             }
        }

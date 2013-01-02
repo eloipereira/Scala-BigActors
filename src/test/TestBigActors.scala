@@ -31,7 +31,7 @@ object TestBigActors {
     val scheduler = new BigraphSchdl(brs)
     println(brs.nodes) //TODO - fix the nodes list in bgm2java
     val ba1 = new SimpleBigActor1("uav1",brs.nodes.get(1), scheduler)
-    val ba0 = new SimpleBigActor0("uav0", brs.nodes.get(0), brs.rules.get(0), ba1, scheduler)
+    val ba0 = new SimpleBigActor0("uav0", brs.nodes.get(8), brs.rules.get(0), ba1, scheduler)
     scheduler.start()
     ba0.start()
 
