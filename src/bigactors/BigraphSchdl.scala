@@ -23,10 +23,7 @@ class BigraphSchdl(brs0 : BRS) extends Actor{
             sender ! false
             System.err.println("Hosts " + sender.asInstanceOf[BigActor].getHost + " and " + x + " are not connected.")
           }
-
-
-
-        } //TODO - implement migration
+        }
         case x: Message => {println("got a snd request " + x + " from "+sender)
           if (sender.asInstanceOf[BigActor].getHost == x.dest.getHost || !sender.asInstanceOf[BigActor].getHost.getNames.intersect(x.dest.getHost.getNames).isEmpty){
             println("BigActors are within connection. Sending message...")
