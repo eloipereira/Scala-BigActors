@@ -12,8 +12,8 @@ object TestBigActors {
     def act(){
       send(buddy,"Hello buddy!")
       observe(new Query)
-      control(move)
       migrate(node)
+      control(move)
     }
   }
 
