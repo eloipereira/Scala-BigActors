@@ -10,7 +10,7 @@ object TestBigActors {
 
   class SimpleBigActor0(name: String, host: Node, node: Node, move: BRR, buddy: BigActor, bigraphSchdl: Actor) extends BigActor(name, host, bigraphSchdl){
     def act(){
-      send(buddy,"Hello buddy!")
+      this.!(buddy, "Hello buddy!")
       observe(new Query)
       migrate(node)
       control(move)

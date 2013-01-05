@@ -8,11 +8,18 @@ abstract class BigActor (val name: String, host0: Node, bigraphSchdl: Actor) ext
   private var host: Node = host0
 
   def observe(q: Query) {
-    bigraphSchdl ! q
+    val tmpActor = actor {
+      bigraphSchdl ! q
+      exit()
+    }
   }
   def control(u: BRR) {
-    bigraphSchdl ! u
+    val tmpActor = actor {
+      bigraphSchdl ! (u,host)
+      exit()
+    }
   }
+
   def migrate(h: Node) {
     val tmpActor = actor {
       bigraphSchdl ! (h,host)
@@ -26,9 +33,31 @@ abstract class BigActor (val name: String, host0: Node, bigraphSchdl: Actor) ext
     }
   }
 
-  def send(dest: BigActor, message: Any) {
-    bigraphSchdl ! new Message(dest, message)
+
+  override def !(msg:Any): Unit =
+  {
+    msg match {
+      case msg @ (rcv:BigActor, message:Any) => {
+        val tmpActor = actor {
+          bigraphSchdl ! (new Message(rcv, message),host)
+          self.receive {
+            case true => {
+              println("Sending message...")
+              rcv.asInstanceOf[Actor] ! message
+              exit()
+            }
+            case false => System.err.println("Send failed.")
+          }
+        }
+      }
+      case _ => super.!(msg)
+    }
   }
+
+
+  //def send(dest: BigActor, message: Any) {
+  //  bigraphSchdl ! new Message(dest, message)
+  //}
 
   def getHost: Node = host
 

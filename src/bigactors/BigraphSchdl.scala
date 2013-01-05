@@ -11,29 +11,29 @@ class BigraphSchdl(brs0 : BRS) extends Actor{
     loop {
       react{
         case x: Query => println("got a obs request " + x + " from "+sender) //TODO - implement query language
-        case x: BRR => {
-          println("got a ctr request " + x + " from "+sender) //TODO - check if host is included on redex and reactum
-          if (x.getNodes.contains(sender.asInstanceOf[BigActor].getHost)){
-            brs.applyRules(List(x),2)
+        case x@(h:Node,r:BRR) => {
+          println("got a ctr request " + r)
+          if (r.getNodes.contains(h)){
+            brs.applyRules(List(r),2)
             println("New bigraph: " + brs)
-          } else System.err.println("Host of " + sender.asInstanceOf[BigActor] + "is not included on redex/reactum of "+ x)
+          } else System.err.println("Host " + h + "is not included on redex/reactum of "+ r)
         }
-        case x: (Node,Node) => {
-          println("got a mgrt request from " + x._2 + " to " +x._1)
-          if (!x._2.getNames.intersect(x._1.getNames).isEmpty){
+        case x@(m:Message,h:Node) => {
+          println("got a snd request " + x + " from "+sender)
+          if (h == m.dest.getHost || !h.getNames.intersect(m.dest.getHost.getNames).isEmpty){
+            println("BigActors are within connection.")
+            reply(true)
+          } else System.err.println("BigActors " + h + " and " + m.dest + " are not connected.")
+        }
+        case x@(h:Node,host:Node) => {
+          println("got a mgrt request from " + host + " to " +h)
+          if (!host.getNames.intersect(h.getNames).isEmpty){
             println("Hosts connected. Migrating...")
             reply(true)
           } else {
             reply(false)
-            System.err.println("Hosts " + x._2 + " and " + x._1 + " are not connected.")
+            System.err.println("Hosts " + host + " and " + h + " are not connected.")
           }
-        }
-        case x: Message => {
-          println("got a snd request " + x + " from "+sender)
-          if (sender.asInstanceOf[BigActor].getHost == x.dest.getHost || !sender.asInstanceOf[BigActor].getHost.getNames.intersect(x.dest.getHost.getNames).isEmpty){
-            println("BigActors are within connection. Sending message...")
-            x.dest ! x.message
-          } else System.err.println("BigActors " + sender + " and " + x.dest + " are not connected.")
         }
       }
     }
