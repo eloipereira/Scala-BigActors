@@ -7,17 +7,16 @@ import edu.berkeley.eloi.concreteBgm2Java.ConcreteBgm2JavaCompiler
 import scala.collection.JavaConversions._
 
 object TestBigActors {
-
-  class SimpleBigActor0(name: String, host: Node, node: Node, move: BRR, buddy: BigActor, bigraphSchdl: Actor) extends BigActor(name, host, bigraphSchdl){
+  class SimpleBigActor0(name: String,  hostId: String, nodeId: String, move: BRR, buddy: BigActor, bigraphSchdl: Actor) extends BigActor(name, hostId, bigraphSchdl){
     def act(){
       this.!(buddy, "Hello buddy!")
       observe(new Query)
-      migrate(node)
+      migrate(nodeId)
       control(move)
     }
   }
 
-  class SimpleBigActor1(name: String, host: Node, bigraphSchdl: Actor) extends BigActor(name, host, bigraphSchdl){
+  class SimpleBigActor1(name: String,  hostId: String, bigraphSchdl: Actor) extends BigActor(name, hostId, bigraphSchdl){
     def act(){
       loop {
         react{
@@ -28,10 +27,12 @@ object TestBigActors {
   }
 
   def main(args: Array[String]){
-    val brs: BRS = ConcreteBgm2JavaCompiler.generate("/Users/eloipereira/Dropbox/IDEAWorkspace/BigActors/src/examples/simple.bgm")
+    val gen = ConcreteBgm2JavaCompiler.generate("/Users/eloipereira/Dropbox/IDEAWorkspace/BigActors/src/examples/simple.bgm",true)
+    val brs: BRS = new BRS(gen.signature, gen.names, gen.bigraph, gen.rules)
+    println(brs.getBigraph.getNodes)
     val scheduler = new BigraphSchdl(brs)
-    val ba1 = new SimpleBigActor1("uav1",brs.nodes.get(2), scheduler)
-    val ba0 = new SimpleBigActor0("uav0", brs.nodes.get(1), brs.nodes.get(2), brs.rules.get(0), ba1, scheduler)
+    val ba1 = new SimpleBigActor1("uav1","u1", scheduler)
+    val ba0 = new SimpleBigActor0("uav0", "u0", "u1", brs.getRules().get(0), ba1, scheduler)
     scheduler.start()
     ba0.start()
     ba1.start()

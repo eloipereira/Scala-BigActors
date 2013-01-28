@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1745a8c2-2d13-46d6-885b-7ddac145ee4e" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/bigactors/SimpleQueryCompiler.scala" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Bgm2Java.jar" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Bgm2Java.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Bgm2Java.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bigactors/BigActor.scala" afterPath="$PROJECT_DIR$/src/bigactors/BigActor.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BigActors.iml" afterPath="$PROJECT_DIR$/BigActors.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bigactors/BigraphSchdl.scala" afterPath="$PROJECT_DIR$/src/bigactors/BigraphSchdl.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/TestBigActors.scala" afterPath="$PROJECT_DIR$/src/test/TestBigActors.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -12,12 +16,12 @@
     <file path="/TestTree.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355576467000" ignored="false" />
     <file path="/Tree.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355576581377" ignored="false" />
     <file path="/Scala Console" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355571248616" ignored="false" />
-    <file path="/BigActor.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1357411901590" ignored="false" />
-    <file path="/BigraphSchdl.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1357412169447" ignored="false" />
+    <file path="/BigActor.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359333277588" ignored="false" />
+    <file path="/BigraphSchdl.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359238234501" ignored="false" />
     <file path="/BRR.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356540508976" ignored="false" />
-    <file path="/TestBigActors.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1357407789828" ignored="false" />
+    <file path="/TestBigActors.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359234141869" ignored="false" />
     <file path="/simpleBigActor.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355686536591" ignored="false" />
-    <file path="/Dummy.txt" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1357403959441" ignored="false" />
+    <file path="/Dummy.txt" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359251544567" ignored="false" />
     <file path="/a.groovy" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355923266761" ignored="false" />
     <file path="/a.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355923267951" ignored="false" />
     <file path="$PROJECT_DIR$/../BigraphVisualizer/src/edu/berkeley/eloi/bigvis/Visualizer.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356778365568" ignored="false" />
@@ -31,7 +35,7 @@
     <file path="/BigraphReactiveSystem.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356612832407" ignored="false" />
     <file path="/Bigraph.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356541097770" ignored="false" />
     <file path="/Activity.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356541287538" ignored="false" />
-    <file path="$PROJECT_DIR$/../Bgm2Java/.idea/workspace.xml" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1357412212200" ignored="false" />
+    <file path="$PROJECT_DIR$/../Bgm2Java/.idea/workspace.xml" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359333282047" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/src/bgmParser.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356635951557" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/src/bgmLexer.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356635951899" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/test/testBgm.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356657388527" ignored="false" />
@@ -50,19 +54,19 @@
     <file path="/BRR.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1357318960735" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/src/BgmTreeWalker.tokens" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356652466690" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/src/Bigraph.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356657835071" ignored="false" />
-    <file path="/Bigraph.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356651144268" ignored="false" />
+    <file path="/Bigraph.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359248968147" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/src/BRS.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356657835071" ignored="false" />
-    <file path="/BRS.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356817839914" ignored="false" />
+    <file path="/BRS.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1358370918898" ignored="false" />
     <file path="/BgmTreeWalker.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356714407553" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bgm2java/BgmLexer.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356824790040" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bgm2java/BgmParser.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356824790040" ignored="false" />
-    <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bgm2java/BgmTreeWalker.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1357319326591" ignored="false" />
+    <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bgm2java/BgmTreeWalker.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1358364601218" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bgm2java/Bgm.g" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356655038438" ignored="false" />
     <file path="/Bgm.g" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356654983656" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bgm2java/BgmTreeWalker.g" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356655259703" ignored="false" />
-    <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bigraph/Bigraph.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356824787484" ignored="false" />
+    <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bigraph/Bigraph.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359249189854" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bigraph/BRR.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1357319449477" ignored="false" />
-    <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bigraph/BRS.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356824787484" ignored="false" />
+    <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bigraph/BRS.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1358371369968" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bigraph/Control.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356824787484" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bgm2java/Bgm.tokens" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356657532310" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bgm2java/BgmTreeWalker.tokens" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356659448419" ignored="false" />
@@ -73,7 +77,7 @@
     <file path="$PROJECT_DIR$/../Bgm2Java/README.md" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356658841709" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/test/edu/berkeley/eloi/bgm2java/testBgm.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356656551879" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bgm2java/testBgm.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356657259070" ignored="false" />
-    <file path="$PROJECT_DIR$/../Bgm2Java/test/test.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356880405108" ignored="false" />
+    <file path="$PROJECT_DIR$/../Bgm2Java/test/test.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1358364861848" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bgm2java/test.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356657780814" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/src/test.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356657835071" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bgm2java/Activity.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356659066146" ignored="false" />
@@ -86,18 +90,18 @@
     <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bgm2java/Debug.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356824787484" ignored="false" />
     <file path="/Debug.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356737369831" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/.idea/misc.xml" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356880337231" ignored="false" />
-    <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bgm2java/Bgm2JavaCompiler.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356824787484" ignored="false" />
-    <file path="/Bgm2JavaCompiler.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356821354723" ignored="false" />
+    <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bgm2java/Bgm2JavaCompiler.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1358364721675" ignored="false" />
+    <file path="/Bgm2JavaCompiler.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1358364721281" ignored="false" />
     <file path="/Visualizer.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356777458742" ignored="false" />
     <file path="/TestVisualizer.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356778568972" ignored="false" />
     <file path="$PROJECT_DIR$/../BigraphVisualizer/test/TestVisualizer.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356778574162" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/.idea/artifacts/Bgm2Java_jar.xml" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356794602014" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bgm2java/Node.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356813007093" ignored="false" />
-    <file path="/Node.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356816888300" ignored="false" />
-    <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bigraph/Node.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1357319964902" ignored="false" />
+    <file path="/Node.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1358372410655" ignored="false" />
+    <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bigraph/Node.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359224200428" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bgm2java/ConcreteBgmTreeWalker.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356820125863" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bgm2java/ConcreteBgm2JavaCompiler.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356822524624" ignored="false" />
-    <file path="/ConcreteBgm2JavaCompiler.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356880329322" ignored="false" />
+    <file path="/ConcreteBgm2JavaCompiler.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1358370737923" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bgm2java/ConcreteBgmParser.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356821330666" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bgm2java/ConcreteBgmLexer.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356821308732" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bigraph/ConcreteBgm2JavaCompiler.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356822494710" ignored="false" />
@@ -111,7 +115,7 @@
     <file path="/TestConcrete.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356821532049" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/test/simple.bgm" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356822167873" ignored="false" />
     <file path="/simple.bgm" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1357134264967" ignored="false" />
-    <file path="$PROJECT_DIR$/../Bgm2Java/test/testConcrete.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1357319464208" ignored="false" />
+    <file path="$PROJECT_DIR$/../Bgm2Java/test/testConcrete.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359250451999" ignored="false" />
     <file path="$PROJECT_DIR$/../BgmToJava/.idea/misc.xml" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356822807075" ignored="false" />
     <file path="$PROJECT_DIR$/../BgmToJava/.idea/workspace.xml" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356824867806" ignored="false" />
     <file path="$PROJECT_DIR$/../BgmToJava/src/edu/berkeley/eloi/bgm2java/ConcreteBgmParser.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356823519736" ignored="false" />
@@ -151,13 +155,16 @@
     <file path="$PROJECT_DIR$/../Bgm2Java/src/bgm2java/Debug.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356824638991" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/src/bigraph/Control.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356824638991" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/src/concreteBgm2Java/ConcreteBgmParser.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356824703484" ignored="false" />
-    <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/concreteBgm2Java/ConcreteBgm2JavaCompiler.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356880336326" ignored="false" />
-    <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/concreteBgm2Java/ConcreteBgmLexer.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356824790040" ignored="false" />
-    <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/concreteBgm2Java/ConcreteBgmTreeWalker.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1357319752353" ignored="false" />
-    <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/concreteBgm2Java/ConcreteBgmParser.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356824790040" ignored="false" />
+    <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/concreteBgm2Java/ConcreteBgm2JavaCompiler.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1358370781632" ignored="false" />
+    <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/concreteBgm2Java/ConcreteBgmLexer.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1358371059745" ignored="false" />
+    <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/concreteBgm2Java/ConcreteBgmTreeWalker.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1358378657483" ignored="false" />
+    <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/concreteBgm2Java/ConcreteBgmParser.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1358371059745" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/.idea/vcs.xml" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356880337231" ignored="false" />
     <file path="/Message.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1357091627851" ignored="false" />
-    <file path="/testConcrete.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1357319461430" ignored="false" />
+    <file path="/testConcrete.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359249372351" ignored="false" />
+    <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bigraph/Region.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1358372056501" ignored="false" />
+    <file path="/Region.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1358372056143" ignored="false" />
+    <file path="/SimpleQueryCompiler.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359333245062" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,20 +230,9 @@
       <file leaf-file-name="BigActor.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bigactors/BigActor.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="72" selection-start="424" selection-end="424" vertical-scroll-proportion="0.0">
+            <state line="72" column="0" selection-start="1706" selection-end="1706" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#19#44#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestBigActors.scala" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/TestBigActors.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="41" selection-start="745" selection-end="745" vertical-scroll-proportion="0.34615386">
-              <folding>
-                <element signature="e#14#32#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -245,9 +241,39 @@
       <file leaf-file-name="BigraphSchdl.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bigactors/BigraphSchdl.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="38" selection-start="1298" selection-end="1298" vertical-scroll-proportion="0.0">
+            <state line="33" column="23" selection-start="1311" selection-end="1311" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SimpleQueryCompiler.scala" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/bigactors/SimpleQueryCompiler.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="3" selection-start="84" selection-end="84" vertical-scroll-proportion="0.19736843">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestBigActors.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/TestBigActors.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="21" selection-start="516" selection-end="516" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Bigraph.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/../Bgm2Java/out/artifacts/Bgm2Java_jar/Bgm2Java.jar!/edu/berkeley/eloi/bigraph/Bigraph.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="13" selection-start="101" selection-end="101" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#19#38#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#773#779#0" expanded="true" />
+                <element signature="e#1025#1031#0" expanded="true" />
+                <element signature="e#1083#1091#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -298,9 +324,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/graphs/Tree.scala" />
-        <option value="$PROJECT_DIR$/src/bigactors/Node.scala" />
-        <option value="$PROJECT_DIR$/src/bigactors/Bigraph.scala" />
         <option value="$PROJECT_DIR$/src/bigactors/BRR.scala" />
         <option value="$PROJECT_DIR$/src/test/simpleBigActor.scala" />
         <option value="$PROJECT_DIR$/src/test/SimpleBigActor.scala" />
@@ -311,9 +334,12 @@
         <option value="$PROJECT_DIR$/src/examples/airport.bmg" />
         <option value="$PROJECT_DIR$/src/bigactors/Message.scala" />
         <option value="$PROJECT_DIR$/src/examples/simple.bgm" />
+        <option value="$PROJECT_DIR$/../Bgm2Java/out/artifacts/Bgm2Java_jar/Bgm2Java.jar!/edu/berkeley/eloi/bigraph/Node.java" />
         <option value="$PROJECT_DIR$/src/test/TestBigActors.scala" />
-        <option value="$PROJECT_DIR$/src/bigactors/BigActor.scala" />
         <option value="$PROJECT_DIR$/src/bigactors/BigraphSchdl.scala" />
+        <option value="$PROJECT_DIR$/../Bgm2Java/out/artifacts/Bgm2Java_jar/Bgm2Java.jar!/edu/berkeley/eloi/bigraph/Bigraph.java" />
+        <option value="$PROJECT_DIR$/src/bigactors/BigActor.scala" />
+        <option value="$PROJECT_DIR$/src/bigactors/SimpleQueryCompiler.scala" />
       </list>
     </option>
   </component>
@@ -337,7 +363,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
-    <option name="STATE" value="2" />
+    <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
@@ -352,7 +378,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -360,6 +385,76 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="BigActors" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BigActors" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Bgm2Java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Bgm2Java.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BigActors" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Bgm2Java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Bgm2Java.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eloi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BigActors" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Bgm2Java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Bgm2Java.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eloi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bigraph" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -383,6 +478,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BigActors" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BigActors" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examples" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -406,25 +519,26 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="Facets" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.lastSelected" value="preferences.lookFeel" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Bgm2Java/out/artifacts/Bgm2Java_jar/Bgm2Java.jar!/" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -624,7 +738,11 @@
       <created>1357403971011</created>
       <updated>1357403971011</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="scheduler is behaving as FCFS again. Still need to test send further.">
+      <created>1357412307969</created>
+      <updated>1357412307969</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -636,16 +754,16 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3265625" sideWeight="0.011532125" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3265625" sideWeight="0.09390445" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.43410215" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.4250412" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16886327" sideWeight="0.6734375" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3265625" sideWeight="0.98270184" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3265625" sideWeight="0.9003295" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.4967051" order="1" side_tool="false" content_ui="tabs" />
@@ -691,7 +809,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="migration works but scheduler is not FCFS." />
+    <option name="LAST_COMMIT_MESSAGE" value="scheduler is behaving as FCFS again. Still need to test send further." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -713,6 +831,7 @@
     <MESSAGE value="Migration implementation. Fix some stuff on send." />
     <MESSAGE value="remove TODO" />
     <MESSAGE value="migration works but scheduler is not FCFS." />
+    <MESSAGE value="scheduler is behaving as FCFS again. Still need to test send further." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -722,6 +841,34 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/bigactors/BigraphSchdl.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="108" selection-start="1221" selection-end="1221" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/examples/simple.bgm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="6" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bigactors/Query.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="6" selection-start="185" selection-end="185" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bigactors/Message.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="39" selection-start="58" selection-end="58" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/bigactors/Message.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="6" selection-start="185" selection-end="185" vertical-scroll-proportion="0.0">
@@ -734,44 +881,21 @@
         <state line="15" column="0" selection-start="246" selection-end="246" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="jar:///System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar!/java/util/ArrayList.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="0" selection-start="2297" selection-end="2297" vertical-scroll-proportion="0.7692308" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/examples/simple.bgm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="6" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/bigactors/Query.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="6" selection-start="185" selection-end="185" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar!/java/util/ArrayList.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="0" selection-start="2297" selection-end="2297" vertical-scroll-proportion="0.7692308">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/Bgm2Java.jar!/edu/berkeley/eloi/bgm2java/Debug.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="13" selection-start="50" selection-end="50" vertical-scroll-proportion="0.074441686">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/Bgm2Java.jar!/edu/berkeley/eloi/bigraph/BRR.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="29" selection-start="280" selection-end="280" vertical-scroll-proportion="0.4488778">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/Bgm2Java.jar!/edu/berkeley/eloi/bigraph/Node.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="168" selection-end="168" vertical-scroll-proportion="0.19946809">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/Bgm2Java.jar!/edu/berkeley/eloi/bigraph/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="26" selection-start="451" selection-end="451" vertical-scroll-proportion="0.52369076">
           <folding />
         </state>
       </provider>
@@ -783,37 +907,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/examples/simple.bgm">
+    <entry file="file://$PROJECT_DIR$/src/test/TestBigActors.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="6" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0">
+        <state line="16" column="21" selection-start="516" selection-end="516" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bigactors/BigActor.scala">
+    <entry file="jar://$PROJECT_DIR$/../Bgm2Java/out/artifacts/Bgm2Java_jar/Bgm2Java.jar!/edu/berkeley/eloi/bigraph/Bigraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="72" selection-start="424" selection-end="424" vertical-scroll-proportion="0.0">
+        <state line="5" column="13" selection-start="101" selection-end="101" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#19#44#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#773#779#0" expanded="true" />
+            <element signature="e#1025#1031#0" expanded="true" />
+            <element signature="e#1083#1091#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bigactors/BigraphSchdl.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="38" selection-start="1298" selection-end="1298" vertical-scroll-proportion="0.0">
+        <state line="33" column="23" selection-start="1311" selection-end="1311" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bigactors/BigActor.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="0" selection-start="1706" selection-end="1706" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#19#38#0" expanded="true" />
+            <element signature="e#19#44#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/TestBigActors.scala">
+    <entry file="file://$PROJECT_DIR$/src/bigactors/SimpleQueryCompiler.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="41" selection-start="745" selection-end="745" vertical-scroll-proportion="0.34615386">
-          <folding>
-            <element signature="e#14#32#0" expanded="true" />
-          </folding>
+        <state line="5" column="3" selection-start="84" selection-end="84" vertical-scroll-proportion="0.19736843">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -875,7 +1007,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

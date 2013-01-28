@@ -4,28 +4,40 @@ import scala.actors.Actor
 import Actor._
 import edu.berkeley.eloi.bigraph._
 
-abstract class BigActor (val name: String, host0: Node, bigraphSchdl: Actor) extends Actor{
-  private var host: Node = host0
+abstract class BigActor (val bigactorId: String, host0Id: String, bigraphSchdl: Actor) extends Actor{
+  private var hostId: String = host0Id
+
+  val tmpActor = actor {
+    bigraphSchdl ! ("HOSTING",bigactorId, host0Id) // ask bigraphSchdl to host the BA bigactorId at host0Id
+    self.receive {
+      case true => {
+        this.hostId = host0Id
+        println("BigActor successfuly hosted")
+        exit()
+      }
+      case false => System.err.println("Hosting failed.")
+    }
+  }
 
   def observe(q: Query) {
     val tmpActor = actor {
-      bigraphSchdl ! q
+      bigraphSchdl ! ("OBSERVE",q)
       exit()
     }
   }
   def control(u: BRR) {
     val tmpActor = actor {
-      bigraphSchdl ! (u,host)
+      bigraphSchdl ! ("CONTROL",u,hostId)
       exit()
     }
   }
 
-  def migrate(h: Node) {
+  def migrate(newHostId: String) {
     val tmpActor = actor {
-      bigraphSchdl ! (h,host)
+      bigraphSchdl ! ("MIGRATE",hostId,newHostId)
       self.receive {
         case b: Boolean => if (b) {
-          this.host = h
+          this.hostId = newHostId
           println("Migration succeeded")
           exit()
         } else System.err.println("Migration failed.")
@@ -39,7 +51,7 @@ abstract class BigActor (val name: String, host0: Node, bigraphSchdl: Actor) ext
     msg match {
       case msg @ (rcv:BigActor, message:Any) => {
         val tmpActor = actor {
-          bigraphSchdl ! (new Message(rcv, message),host)
+          bigraphSchdl ! ("SEND", new Message(rcv, message),hostId)
           self.receive {
             case true => {
               println("Sending message...")
@@ -54,13 +66,12 @@ abstract class BigActor (val name: String, host0: Node, bigraphSchdl: Actor) ext
     }
   }
 
+  def getHostId: String = {
+    this.hostId
+  }
 
-  //def send(dest: BigActor, message: Any) {
-  //  bigraphSchdl ! new Message(dest, message)
-  //}
 
-  def getHost: Node = host
 
   override
-  def toString: String =  name + "@" + host
+  def toString: String =  bigactorId + "@" + hostId
 }
