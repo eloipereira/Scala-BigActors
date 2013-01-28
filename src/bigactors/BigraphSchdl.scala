@@ -53,6 +53,10 @@ class BigraphSchdl(brs0 : BRS) extends Actor{
             System.err.println("Hosts " + currentHostId + " and " + destHostId + " are not connected.")
           }
         }
+        case x@("GET_HOST",hostId) => {
+          val idx = brs.getBigraph.getNodes.indexOf(new Node(hostId))
+          reply(brs.getBigraph.getNodes.get(idx))
+        }
       }
     }
   }

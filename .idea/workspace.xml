@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1745a8c2-2d13-46d6-885b-7ddac145ee4e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/bigactors/SimpleQueryCompiler.scala" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Bgm2Java.jar" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Bgm2Java.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Bgm2Java.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bigactors/BigActor.scala" afterPath="$PROJECT_DIR$/src/bigactors/BigActor.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BigActors.iml" afterPath="$PROJECT_DIR$/BigActors.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bigactors/BigraphSchdl.scala" afterPath="$PROJECT_DIR$/src/bigactors/BigraphSchdl.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/TestBigActors.scala" afterPath="$PROJECT_DIR$/src/test/TestBigActors.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bigactors/SimpleQueryCompiler.scala" afterPath="$PROJECT_DIR$/src/bigactors/SimpleQueryCompiler.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="BigActors.iws" />
@@ -16,12 +12,12 @@
     <file path="/TestTree.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355576467000" ignored="false" />
     <file path="/Tree.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355576581377" ignored="false" />
     <file path="/Scala Console" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355571248616" ignored="false" />
-    <file path="/BigActor.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359333277588" ignored="false" />
-    <file path="/BigraphSchdl.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359238234501" ignored="false" />
+    <file path="/BigActor.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359333859431" ignored="false" />
+    <file path="/BigraphSchdl.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359334567778" ignored="false" />
     <file path="/BRR.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356540508976" ignored="false" />
     <file path="/TestBigActors.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359234141869" ignored="false" />
     <file path="/simpleBigActor.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355686536591" ignored="false" />
-    <file path="/Dummy.txt" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359251544567" ignored="false" />
+    <file path="/Dummy.txt" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359333438605" ignored="false" />
     <file path="/a.groovy" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355923266761" ignored="false" />
     <file path="/a.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355923267951" ignored="false" />
     <file path="$PROJECT_DIR$/../BigraphVisualizer/src/edu/berkeley/eloi/bigvis/Visualizer.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356778365568" ignored="false" />
@@ -35,7 +31,7 @@
     <file path="/BigraphReactiveSystem.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356612832407" ignored="false" />
     <file path="/Bigraph.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356541097770" ignored="false" />
     <file path="/Activity.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356541287538" ignored="false" />
-    <file path="$PROJECT_DIR$/../Bgm2Java/.idea/workspace.xml" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359333282047" ignored="false" />
+    <file path="$PROJECT_DIR$/../Bgm2Java/.idea/workspace.xml" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359339909540" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/src/bgmParser.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356635951557" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/src/bgmLexer.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356635951899" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/test/testBgm.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356657388527" ignored="false" />
@@ -164,7 +160,7 @@
     <file path="/testConcrete.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359249372351" ignored="false" />
     <file path="$PROJECT_DIR$/../Bgm2Java/src/edu/berkeley/eloi/bigraph/Region.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1358372056501" ignored="false" />
     <file path="/Region.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1358372056143" ignored="false" />
-    <file path="/SimpleQueryCompiler.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359333245062" ignored="false" />
+    <file path="/SimpleQueryCompiler.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359339836690" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,7 +226,7 @@
       <file leaf-file-name="BigActor.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bigactors/BigActor.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="0" selection-start="1706" selection-end="1706" vertical-scroll-proportion="0.0">
+            <state line="75" column="14" selection-start="1792" selection-end="1792" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#19#44#0" expanded="true" />
               </folding>
@@ -241,7 +237,7 @@
       <file leaf-file-name="BigraphSchdl.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bigactors/BigraphSchdl.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="23" selection-start="1311" selection-end="1311" vertical-scroll-proportion="0.0">
+            <state line="57" column="49" selection-start="2585" selection-end="2585" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -250,8 +246,10 @@
       <file leaf-file-name="SimpleQueryCompiler.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/bigactors/SimpleQueryCompiler.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="3" selection-start="84" selection-end="84" vertical-scroll-proportion="0.19736843">
-              <folding />
+            <state line="39" column="3" selection-start="1155" selection-end="1155" vertical-scroll-proportion="1.4605263">
+              <folding>
+                <element signature="e#19#53#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -336,9 +334,9 @@
         <option value="$PROJECT_DIR$/src/examples/simple.bgm" />
         <option value="$PROJECT_DIR$/../Bgm2Java/out/artifacts/Bgm2Java_jar/Bgm2Java.jar!/edu/berkeley/eloi/bigraph/Node.java" />
         <option value="$PROJECT_DIR$/src/test/TestBigActors.scala" />
-        <option value="$PROJECT_DIR$/src/bigactors/BigraphSchdl.scala" />
         <option value="$PROJECT_DIR$/../Bgm2Java/out/artifacts/Bgm2Java_jar/Bgm2Java.jar!/edu/berkeley/eloi/bigraph/Bigraph.java" />
         <option value="$PROJECT_DIR$/src/bigactors/BigActor.scala" />
+        <option value="$PROJECT_DIR$/src/bigactors/BigraphSchdl.scala" />
         <option value="$PROJECT_DIR$/src/bigactors/SimpleQueryCompiler.scala" />
       </list>
     </option>
@@ -742,7 +740,11 @@
       <created>1357412307969</created>
       <updated>1357412307969</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Bunch of stuff">
+      <created>1359333453559</created>
+      <updated>1359333453559</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -809,7 +811,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="scheduler is behaving as FCFS again. Still need to test send further." />
+    <option name="LAST_COMMIT_MESSAGE" value="Bunch of stuff" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -832,6 +834,7 @@
     <MESSAGE value="remove TODO" />
     <MESSAGE value="migration works but scheduler is not FCFS." />
     <MESSAGE value="scheduler is behaving as FCFS again. Still need to test send further." />
+    <MESSAGE value="Bunch of stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -914,6 +917,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/bigactors/BigActor.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="14" selection-start="1792" selection-end="1792" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#19#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bigactors/BigraphSchdl.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="49" selection-start="2585" selection-end="2585" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://$PROJECT_DIR$/../Bgm2Java/out/artifacts/Bgm2Java_jar/Bgm2Java.jar!/edu/berkeley/eloi/bigraph/Bigraph.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="13" selection-start="101" selection-end="101" vertical-scroll-proportion="0.0">
@@ -926,26 +945,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bigactors/BigraphSchdl.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="23" selection-start="1311" selection-end="1311" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bigactors/BigActor.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="0" selection-start="1706" selection-end="1706" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#19#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/bigactors/SimpleQueryCompiler.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="3" selection-start="84" selection-end="84" vertical-scroll-proportion="0.19736843">
-          <folding />
+        <state line="39" column="3" selection-start="1155" selection-end="1155" vertical-scroll-proportion="1.4605263">
+          <folding>
+            <element signature="e#19#53#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

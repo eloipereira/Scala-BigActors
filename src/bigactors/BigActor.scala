@@ -70,7 +70,21 @@ abstract class BigActor (val bigactorId: String, host0Id: String, bigraphSchdl: 
     this.hostId
   }
 
-
+  def getHost: Node = {
+    var gotIt = false
+    var host: Node = null
+    val tmpActor = actor {
+          bigraphSchdl ! ("GET_HOST",hostId)
+          self.receive {
+            case n: Node => {
+              gotIt = true
+              host = n
+            }
+          }
+        }
+    while (!gotIt){}
+    return host
+  }
 
   override
   def toString: String =  bigactorId + "@" + hostId
