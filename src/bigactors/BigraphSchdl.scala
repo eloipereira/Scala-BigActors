@@ -24,7 +24,13 @@ class BigraphSchdl(brs0 : BRS) extends Actor{
             reply(false)
           }
         }
-        case x@("OBSERVE", query: Query) => println("got a obs request " + x + " from "+sender) //TODO - implement query language
+        case x@("OBSERVE", query: String, hostId:String, bigActorAddr: Actor) => {
+          println("got a obs request " + x + " from "+sender)
+          val host = brs.getBigraph.getNode(hostId)
+          val obs = new Observation(SimpleQueryCompiler.generate(query,host,brs.getBigraph))
+          println("Observation: "+obs)
+          reply(obs)
+        }
         case x@("CONTROL", r:BRR, hostId:String) => {
           println("got a ctr request " + r)
           if (r.getNodes.contains(brs.getBigraph.getNode(hostId))){
