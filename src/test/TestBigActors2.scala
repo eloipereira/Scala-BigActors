@@ -14,7 +14,7 @@ object TestBigActors2 {
     scheduler.start()
 
 
-    object ba1 extends BigActor("uav1","u1",scheduler) {
+    object ba1 extends BigActor(new HostID("u1"), scheduler) {
       def act(){
         loop {
           react{
@@ -25,12 +25,12 @@ object TestBigActors2 {
     }
     ba1.start()
 
-    object ba0 extends BigActor("uav0","u0",scheduler) {
+    object ba0 extends BigActor(new HostID("u0"), scheduler) {
       def act(){
-        //observe("children.parent.host", this)
-        send(ba1, "Hello I'm a BigActor!")
-        //migrate("u1")
-        //control(brs.getRules().get(0))
+        observe("children.parent.host", this)
+        ba1 ! "Hello I'm a BigActor!"
+        migrate(new HostID("u1"))
+        control(brs.getRules().get(0))
       }
     }
     ba0.start()

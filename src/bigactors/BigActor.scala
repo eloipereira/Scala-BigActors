@@ -4,11 +4,11 @@ import scala.actors.Actor
 import Actor._
 import edu.berkeley.eloi.bigraph._
 
-abstract class BigActor (val bigactorId: String, host0Id: String, bigraphSchdl: Actor) extends Actor{
-  private var hostId: String = host0Id
+abstract class BigActor (host0Id: HostID, bigraphSchdl: Actor) extends Actor{
+  private var hostId: HostID = host0Id
 
   val tmpActor = actor {
-    bigraphSchdl ! ("HOSTING",bigactorId, host0Id)
+    bigraphSchdl ! ("HOSTING", host0Id)
     self.receive {
       case true => {
         this.hostId = host0Id
@@ -39,7 +39,7 @@ abstract class BigActor (val bigactorId: String, host0Id: String, bigraphSchdl: 
     }
   }
 
-  def migrate(newHostId: String) {
+  def migrate(newHostId: HostID) {
     val tmpActor = actor {
       bigraphSchdl ! ("MIGRATE",hostId,newHostId)
       self.receive {
@@ -53,43 +53,27 @@ abstract class BigActor (val bigactorId: String, host0Id: String, bigraphSchdl: 
   }
 
 
-  def send(rcv:BigActor, message:Any): Unit = {
-    val tmpActor = actor {
-      //rcv.asInstanceOf[Actor] ! message
-      bigraphSchdl ! ("SEND", new Message(rcv, message), hostId)
-      self.receive {
-        case true => {
-          println("Sending message...")
-          rcv.asInstanceOf[Actor] ! message  //TODO - this is failing to succeed for some unknown reason
+  override def !(msg:Any): Unit =
+  {
+    msg match {
+      case msg @ (rcv:BigActor, message:Any) => {
+        val tmpActor = actor {
+          bigraphSchdl ! ("SEND", new Message(rcv, message), hostId)
+          self.receive {
+            case true => {
+              println("Sending message...")
+              rcv.asInstanceOf[Actor] ! message  //TODO - this is failing to succeed for some unknown reason
+            }
+            case false => System.err.println("Send failed.")
+          }
+          exit()
         }
-        case false => System.err.println("Send failed.")
       }
-      exit()
+      case _ => super.!(msg)
     }
   }
 
-
-//  override def !(msg:Any): Unit =
-//  {
-//    msg match {
-//      case msg @ (rcv:BigActor, message:Any) => {
-//        val tmpActor = actor {
-//          bigraphSchdl ! ("SEND", new Message(rcv, message), hostId)
-//          self.receive {
-//            case true => {
-//              println("Sending message...")
-//              rcv.asInstanceOf[Actor] ! message  //TODO - this is failing to succeed for some unknown reason
-//            }
-//            case false => System.err.println("Send failed.")
-//          }
-//          exit()
-//        }
-//      }
-//      case _ => super.!(msg)
-//    }
-//  }
-
-  def getHostId: String = {
+  def getHostId: HostID = {
     this.hostId
   }
 
@@ -110,5 +94,5 @@ abstract class BigActor (val bigactorId: String, host0Id: String, bigraphSchdl: 
   }
 
   override
-  def toString: String =  bigactorId + "@" + hostId
+  def toString: String =  "Bigactor @" + hostId
 }
