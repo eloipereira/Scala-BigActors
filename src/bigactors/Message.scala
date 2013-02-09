@@ -1,7 +1,7 @@
 package bigactors
 
-class Message (val dest: BigActor, val message: Any) {
+class Message (val sender: BigActor, val receiver: BigActor, val message: Any) {
 
   override
-  def toString: String = "<" + dest + " <= " + message + ">"
+  def toString: String = "<" + receiver + " <= " + message + ">"
 }

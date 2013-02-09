@@ -4,28 +4,34 @@ import scala.actors.Actor
 import Actor._
 import edu.berkeley.eloi.bigraph._
 
-abstract class BigActor (host0Id: HostID, bigraphSchdl: Actor) extends Actor{
+abstract class BigActor (host0Id: HostID) extends Actor{
   private var hostId: HostID = host0Id
+  private var bigraphSchdl: Actor = null
 
-  val tmpActor = actor {
-    bigraphSchdl ! ("HOSTING", host0Id)
-    self.receive {
-      case true => {
-        this.hostId = host0Id
-        println("BigActor successfuly hosted")
-        exit()
+
+
+  def setScheduler (bigraphSchdl: Actor) = {
+     this.bigraphSchdl = bigraphSchdl
+    val tmpActor = actor {
+        bigraphSchdl ! ("HOSTING", host0Id)
+        self.receive {
+          case true => {
+            this.hostId = host0Id
+            println("BigActor successfuly hosted")
+            exit()
+          }
+          case false => System.err.println("Hosting failed.")
+        }
       }
-      case false => System.err.println("Hosting failed.")
-    }
   }
 
-  def observe(query: String, bigActorAddr: Actor) {
+  def observe(query: String) {
+    val bigActorAddr: Actor = this
     val tmpActor = actor {
       bigraphSchdl ! ("OBSERVE",query, hostId, bigActorAddr: Actor)
       self.receive {
         case o: Observation => {
-          println("observation received: " + o)
-          bigActorAddr ! "hey"
+          println("observation received: " + o)   //TODO - need to send observation back to the bigActor
           //bigActorAddr ! o
         }
       }
@@ -53,24 +59,36 @@ abstract class BigActor (host0Id: HostID, bigraphSchdl: Actor) extends Actor{
   }
 
 
-  override def !(msg:Any): Unit =
+  override def !(msg:Any)
   {
+    val rec = this
     msg match {
-      case msg @ (rcv:BigActor, message:Any) => {
-        val tmpActor = actor {
-          bigraphSchdl ! ("SEND", new Message(rcv, message), hostId)
-          self.receive {
-            case true => {
+      case m: Message => {
+        actor {
+          bigraphSchdl ! ("SEND", m)
+          self.react {
+            case true =>
               println("Sending message...")
-              rcv.asInstanceOf[Actor] ! message  //TODO - this is failing to succeed for some unknown reason
+              rec.superBang(m)
+              println("Sending done!")
+            case false => {
+              System.err.println("Send failed.")
+              System.exit(0)
             }
-            case false => System.err.println("Send failed.")
           }
           exit()
         }
       }
-      case _ => super.!(msg)
+      case _ => {
+        println("Super")
+        super.!(msg)
+      }
     }
+  }
+
+  def superBang (msg:Any) {
+    println("Super2")
+    super.!(msg)
   }
 
   def getHostId: HostID = {

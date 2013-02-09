@@ -14,30 +14,41 @@ object TestBigActors2 {
     scheduler.start()
 
 
-    object ba1 extends BigActor(new HostID("u1"), scheduler) {
+    object ba1 extends BigActor(new HostID("u1")) {
       def act(){
         loop {
           react{
-            case s: Any => println("Just got some mail: " + s.toString)
+            case m: Message => println("Just got some mail: " + m)
+            case s: String => println("Just got another mail: "+ s)
           }
         }
       }
     }
-    ba1.start()
+    ba1.setScheduler(scheduler)
 
-    object ba0 extends BigActor(new HostID("u0"), scheduler) {
+
+    //Thread.sleep(2000)
+
+
+    object ba0 extends BigActor(new HostID("u0")) {
       def act(){
-        observe("children.parent.host", this)
-        ba1 ! "Hello I'm a BigActor!"
+        observe("children.parent.host")
+        //send(new Message(ba0,ba1,"Hello I'm a BigActor!"))
+        ba1 ! (new Message(ba0,ba1,"Hello I'm a BigActor!"))
+        //ba1 ! ("Hello I'm a BigActor!")
         migrate(new HostID("u1"))
-        control(brs.getRules().get(0))
+        control(new BRR("l0_Location[x].(u0_UAV[z] | $0) | l1_Location[x].$1 -> l0_Location[x].$0 | l1_Location[x].(u0_UAV[z] | $1)"))
       }
     }
+    ba0.setScheduler(scheduler)
+
+    ba1.start()
     ba0.start()
+
 
     object act0 extends Actor{
       def act(){
-        ba1 ! "Hey, I'm an Actor"
+        ba1 ! "I'm an Actor"
       }
     }
     act0.start()

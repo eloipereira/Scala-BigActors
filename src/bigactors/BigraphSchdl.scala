@@ -1,6 +1,7 @@
 package bigactors
 
-import actors.Actor
+import scala.actors.Actor
+import Actor._
 import edu.berkeley.eloi.bigraph._
 import scala.collection.JavaConversions._
 import collection.mutable
@@ -37,14 +38,17 @@ class BigraphSchdl(brs0 : BRS) extends Actor{
             println("New bigraph: " + brs)
           } else System.err.println("Host " + hostId + "is not included on redex/reactum of "+ r)
         }
-        case x@("SEND", m:Message,senderHostId:HostID) => {
-          println("got a snd request " + x + " from "+sender)
-          val senderHost = brs.getBigraph.getNode(senderHostId.name)
-          val destHost = brs.getBigraph.getNode(m.dest.getHostId.name)
+        case x@("SEND", msg: Message) => {
+          println("got a snd request " + x )
+          val senderHost = brs.getBigraph.getNode(msg.sender.getHostId.name)
+          val destHost = brs.getBigraph.getNode(msg.receiver.getHostId.name)
           if (senderHost == destHost || !senderHost.getNames.intersect(destHost.getNames).isEmpty){
-            println("BigActors are within connection.")
+            println("Hosts " + msg.sender.getHostId.name + " and " +  msg.receiver.getHostId.name + " are connected.")
             reply(true)
-          } else System.err.println("BigActors are not connected.")
+          } else {
+            System.err.println("Hosts " + msg.sender.getHostId.name + " and " +  msg.receiver.getHostId.name + " are not connected.")
+            reply(false)
+          }
         }
         case x@("MIGRATE", currentHostId:HostID, destHostId:HostID) => {
           println("got a mgrt request from " + currentHostId + " to " +destHostId)
@@ -54,8 +58,8 @@ class BigraphSchdl(brs0 : BRS) extends Actor{
             println("Hosts connected. Migrating...")
             reply(true)
           } else {
-            reply(false)
             System.err.println("Hosts " + currentHostId + " and " + destHostId + " are not connected.")
+            reply(false)
           }
         }
         case x@("GET_HOST",hostId: HostID) => {
