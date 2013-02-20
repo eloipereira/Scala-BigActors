@@ -1,70 +1,66 @@
 package bigactors
 
 import scala.actors.Actor
-import Actor._
 import edu.berkeley.eloi.bigraph._
 import scala.collection.JavaConversions._
-import collection.mutable
+import edu.berkeley.eloi.bgm2java.Debug
 
 class BigraphSchdl(brs0 : BRS) extends Actor{
   var brs: BRS = brs0
-
+  val debug = false
 
   def act() {
-    println("Initial bigraph: " + brs)
+    Debug.println("Initial bigraph: " + brs,debug)
     loop {
       react{
         case x@("HOSTING",hostId : HostID)=> {
-          println("Hosting BigActor at host " + hostId)
           if (brs.getBigraph.getNodes.contains(new Node(hostId.name))) {
-            reply(true)
+            Debug.println("Hosting BigActor at host " + hostId,debug)
           }
           else {
             System.err.println("BigActor cannot be hosted at " + hostId + ". Make sure host exists!")
-            reply(false)
+            System.exit(0)
           }
         }
-        case x@("OBSERVE", query: String, hostId:HostID, bigActorAddr: Actor) => {
-          println("got a obs request " + x + " from "+sender)
+        case x@("OBSERVE", query: String, hostId:HostID) => {
+          Debug.println("got a obs request " + x + " from "+sender,debug)
           val host = brs.getBigraph.getNode(hostId.name)
           val obs = new Observation(SimpleQueryCompiler.generate(query,host,brs.getBigraph))
-          println("Observation: "+obs)
-          reply(obs)
+          Debug.println("Observation: "+obs,debug)
+          reply(("OBSERVATION_SUCCESSFUL",obs))
         }
         case x@("CONTROL", r:BRR, hostId:HostID) => {
-          println("got a ctr request " + r)
+          Debug.println("got a ctr request " + r,debug)
           if (r.getNodes.contains(brs.getBigraph.getNode(hostId.name))){
             brs.applyRules(List(r),2)
-            println("New bigraph: " + brs)
-          } else System.err.println("Host " + hostId + "is not included on redex/reactum of "+ r)
+            Debug.println("New bigraph: " + brs,debug)
+          } else {
+            System.err.println("Host " + hostId + "is not included on redex/reactum of "+ r)
+            System.exit(0)
+          }
         }
-        case x@("SEND", msg: Message) => {
-          println("got a snd request " + x )
+        case x@("SEND", msg: Message, rcv:BigActor) => {
+          Debug.println("got a snd request " + x,debug)
           val senderHost = brs.getBigraph.getNode(msg.sender.getHostId.name)
           val destHost = brs.getBigraph.getNode(msg.receiver.getHostId.name)
           if (senderHost == destHost || !senderHost.getNames.intersect(destHost.getNames).isEmpty){
-            println("Hosts " + msg.sender.getHostId.name + " and " +  msg.receiver.getHostId.name + " are connected.")
-            reply(true)
+            Debug.println("Hosts " + msg.sender.getHostId.name + " and " +  msg.receiver.getHostId.name + " are connected.",debug)
+            rcv ! ("SEND_SUCCESSFUL",msg)
           } else {
             System.err.println("Hosts " + msg.sender.getHostId.name + " and " +  msg.receiver.getHostId.name + " are not connected.")
-            reply(false)
+            System.exit(0)
           }
         }
         case x@("MIGRATE", currentHostId:HostID, destHostId:HostID) => {
-          println("got a mgrt request from " + currentHostId + " to " +destHostId)
+          Debug.println("got a mgrt request from " + currentHostId + " to " +destHostId,debug)
           val currentHost = brs.getBigraph.getNode(currentHostId.name)
           val destHost = brs.getBigraph.getNode(destHostId.name)
           if (!currentHost.getNames.intersect(destHost.getNames).isEmpty){
-            println("Hosts connected. Migrating...")
-            reply(true)
+            Debug.println("Hosts connected. Migrating...",debug)
           } else {
             System.err.println("Hosts " + currentHostId + " and " + destHostId + " are not connected.")
-            reply(false)
+            System.exit(0)
           }
-        }
-        case x@("GET_HOST",hostId: HostID) => {
-          val idx = brs.getBigraph.getNodes.indexOf(new Node(hostId.name))
-          reply(brs.getBigraph.getNodes.get(idx))
         }
       }
     }
