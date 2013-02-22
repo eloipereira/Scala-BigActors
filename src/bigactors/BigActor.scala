@@ -13,11 +13,11 @@ abstract class BigActor(val bigActorID: BigActorID, var hostId: HostID) extends 
   }
 
   def observe(query: String) {
-    bigraphSchdl ! ("OBSERVE",query, hostId)
+    bigraphSchdl ! ("OBSERVE",query, bigActorID)
   }
 
   def control(u: BRR) {
-    bigraphSchdl ! ("CONTROL",u,hostId)
+    bigraphSchdl ! ("CONTROL",u, bigActorID)
   }
 
   def migrate(newHostId: HostID) {
@@ -27,7 +27,7 @@ abstract class BigActor(val bigActorID: BigActorID, var hostId: HostID) extends 
 
   override def !(msg:Any){
     msg match {
-      case x@(m: Message) => bigraphSchdl ! ("SEND", m, m.receiver)
+      case x@(m: Message) => bigraphSchdl ! ("SEND", m, m.receiver, bigActorID)
       case x@("SEND_SUCCESSFUL",m:Message) => super.!(m)
       case x@("OBSERVATION_SUCCESSFUL",o:Observation) => super.!(o)
       case _ =>

@@ -26,24 +26,24 @@ class BigraphSchdl(brs0 : BRS) extends Actor{
             System.exit(0)
           }
         }
-        case x@("OBSERVE", query: String, hostId:HostID) => {
+        case x@("OBSERVE", query: String, bigActorId: BigActorID) => {
           Debug.println("got a obs request " + x + " from "+sender,debug)
-          val host = brs.getBigraph.getNode(hostId.name)
+          val host = brs.getBigraph.getNode(hostRelation(bigActorId).name)
           val obs = new Observation(SimpleQueryCompiler.generate(query,host,brs.getBigraph))
           Debug.println("Observation: "+obs,debug)
           reply(("OBSERVATION_SUCCESSFUL",obs))
         }
-        case x@("CONTROL", r:BRR, hostId:HostID) => {
+        case x@("CONTROL", r:BRR,  bigActorId: BigActorID) => {
           Debug.println("got a ctr request " + r,debug)
-          if (r.getNodes.contains(brs.getBigraph.getNode(hostId.name))){
+          if (r.getNodes.contains(brs.getBigraph.getNode(hostRelation(bigActorId).name))){
             brs.applyRules(List(r),2)
             Debug.println("New bigraph: " + brs,debug)
           } else {
-            System.err.println("Host " + hostId + "is not included on redex/reactum of "+ r)
+            System.err.println("Host " + hostRelation(bigActorId) + "is not included on redex/reactum of "+ r)
             System.exit(0)
           }
         }
-        case x@("SEND", msg: Message, rcv:BigActor) => {
+        case x@("SEND", msg: Message, rcv:BigActor, bigActorId: BigActorID) => {
           Debug.println("got a snd request " + x,debug)
           val senderHost = brs.getBigraph.getNode(msg.sender.getHostId.name)
           val destHost = brs.getBigraph.getNode(msg.receiver.getHostId.name)
