@@ -4,18 +4,22 @@ import scala.actors.Actor
 import edu.berkeley.eloi.bigraph._
 import scala.collection.JavaConversions._
 import edu.berkeley.eloi.bgm2java.Debug
+import scala.collection.mutable.HashMap
 
 class BigraphSchdl(brs0 : BRS) extends Actor{
   var brs: BRS = brs0
   val debug = false
 
+  val hostRelation = new HashMap[BigActorID,HostID]
+
   def act() {
     Debug.println("Initial bigraph: " + brs,debug)
     loop {
       react{
-        case x@("HOSTING",hostId : HostID)=> {
+        case x@("HOSTING",hostId : HostID, bigActorId: BigActorID)=> {
           if (brs.getBigraph.getNodes.contains(new Node(hostId.name))) {
             Debug.println("Hosting BigActor at host " + hostId,debug)
+            hostRelation += bigActorId -> hostId
           }
           else {
             System.err.println("BigActor cannot be hosted at " + hostId + ". Make sure host exists!")
@@ -51,12 +55,13 @@ class BigraphSchdl(brs0 : BRS) extends Actor{
             System.exit(0)
           }
         }
-        case x@("MIGRATE", currentHostId:HostID, destHostId:HostID) => {
+        case x@("MIGRATE", currentHostId:HostID, destHostId:HostID, bigActorId: BigActorID) => {
           Debug.println("got a mgrt request from " + currentHostId + " to " +destHostId,debug)
           val currentHost = brs.getBigraph.getNode(currentHostId.name)
           val destHost = brs.getBigraph.getNode(destHostId.name)
           if (!currentHost.getNames.intersect(destHost.getNames).isEmpty){
             Debug.println("Hosts connected. Migrating...",debug)
+            hostRelation += bigActorId -> destHostId
           } else {
             System.err.println("Hosts " + currentHostId + " and " + destHostId + " are not connected.")
             System.exit(0)

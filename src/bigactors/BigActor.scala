@@ -3,13 +3,13 @@ package bigactors
 import actors.Actor
 import edu.berkeley.eloi.bigraph._
 
-abstract class BigActor(var hostId: HostID) extends Actor{
+abstract class BigActor(val bigActorID: BigActorID, var hostId: HostID) extends Actor{
 
   private var bigraphSchdl: Actor = null
 
   def setScheduler (bigraphSchdl: Actor) {
     this.bigraphSchdl = bigraphSchdl
-    bigraphSchdl ! ("HOSTING", hostId)
+    bigraphSchdl ! ("HOSTING", hostId,bigActorID)
   }
 
   def observe(query: String) {
@@ -21,7 +21,7 @@ abstract class BigActor(var hostId: HostID) extends Actor{
   }
 
   def migrate(newHostId: HostID) {
-    bigraphSchdl ! ("MIGRATE",hostId,newHostId)
+    bigraphSchdl ! ("MIGRATE",hostId,newHostId, bigActorID)
     this.hostId = newHostId
   }
 
@@ -39,21 +39,15 @@ abstract class BigActor(var hostId: HostID) extends Actor{
   }
 
   override
-  def toString: String =  "Bigactor @" + hostId
+  def toString: String =  bigActorID + " hosted_at " + hostId
 }
 
 
-//object BigActor {
-//  def bigActor (host: HostID) = (body: => Unit) => {
-//    val b = new BigActor(host) {
-//      def act() = body
-//    }
-//    b
-//  }
-//
-//  def hostedAt = (name:String) => new HostID(name)
-//
-//  def withBehavior (body: => Unit) {
-//    body
-//  }
-//}
+object BigActor {
+  def bigActor(id: BigActorID)(hostId: HostID)(body: => Unit): BigActor = {
+    val b = new BigActor(id,hostId) {
+      def act() = body
+    }
+    b
+  }
+}

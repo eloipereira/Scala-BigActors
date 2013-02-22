@@ -1,8 +1,10 @@
 package test
 
+import actors.Actor._
 import bigactors._
+import BigActor._
+import BigActorImplicits._
 import edu.berkeley.eloi.bigraph._
-import edu.berkeley.eloi.concreteBgm2Java.ConcreteBgm2JavaCompiler
 
 object TestBigActors2 {
 
@@ -11,20 +13,21 @@ object TestBigActors2 {
     val scheduler = new BigraphSchdl(brs)
     scheduler.start()
 
-    val ba1 = new BigActor(HostID("u1")) {
-      def act(){
+
+    val ba1 = "uav1" hosted_at "u1" with_behavior
+      {
         loop {
           react{
             case m: Any => println("Just got some mail: " + m)
           }
         }
       }
-    }
+
     ba1.setScheduler(scheduler)
     ba1.start()
+    println(ba1)
 
-
-    val ba0 = new BigActor(HostID("u0")) {
+    val ba0 = new BigActor(BigActorID("uav0"),HostID("u0")) {
       def act(){
         observe("children.parent.host")
         react{
@@ -32,7 +35,7 @@ object TestBigActors2 {
             println("Observation arrived: "+ o.toString)
             ba1 ! (new Message(this,ba1,"Hello I'm a BigActor!"))
             control(new BRR("l0_Location[x].(u0_UAV[z] | $0) | l1_Location[x].$1 -> l0_Location[x].$0 | l1_Location[x].(u0_UAV[z] | $1)"))
-            migrate(HostID("u1"))
+            migrate("u1")
           }
         }
       }

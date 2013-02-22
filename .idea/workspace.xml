@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1745a8c2-2d13-46d6-885b-7ddac145ee4e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/bigactors/ID.scala" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/bigactors/HostID.scala" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/bigactors/BigActorImplicits.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bigactors/BigActor.scala" afterPath="$PROJECT_DIR$/src/bigactors/BigActor.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bigactors/BigraphSchdl.scala" afterPath="$PROJECT_DIR$/src/bigactors/BigraphSchdl.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bigactors/ID.scala" afterPath="$PROJECT_DIR$/src/bigactors/ID.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/TestBigActors2.scala" afterPath="$PROJECT_DIR$/src/test/TestBigActors2.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -14,12 +14,12 @@
     <file path="/TestTree.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355576467000" ignored="false" />
     <file path="/Tree.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355576581377" ignored="false" />
     <file path="/Scala Console" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355571248616" ignored="false" />
-    <file path="/BigActor.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1361352455212" ignored="false" />
-    <file path="/BigraphSchdl.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1361352889246" ignored="false" />
+    <file path="/BigActor.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1361521343683" ignored="false" />
+    <file path="/BigraphSchdl.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1361521296827" ignored="false" />
     <file path="/BRR.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356540508976" ignored="false" />
     <file path="/TestBigActors.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359418939937" ignored="false" />
     <file path="/simpleBigActor.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355686536591" ignored="false" />
-    <file path="/Dummy.txt" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1361300503174" ignored="false" />
+    <file path="/Dummy.txt" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1361354158410" ignored="false" />
     <file path="/a.groovy" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355923266761" ignored="false" />
     <file path="/a.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355923267951" ignored="false" />
     <file path="$PROJECT_DIR$/../BigraphVisualizer/src/edu/berkeley/eloi/bigvis/Visualizer.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356778365568" ignored="false" />
@@ -165,7 +165,7 @@
     <file path="/SimpleQueryCompiler.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359401555202" ignored="false" />
     <file path="/TestQuery.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359955638078" ignored="false" />
     <file path="/Observation.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359428463524" ignored="false" />
-    <file path="/TestBigActors2.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1361352320498" ignored="false" />
+    <file path="/TestBigActors2.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1361515988869" ignored="false" />
     <file path="$PROJECT_DIR$/../bigmc2/.idea/compiler.xml" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359421598955" ignored="false" />
     <file path="$PROJECT_DIR$/../bigmc2/.idea/modules.xml" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359421598955" ignored="false" />
     <file path="$PROJECT_DIR$/../bigmc2/.idea/encodings.xml" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359421598955" ignored="false" />
@@ -177,7 +177,8 @@
     <file path="/ActorTest.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359476186853" ignored="false" />
     <file path="/BgDisplay.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359755043758" ignored="false" />
     <file path="/HostID.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1360395158434" ignored="false" />
-    <file path="/ID.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1360564502172" ignored="false" />
+    <file path="/ID.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1361516072915" ignored="false" />
+    <file path="/BigActorImplicits.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1361514027003" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,20 +244,9 @@
       <file leaf-file-name="BigActor.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bigactors/BigActor.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="4" selection-start="538" selection-end="538" vertical-scroll-proportion="0.0">
+            <state line="35" column="29" selection-start="880" selection-end="880" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#19#38#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BigraphSchdl.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/bigactors/BigraphSchdl.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="50" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#19#44#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -265,9 +255,20 @@
       <file leaf-file-name="TestBigActors2.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/TestBigActors2.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="106" selection-start="989" selection-end="989" vertical-scroll-proportion="1.3792135">
+            <state line="18" column="17" selection-start="442" selection-end="442" vertical-scroll-proportion="0.5691057">
               <folding>
-                <element signature="e#14#32#0" expanded="true" />
+                <element signature="e#14#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BigraphSchdl.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/bigactors/BigraphSchdl.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="57" column="90" selection-start="2517" selection-end="2541" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#19#44#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -300,7 +301,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/bigraphs/BigraphReactiveSystem.scala" />
         <option value="$PROJECT_DIR$/src/examples/airport.bmg" />
         <option value="$PROJECT_DIR$/../Bgm2Java/out/artifacts/Bgm2Java_jar/Bgm2Java.jar!/edu/berkeley/eloi/bigraph/Node.java" />
         <option value="$PROJECT_DIR$/../Bgm2Java/out/artifacts/Bgm2Java_jar/Bgm2Java.jar!/edu/berkeley/eloi/bigraph/Bigraph.java" />
@@ -311,11 +311,12 @@
         <option value="$PROJECT_DIR$/../Bgm2Java/out/artifacts/Bgm2Java_jar/Bgm2Java.jar!/edu/berkeley/eloi/bigraph/BRR.java" />
         <option value="$PROJECT_DIR$/src/bigactors/Message.scala" />
         <option value="$PROJECT_DIR$/src/bigactors/HostID.scala" />
-        <option value="$PROJECT_DIR$/src/bigactors/ID.scala" />
-        <option value="$PROJECT_DIR$/src/bigactors/BigActor.scala" />
-        <option value="$PROJECT_DIR$/src/bigactors/BigraphSchdl.scala" />
-        <option value="$PROJECT_DIR$/src/test/TestBigActors2.scala" />
         <option value="$PROJECT_DIR$/src/examples/simple.bgm" />
+        <option value="$PROJECT_DIR$/src/bigactors/BigActorImplicits.scala" />
+        <option value="$PROJECT_DIR$/src/test/TestBigActors2.scala" />
+        <option value="$PROJECT_DIR$/src/bigactors/ID.scala" />
+        <option value="$PROJECT_DIR$/src/bigactors/BigraphSchdl.scala" />
+        <option value="$PROJECT_DIR$/src/bigactors/BigActor.scala" />
       </list>
     </option>
   </component>
@@ -327,7 +328,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="1276" />
+    <option name="width" value="1680" />
     <option name="height" value="778" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -409,6 +410,28 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="bigactors" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BigActors" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BigActors" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bigactors" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ID.scala" />
+              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -704,11 +727,15 @@
       <created>1360373304796</created>
       <updated>1360373304796</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Override ! command works now without any problem. The issue was introduced by the inline actors created on the fly to take care of communication with the scheduler">
+      <created>1361354165453</created>
+      <updated>1361354165453</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1276" height="778" extended-state="6" />
+    <frame x="0" y="22" width="1680" height="778" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -719,12 +746,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3265625" sideWeight="0.049423393" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32986537" sideWeight="0.70364743" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3480243" sideWeight="0.42009884" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34731182" sideWeight="0.42009884" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14390244" sideWeight="0.13069908" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.108323134" sideWeight="0.1899696" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.92705166" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14390244" sideWeight="0.4620061" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.108323134" sideWeight="0.40273556" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39665654" sideWeight="0.94481057" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -771,7 +798,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Override ! command works. But it is still weird. Needs to receive a message from a regular actor first" />
+    <option name="LAST_COMMIT_MESSAGE" value="Override ! command works now without any problem. The issue was introduced by the inline actors created on the fly to take care of communication with the scheduler" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -800,6 +827,7 @@
     <MESSAGE value="Issues with sending command" />
     <MESSAGE value="Override ! command successful. Issues with sending the first message from a bigActor still remains. Currently fixed by having a normal actor sending the first message." />
     <MESSAGE value="Override ! command works. But it is still weird. Needs to receive a message from a regular actor first" />
+    <MESSAGE value="Override ! command works now without any problem. The issue was introduced by the inline actors created on the fly to take care of communication with the scheduler" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -809,16 +837,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/bigactors/SimpleQueryCompiler.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="883" selection-end="883" vertical-scroll-proportion="0.8815789" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bigmc2/src/main/scala/BigMC.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="7" selection-start="442" selection-end="442" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/../Bgm2Java/out/artifacts/Bgm2Java_jar/Bgm2Java.jar!/edu/berkeley/eloi/bigraph/Node.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="13" selection-start="101" selection-end="101" vertical-scroll-proportion="0.0">
@@ -857,11 +875,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/examples/logs/LOG_2013-02-10 21-01-06.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/scala/lib/scala-library.jar!/scala/actors/Reactor.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="0" selection-start="3495" selection-end="3495" vertical-scroll-proportion="0.89220566">
@@ -872,22 +885,6 @@
     <entry file="file://$PROJECT_DIR$/src/bigactors/Observation.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="53" selection-start="162" selection-end="162" vertical-scroll-proportion="0.216763">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bigactors/BigActor.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="4" selection-start="538" selection-end="538" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#19#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bigactors/ID.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="140" selection-end="140" vertical-scroll-proportion="0.40650406">
           <folding />
         </state>
       </provider>
@@ -906,20 +903,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/examples/logs/LOG_2013-02-20 02-01-14.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bigactors/ID.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="1" selection-start="198" selection-end="198" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bigactors/BigActorImplicits.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="54" selection-start="207" selection-end="207" vertical-scroll-proportion="0.14634146">
+          <folding>
+            <element signature="e#19#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/bigactors/BigraphSchdl.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="50" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0">
+        <state line="57" column="90" selection-start="2517" selection-end="2541" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#19#44#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/bigactors/BigActor.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="29" selection-start="880" selection-end="880" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#19#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/TestBigActors2.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="106" selection-start="989" selection-end="989" vertical-scroll-proportion="1.3792135">
+        <state line="18" column="17" selection-start="442" selection-end="442" vertical-scroll-proportion="0.5691057">
           <folding>
-            <element signature="e#14#32#0" expanded="true" />
+            <element signature="e#14#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
