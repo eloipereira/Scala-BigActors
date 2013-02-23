@@ -33,7 +33,7 @@ object TestBigActors2 {
         react{
           case o: Observation => {
             println("Observation arrived: "+ o.toString)
-            ba1 ! (new Message("uav0","uav1","Hello I'm a BigActor!"))
+            send(new Message("uav0","uav1","Hello I'm a BigActor!"))
             control(new BRR("l0_Location[x].(u0_UAV[z] | $0) | l1_Location[x].$1 -> l0_Location[x].$0 | l1_Location[x].(u0_UAV[z] | $1)"))
             migrate("u1")
           }

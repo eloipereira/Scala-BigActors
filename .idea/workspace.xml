@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1745a8c2-2d13-46d6-885b-7ddac145ee4e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bigactors/BigActor.scala" afterPath="$PROJECT_DIR$/src/bigactors/BigActor.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bigactors/BigActorImplicits.scala" afterPath="$PROJECT_DIR$/src/bigactors/BigActorImplicits.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bigactors/BigraphSchdl.scala" afterPath="$PROJECT_DIR$/src/bigactors/BigraphSchdl.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bigactors/Message.scala" afterPath="$PROJECT_DIR$/src/bigactors/Message.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/TestBigActors2.scala" afterPath="$PROJECT_DIR$/src/test/TestBigActors2.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -14,12 +12,12 @@
     <file path="/TestTree.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355576467000" ignored="false" />
     <file path="/Tree.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355576581377" ignored="false" />
     <file path="/Scala Console" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355571248616" ignored="false" />
-    <file path="/BigActor.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1361580226991" ignored="false" />
-    <file path="/BigraphSchdl.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1361580585830" ignored="false" />
+    <file path="/BigActor.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1361584971241" ignored="false" />
+    <file path="/BigraphSchdl.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1361585094703" ignored="false" />
     <file path="/BRR.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356540508976" ignored="false" />
     <file path="/TestBigActors.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359418939937" ignored="false" />
     <file path="/simpleBigActor.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355686536591" ignored="false" />
-    <file path="/Dummy.txt" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1361565031918" ignored="false" />
+    <file path="/Dummy.txt" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1361580751424" ignored="false" />
     <file path="/a.groovy" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355923266761" ignored="false" />
     <file path="/a.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355923267951" ignored="false" />
     <file path="$PROJECT_DIR$/../BigraphVisualizer/src/edu/berkeley/eloi/bigvis/Visualizer.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356778365568" ignored="false" />
@@ -165,7 +163,7 @@
     <file path="/SimpleQueryCompiler.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359401555202" ignored="false" />
     <file path="/TestQuery.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359955638078" ignored="false" />
     <file path="/Observation.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359428463524" ignored="false" />
-    <file path="/TestBigActors2.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1361575215612" ignored="false" />
+    <file path="/TestBigActors2.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1361585131324" ignored="false" />
     <file path="$PROJECT_DIR$/../bigmc2/.idea/compiler.xml" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359421598955" ignored="false" />
     <file path="$PROJECT_DIR$/../bigmc2/.idea/modules.xml" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359421598955" ignored="false" />
     <file path="$PROJECT_DIR$/../bigmc2/.idea/encodings.xml" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1359421598955" ignored="false" />
@@ -241,10 +239,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="BigActor.scala" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="BigActor.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bigactors/BigActor.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="80" selection-start="735" selection-end="735" vertical-scroll-proportion="0.6910569">
+            <state line="28" column="54" selection-start="709" selection-end="709" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#19#38#0" expanded="true" />
               </folding>
@@ -252,10 +250,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestBigActors2.scala" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="TestBigActors2.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/TestBigActors2.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="17" selection-start="863" selection-end="863" vertical-scroll-proportion="0.0">
+            <state line="17" column="36" selection-start="427" selection-end="427" vertical-scroll-proportion="0.505618">
               <folding>
                 <element signature="e#14#35#0" expanded="true" />
               </folding>
@@ -286,7 +284,7 @@
       <file leaf-file-name="BigraphSchdl.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bigactors/BigraphSchdl.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="81" selection-start="2006" selection-end="2006" vertical-scroll-proportion="0.0">
+            <state line="48" column="37" selection-start="2005" selection-end="2005" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#19#44#0" expanded="true" />
               </folding>
@@ -333,10 +331,10 @@
         <option value="$PROJECT_DIR$/src/examples/simple.bgm" />
         <option value="$PROJECT_DIR$/src/bigactors/ID.scala" />
         <option value="$PROJECT_DIR$/src/bigactors/Message.scala" />
-        <option value="$PROJECT_DIR$/src/test/TestBigActors2.scala" />
         <option value="$PROJECT_DIR$/src/bigactors/BigActorImplicits.scala" />
-        <option value="$PROJECT_DIR$/src/bigactors/BigraphSchdl.scala" />
         <option value="$PROJECT_DIR$/src/bigactors/BigActor.scala" />
+        <option value="$PROJECT_DIR$/src/bigactors/BigraphSchdl.scala" />
+        <option value="$PROJECT_DIR$/src/test/TestBigActors2.scala" />
       </list>
     </option>
   </component>
@@ -396,131 +394,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bgm2Java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bgm2Java.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
               <option name="myItemId" value="BigActors" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bgm2Java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bgm2Java.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="eloi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BigActors" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bgm2Java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bgm2Java.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="eloi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bigraph" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BigActors" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bgm2Java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bgm2Java.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="eloi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bgm2java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BigActors" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BigActors" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BigActors" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BigActors" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BigActors" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BigActors" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bigactors" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -829,7 +703,11 @@
       <created>1361565045002</created>
       <updated>1361565045002</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Save BigActors addresses inside the scheduler so that I only need to use ids to send messages">
+      <created>1361580760697</created>
+      <updated>1361580760697</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -850,7 +728,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.92705166" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14390244" sideWeight="0.40273556" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39665654" sideWeight="0.94481057" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39665654" sideWeight="0.94481057" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.4967051" order="1" side_tool="false" content_ui="tabs" />
@@ -896,7 +774,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change the way of calling scheduler" />
+    <option name="LAST_COMMIT_MESSAGE" value="Save BigActors addresses inside the scheduler so that I only need to use ids to send messages" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -928,6 +806,7 @@
     <MESSAGE value="Override ! command works now without any problem. The issue was introduced by the inline actors created on the fly to take care of communication with the scheduler" />
     <MESSAGE value="introduced implicits to enable a DSL-like bigActor declaration. Next step is to give host management fully to the scheduler." />
     <MESSAGE value="Change the way of calling scheduler" />
+    <MESSAGE value="Save BigActors addresses inside the scheduler so that I only need to use ids to send messages" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1021,15 +900,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/TestBigActors2.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="17" selection-start="863" selection-end="863" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#14#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/bigactors/BigActorImplicits.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="63" selection-start="270" selection-end="270" vertical-scroll-proportion="0.0">
@@ -1039,20 +909,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/bigactors/BigActor.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="54" selection-start="709" selection-end="709" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#19#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/bigactors/BigraphSchdl.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="81" selection-start="2006" selection-end="2006" vertical-scroll-proportion="0.0">
+        <state line="48" column="37" selection-start="2005" selection-end="2005" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#19#44#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bigactors/BigActor.scala">
+    <entry file="file://$PROJECT_DIR$/src/test/TestBigActors2.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="80" selection-start="735" selection-end="735" vertical-scroll-proportion="0.6910569">
+        <state line="17" column="36" selection-start="427" selection-end="427" vertical-scroll-proportion="0.505618">
           <folding>
-            <element signature="e#19#38#0" expanded="true" />
+            <element signature="e#14#35#0" expanded="true" />
           </folding>
         </state>
       </provider>

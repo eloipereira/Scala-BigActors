@@ -26,11 +26,15 @@ abstract class BigActor(val bigActorID: BigActorID, val initialHostId: HostID) e
 
   override def !(msg:Any){
     msg match {
-      case x@(m: Message) => bigraphSchdl ! ("SEND", m, m.senderID, m.receiverID)
+      case x@(m: Message) => bigraphSchdl ! ("SEND", m)
       case x@("SEND_SUCCESSFUL",m:Message) => super.!(m)
       case x@("OBSERVATION_SUCCESSFUL",o:Observation) => super.!(o)
       case _ =>
     }
+  }
+
+  def send(msg: Message){
+    bigraphSchdl ! ("SEND",msg)
   }
 
 //  def getHostId: HostID = {
