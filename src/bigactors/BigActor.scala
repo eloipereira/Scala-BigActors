@@ -3,13 +3,13 @@ package bigactors
 import actors.Actor
 import edu.berkeley.eloi.bigraph._
 
-abstract class BigActor(val bigActorID: BigActorID, var hostId: HostID) extends Actor{
+abstract class BigActor(val bigActorID: BigActorID, val initialHostId: HostID) extends Actor{
 
   private var bigraphSchdl: Actor = null
 
   def setScheduler (bigraphSchdl: Actor) {
     this.bigraphSchdl = bigraphSchdl
-    bigraphSchdl ! ("HOSTING", hostId,bigActorID)
+    bigraphSchdl ! ("HOSTING", initialHostId,bigActorID, this)
   }
 
   def observe(query: String) {
@@ -21,25 +21,24 @@ abstract class BigActor(val bigActorID: BigActorID, var hostId: HostID) extends 
   }
 
   def migrate(newHostId: HostID) {
-    bigraphSchdl ! ("MIGRATE",hostId,newHostId, bigActorID)
-    this.hostId = newHostId
+    bigraphSchdl ! ("MIGRATE", bigActorID,newHostId)
   }
 
   override def !(msg:Any){
     msg match {
-      case x@(m: Message) => bigraphSchdl ! ("SEND", m, m.receiver, bigActorID)
+      case x@(m: Message) => bigraphSchdl ! ("SEND", m, m.senderID, m.receiverID)
       case x@("SEND_SUCCESSFUL",m:Message) => super.!(m)
       case x@("OBSERVATION_SUCCESSFUL",o:Observation) => super.!(o)
       case _ =>
     }
   }
 
-  def getHostId: HostID = {
-    this.hostId
-  }
+//  def getHostId: HostID = {
+//    this.hostId
+//  }
 
   override
-  def toString: String =  bigActorID + " hosted_at " + hostId
+  def toString: String =  bigActorID.toString //+ " hosted_at " + hostId
 }
 
 
