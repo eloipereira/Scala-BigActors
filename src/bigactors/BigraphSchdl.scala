@@ -8,7 +8,7 @@ import scala.collection.mutable.HashMap
 
 class BigraphSchdl(brs0 : BRS) extends Actor{
   var brs: BRS = brs0
-  val debug = true
+  val debug = false
 
   val hostRelation = new HashMap[BigActorID,HostID]
   val addressesRelation = new HashMap[BigActorID,BigActor]
@@ -22,6 +22,7 @@ class BigraphSchdl(brs0 : BRS) extends Actor{
             Debug.println("Hosting BigActor at host " + hostId,debug)
             hostRelation += bigActorId -> hostId
             addressesRelation +=  bigActorId -> bigActorAddr
+            bigActorAddr.start()
           }
           else {
             System.err.println("BigActor cannot be hosted at " + hostId + ". Make sure host exists!")
