@@ -1,28 +1,20 @@
 package bigactors
 
-import edu.berkeley.eloi.bigraph.BRR
+import edu.berkeley.eloi.bigraph.{Node, BRR}
 
 abstract class ID
 case class HostID (name: String) extends ID {
+  if (!Initializer.scheduler.getBRS.getBigraph.getNodes.contains(new Node(name))){
+    System.err.println("Invalid host: "+ name + " is not a node in the current bigraph.")
+    System.exit(0)
+  }
+
   override def toString = name
 }
+
 case class BigActorID (name: String) extends ID {
 
-  def observe(query: String) {
-      Initializer.scheduler ! ("OBSERVE",query, this)
-    }
-
-    def control(u: BRR) {
-      Initializer.scheduler ! ("CONTROL",u, this)
-    }
-
-    def migrate(newHostId: HostID) {
-      Initializer.scheduler ! ("MIGRATE", this,newHostId)
-    }
-
-    def send(msg: Message){
-      Initializer.scheduler ! ("SEND",msg)
-    }
+  def getName = name
 
   override def toString = name
 }

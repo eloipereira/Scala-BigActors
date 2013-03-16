@@ -2,25 +2,34 @@ package bigactors
 
 import actors.Actor
 import edu.berkeley.eloi.bigraph._
-import bigactors.BigActor._
 
-abstract class BigActor(val bigActorID: BigActorID, val initialHostId: HostID) extends Actor {
+
+trait BareBigActor{
+  val bigActorID: BigActorID
+  val initialHostId: HostID
+  def observe(query: String)
+  def control(u: BigraphReactionRule)
+  def migrate(newHostId: HostID)
+  def send(msg: Message)
+}
+
+abstract class BigActor(val bigActorID: BigActorID, val initialHostId: HostID) extends Actor with BareBigActor{
 
   Initializer.scheduler ! ("HOSTING", initialHostId,bigActorID, this)
 
-  def observe(query: String) {
+  override def observe(query: String) = {
     Initializer.scheduler ! ("OBSERVE",query, bigActorID)
   }
 
-  def control(u: BRR) {
+  override def control(u: BigraphReactionRule) {
     Initializer.scheduler ! ("CONTROL",u, bigActorID)
   }
 
-  def migrate(newHostId: HostID) {
+  override def migrate(newHostId: HostID) {
     Initializer.scheduler ! ("MIGRATE", bigActorID,newHostId)
   }
 
-  def send(msg: Message){
+  override def send(msg: Message){
     Initializer.scheduler ! ("SEND",msg)
   }
 
@@ -32,15 +41,24 @@ abstract class BigActor(val bigActorID: BigActorID, val initialHostId: HostID) e
       case _ =>
     }
   }
+
   override
   def toString: String =  bigActorID.toString
+
 }
 
 
-object BigActor {
+object BigActor{
+  def apply(bigActorID: BigActorID,  initialHostId: HostID, body: => Unit) = {
+    val b = new BigActor( bigActorID: BigActorID,  initialHostId: HostID) {
+      override def act() = body
+    }
+    b
+  }
+
   def bigActor(id: BigActorID)(hostId: HostID)(body: => Unit): BigActor = {
-    val b = new BigActor(id,hostId) {
-      def act() =  body
+    val b = new BigActor(id,hostId){
+      override def act() = body
     }
     b
   }
@@ -50,17 +68,44 @@ object BigActor {
 object BigActorImplicits {
   type BigActorSignature = (BigActorID, HostID)
   type Name = String
+  type MessageHeader = (BigActorID,Any)
 
   implicit def Name2HostID(name: Name) = HostID(name)
   implicit def Name2BigActorID(name: Name) = BigActorID(name)
   implicit def Name2BigActorIDHelper(bigActorName: Name) = new BigActorIDHelper(bigActorName)
-  implicit def BigActorSignature2BigActorSignatureHelper(signature: BigActorSignature) = new  BigActorSignatureHelper(signature)
+  implicit def BigActorSignature2BigActorHelper(signature: BigActorSignature) = new  BigActorHelper(signature)
+  implicit def MessageHeader2MessageHelper(msgHeader: MessageHeader) = new MessageHelper(msgHeader)
+  implicit def String2BigraphReactionRule(term: String) = new BigraphReactionRule(term)
+
 
   class BigActorIDHelper(bigActorName: Name){
     def hosted_at(hostName:Name): BigActorSignature = (BigActorID(bigActorName),HostID(hostName))
+    def send_message(msg: Any): MessageHeader = (BigActorID(bigActorName),msg)
+
+    def observe(query: String) {
+      Initializer.scheduler ! ("OBSERVE",query, BigActorID(bigActorName))
+    }
+
+    def control(u: BigraphReactionRule) {
+      Initializer.scheduler ! ("CONTROL",u, BigActorID(bigActorName))
+    }
+
+    def migrate(newHostId: HostID) {
+      Initializer.scheduler ! ("MIGRATE", BigActorID(bigActorName),newHostId)
+    }
+
+    def send(msg: Message){
+      Initializer.scheduler ! ("SEND",msg)
+    }
   }
 
-  class BigActorSignatureHelper(signature: BigActorSignature){
-    def with_behavior(body: => Unit): BigActor = bigActor(signature._1)(signature._2)(body)
+  class BigActorHelper(signature: BigActorSignature){
+    def with_behavior (body : => Unit): BigActor = new BigActor(signature._1,signature._2) {
+      def act() = body
+    }
+  }
+
+  class MessageHelper(msgHeader: MessageHeader) {
+    def to(rcv: Name) = msgHeader._1.getName send(new Message(msgHeader._1,rcv,msgHeader._2))
   }
 }

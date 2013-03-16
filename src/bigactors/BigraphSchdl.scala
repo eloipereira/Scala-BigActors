@@ -7,11 +7,13 @@ import edu.berkeley.eloi.bgm2java.Debug
 import scala.collection.mutable.HashMap
 
 class BigraphSchdl(brs0 : BRS) extends Actor{
-  var brs: BRS = brs0
-  val debug = false
+  private val brs: BRS = brs0
+  var debug = false
 
-  val hostRelation = new HashMap[BigActorID,HostID]
-  val addressesRelation = new HashMap[BigActorID,BigActor]
+  private val hostRelation = new HashMap[BigActorID,HostID]
+  private val addressesRelation = new HashMap[BigActorID,BigActor]
+
+  def getBRS = brs
 
   def act() {
     Debug.println("Initial bigraph: " + brs,debug)

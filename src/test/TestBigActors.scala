@@ -1,14 +1,12 @@
 package test
 
-import actors.Actor._
-import bigactors.BigActorImplicits._
 import edu.berkeley.eloi.bigraph._
 import bigactors._
 
 
 object TestBigActors extends App{
 
-  val ba1 = new BigActor(BigActorID("uav1"),HostID("u1")){
+  new BigActor(new BigActorID("uav1"),new HostID("u1")){
     def act() {
       observe("children.parent.host")
       loop {
@@ -20,8 +18,7 @@ object TestBigActors extends App{
     }
   }
 
-
-  val ba0 = new BigActor(BigActorID("uav0"),HostID("u0")){
+  new BigActor(new BigActorID("uav0"),new HostID("u0")){
     def act() {
       observe("children.parent.host")
       react{
@@ -31,7 +28,7 @@ object TestBigActors extends App{
           control(new BRR("l0_Location[x].(u0_UAV[z] | $0) | l1_Location[x].$1 -> l0_Location[x].$0 | l1_Location[x].(u0_UAV[z] | $1)"))
           migrate(HostID("u1"))
           observe("host")
-          react {
+          react{
             case obs: Observation => println("New observation for uav0: "+ obs)
           }
         }
