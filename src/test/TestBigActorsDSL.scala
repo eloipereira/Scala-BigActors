@@ -2,9 +2,8 @@ package test
 
 import actors.Actor._
 import bigactors.BigActorImplicits._
-import edu.berkeley.eloi.bigraph._
 import bigactors._
-import example0.rules
+
 
 object TestBigActorsDSL extends App{
 
@@ -12,7 +11,7 @@ object TestBigActorsDSL extends App{
     "uav1" observe "children.parent.host"
     loop {
       react {
-        case msg: Message => println("New mail for uav1: " + msg.message)
+        case msg: Message => println("New message for uav1: " + msg.message)
         case obs: Observation => println("New observation for uav1: " + obs)
       }
     }
