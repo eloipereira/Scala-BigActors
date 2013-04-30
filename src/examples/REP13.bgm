@@ -15,6 +15,7 @@
 %name wifi;
 
 %rule search0 airfield_Location.(u0_UAV[wifi] | $0) | searchArea_Location.$1 -> airfield_Location.$0 | searchArea_Location.(u0_UAV[wifi] |$1);
+%rule rth0 airfield_Location.$0 | searchArea_Location.(u0_UAV[x] | $1) -> airfield_Location.(u0_UAV[x] | $0) | searchArea_Location.$1;
 %rule genTanker0 searchArea_Location.$0 -> searchArea_Location.(tanker0_Tanker|$0);
 %rule connVessel0 vessel0_Vessel[x,ais].$0 || cs0_ControlStation[wifi] -> vessel0_Vessel[wifi,ais].$0 || cs0_ControlStation[wifi];
 %rule navVessel0 $0|harbour_Location.(vessel0_Vessel[x,y].$2| $1) | searchArea_Location.$3 -> $0|harbour_Location.$1 | searchArea_Location.(vessel0_Vessel[x,y].$2|$3);

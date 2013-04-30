@@ -7,7 +7,7 @@ import edu.berkeley.eloi.bgm2java.Debug
 import scala.collection.mutable.HashMap
 
 class BigraphSchdl(brs0 : BRS) extends Actor{
-  private val brs: BRS = brs0
+  private var brs: BRS = brs0
   var debug = false
 
   private val hostRelation = new HashMap[BigActorID,HostID]
@@ -39,6 +39,7 @@ class BigraphSchdl(brs0 : BRS) extends Actor{
           reply(("OBSERVATION_SUCCESSFUL",obs))
         }
         case x@("CONTROL", r:BRR,  bigActorId: BigActorID) => {
+          Thread.sleep(3000)
           Debug.println("got a ctr request " + r,debug)
           if (r.getNodes.contains(brs.getBigraph.getNode(hostRelation(bigActorId).name))){
             brs.applyRules(List(r),2)
