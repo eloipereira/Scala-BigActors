@@ -11,7 +11,7 @@ object Initializer {
 //  }
 
   lazy val scheduler = {
-      val brs: BRS = new BRS("/Users/eloipereira/Dropbox/IDEAWorkspace/BigActors/src/examples/qualsEx2.bgm",true,true)
+      val brs: BRS = new BRS("/Users/eloipereira/Dropbox/IDEAWorkspace/BigActors/src/examples/qualsEx1.bgm",true,true)
           val scheduler_ = new BigraphSchdl(brs)
           scheduler_.start()
           scheduler_

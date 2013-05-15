@@ -11,19 +11,19 @@ object QualsEx1 extends App{
       loop {
         observe("children.parent.host")
         react {
-          case obs: Observation => send(new Message("observer","server",obs))
+          case obs: Observation => println(obs)
         }
       }
     }
   }
 
-  "server" hosted_at "srv0" with_behavior{
-    loop {
-      react{
-        case x: Any => println(x)
-      }
+
+
+  new BigActor("env","room0"){
+    def act(){
+      control("room0_Room.$0 -> room0_Room.(p0_Person|$0)")
+      control("room0_Room.$0 -> room0_Room.(p1_Person|$0)")
+      control("room0_Room.$0 -> room0_Room.(p2_Person|$0)")
     }
-
   }
-
 }

@@ -49,7 +49,6 @@ abstract class BigActor(val bigActorID: BigActorID, val initialHostId: HostID) e
 
 }
 
-
 object BigActor{
   def apply(bigActorID: BigActorID,  initialHostId: HostID, body: => Unit) = {
     val b = new BigActor( bigActorID: BigActorID,  initialHostId: HostID) {

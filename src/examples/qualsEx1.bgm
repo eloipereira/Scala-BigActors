@@ -7,6 +7,6 @@
 
 %name x;
 
-room0_Room.(camera0_Camera[x] | p0_Person | p1_Person | p2_Person) | srv0_Server[x];
+room0_Room.(camera0_Camera[x]);
 
 %check
