@@ -17,8 +17,6 @@ object QualsEx1 extends App{
     }
   }
 
-
-
   new BigActor("env","room0"){
     def act(){
       control("room0_Room.$0 -> room0_Room.(p0_Person|$0)")

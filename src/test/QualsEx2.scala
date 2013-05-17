@@ -18,7 +18,7 @@ object QualsEx2 extends App{
             } else{
               observe("linkedTo.host")
               react {
-                case obs1: Observation => migrate(obs1.obs.last.getId)
+                case obs1: Observation => migrate(obs1.obs.last.getId.asInstanceOf[HostID])
               }
             }
           }

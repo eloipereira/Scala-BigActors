@@ -20,7 +20,7 @@ class BigraphSchdl(brs0 : BRS) extends Actor{
     loop {
       react{
         case x@("HOSTING",hostId : HostID, bigActorId: BigActorID, bigActorAddr: BigActor)=> {
-          if (brs.getBigraph.getNodes.contains(new Node(hostId.name))) {
+          if (brs.getBigraph.getPlaces.contains(new Node(hostId.name))) {
             Debug.println("Hosting BigActor at host " + hostId,debug)
             hostRelation += bigActorId -> hostId
             addressesRelation +=  bigActorId -> bigActorAddr
