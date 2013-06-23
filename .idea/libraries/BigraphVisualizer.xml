@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="BigraphVisualizer">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/BigraphVisualizer.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

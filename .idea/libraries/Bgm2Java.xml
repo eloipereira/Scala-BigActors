@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Bgm2Java">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../Bgm2Java/out/artifacts/Bgm2Java_jar/Bgm2Java.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Bgm2Java.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../Bgm2Java/out/artifacts/Bgm2Java_jar/Bgm2Java.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Bgm2Java.jar!/" />
     </SOURCES>
   </library>
 </component>

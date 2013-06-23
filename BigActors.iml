@@ -16,8 +16,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="scala-library" level="project" />
-    <orderEntry type="library" name="Bgm2Java" level="project" />
+    <orderEntry type="library" exported="" name="scala-library" level="project" />
+    <orderEntry type="library" exported="" name="Bgm2Java" level="project" />
+    <orderEntry type="library" name="BigraphVisualizer" level="project" />
+    <orderEntry type="library" name="antlr-3.4-complete" level="project" />
   </component>
 </module>
 
