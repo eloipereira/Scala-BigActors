@@ -41,7 +41,8 @@ class BigraphSchdl(brs0 : BRS) extends Actor{
         case x@("CONTROL", r:BRR,  bigActorId: BigActorID) => {
           Thread.sleep(3000)
           Debug.println("got a ctr request " + r,debug)
-          if (r.getNodes.contains(brs.getBigraph.getNode(hostRelation(bigActorId).name))){
+          if (r.getRedex.getNodes.contains(brs.getBigraph.getNode(hostRelation(bigActorId).name))
+            || r.getReactum.getNodes.contains(brs.getBigraph.getNode(hostRelation(bigActorId).name))){
             brs.applyRules(List(r),2)
             Debug.println("New bigraph: " + brs,debug)
           } else {
