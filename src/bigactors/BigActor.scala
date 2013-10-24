@@ -6,15 +6,15 @@ import scala.Predef.String
 
 
 trait BareBigActor{
-  val bigActorID: BigActorID
-  val initialHostId: HostID
+  val bigActorID: Symbol
+  val initialHostId: Symbol
   def observe(query: String)
   def control(u: BigraphReactionRule)
-  def migrate(newHostId: HostID)
+  def migrate(newHostId: Symbol)
   def send(msg: Message)
 }
 
-abstract class BigActor(val bigActorID: BigActorID, val initialHostId: HostID) extends Actor with BareBigActor{
+abstract class BigActor(val bigActorID: Symbol, val initialHostId: Symbol) extends Actor with BareBigActor{
 
   Initializer.scheduler ! ("HOSTING", initialHostId,bigActorID, this)
 
@@ -26,7 +26,7 @@ abstract class BigActor(val bigActorID: BigActorID, val initialHostId: HostID) e
     Initializer.scheduler ! ("CONTROL",u, bigActorID)
   }
 
-  override def migrate(newHostId: HostID) {
+  override def migrate(newHostId: Symbol) {
     Initializer.scheduler ! ("MIGRATE", bigActorID,newHostId)
   }
 
@@ -47,18 +47,18 @@ abstract class BigActor(val bigActorID: BigActorID, val initialHostId: HostID) e
   def toString: String =  bigActorID.toString
 }
 
-case class HOSTING(hostId: HostID, bigActorId: BigActorID)
+case class HOSTING(hostId: Symbol, bigActorId: Symbol)
 
 
 object BigActor{
-  def apply(bigActorID: BigActorID,  initialHostId: HostID, body: => Unit) = {
-    val b = new BigActor( bigActorID: BigActorID,  initialHostId: HostID) {
+  def apply(bigActorID: Symbol,  initialHostId: Symbol, body: => Unit) = {
+    val b = new BigActor( bigActorID: Symbol,  initialHostId: Symbol) {
       override def act() = body
     }
     b
   }
 
-  def bigActor(id: BigActorID)(hostId: HostID)(body: => Unit): BigActor = {
+  def bigActor(id: Symbol)(hostId: Symbol)(body: => Unit): BigActor = {
     val b = new BigActor(id,hostId){
       override def act() = body
     }
@@ -68,13 +68,12 @@ object BigActor{
 
 
 object BigActorImplicits {
-  type BigActorSignature = (BigActorID, HostID)
+  type BigActorSignature = (Symbol, Symbol)
   type Name = String
-  type MessageHeader = (BigActorID,Any)
+  type MessageHeader = (Symbol,Any)
   //type NameNodeParentTuple = (Name, Node, Node)
 
-  implicit def Name2HostID(name: Name) = HostID(name)
-  implicit def Name2BigActorID(name: Name) = BigActorID(name)
+  implicit def Name2Symbol(name: Name) = Symbol(name)
   implicit def Name2BigActorIDHelper(bigActorName: Name) = new BigActorIDHelper(bigActorName)
   implicit def BigActorSignature2BigActorHelper(signature: BigActorSignature) = new  BigActorHelper(signature)
   implicit def MessageHeader2MessageHelper(msgHeader: MessageHeader) = new MessageHelper(msgHeader)
@@ -82,19 +81,19 @@ object BigActorImplicits {
   implicit def String2Node(nodeName: String) = new Node(nodeName)
 
   class BigActorIDHelper(bigActorName: Name){
-    def hosted_at(hostName:Name): BigActorSignature = (BigActorID(bigActorName),HostID(hostName))
-    def send_message(msg: Any): MessageHeader = (BigActorID(bigActorName),msg)
+    def hosted_at(hostName:Name): BigActorSignature = (Symbol(bigActorName),Symbol(hostName))
+    def send_message(msg: Any): MessageHeader = (Symbol(bigActorName),msg)
 
     def observe(query: String) {
-      Initializer.scheduler ! ("OBSERVE",query, BigActorID(bigActorName))
+      Initializer.scheduler ! ("OBSERVE",query, Symbol(bigActorName))
     }
 
     def control(u: BigraphReactionRule) {
-      Initializer.scheduler ! ("CONTROL",u, BigActorID(bigActorName))
+      Initializer.scheduler ! ("CONTROL",u, Symbol(bigActorName))
     }
 
-    def migrate(newHostId: HostID) {
-      Initializer.scheduler ! ("MIGRATE", BigActorID(bigActorName),newHostId)
+    def migrate(newHostId: Symbol) {
+      Initializer.scheduler ! ("MIGRATE", Symbol(bigActorName),newHostId)
     }
 
     def send(msg: Message){
@@ -109,7 +108,7 @@ object BigActorImplicits {
   }
 
   class MessageHelper(msgHeader: MessageHeader) {
-    def to(rcv: Name) = msgHeader._1.getName send(new Message(msgHeader._1,rcv,msgHeader._2))
+    def to(rcv: Name) = msgHeader._1.name send(new Message(msgHeader._1,rcv,msgHeader._2))
   }
 
 }

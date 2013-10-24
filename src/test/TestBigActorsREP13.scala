@@ -6,7 +6,7 @@ import edu.berkeley.eloi.bigraph.Node
 
 object TestBigActorsREP13 extends App{
 
-val ba0 = new BigActor(new BigActorID("uav0"),new HostID("u0")){
+val ba0 = new BigActor( Symbol("uav0"), Symbol("u0")){
     def act() {
       var tankerNotFound = true
       control(new BigraphReactionRule("airfield_Location.(u0_UAV[wifi] | $0) | searchArea_Location.$1 -> airfield_Location.$0 | searchArea_Location.(u0_UAV[wifi] |$1)"))
@@ -15,7 +15,7 @@ val ba0 = new BigActor(new BigActorID("uav0"),new HostID("u0")){
         react {
           case obs: Observation =>
             if (obs.contains(new Node("tanker0"))) {
-              send(new Message(BigActorID("uav0"),BigActorID("cs0"),obs))
+              send(new Message(Symbol("uav0"),Symbol("cs0"),obs))
               control(new BigraphReactionRule("airfield_Location.$0 | searchArea_Location.(u0_UAV[x] | $1) -> airfield_Location.(u0_UAV[x] | $0) | searchArea_Location.$1"))
               tankerNotFound = false
             }
@@ -24,18 +24,18 @@ val ba0 = new BigActor(new BigActorID("uav0"),new HostID("u0")){
     }
   }
 
-  new BigActor(new BigActorID("cs0"), new HostID("cs0")) {
+  new BigActor( Symbol("cs0"),  Symbol("cs0")) {
     def act() {
       react{
         case msg: Message => {
           control(new BigraphReactionRule("vessel0_Vessel[x,ais].$0 || cs0_ControlStation[wifi] -> vessel0_Vessel[wifi,ais].$0 || cs0_ControlStation[wifi]"))
-          send(new Message(BigActorID("cs0"),BigActorID("vessel0"),msg.message))
+          send(new Message(Symbol("cs0"),Symbol("vessel0"),msg.message))
         }
       }
     }
   }
 
-  new BigActor(new BigActorID("vessel0"), new HostID("vessel0")) {
+  new BigActor( Symbol("vessel0"),  Symbol("vessel0")) {
     def act() {
       react{
         case msg: Message => {
@@ -47,7 +47,7 @@ val ba0 = new BigActor(new BigActorID("uav0"),new HostID("u0")){
     }
   }
 
-  new BigActor(new BigActorID("env0"), new HostID("searchArea")) {
+  new BigActor( Symbol("env0"),  Symbol("searchArea")) {
     def act() {
       control(new BigraphReactionRule("searchArea_Location.$0 -> searchArea_Location.(tanker0_Tanker|$0)"))
     }

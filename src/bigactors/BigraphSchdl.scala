@@ -10,8 +10,8 @@ class BigraphSchdl(brs0 : BRS) extends Actor{
   private var brs: BRS = brs0
   var debug = false
 
-  private val hostRelation = new HashMap[BigActorID,HostID]
-  private val addressesRelation = new HashMap[BigActorID,BigActor]
+  private val hostRelation = new HashMap[Symbol,Symbol]
+  private val addressesRelation = new HashMap[Symbol,BigActor]
 
   def getBRS = brs
 
@@ -19,7 +19,7 @@ class BigraphSchdl(brs0 : BRS) extends Actor{
     Debug.println("Initial bigraph: " + brs,debug)
     loop {
       react{
-        case x@("HOSTING",hostId : HostID, bigActorId: BigActorID, bigActorAddr: BigActor)=> {
+        case x@("HOSTING",hostId : Symbol, bigActorId: Symbol, bigActorAddr: BigActor)=> {
           if (brs.getBigraph.getPlaces.contains(new Node(hostId.name))) {
             Debug.println("Hosting BigActor at host " + hostId,debug)
             hostRelation += bigActorId -> hostId
@@ -31,14 +31,14 @@ class BigraphSchdl(brs0 : BRS) extends Actor{
             System.exit(0)
           }
         }
-        case x@("OBSERVE", query: String, bigActorId: BigActorID) => {
+        case x@("OBSERVE", query: String, bigActorId: Symbol) => {
           Debug.println("got a obs request " + x + " from "+sender,debug)
           val host = brs.getBigraph.getNode(hostRelation(bigActorId).name)
           val obs = new Observation(SimpleQueryCompiler.generate(query,host,brs.getBigraph))
           Debug.println("Observation: "+obs,debug)
           reply(("OBSERVATION_SUCCESSFUL",obs))
         }
-        case x@("CONTROL", r:BRR,  bigActorId: BigActorID) => {
+        case x@("CONTROL", r:BRR,  bigActorId: Symbol) => {
           Thread.sleep(3000)
           Debug.println("got a ctr request " + r,debug)
           if (r.getRedex.getNodes.contains(brs.getBigraph.getNode(hostRelation(bigActorId).name))
@@ -64,7 +64,7 @@ class BigraphSchdl(brs0 : BRS) extends Actor{
             System.exit(0)
           }
         }
-        case x@("MIGRATE", bigActorId: BigActorID, destHostId:HostID) => {
+        case x@("MIGRATE", bigActorId: Symbol, destHostId:Symbol) => {
           Debug.println("got a mgrt request from " + hostRelation(bigActorId) + " to " +destHostId,debug)
           val currentHost = brs.getBigraph.getNode(hostRelation(bigActorId).name)
           val destHost = brs.getBigraph.getNode(destHostId.name)
