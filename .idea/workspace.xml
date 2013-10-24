@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1745a8c2-2d13-46d6-885b-7ddac145ee4e" name="Default" comment="Remove initializer, created bigraph manager, make BigraphS">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/bigactors/BigraphManager.scala" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/bigactors/Initializer.scala" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/bigactors/BigraphSchdl.scala" afterPath="$PROJECT_DIR$/src/bigactors/BigActorSchdl.scala" />
+    <list default="true" id="1745a8c2-2d13-46d6-885b-7ddac145ee4e" name="Default" comment="Remove initializer, created bigraphManager, make BigActorSchdl a singleton actor">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bigactors/BigActor.scala" afterPath="$PROJECT_DIR$/src/bigactors/BigActor.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bigactors/BigActorSchdl.scala" afterPath="$PROJECT_DIR$/src/bigactors/BigActorSchdl.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="BigActors.iws" />
@@ -13,12 +11,12 @@
     <file path="/TestTree.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355576467000" ignored="false" />
     <file path="/Tree.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355576581377" ignored="false" />
     <file path="/Scala Console" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355571248616" ignored="false" />
-    <file path="/BigActor.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1382642447260" ignored="false" />
-    <file path="/BigraphSchdl.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1382645831265" ignored="false" />
+    <file path="/BigActor.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1382652581907" ignored="false" />
+    <file path="/BigraphSchdl.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1382651347890" ignored="false" />
     <file path="/BRR.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1356540508976" ignored="false" />
     <file path="/TestBigActors.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1382642625352" ignored="false" />
     <file path="/simpleBigActor.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355686536591" ignored="false" />
-    <file path="/Dummy.txt" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1382646067534" ignored="false" />
+    <file path="/Dummy.txt" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1382653811025" ignored="false" />
     <file path="/a.groovy" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355923266761" ignored="false" />
     <file path="/a.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1355923267951" ignored="false" />
     <file path="$PROJECT_DIR$/../BigraphVisualizer/src/edu/berkeley/eloi/bigvis/Visualizer.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1366958327315" ignored="false" />
@@ -243,6 +241,7 @@
     <file path="$PROJECT_DIR$/../Bgm2Java/out/artifacts/Bgm2Java_jar/Bgm2Java.jar!/edu/berkeley/eloi/bigraph/Bigraph.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1372007798342" ignored="false" />
     <file path="$PROJECT_DIR$/../bgm2java/test/testConcrete.java" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1372022075184" ignored="false" />
     <file path="/BigraphHandler.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1382644631045" ignored="false" />
+    <file path="/BigActorSchdl.scala" changelist="1745a8c2-2d13-46d6-885b-7ddac145ee4e" time="1382649195720" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -323,7 +322,7 @@
       <file leaf-file-name="TestBigActors.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/TestBigActors.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="31" selection-start="434" selection-end="434" vertical-scroll-proportion="0.0">
+            <state line="26" column="56" selection-start="716" selection-end="716" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#14#32#0" expanded="true" />
               </folding>
@@ -331,10 +330,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BigActorSchdl.scala" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="BigActorSchdl.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bigactors/BigActorSchdl.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="9" selection-start="1071" selection-end="1071" vertical-scroll-proportion="0.6292287">
+            <state line="43" column="47" selection-start="1798" selection-end="1798" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#19#44#0" expanded="true" />
               </folding>
@@ -345,7 +344,7 @@
       <file leaf-file-name="TestBigActorsDSL.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/TestBigActorsDSL.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="0" selection-start="997" selection-end="997" vertical-scroll-proportion="0.0">
+            <state line="7" column="7" selection-start="101" selection-end="101" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -371,10 +370,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BigActor.scala" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="BigActor.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/bigactors/BigActor.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="99" column="19" selection-start="2867" selection-end="2867" vertical-scroll-proportion="0.0">
+            <state line="16" column="0" selection-start="616" selection-end="616" vertical-scroll-proportion="0.32476318">
               <folding>
                 <element signature="e#19#38#0" expanded="true" />
               </folding>
@@ -434,14 +433,14 @@
         <option value="$PROJECT_DIR$/src/bigactors/ID.scala" />
         <option value="$PROJECT_DIR$/src/bigactors/Message.scala" />
         <option value="$PROJECT_DIR$/src/test/QualsEx2.scala" />
-        <option value="$PROJECT_DIR$/src/test/TestBigActors.scala" />
         <option value="$PROJECT_DIR$/src/test/TestBigActorsREP13.scala" />
         <option value="$PROJECT_DIR$/src/bigactors/BigraphHandler.scala" />
         <option value="$PROJECT_DIR$/src/bigactors/Initializer.scala" />
         <option value="$PROJECT_DIR$/src/bigactors/BigraphSchdl.scala" />
-        <option value="$PROJECT_DIR$/src/bigactors/BigActor.scala" />
         <option value="$PROJECT_DIR$/src/bigactors/BigraphManager.scala" />
         <option value="$PROJECT_DIR$/src/bigactors/BigActorSchdl.scala" />
+        <option value="$PROJECT_DIR$/src/test/TestBigActors.scala" />
+        <option value="$PROJECT_DIR$/src/bigactors/BigActor.scala" />
       </list>
     </option>
   </component>
@@ -560,50 +559,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="bigactors" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BigActors" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BigActors" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bigactors" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ReactionRule.scala" />
-              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BigActors" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BigActors" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bigactors" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BigActor.scala" />
-              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -985,7 +940,11 @@
       <created>1382643106580</created>
       <updated>1382643106580</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Remove initializer, created bigraphManager, make BigActorSchdl a singleton actor">
+      <created>1382646227669</created>
+      <updated>1382646227669</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1076,7 +1035,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Replaced ID with Symbol class. This is essential to move to remote actors." />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove initializer, created bigraphManager, make BigActorSchdl a singleton actor" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1090,7 +1049,6 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="remove TODO" />
     <MESSAGE value="migration works but scheduler is not FCFS." />
     <MESSAGE value="scheduler is behaving as FCFS again. Still need to test send further." />
     <MESSAGE value="Bunch of stuff" />
@@ -1115,6 +1073,7 @@
     <MESSAGE value="Fixed problems with bgm2java." />
     <MESSAGE value="Adapted code to the new bgm2Java version." />
     <MESSAGE value="Replaced ID with Symbol class. This is essential to move to remote actors." />
+    <MESSAGE value="Remove initializer, created bigraphManager, make BigActorSchdl a singleton actor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1185,36 +1144,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/TestBigActors.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="31" selection-start="434" selection-end="434" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#14#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/TestBigActorsREP13.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="49" column="32" selection-start="1898" selection-end="1898" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#14#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/TestBigActorsDSL.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="997" selection-end="997" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bigactors/BigActor.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="19" selection-start="2867" selection-end="2867" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#19#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1230,9 +1164,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bigactors/BigActorSchdl.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="9" selection-start="1071" selection-end="1071" vertical-scroll-proportion="0.6292287">
+        <state line="43" column="47" selection-start="1798" selection-end="1798" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#19#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/TestBigActorsDSL.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="7" selection-start="101" selection-end="101" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/TestBigActors.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="56" selection-start="716" selection-end="716" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#14#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bigactors/BigActor.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="616" selection-end="616" vertical-scroll-proportion="0.32476318">
+          <folding>
+            <element signature="e#19#38#0" expanded="true" />
           </folding>
         </state>
       </provider>

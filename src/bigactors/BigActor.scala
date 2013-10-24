@@ -4,34 +4,31 @@ import actors.Actor
 import edu.berkeley.eloi.bigraph._
 import scala.Predef.String
 
+sealed trait Requests
+case class HOSTING(bigActor: BigActor, hostId: Symbol) extends Requests
+case class OBSERVE(query: String, bigActorID: Symbol) extends Requests
+case class CONTROL(brr: BRR, bigActorID: Symbol) extends Requests
+case class SEND(msg: Message, bigActorID: Symbol) extends Requests
+case class MIGRATE(newHostId: Symbol, bigActorID: Symbol) extends Requests
 
-trait BareBigActor{
-  val bigActorID: Symbol
-  val initialHostId: Symbol
-  def observe(query: String)
-  def control(u: BigraphReactionRule)
-  def migrate(newHostId: Symbol)
-  def send(msg: Message)
-}
+abstract class BigActor(val bigActorID: Symbol, val initialHostId: Symbol) extends Actor {
 
-abstract class BigActor(val bigActorID: Symbol, val initialHostId: Symbol) extends Actor with BareBigActor{
+  BigActorSchdl !  HOSTING(this, initialHostId)
 
-  BigActorSchdl ! ("HOSTING", initialHostId,bigActorID, this)
-
-  override def observe(query: String) = {
-    BigActorSchdl ! ("OBSERVE",query, bigActorID)
+  def observe(query: String) = {
+    BigActorSchdl ! OBSERVE(query, bigActorID)
   }
 
-  override def control(u: BigraphReactionRule) {
-    BigActorSchdl ! ("CONTROL",u, bigActorID)
+  def control(brr: BigraphReactionRule) {
+    BigActorSchdl ! CONTROL(brr, bigActorID)
   }
 
-  override def migrate(newHostId: Symbol) {
-    BigActorSchdl ! ("MIGRATE", bigActorID,newHostId)
+  def migrate(newHostId: Symbol) {
+    BigActorSchdl ! MIGRATE(newHostId, bigActorID)
   }
 
-  override def send(msg: Message){
-    BigActorSchdl ! ("SEND",msg)
+  def send(msg: Message){
+    BigActorSchdl ! SEND(msg, bigActorID)
   }
 
   override def !(msg:Any){
@@ -46,8 +43,6 @@ abstract class BigActor(val bigActorID: Symbol, val initialHostId: Symbol) exten
   override
   def toString: String =  bigActorID.toString
 }
-
-case class HOSTING(hostId: Symbol, bigActorId: Symbol)
 
 
 object BigActor{
@@ -84,20 +79,20 @@ object BigActorImplicits {
     def hosted_at(hostName:Name): BigActorSignature = (Symbol(bigActorName),Symbol(hostName))
     def send_message(msg: Any): MessageHeader = (Symbol(bigActorName),msg)
 
-    def observe(query: String) {
-      BigActorSchdl ! ("OBSERVE",query, Symbol(bigActorName))
+    def observe(query: String) = {
+      BigActorSchdl ! OBSERVE(query, Symbol(bigActorName))
     }
 
-    def control(u: BigraphReactionRule) {
-      BigActorSchdl ! ("CONTROL",u, Symbol(bigActorName))
+    def control(brr: BigraphReactionRule) {
+      BigActorSchdl ! CONTROL(brr, Symbol(bigActorName))
     }
 
     def migrate(newHostId: Symbol) {
-      BigActorSchdl ! ("MIGRATE", Symbol(bigActorName),newHostId)
+      BigActorSchdl ! MIGRATE(newHostId, Symbol(bigActorName))
     }
 
     def send(msg: Message){
-      BigActorSchdl ! ("SEND",msg)
+      BigActorSchdl ! SEND(msg, Symbol(bigActorName))
     }
   }
 
