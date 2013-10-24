@@ -6,8 +6,6 @@
     <JAVADOC />
     <SOURCES>
       <root url="jar://$PROJECT_DIR$/Bgm2Java.jar!/" />
-      <root url="jar://$PROJECT_DIR$/Bgm2Java.jar!/" />
-      <root url="jar://$PROJECT_DIR$/Bgm2Java.jar!/" />
     </SOURCES>
   </library>
 </component>

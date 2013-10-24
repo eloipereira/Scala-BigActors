@@ -1,7 +1,8 @@
 package test
 
 import bigactors._
-import edu.berkeley.eloi.bigraph._
+import edu.berkeley.eloi.bigraph.Node
+
 
 object TestBigActorsREP13 extends App{
 

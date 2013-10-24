@@ -1,6 +1,5 @@
 package test
 
-import edu.berkeley.eloi.bigraph._
 import bigactors._
 
 

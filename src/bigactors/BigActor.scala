@@ -2,7 +2,6 @@ package bigactors
 
 import actors.Actor
 import edu.berkeley.eloi.bigraph._
-import java.lang.String
 import scala.Predef.String
 
 
@@ -46,8 +45,10 @@ abstract class BigActor(val bigActorID: BigActorID, val initialHostId: HostID) e
 
   override
   def toString: String =  bigActorID.toString
-
 }
+
+case class HOSTING(hostId: HostID, bigActorId: BigActorID)
+
 
 object BigActor{
   def apply(bigActorID: BigActorID,  initialHostId: HostID, body: => Unit) = {
@@ -70,7 +71,7 @@ object BigActorImplicits {
   type BigActorSignature = (BigActorID, HostID)
   type Name = String
   type MessageHeader = (BigActorID,Any)
-  type NameNodeParentTuple = (Name, Node, Node)
+  //type NameNodeParentTuple = (Name, Node, Node)
 
   implicit def Name2HostID(name: Name) = HostID(name)
   implicit def Name2BigActorID(name: Name) = BigActorID(name)
@@ -80,11 +81,9 @@ object BigActorImplicits {
   implicit def String2BigraphReactionRule(term: String) = new BigraphReactionRule(term)
   implicit def String2Node(nodeName: String) = new Node(nodeName)
 
-
   class BigActorIDHelper(bigActorName: Name){
     def hosted_at(hostName:Name): BigActorSignature = (BigActorID(bigActorName),HostID(hostName))
     def send_message(msg: Any): MessageHeader = (BigActorID(bigActorName),msg)
-
 
     def observe(query: String) {
       Initializer.scheduler ! ("OBSERVE",query, BigActorID(bigActorName))
@@ -112,6 +111,5 @@ object BigActorImplicits {
   class MessageHelper(msgHeader: MessageHeader) {
     def to(rcv: Name) = msgHeader._1.getName send(new Message(msgHeader._1,rcv,msgHeader._2))
   }
-
 
 }

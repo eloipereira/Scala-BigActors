@@ -2,7 +2,6 @@ package test
 
 import bigactors._
 import bigactors.BigActorImplicits._
-import actors.Actor._
 
 object QualsEx2 extends App{
 
