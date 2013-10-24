@@ -16,27 +16,27 @@ trait BareBigActor{
 
 abstract class BigActor(val bigActorID: Symbol, val initialHostId: Symbol) extends Actor with BareBigActor{
 
-  Initializer.scheduler ! ("HOSTING", initialHostId,bigActorID, this)
+  BigActorSchdl ! ("HOSTING", initialHostId,bigActorID, this)
 
   override def observe(query: String) = {
-    Initializer.scheduler ! ("OBSERVE",query, bigActorID)
+    BigActorSchdl ! ("OBSERVE",query, bigActorID)
   }
 
   override def control(u: BigraphReactionRule) {
-    Initializer.scheduler ! ("CONTROL",u, bigActorID)
+    BigActorSchdl ! ("CONTROL",u, bigActorID)
   }
 
   override def migrate(newHostId: Symbol) {
-    Initializer.scheduler ! ("MIGRATE", bigActorID,newHostId)
+    BigActorSchdl ! ("MIGRATE", bigActorID,newHostId)
   }
 
   override def send(msg: Message){
-    Initializer.scheduler ! ("SEND",msg)
+    BigActorSchdl ! ("SEND",msg)
   }
 
   override def !(msg:Any){
     msg match {
-      case x@(m: Message) => Initializer.scheduler ! ("SEND", m)
+      case x@(m: Message) => BigActorSchdl ! ("SEND", m)
       case x@("SEND_SUCCESSFUL",m:Message) => super.!(m)
       case x@("OBSERVATION_SUCCESSFUL",o:Observation) => super.!(o)
       case _ =>
@@ -85,19 +85,19 @@ object BigActorImplicits {
     def send_message(msg: Any): MessageHeader = (Symbol(bigActorName),msg)
 
     def observe(query: String) {
-      Initializer.scheduler ! ("OBSERVE",query, Symbol(bigActorName))
+      BigActorSchdl ! ("OBSERVE",query, Symbol(bigActorName))
     }
 
     def control(u: BigraphReactionRule) {
-      Initializer.scheduler ! ("CONTROL",u, Symbol(bigActorName))
+      BigActorSchdl ! ("CONTROL",u, Symbol(bigActorName))
     }
 
     def migrate(newHostId: Symbol) {
-      Initializer.scheduler ! ("MIGRATE", Symbol(bigActorName),newHostId)
+      BigActorSchdl ! ("MIGRATE", Symbol(bigActorName),newHostId)
     }
 
     def send(msg: Message){
-      Initializer.scheduler ! ("SEND",msg)
+      BigActorSchdl ! ("SEND",msg)
     }
   }
 
