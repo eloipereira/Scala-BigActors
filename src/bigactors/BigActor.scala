@@ -66,7 +66,6 @@ object BigActorImplicits {
   type BigActorSignature = (Symbol, Symbol)
   type Name = String
   type MessageHeader = (Symbol,Any)
-  //type NameNodeParentTuple = (Name, Node, Node)
 
   implicit def Name2Symbol(name: Name) = Symbol(name)
   implicit def Name2BigActorIDHelper(bigActorName: Name) = new BigActorIDHelper(bigActorName)
@@ -103,7 +102,7 @@ object BigActorImplicits {
   }
 
   class MessageHelper(msgHeader: MessageHeader) {
-    def to(rcv: Name) = msgHeader._1.name send(new Message(msgHeader._1,rcv,msgHeader._2))
+    def to(rcv: Name) = msgHeader._1.name send(new Message(rcv,msgHeader._2))
   }
 
 }

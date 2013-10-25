@@ -50,7 +50,7 @@ object BigActorSchdl extends Actor{
           }
         }
         case SEND(msg, bigActorID) => {
-          val senderID = msg.senderID
+          val senderID = bigActorID
           val receiverID = msg.receiverID
           Debug.println("got a snd request from " + bigActorID,debug)
           val senderHost = BigraphManager.getBRS.getBigraph.getNode(hostRelation(senderID).name)

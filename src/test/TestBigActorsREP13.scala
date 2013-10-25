@@ -15,7 +15,7 @@ val ba0 = new BigActor( Symbol("uav0"), Symbol("u0")){
         react {
           case obs: Observation =>
             if (obs.contains(new Node("tanker0"))) {
-              send(new Message(Symbol("uav0"),Symbol("cs0"),obs))
+              send(new Message(Symbol("cs0"),obs))
               control(new BigraphReactionRule("airfield_Location.$0 | searchArea_Location.(u0_UAV[x] | $1) -> airfield_Location.(u0_UAV[x] | $0) | searchArea_Location.$1"))
               tankerNotFound = false
             }
@@ -29,7 +29,7 @@ val ba0 = new BigActor( Symbol("uav0"), Symbol("u0")){
       react{
         case msg: Message => {
           control(new BigraphReactionRule("vessel0_Vessel[x,ais].$0 || cs0_ControlStation[wifi] -> vessel0_Vessel[wifi,ais].$0 || cs0_ControlStation[wifi]"))
-          send(new Message(Symbol("cs0"),Symbol("vessel0"),msg.message))
+          send(new Message(Symbol("vessel0"),msg.message))
         }
       }
     }
