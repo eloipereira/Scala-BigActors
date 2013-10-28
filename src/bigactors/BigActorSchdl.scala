@@ -17,7 +17,7 @@ case class OBSERVATION_RESULT(obs: Observation)
 
 
 object BigActorSchdl extends Actor{
-  var debug = true
+  var debug = false
 
   private val hostRelation = new HashMap[Symbol,Symbol]
   private val addressesRelation = new HashMap[Symbol,BigActor]
