@@ -27,7 +27,12 @@ object TestBigActorsDSL extends App{
           "uav0" control "l0_Location[x].(u0_UAV[z] | $0) | l1_Location[x].$1 -> l0_Location[x].$0 | l1_Location[x].(u0_UAV[z] | $1)"
           "uav0" migrate "u1"
           "uav0" observe "host"
-          react {
+          receive {
+            case obs: Observation => println("New observation for uav0: "+ obs)
+          }
+          "uav0" control "l0_Location[x].(u1_UAV[z] | $0) | l1_Location[x].$1 -> l0_Location[x].$0 | l1_Location[x].(u1_UAV[z] | $1)"
+          "uav0" observe "host"
+          receive {
             case obs: Observation => println("New observation for uav0: "+ obs)
           }
         }

@@ -4,44 +4,37 @@ import actors.Actor
 import edu.berkeley.eloi.bigraph._
 import scala.Predef.String
 
-sealed trait Requests
-case class HOSTING(bigActor: BigActor, hostId: Symbol) extends Requests
-case class OBSERVE(query: String, bigActorID: Symbol) extends Requests
-case class CONTROL(brr: BRR, bigActorID: Symbol) extends Requests
-case class SEND(msg: Message, bigActorID: Symbol) extends Requests
-case class MIGRATE(newHostId: Symbol, bigActorID: Symbol) extends Requests
-
 abstract class BigActor(val bigActorID: Symbol, val initialHostId: Symbol) extends Actor {
 
-  BigActorSchdl !  HOSTING(this, initialHostId)
+  BigActorSchdl ! HOSTING_REQUEST(this, initialHostId)
 
   def observe(query: String) = {
-    BigActorSchdl ! OBSERVE(query, bigActorID)
+    BigActorSchdl ! OBSERVATION_REQUEST(query, bigActorID)
   }
 
   def control(brr: BigraphReactionRule) {
-    BigActorSchdl ! CONTROL(brr, bigActorID)
+    BigActorSchdl ! CONTROL_REQUEST(brr, bigActorID)
   }
 
   def migrate(newHostId: Symbol) {
-    BigActorSchdl ! MIGRATE(newHostId, bigActorID)
+    BigActorSchdl ! MIGRATION_REQUEST(newHostId, bigActorID)
   }
 
   def send(msg: Message){
-    BigActorSchdl ! SEND(msg, bigActorID)
+    BigActorSchdl ! SEND_REQUEST(msg, bigActorID)
   }
 
   override def !(msg:Any){
     msg match {
-      case x@(m: Message) => BigActorSchdl ! ("SEND", m)
-      case x@("SEND_SUCCESSFUL",m:Message) => super.!(m)
-      case x@("OBSERVATION_SUCCESSFUL",o:Observation) => super.!(o)
+      case m: Message => BigActorSchdl ! SEND_REQUEST(m,bigActorID)
+      case SEND_SUCCESSFUL(m) => super.!(m)
+      case OBSERVATION_RESULT(o:Observation) => super.!(o)
       case _ =>
     }
   }
 
   override
-  def toString: String =  bigActorID.toString
+  def toString: String =  bigActorID.name
 }
 
 
@@ -79,19 +72,19 @@ object BigActorImplicits {
     def send_message(msg: Any): MessageHeader = (Symbol(bigActorName),msg)
 
     def observe(query: String) = {
-      BigActorSchdl ! OBSERVE(query, Symbol(bigActorName))
+      BigActorSchdl ! OBSERVATION_REQUEST(query, Symbol(bigActorName))
     }
 
     def control(brr: BigraphReactionRule) {
-      BigActorSchdl ! CONTROL(brr, Symbol(bigActorName))
+      BigActorSchdl ! CONTROL_REQUEST(brr, Symbol(bigActorName))
     }
 
     def migrate(newHostId: Symbol) {
-      BigActorSchdl ! MIGRATE(newHostId, Symbol(bigActorName))
+      BigActorSchdl ! MIGRATION_REQUEST(newHostId, Symbol(bigActorName))
     }
 
     def send(msg: Message){
-      BigActorSchdl ! SEND(msg, Symbol(bigActorName))
+      BigActorSchdl ! SEND_REQUEST(msg, Symbol(bigActorName))
     }
   }
 
