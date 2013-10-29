@@ -1,7 +1,7 @@
 package test
 
 import bigactors._
-import edu.berkeley.eloi.bigraph.Node
+import edu.berkeley.eloi.bigraph.BigraphNode
 
 
 object TestBigActorsREP13 extends App{
@@ -14,7 +14,7 @@ val ba0 = new BigActor( Symbol("uav0"), Symbol("u0")){
         observe("children.parent.host")
         react {
           case obs: Observation =>
-            if (obs.contains(new Node("tanker0"))) {
+            if (obs.contains(new BigraphNode("tanker0"))) {
               send(new Message(Symbol("cs0"),obs))
               control(new BigraphReactionRule("airfield_Location.$0 | searchArea_Location.(u0_UAV[x] | $1) -> airfield_Location.(u0_UAV[x] | $0) | searchArea_Location.$1"))
               tankerNotFound = false

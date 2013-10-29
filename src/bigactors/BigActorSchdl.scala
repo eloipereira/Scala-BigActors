@@ -31,7 +31,7 @@ object BigActorSchdl extends Actor{
           BigraphManager ! GET_BIGRAPH
           receive{
             case bigraph: Bigraph => {
-              if (bigraph.getPlaces.contains(new Node(hostId.name))) {
+              if (bigraph.getPlaces.contains(new BigraphNode(hostId.name))) {
                 Debug.println("Hosting BigActor at host " + hostId,debug)
                 hostRelation += bigActor.bigActorID -> hostId
                 addressesRelation +=  bigActor.bigActorID -> bigActor

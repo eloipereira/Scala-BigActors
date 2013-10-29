@@ -29,7 +29,7 @@ object SimpleQueryCompiler {
         }
         case "linkedTo" => {
           while (it2.hasNext){
-            resultTmp ++= bigraph.getLinkedTo(it2.next().asInstanceOf[Node])
+            resultTmp ++= bigraph.getLinkedTo(it2.next().asInstanceOf[BigraphNode])
           }
         }
         case _ => System.err.println("Syntax error while parsing query.")

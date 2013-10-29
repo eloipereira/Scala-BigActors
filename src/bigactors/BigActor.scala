@@ -3,8 +3,14 @@ package bigactors
 import actors.Actor
 import edu.berkeley.eloi.bigraph._
 import scala.Predef.String
+import scala.actors.Actor._
+import scala.actors.remote._
+import scala.actors.remote.RemoteActor._
 
 abstract class BigActor(val bigActorID: Symbol, val initialHostId: Symbol) extends Actor {
+
+  alive(9010)
+  register(bigActorID, self)
 
   BigActorSchdl ! HOSTING_REQUEST(this, initialHostId)
 
@@ -65,7 +71,7 @@ object BigActorImplicits {
   implicit def BigActorSignature2BigActorHelper(signature: BigActorSignature) = new  BigActorHelper(signature)
   implicit def MessageHeader2MessageHelper(msgHeader: MessageHeader) = new MessageHelper(msgHeader)
   implicit def String2BigraphReactionRule(term: String) = new BigraphReactionRule(term)
-  implicit def String2Node(nodeName: String) = new Node(nodeName)
+  implicit def String2Node(nodeName: String) = new BigraphNode(nodeName)
 
   class BigActorIDHelper(bigActorName: Name){
     def hosted_at(hostName:Name): BigActorSignature = (Symbol(bigActorName),Symbol(hostName))
