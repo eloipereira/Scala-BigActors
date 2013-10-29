@@ -11,8 +11,8 @@ object TestBigActorsDSL extends App{
     "uav1" observe "children.parent.host"
     loop {
       react {
-        case msg: Message => println("New message for uav1: " + msg.message)
         case obs: Observation => println("New observation for uav1: " + obs)
+        case msg: Any => println("New message for uav1: " + msg)
       }
     }
   }

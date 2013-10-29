@@ -9,9 +9,6 @@ import scala.actors.remote.RemoteActor._
 
 abstract class BigActor(val bigActorID: Symbol, val initialHostId: Symbol) extends Actor {
 
-  alive(9010)
-  register(bigActorID, self)
-
   BigActorSchdl ! HOSTING_REQUEST(this, initialHostId)
 
   def observe(query: String) = {
@@ -33,9 +30,7 @@ abstract class BigActor(val bigActorID: Symbol, val initialHostId: Symbol) exten
   override def !(msg:Any){
     msg match {
       case m: Message => BigActorSchdl ! SEND_REQUEST(m,bigActorID)
-      case SEND_SUCCESSFUL(m) => super.!(m)
-      case OBSERVATION_RESULT(o:Observation) => super.!(o)
-      case _ =>
+      case _ => super.!(msg)
     }
   }
 
@@ -96,7 +91,13 @@ object BigActorImplicits {
 
   class BigActorHelper(signature: BigActorSignature){
     def with_behavior (body : => Unit): BigActor = new BigActor(signature._1,signature._2) {
-      def act() = body
+      def act() = {
+        alive(9010)
+        register(bigActorID, self)
+
+        body
+
+      }
     }
   }
 

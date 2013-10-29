@@ -1,10 +1,14 @@
 package bigactors
 
 import scala.actors.Actor
+import scala.actors.remote._
+import scala.actors.remote.RemoteActor._
 import edu.berkeley.eloi.bigraph._
 import scala.collection.JavaConversions._
 import edu.berkeley.eloi.bgm2java.Debug
 import scala.collection.mutable.HashMap
+
+
 
 sealed trait BigActorSchdlAPI
 case class HOSTING_REQUEST(bigActor: BigActor, hostId: Symbol) extends BigActorSchdlAPI
@@ -12,8 +16,6 @@ case class OBSERVATION_REQUEST(query: String, bigActorID: Symbol) extends BigAct
 case class CONTROL_REQUEST(brr: BRR, bigActorID: Symbol) extends BigActorSchdlAPI
 case class SEND_REQUEST(msg: Message, bigActorID: Symbol) extends BigActorSchdlAPI
 case class MIGRATION_REQUEST(newHostId: Symbol, bigActorID: Symbol) extends BigActorSchdlAPI
-case class SEND_SUCCESSFUL(msg: Message)
-case class OBSERVATION_RESULT(obs: Observation)
 
 
 object BigActorSchdl extends Actor{
@@ -53,7 +55,7 @@ object BigActorSchdl extends Actor{
               val host = bigraph.getNode(hostRelation(bigActorID).name)
               val obs = new Observation(SimpleQueryCompiler.generate(query,host,bigraph))
               Debug.println("Observation: "+obs,debug)
-              addressesRelation(bigActorID) ! OBSERVATION_RESULT(obs)
+              addressesRelation(bigActorID) ! obs
             }
           }
         }
@@ -84,7 +86,9 @@ object BigActorSchdl extends Actor{
               val destHost = bigraph.getNode(hostRelation(receiverID).name)
               if (senderHost == destHost || !senderHost.getNames.intersect(destHost.getNames).isEmpty){
                 Debug.println("Hosts " + hostRelation(senderID).name + " and " +  hostRelation(receiverID).name + " are connected.",debug)
-                addressesRelation(receiverID) ! SEND_SUCCESSFUL(msg)
+                val c = select(Node("localhost",9010), receiverID)
+                c ! msg.message
+                //addressesRelation(receiverID) ! msg.message
               } else {
                 System.err.println("Hosts " + hostRelation(senderID).name + " and " +  hostRelation(receiverID).name + " are not connected.")
                 System.exit(0)
