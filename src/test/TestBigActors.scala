@@ -2,6 +2,7 @@ package test
 
 import bigactors._
 import scala.Symbol
+import edu.berkeley.eloi.bigraph.BRR
 
 object TestBigActors extends App{
 
@@ -25,7 +26,7 @@ object TestBigActors extends App{
           println("New observation for uav0: "+ obs)
           send(new Message(Symbol("uav1"),"Hello I'm a BigActor!"))
           Thread.sleep(5000)
-          control(new BigraphReactionRule("l0_Location[x].(u0_UAV[z] | $0) | l1_Location[x].$1 -> l0_Location[x].$0 | l1_Location[x].(u0_UAV[z] | $1)"))
+          control(new BRR("l0_Location[x].(u0_UAV[z] | $0) | l1_Location[x].$1 -> l0_Location[x].$0 | l1_Location[x].(u0_UAV[z] | $1)"))
           migrate(Symbol("u1"))
           observe("host")
           react{

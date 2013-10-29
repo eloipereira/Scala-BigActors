@@ -15,7 +15,7 @@ abstract class BigActor(val bigActorID: Symbol, val initialHostId: Symbol) exten
     BigActorSchdl ! OBSERVATION_REQUEST(query, bigActorID)
   }
 
-  def control(brr: BigraphReactionRule) {
+  def control(brr: BRR) {
     BigActorSchdl ! CONTROL_REQUEST(brr, bigActorID)
   }
 
@@ -34,6 +34,15 @@ abstract class BigActor(val bigActorID: Symbol, val initialHostId: Symbol) exten
     }
   }
 
+//  TODO - this is an idea for specifying the behavior of remote bigActors
+//  def behavior()
+//  override
+//  def act() = {
+//    behavior
+//    alive(9010)
+//      register(bigActorID, self)
+//  }
+//
   override
   def toString: String =  bigActorID.name
 }
@@ -65,27 +74,30 @@ object BigActorImplicits {
   implicit def Name2BigActorIDHelper(bigActorName: Name) = new BigActorIDHelper(bigActorName)
   implicit def BigActorSignature2BigActorHelper(signature: BigActorSignature) = new  BigActorHelper(signature)
   implicit def MessageHeader2MessageHelper(msgHeader: MessageHeader) = new MessageHelper(msgHeader)
-  implicit def String2BigraphReactionRule(term: String) = new BigraphReactionRule(term)
+  implicit def String2BigraphReactionRule(term: String) = new BRR(term)
   implicit def String2Node(nodeName: String) = new BigraphNode(nodeName)
 
   class BigActorIDHelper(bigActorName: Name){
+
+    val bigActorSchdl = select(Node("localhost",9010), 'bigActorSchdl)
+
     def hosted_at(hostName:Name): BigActorSignature = (Symbol(bigActorName),Symbol(hostName))
     def send_message(msg: Any): MessageHeader = (Symbol(bigActorName),msg)
 
     def observe(query: String) = {
-      BigActorSchdl ! OBSERVATION_REQUEST(query, Symbol(bigActorName))
+      bigActorSchdl ! OBSERVATION_REQUEST(query, Symbol(bigActorName))
     }
 
-    def control(brr: BigraphReactionRule) {
-      BigActorSchdl ! CONTROL_REQUEST(brr, Symbol(bigActorName))
+    def control(brr: BRR) {
+      bigActorSchdl ! CONTROL_REQUEST(brr, Symbol(bigActorName))
     }
 
     def migrate(newHostId: Symbol) {
-      BigActorSchdl ! MIGRATION_REQUEST(newHostId, Symbol(bigActorName))
+      bigActorSchdl ! MIGRATION_REQUEST(newHostId, Symbol(bigActorName))
     }
 
     def send(msg: Message){
-      BigActorSchdl ! SEND_REQUEST(msg, Symbol(bigActorName))
+      bigActorSchdl ! SEND_REQUEST(msg, Symbol(bigActorName))
     }
   }
 

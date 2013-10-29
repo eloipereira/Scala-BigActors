@@ -6,6 +6,9 @@ import bigactors._
 
 
 object TestBigActorsDSL extends App{
+  BigActorSchdl
+  BigraphManager
+
 
   "uav1" hosted_at "u1" with_behavior {
     "uav1" observe "children.parent.host"
