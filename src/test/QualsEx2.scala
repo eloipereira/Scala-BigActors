@@ -6,7 +6,7 @@ import bigactors.BigActorImplicits._
 object QualsEx2 extends App{
 
   new BigActor("NomadicObserver","camera0") {
-    def act() {
+    def behavior() {
       loop {
         observe("children.parent.host")
         react {

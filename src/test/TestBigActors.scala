@@ -7,7 +7,7 @@ import edu.berkeley.eloi.bigraph.BRR
 object TestBigActors extends App{
 
   new BigActor( Symbol("uav1"), Symbol("u1")){
-    def act() {
+    def behavior() {
       observe("children.parent.host")
       loop {
         react {
@@ -19,7 +19,7 @@ object TestBigActors extends App{
   }
 
   new BigActor( Symbol("uav0"), Symbol("u0")){
-    def act() {
+    def behavior() {
       observe("children.parent.host")
       react{
         case obs: Observation => {

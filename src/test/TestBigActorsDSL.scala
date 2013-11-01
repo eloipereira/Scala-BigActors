@@ -6,8 +6,8 @@ import bigactors._
 
 
 object TestBigActorsDSL extends App{
-  BigActorSchdl
-  BigraphManager
+ // BigActorSchdl.start
+ // BigraphManager.start
 
 
   "uav1" hosted_at "u1" with_behavior {
@@ -34,7 +34,7 @@ object TestBigActorsDSL extends App{
             case obs: Observation => println("New observation for uav0: "+ obs)
           }
           "uav0" control "l0_Location[x].(u1_UAV[z] | $0) | l1_Location[x].$1 -> l0_Location[x].$0 | l1_Location[x].(u1_UAV[z] | $1)"
-          "uav0" observe "host"
+          "uav0" observe "children.parent.host"
           receive {
             case obs: Observation => println("New observation for uav0: "+ obs)
           }

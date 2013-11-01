@@ -7,7 +7,7 @@ import edu.berkeley.eloi.bigraph.{BRR, BigraphNode}
 object TestBigActorsREP13 extends App{
 
 val ba0 = new BigActor( Symbol("uav0"), Symbol("u0")){
-    def act() {
+    def behavior() {
       var tankerNotFound = true
       control(new BRR("airfield_Location.(u0_UAV[wifi] | $0) | searchArea_Location.$1 -> airfield_Location.$0 | searchArea_Location.(u0_UAV[wifi] |$1)"))
       while (tankerNotFound){
@@ -25,7 +25,7 @@ val ba0 = new BigActor( Symbol("uav0"), Symbol("u0")){
   }
 
   new BigActor( Symbol("cs0"),  Symbol("cs0")) {
-    def act() {
+    def behavior() {
       react{
         case msg: Message => {
           control(new BRR("vessel0_Vessel[x,ais].$0 || cs0_ControlStation[wifi] -> vessel0_Vessel[wifi,ais].$0 || cs0_ControlStation[wifi]"))
@@ -36,7 +36,7 @@ val ba0 = new BigActor( Symbol("uav0"), Symbol("u0")){
   }
 
   new BigActor( Symbol("vessel0"),  Symbol("vessel0")) {
-    def act() {
+    def behavior() {
       react{
         case msg: Message => {
           control(new BRR("$0|harbour_Location.(vessel0_Vessel[x,y].$2| $1) | searchArea_Location.$3 -> $0|harbour_Location.$1 | searchArea_Location.(vessel0_Vessel[x,y].$2|$3)"))
@@ -48,7 +48,7 @@ val ba0 = new BigActor( Symbol("uav0"), Symbol("u0")){
   }
 
   new BigActor( Symbol("env0"),  Symbol("searchArea")) {
-    def act() {
+    def behavior() {
       control(new BRR("searchArea_Location.$0 -> searchArea_Location.(tanker0_Tanker|$0)"))
     }
   }

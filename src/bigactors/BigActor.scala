@@ -1,48 +1,87 @@
 package bigactors
 
-import actors.Actor
+import scala.actors.{AbstractActor, Actor}
 import edu.berkeley.eloi.bigraph._
-import scala.Predef.String
 import scala.actors.Actor._
 import scala.actors.remote._
 import scala.actors.remote.RemoteActor._
+import edu.berkeley.eloi.bgm2java.Debug
+import java.util.Properties
+import java.io.FileInputStream
 
-abstract class BigActor(val bigActorID: Symbol, val initialHostId: Symbol) extends Actor {
-
-  BigActorSchdl ! HOSTING_REQUEST(this, initialHostId)
+trait BigActorTrait{
+  val bigActorID: Symbol
+  var bigActorSchdl: AbstractActor
 
   def observe(query: String) = {
-    BigActorSchdl ! OBSERVATION_REQUEST(query, bigActorID)
+    bigActorSchdl ! OBSERVATION_REQUEST(query, bigActorID)
   }
 
-  def control(brr: BRR) {
-    BigActorSchdl ! CONTROL_REQUEST(brr, bigActorID)
+  def control(brr: BRR){
+    bigActorSchdl ! CONTROL_REQUEST(brr, bigActorID)
   }
 
-  def migrate(newHostId: Symbol) {
-    BigActorSchdl ! MIGRATION_REQUEST(newHostId, bigActorID)
+  def migrate(newHostId: Symbol){
+    bigActorSchdl ! MIGRATION_REQUEST(newHostId, bigActorID)
   }
 
   def send(msg: Message){
-    BigActorSchdl ! SEND_REQUEST(msg, bigActorID)
+    bigActorSchdl ! SEND_REQUEST(msg, bigActorID)
   }
 
-  override def !(msg:Any){
-    msg match {
-      case m: Message => BigActorSchdl ! SEND_REQUEST(m,bigActorID)
-      case _ => super.!(msg)
+}
+
+abstract class BigActor(val bigActorID: Symbol, val initialHostId: Symbol) extends Actor with BigActorTrait {
+
+
+  val debug: Boolean = true
+
+  // configuration
+  val prop = new Properties
+  prop.load(new FileInputStream("config.properties"))
+  val remote: Boolean = prop.getProperty("RemoteBigActors").toBoolean
+  var bigActorSchdl: AbstractActor = BigActorSchdl
+  if (remote) bigActorSchdl = select(Node(prop.getProperty("BigActorSchdlIP"),prop.getProperty("BigActorSchdlPort").toInt), 'bigActorSchdl)
+
+
+
+  //  override def !(msg:Any){
+  //    msg match {
+  //      case m: Message => bigActorSchdl ! SEND_REQUEST(m,bigActorID)
+  //      case _ => super.!(msg)
+  //    }
+  //  }
+
+  def behavior()
+
+  def act() = {
+    //more configuration
+    if (remote){
+      val port = prop.getProperty(bigActorID.name + "Port").toInt
+      val ip = prop.getProperty(bigActorID.name + "IP")
+      Debug.println("BigActor " +bigActorID.name+ " operating remotely at IP "+ ip + " and port "+ port.toInt,debug)
+      //TODO - check if property actually matches with machine's IP
+      alive(port)
+      register(bigActorID, self)
+
+      bigActorSchdl ! HOSTING_REQUEST_(initialHostId, bigActorID)
+      receive{
+        case HOSTING_SUCCESSFUL => Debug.println("BigActor successfully hosted",debug)
+      }
+    } else {
+      Debug.println("BigActor " +bigActorID.name+ " operating locally",debug)
+
+      bigActorSchdl !  HOSTING_REQUEST(initialHostId, bigActorID, this)
+      receive{
+        case HOSTING_SUCCESSFUL => Debug.println("BigActor successfully hosted",debug)
+      }
     }
+
+
+
+    behavior
   }
 
-//  TODO - this is an idea for specifying the behavior of remote bigActors
-//  def behavior()
-//  override
-//  def act() = {
-//    behavior
-//    alive(9010)
-//      register(bigActorID, self)
-//  }
-//
   override
   def toString: String =  bigActorID.name
 }
@@ -51,14 +90,14 @@ abstract class BigActor(val bigActorID: Symbol, val initialHostId: Symbol) exten
 object BigActor{
   def apply(bigActorID: Symbol,  initialHostId: Symbol, body: => Unit) = {
     val b = new BigActor( bigActorID: Symbol,  initialHostId: Symbol) {
-      override def act() = body
+      override def behavior() = body
     }
     b
   }
 
   def bigActor(id: Symbol)(hostId: Symbol)(body: => Unit): BigActor = {
     val b = new BigActor(id,hostId){
-      override def act() = body
+      override def behavior() = body
     }
     b
   }
@@ -77,39 +116,27 @@ object BigActorImplicits {
   implicit def String2BigraphReactionRule(term: String) = new BRR(term)
   implicit def String2Node(nodeName: String) = new BigraphNode(nodeName)
 
-  class BigActorIDHelper(bigActorName: Name){
+  class BigActorIDHelper(bigActorName: Name) extends BigActorTrait{
 
-    val bigActorSchdl = select(Node("localhost",9010), 'bigActorSchdl)
+    val bigActorID = Symbol(bigActorName)
 
-    def hosted_at(hostName:Name): BigActorSignature = (Symbol(bigActorName),Symbol(hostName))
-    def send_message(msg: Any): MessageHeader = (Symbol(bigActorName),msg)
+    // configuration
+    val prop = new Properties
+    prop.load(new FileInputStream("config.properties"))
+    val remote: Boolean = prop.getProperty("RemoteBigActors").toBoolean
+    var bigActorSchdl: AbstractActor = BigActorSchdl
+    if (remote) bigActorSchdl = select(Node(prop.getProperty("BigActorSchdlIP"),prop.getProperty("BigActorSchdlPort").toInt), 'bigActorSchdl)
 
-    def observe(query: String) = {
-      bigActorSchdl ! OBSERVATION_REQUEST(query, Symbol(bigActorName))
-    }
+    def hosted_at(hostName:Name): BigActorSignature = (bigActorID,Symbol(hostName))
+    def send_message(msg: Any): MessageHeader = (bigActorID,msg)
 
-    def control(brr: BRR) {
-      bigActorSchdl ! CONTROL_REQUEST(brr, Symbol(bigActorName))
-    }
-
-    def migrate(newHostId: Symbol) {
-      bigActorSchdl ! MIGRATION_REQUEST(newHostId, Symbol(bigActorName))
-    }
-
-    def send(msg: Message){
-      bigActorSchdl ! SEND_REQUEST(msg, Symbol(bigActorName))
-    }
   }
 
   class BigActorHelper(signature: BigActorSignature){
     def with_behavior (body : => Unit): BigActor = new BigActor(signature._1,signature._2) {
-      def act() = {
-        alive(9010)
-        register(bigActorID, self)
+      def behavior() = body
 
-        body
-
-      }
+      start
     }
   }
 

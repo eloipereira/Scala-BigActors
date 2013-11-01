@@ -6,7 +6,7 @@ import bigactors.BigActorImplicits._
 object QualsEx1 extends App{
 
   new BigActor("observer","camera0") {
-    def act() {
+    def behavior() {
       loop {
         observe("children.parent.host")
         react {
@@ -17,7 +17,7 @@ object QualsEx1 extends App{
   }
 
   new BigActor("env","room0"){
-    def act(){
+    def behavior(){
       control("room0_Room.$0 -> room0_Room.(p0_Person|$0)")
       control("room0_Room.$0 -> room0_Room.(p1_Person|$0)")
       control("room0_Room.$0 -> room0_Room.(p2_Person|$0)")
