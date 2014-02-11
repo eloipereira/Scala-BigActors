@@ -13,13 +13,13 @@ import java.io.FileOutputStream
 object GenerateConfig extends App {
   val prop = new Properties()
 
-  val config = "localhost"
+  val config = "localhostICCPS"
 
   config match {
     case "default" => {
       prop.setProperty("RemoteBigActors","false")
     }
-    case "localhost" => {
+    case "localhostSimple" => {
       prop.setProperty("RemoteBigActors","true")
       prop.setProperty("BigActorSchdlIP","localhost")
       prop.setProperty("BigActorSchdlPort","9010")
@@ -29,6 +29,17 @@ object GenerateConfig extends App {
       prop.setProperty("uav0Port","9012")
       prop.setProperty("uav1IP","localhost")
       prop.setProperty("uav1Port","9013")
+    }
+    case "localhostICCPS" => {
+      prop.setProperty("RemoteBigActors","true")
+      prop.setProperty("BigActorSchdlIP","localhost")
+      prop.setProperty("BigActorSchdlPort","9010")
+      prop.setProperty("BigraphManagerIP","localhost")
+      prop.setProperty("BigraphManagerPort","9011")
+      prop.setProperty("searchOilIP","localhost")
+      prop.setProperty("searchOilPort","9012")
+      prop.setProperty("deployDrifterIP","localhost")
+      prop.setProperty("deployDrifterPort","9013")
     }
   }
   prop.store(new FileOutputStream("config.properties"),null)

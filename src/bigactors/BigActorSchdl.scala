@@ -10,7 +10,6 @@ import scala.actors.Actor._
 import scala.actors.remote.Node
 import java.util.Properties
 import java.io.FileInputStream
-import bigactors.Message
 import scala.collection.mutable
 
 

@@ -31,7 +31,7 @@ trait BigActorTrait{
 
 }
 
-abstract class BigActor(val bigActorID: Symbol, val initialHostId: Symbol) extends Actor with BigActorTrait {
+abstract class BigActor(val bigActorID: Symbol, var hostID: Symbol) extends Actor with BigActorTrait {
 
 
   val debug: Boolean = true
@@ -64,14 +64,14 @@ abstract class BigActor(val bigActorID: Symbol, val initialHostId: Symbol) exten
       alive(port)
       register(bigActorID, self)
 
-      bigActorSchdl ! HOSTING_REQUEST_(initialHostId, bigActorID)
+      bigActorSchdl ! HOSTING_REQUEST_(hostID, bigActorID)
       receive{
         case HOSTING_SUCCESSFUL => Debug.println("BigActor successfully hosted",debug)
       }
     } else {
       Debug.println("BigActor " +bigActorID.name+ " operating locally",debug)
 
-      bigActorSchdl !  HOSTING_REQUEST(initialHostId, bigActorID, this)
+      bigActorSchdl !  HOSTING_REQUEST(hostID, bigActorID, this)
       receive{
         case HOSTING_SUCCESSFUL => Debug.println("BigActor successfully hosted",debug)
       }

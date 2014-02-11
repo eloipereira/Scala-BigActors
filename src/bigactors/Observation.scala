@@ -6,6 +6,7 @@ class Observation (val obs : Array[Place]) extends Serializable {
   def toString() = "[" + obs.deep.mkString(",") + "]"
 
   def contains(node: Place): Boolean = obs.contains(node)
+
 }
 
 

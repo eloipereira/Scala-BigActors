@@ -25,7 +25,7 @@ case class BIGRAPH_RESPONSE(bigraph: Bigraph) extends BigraphManagerAPI
 
 object BigraphManager extends Actor with App {
 
-  var brs: BRS = new BRS("/Users/eloipereira/Dropbox/IDEAWorkspace/BigActors/src/examples/simple.bgm",true,true)
+  var brs: BRS = new BRS("/Users/eloipereira/Dropbox/IDEAWorkspace/BigActors/src/examples/ICCPS.bgm",true,true)
   val debug = true
 
 
@@ -55,6 +55,7 @@ object BigraphManager extends Actor with App {
       react{
         case EXECUTE_BRR(brr) => {
           Debug.println("Old bigraph: " + brs,debug)
+          Thread.sleep(2000)
           brs.applyRules(List(brr),2)
           Debug.println("New bigraph: " + brs,debug)
         }
