@@ -12,6 +12,5 @@ import edu.berkeley.eloi.bigraph.BRR
  */
 class Controller(controllerID: Symbol, controllerHostID: Symbol, brr: BRR) extends BigActor(controllerID, controllerHostID) {
   def behavior{
-
   }
 }
