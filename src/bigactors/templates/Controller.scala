@@ -11,6 +11,7 @@ import edu.berkeley.eloi.bigraph.BRR
  * To change this template use File | Settings | File Templates.
  */
 class Controller(controllerID: Symbol, controllerHostID: Symbol, brr: BRR) extends BigActor(controllerID, controllerHostID) {
+  val test = true
   def behavior{
   }
 }

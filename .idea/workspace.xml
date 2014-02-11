@@ -95,7 +95,7 @@
       <file leaf-file-name="Controller.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/bigactors/templates/Controller.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="15" selection-start="418" selection-end="418" vertical-scroll-proportion="0.44554454" vertical-offset="0" max-vertical-offset="404">
+            <state line="13" column="18" selection-start="420" selection-end="420" vertical-scroll-proportion="0.44554454" vertical-offset="0" max-vertical-offset="404">
               <folding />
             </state>
           </provider>
@@ -793,7 +793,11 @@
       <created>1392129109785</created>
       <updated>1392129109785</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Test branch&#10;">
+      <created>1392129608707</created>
+      <updated>1392129608707</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -827,7 +831,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2495935" sideWeight="0.92705166" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33617023" sideWeight="0.63671875" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33617023" sideWeight="0.63671875" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32986537" sideWeight="0.70364743" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32826748" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33617023" sideWeight="0.36328125" order="9" side_tool="false" content_ui="tabs" />
@@ -858,7 +862,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="introduced implicits to enable a DSL-like bigActor declaration. Next step is to give host management fully to the scheduler." />
     <MESSAGE value="Change the way of calling scheduler" />
     <MESSAGE value="Save BigActors addresses inside the scheduler so that I only need to use ids to send messages" />
     <MESSAGE value="New send command. Less cluttered than ! (bang)" />
@@ -883,7 +886,8 @@
     <MESSAGE value="Everything is a remote actor running at local host." />
     <MESSAGE value="Configuration file to configure remote bigActors. Regular actors (default configuration) are still not working. Use remote actors at locahost." />
     <MESSAGE value="Define bigActor sensor template." />
-    <option name="LAST_COMMIT_MESSAGE" value="Define bigActor sensor template." />
+    <MESSAGE value="Test branch&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test branch&#10;" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1074,7 +1078,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bigactors/templates/Controller.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="15" selection-start="418" selection-end="418" vertical-scroll-proportion="0.44554454" vertical-offset="0" max-vertical-offset="404">
+        <state line="13" column="18" selection-start="420" selection-end="420" vertical-scroll-proportion="0.44554454" vertical-offset="0" max-vertical-offset="404">
           <folding />
         </state>
       </provider>
