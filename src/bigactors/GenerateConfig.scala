@@ -13,13 +13,17 @@ import java.io.FileOutputStream
 object GenerateConfig extends App {
   val prop = new Properties()
 
-  val config = "localhostICCPS"
+  val config = "defaultSimple"
 
   config match {
-    case "default" => {
+    case "defaultSimple" => {
       prop.setProperty("RemoteBigActors","false")
+      prop.setProperty("bgmPath","/Users/eloipereira/Dropbox/IDEAWorkspace/BigActors/src/examples/simple.bgm")
+      prop.setProperty("visualization","true")
+      prop.setProperty("debug","true")
+      prop.setProperty("log","false")
     }
-    case "localhostSimple" => {
+    case "localhostRemoteSimple" => {
       prop.setProperty("RemoteBigActors","true")
       prop.setProperty("BigActorSchdlIP","localhost")
       prop.setProperty("BigActorSchdlPort","9010")
@@ -29,8 +33,12 @@ object GenerateConfig extends App {
       prop.setProperty("uav0Port","9012")
       prop.setProperty("uav1IP","localhost")
       prop.setProperty("uav1Port","9013")
+      prop.setProperty("bgmPath","/Users/eloipereira/Dropbox/IDEAWorkspace/BigActors/src/examples/simple.bgm")
+      prop.setProperty("visualization","true")
+      prop.setProperty("debug","true")
+      prop.setProperty("log","false")
     }
-    case "localhostICCPS" => {
+    case "localhostRemoteICCPS" => {
       prop.setProperty("RemoteBigActors","true")
       prop.setProperty("BigActorSchdlIP","localhost")
       prop.setProperty("BigActorSchdlPort","9010")
@@ -40,6 +48,10 @@ object GenerateConfig extends App {
       prop.setProperty("searchOilPort","9012")
       prop.setProperty("deployDrifterIP","localhost")
       prop.setProperty("deployDrifterPort","9013")
+      prop.setProperty("bgmPath","/Users/eloipereira/Dropbox/IDEAWorkspace/BigActors/src/examples/ICCPS.bgm")
+      prop.setProperty("visualization","true")
+      prop.setProperty("debug","true")
+      prop.setProperty("log","false")
     }
   }
   prop.store(new FileOutputStream("config.properties"),null)

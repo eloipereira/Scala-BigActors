@@ -1,11 +1,11 @@
 package test
 
 import actors.Actor._
-import bigactors.BigActorImplicits._
+import bigactors.RemoteBigActorImplicits._
 import bigactors._
 
 
-object TestBigActorsDSL extends App{
+object TestRemoteBigActorsDSL extends App{
  // BigActorSchdl.start
  // BigraphManager.start
 

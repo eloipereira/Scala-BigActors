@@ -1,7 +1,7 @@
 package test
 
 import actors.Actor._
-import bigactors.BigActorImplicits._
+import bigactors.RemoteBigActorImplicits._
 import bigactors._
 import edu.berkeley.eloi.bigraph.{BRR, BigraphNode}
 

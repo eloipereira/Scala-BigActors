@@ -6,7 +6,7 @@ import edu.berkeley.eloi.bigraph.{BRR, BigraphNode}
 
 object TestBigActorsREP13 extends App{
 
-val ba0 = new BigActor( Symbol("uav0"), Symbol("u0")){
+val ba0 = new RemoteBigActor( Symbol("uav0"), Symbol("u0")){
     def behavior() {
       var tankerNotFound = true
       control(new BRR("airfield_Location.(u0_UAV[wifi] | $0) | searchArea_Location.$1 -> airfield_Location.$0 | searchArea_Location.(u0_UAV[wifi] |$1)"))
@@ -24,7 +24,7 @@ val ba0 = new BigActor( Symbol("uav0"), Symbol("u0")){
     }
   }
 
-  new BigActor( Symbol("cs0"),  Symbol("cs0")) {
+  new RemoteBigActor( Symbol("cs0"),  Symbol("cs0")) {
     def behavior() {
       react{
         case msg: Message => {
@@ -35,7 +35,7 @@ val ba0 = new BigActor( Symbol("uav0"), Symbol("u0")){
     }
   }
 
-  new BigActor( Symbol("vessel0"),  Symbol("vessel0")) {
+  new RemoteBigActor( Symbol("vessel0"),  Symbol("vessel0")) {
     def behavior() {
       react{
         case msg: Message => {
@@ -47,7 +47,7 @@ val ba0 = new BigActor( Symbol("uav0"), Symbol("u0")){
     }
   }
 
-  new BigActor( Symbol("env0"),  Symbol("searchArea")) {
+  new RemoteBigActor( Symbol("env0"),  Symbol("searchArea")) {
     def behavior() {
       control(new BRR("searchArea_Location.$0 -> searchArea_Location.(tanker0_Tanker|$0)"))
     }

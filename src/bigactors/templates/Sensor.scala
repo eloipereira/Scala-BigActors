@@ -1,6 +1,6 @@
 package bigactors.templates
 
-import bigactors.{Message, Observation, BigActor}
+import bigactors.{RemoteBigActor, Message, Observation, BigActor}
 
 /**
  * Created with IntelliJ IDEA.
@@ -9,7 +9,7 @@ import bigactors.{Message, Observation, BigActor}
  * Time: 12:16 PM
  * To change this template use File | Settings | File Templates.
  */
-class Sensor(sensorID: Symbol, sensorHostID: Symbol, query: String, clients: List[Symbol]) extends BigActor(sensorID, sensorHostID) {
+class Sensor(sensorID: Symbol, sensorHostID: Symbol, query: String, clients: List[Symbol]) extends RemoteBigActor(sensorID, sensorHostID) {
   def behavior{
     loop{
       observe(query)

@@ -1,11 +1,11 @@
 package test
 
 import bigactors._
-import bigactors.BigActorImplicits._
+import bigactors.RemoteBigActorImplicits._
 
 object QualsEx1 extends App{
 
-  new BigActor("observer","camera0") {
+  new RemoteBigActor("observer","camera0") {
     def behavior() {
       loop {
         observe("children.parent.host")
@@ -16,7 +16,7 @@ object QualsEx1 extends App{
     }
   }
 
-  new BigActor("env","room0"){
+  new RemoteBigActor("env","room0"){
     def behavior(){
       control("room0_Room.$0 -> room0_Room.(p0_Person|$0)")
       control("room0_Room.$0 -> room0_Room.(p1_Person|$0)")

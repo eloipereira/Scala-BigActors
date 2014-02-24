@@ -1,11 +1,11 @@
 package test
 
 import bigactors._
-import bigactors.BigActorImplicits._
+import bigactors.RemoteBigActorImplicits._
 
 object QualsEx2 extends App{
 
-  new BigActor("NomadicObserver","camera0") {
+  new RemoteBigActor("NomadicObserver","camera0") {
     def behavior() {
       loop {
         observe("children.parent.host")

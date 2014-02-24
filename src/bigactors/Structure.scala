@@ -9,9 +9,9 @@ package bigactors
  */
 abstract class Structure
 
-case class HOST(bigActor: BigActor) extends Structure
+case class HOST(bigActor: RemoteBigActor) extends Structure
 
-case class PARENT_HOST(bigActor: BigActor) extends Structure
+case class PARENT_HOST(bigActor: RemoteBigActor) extends Structure
 
-case class CHILDREN_PARENT_HOST(bigActor: BigActor) extends Structure
+case class CHILDREN_PARENT_HOST(bigActor: RemoteBigActor) extends Structure
 

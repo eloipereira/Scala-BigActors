@@ -18,50 +18,36 @@ import java.io.FileInputStream
  * To change this template use File | Settings | File Templates.
  */
 
-sealed trait BigraphManagerAPI extends Serializable
-case class EXECUTE_BRR(brr: BRR) extends BigraphManagerAPI
-case object BIGRAPH_REQUEST extends BigraphManagerAPI
-case class BIGRAPH_RESPONSE(bigraph: Bigraph) extends BigraphManagerAPI
+object BigraphManager extends Actor {
 
-object BigraphManager extends Actor with App {
-
-  var brs: BRS = new BRS("/Users/eloipereira/Dropbox/IDEAWorkspace/BigActors/src/examples/ICCPS.bgm",true,true)
-  val debug = true
 
 
   // configuration
   val prop = new Properties
   prop.load(new FileInputStream("config.properties"))
-  val remote: Boolean = prop.getProperty("RemoteBigActors").toBoolean
-  var bigActorSchdl: AbstractActor = BigActorSchdl
-  if (remote) bigActorSchdl = select(Node(prop.getProperty("BigActorSchdlIP"),prop.getProperty("BigActorSchdlPort").toInt), 'bigActorSchdl)
+  val bgmPath: String = prop.getProperty("bgmPath")
+  val debug = prop.getProperty("debug").toBoolean
+  val visualization = prop.getProperty("visualization").toBoolean
+  val log = prop.getProperty("log").toBoolean
+
+  var brs: BRS = new BRS(bgmPath,log,visualization)
 
 
   def act() {
 
-    //more configuration
-    if (remote){
-      val port = prop.getProperty("BigraphManagerPort").toInt
-      val ip = prop.getProperty("BigraphManagerIP")
-      Debug.println("BigraphManager operating remotely at IP "+ ip + " and port "+ port.toInt,debug)
-      //TODO - check if property actually matches with machine's IP
-      alive(port)
-      register('bigraphManager, self)
-    } else {
-      Debug.println("BigraphManager operating locally",debug)
-    }
+    Debug.println("[BigraphManager]:\t Interfacing with bigraph at " + bgmPath,debug)
 
     loop{
       react{
         case EXECUTE_BRR(brr) => {
-          Debug.println("Old bigraph: " + brs,debug)
+          Debug.println("[BigraphManager]:\t Old bigraph: " + brs,debug)
           Thread.sleep(2000)
           brs.applyRules(List(brr),2)
-          Debug.println("New bigraph: " + brs,debug)
+          Debug.println("[BigraphManager]:\t New bigraph: " + brs,debug)
         }
         case BIGRAPH_REQUEST => {
-          Debug.println("Sending bigraph to scheduler",debug)
-          bigActorSchdl ! BIGRAPH_RESPONSE(brs.getBigraph)
+          Debug.println("[BigraphManager]:\t Sending bigraph",debug)
+          sender ! BIGRAPH_RESPONSE(brs.getBigraph)
         }
       }
     }
