@@ -1,0 +1,2 @@
+airfield_Location.(u0_UAV[wifi]|u1_UAV[wifi]|cs0_ControlStation[wifi])|harbour_Location.(vessel0_Vessel[x,ais].(drifter0_Drifter[ais]|drifter1_Drifter[ais]))|searchArea_Location
+airfield_Location.(u1_UAV[wifi].nil|cs0_ControlStation[wifi].nil)|searchArea_Location.(u0_UAV[wifi].nil)|harbour_Location.vessel0_Vessel[x,ais].(drifter0_Drifter[ais].nil|drifter1_Drifter[ais].nil)

@@ -1,0 +1,2 @@
+l0_Location[x].(u0_UAV[y]|u1_UAV[y])|l1_Location[x]
+l0_Location[x].u1_UAV[y].nil|l1_Location[x].(u0_UAV[y].nil)

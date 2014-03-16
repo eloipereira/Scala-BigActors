@@ -1,0 +1,36 @@
+%active u0_UAV : 1;
+%active u1_UAV : 1;
+%active cs0_ControlStation : 1;
+%active airfield_Location : 0;
+%active searchArea_Location : 0;
+%active harbour_Location : 0;
+%active tanker0_Tanker : 0;
+%active vessel0_Vessel : 2;
+%active drifter0_Drifter : 1;
+%active drifter1_Drifter : 1;
+%active spill0_Spill : 0;
+%active spill1_Spill : 0;
+
+%name ais;
+%name wifi;
+
+%rule search0 airfield_Location.(u0_UAV[wifi] | $0) | searchArea_Location.$1 -> airfield_Location.$0 | searchArea_Location.(u0_UAV[wifi] |$1);
+%rule rth0 airfield_Location.$0 | searchArea_Location.(u0_UAV[x] | $1) -> airfield_Location.(u0_UAV[x] | $0) | searchArea_Location.$1;
+%rule genTanker0 searchArea_Location.$0 -> searchArea_Location.(tanker0_Tanker|$0);
+%rule connVessel0 vessel0_Vessel[x,ais].$0 || cs0_ControlStation[wifi] -> vessel0_Vessel[wifi,ais].$0 || cs0_ControlStation[wifi];
+%rule navVessel0 $0|harbour_Location.(vessel0_Vessel[x,y].$2| $1) | searchArea_Location.$3 -> $0|harbour_Location.$1 | searchArea_Location.(vessel0_Vessel[x,y].$2|$3);
+%rule deployDrifter0 vessel0_Vessel[x,y].(drifter0_Drifter[y]| $1) -> vessel0_Vessel[x,y].$1|drifter0_Drifter[y];
+%rule deployDrifter1 vessel0_Vessel[x,y].(drifter1_Drifter[y]| $1) -> vessel0_Vessel[x,y].$1|drifter1_Drifter[y];
+%rule pollute0 tanker0_Tanker -> tanker0_Tanker|spill0_Spill;
+%rule pollute1 tanker0_Tanker -> tanker0_Tanker|spill1_Spill;
+%rule deployDrifter0OnSpill0 vessel0_Vessel[x,y] | spill0_Spill | drifter0_Drifter[y] -> vessel0_Vessel[x,y] | spill0_Spill.drifter0_Drifter[y];
+%rule deployDrifter1OnSpill1 vessel0_Vessel[x,y] | spill1_Spill | drifter1_Drifter[y] -> vessel0_Vessel[x,y] | spill1_Spill.drifter1_Drifter[y];
+
+airfield_Location.(u0_UAV[wifi]
+                 | u1_UAV[wifi]
+                 | cs0_ControlStation[wifi])
+| harbour_Location.(vessel0_Vessel[x,ais].(drifter0_Drifter[ais]
+                                         | drifter1_Drifter[ais]))
+| searchArea_Location;
+
+%check

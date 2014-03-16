@@ -1,0 +1,4 @@
+room0_Room.(camera0_Camera[x])
+room0_Room.(p0_Person|camera0_Camera[x])
+room0_Room.(p1_Person|p0_Person|camera0_Camera[x])
+room0_Room.(p2_Person|p1_Person|p0_Person|camera0_Camera[x])

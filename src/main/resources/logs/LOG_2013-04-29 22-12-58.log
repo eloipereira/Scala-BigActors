@@ -1,0 +1,8 @@
+airfield_Location.(u0_UAV[wifi]|u1_UAV[wifi]|cs0_ControlStation[wifi])|harbour_Location.(vessel0_Vessel[x,ais].(drifter0_Drifter[ais]|drifter1_Drifter[ais]))|searchArea_Location
+airfield_Location.(u1_UAV[wifi]|cs0_ControlStation[wifi])|searchArea_Location.(u0_UAV[wifi])|harbour_Location.vessel0_Vessel[x,ais].(drifter0_Drifter[ais]|drifter1_Drifter[ais])
+airfield_Location.(u1_UAV[wifi]|cs0_ControlStation[wifi])|searchArea_Location.(tanker0_Tanker|u0_UAV[wifi])|harbour_Location.vessel0_Vessel[x,ais].(drifter0_Drifter[ais]|drifter1_Drifter[ais])
+airfield_Location.(u0_UAV[wifi]|u1_UAV[wifi]|cs0_ControlStation[wifi])|searchArea_Location.tanker0_Tanker|harbour_Location.vessel0_Vessel[x,ais].(drifter0_Drifter[ais]|drifter1_Drifter[ais])
+airfield_Location.(u0_UAV[wifi]|u1_UAV[wifi]|cs0_ControlStation[wifi])|searchArea_Location.tanker0_Tanker|harbour_Location.vessel0_Vessel[wifi,ais].(drifter0_Drifter[ais]|drifter1_Drifter[ais])
+airfield_Location.(u0_UAV[wifi]|u1_UAV[wifi]|cs0_ControlStation[wifi])|harbour_Location|searchArea_Location.(vessel0_Vessel[wifi,ais].(drifter0_Drifter[ais]|drifter1_Drifter[ais])|tanker0_Tanker)
+airfield_Location.(u0_UAV[wifi]|u1_UAV[wifi]|cs0_ControlStation[wifi])|harbour_Location|searchArea_Location.(vessel0_Vessel[wifi,ais].drifter1_Drifter[ais]|drifter0_Drifter[ais]|tanker0_Tanker)
+airfield_Location.(u0_UAV[wifi]|u1_UAV[wifi]|cs0_ControlStation[wifi])|harbour_Location|searchArea_Location.(vessel0_Vessel[wifi,ais]|drifter1_Drifter[ais]|drifter0_Drifter[ais]|tanker0_Tanker)

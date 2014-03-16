@@ -1,71 +1,354 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1745a8c2-2d13-46d6-885b-7ddac145ee4e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/QualsEx1.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/QualsEx2.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/TestBigActors.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/TestBigActorsREP13.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/TestQuery.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/TestRemoteBigActors.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/TestRemoteBigActorsDSL.scala" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Bgm2Java.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/BigraphVisualizer.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/antlr_3_4_complete.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Bgm2Java.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/BigraphVisualizer.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/antlr-3.4-complete.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/BigActors/bigactors/BRR.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/BigActors/bigactors/BigActor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/BigActors/bigactors/Bigraph.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/BigActors/bigactors/BigraphSchdl$$anonfun$act$1$$anonfun$apply$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/BigActors/bigactors/BigraphSchdl$$anonfun$act$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/BigActors/bigactors/BigraphSchdl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/BigActors/bigactors/Message.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/BigActors/bigactors/Node.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/BigActors/bigactors/Query.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/BigActors/graphs/EmptyTree$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/BigActors/graphs/EmptyTree.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/BigActors/graphs/Node$$anonfun$toString$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/BigActors/graphs/Node$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/BigActors/graphs/Node.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/BigActors/graphs/Tree.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/BigActors/test/TestBigActors$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/BigActors/test/TestBigActors$SimpleBigActor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/BigActors/test/TestBigActors.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/BigActors/test/TestTree$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/BigActors/test/TestTree.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/akkaBigActors/BigActorExtensionImpl.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/bigactors/BigActor.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/bigactors/BigActorSchdl.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/bigactors/BigraphManager.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/bigactors/GenerateConfig.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/bigactors/Launch.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/bigactors/Message.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/bigactors/Observation.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/bigactors/RemoteBigActor.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/bigactors/RemoteBigActorSchdl.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/bigactors/RemoteBigraphManager.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/bigactors/SimpleQueryCompiler.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/bigactors/Structure.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/bigactors/templates/Controller.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/bigactors/templates/Sensor.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/examples/ICCPS.bgm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/examples/REP13.bgm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/examples/airport.bmg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/examples/qualsEx1.bgm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/examples/qualsEx2.bgm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/examples/simple.bgm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/ICCPSBigActors.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/QualsEx1.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/QualsEx2.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/TestBigActors.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/TestBigActorsREP13.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/TestQuery.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/TestRemoteBigActors.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/TestRemoteBigActorsDSL.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/TestStructureValues.scala" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BigActors.iml" afterPath="$PROJECT_DIR$/BigActors.iml" />
+    <list default="true" id="1745a8c2-2d13-46d6-885b-7ddac145ee4e" name="Default" comment="Structure project to use along with SBT&#10;">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/Bgm2Java.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/BigraphVisualizer.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/antlr-3.4-complete.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/BigActor.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/BigActorSchdl.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/BigraphManager.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/Controller.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/GenerateConfig.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/ICCPS.bgm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/ICCPSBigActors.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-20 02-01-14.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-21 14-05-03.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-21 14-37-18.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-21 16-25-12.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-21 22-06-10.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-21 22-08-54.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-21 22-53-31.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-21 22-55-02.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-21 23-54-53.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-22 00-23-17.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-22 11-33-09.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-22 11-34-50.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-22 11-36-12.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-22 11-37-04.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-22 11-37-57.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-22 11-39-00.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-22 15-08-06.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-22 15-21-50.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-22 16-50-15.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-22 16-50-22.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-22 16-51-23.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-22 18-05-54.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-22 19-34-17.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-23 23-03-08.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-24 01-01-01.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-24 01-01-37.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-24 01-02-36.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-24 01-05-13.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-24 01-17-45.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-24 01-19-48.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-24 01-21-31.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-24 01-23-15.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-24 01-24-02.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-24 01-24-20.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-24 01-26-27.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-24 17-30-45.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-25 20-49-33.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-25 22-20-16.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-25 22-20-23.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-25 22-42-24.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-26 17-24-58.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-26 17-26-19.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-26 17-27-44.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-26 17-29-34.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-26 17-39-16.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-26 17-40-09.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-26 17-42-40.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-26 20-16-07.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-26 20-17-53.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-26 21-00-41.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-26 21-40-59.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-26 22-56-35.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-26 23-06-25.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-26 23-19-25.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-26 23-22-54.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-26 23-25-32.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-26 23-40-00.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-26 23-40-17.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-27 00-04-58.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-27 00-12-23.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-27 00-13-59.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-02-27 10-15-30.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-03-09 17-49-21.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-03-09 20-08-25.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-03-11 14-55-34.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-03-11 19-26-13.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-03-11 19-26-32.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-03-12 01-41-39.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-03-12 01-59-48.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-03-12 02-00-04.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-03-12 02-08-39.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-03-12 02-08-48.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-03 16-02-23.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-04 14-26-05.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-13 14-48-22.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-19 17-12-38.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-25 00-34-54.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-25 00-35-52.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-25 00-38-17.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-25 16-20-10.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-25 16-21-39.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-25 16-57-26.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-25 16-58-32.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-25 16-59-28.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-25 17-00-06.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-28 15-48-19.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-28 15-49-09.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-28 15-50-12.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-28 19-19-21.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-28 19-25-49.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-28 19-27-08.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-28 19-28-49.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-28 19-31-22.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-28 19-32-03.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-28 19-38-17.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-28 19-41-52.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-28 19-42-34.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-28 19-43-21.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-28 19-48-56.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-28 19-49-39.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-28 19-50-15.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-28 19-52-14.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-28 19-56-59.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-28 19-57-24.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-28 19-58-00.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-28 19-58-36.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-28 20-25-23.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-28 20-26-40.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-28 20-27-51.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-28 20-30-35.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-28 20-31-45.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-29 19-19-41.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-29 19-22-05.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-29 22-00-21.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-29 22-12-19.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-29 22-12-58.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-29 22-14-34.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-29 22-14-56.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-04-29 22-15-48.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 21-42-16.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 21-43-08.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 21-44-02.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 21-53-13.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 21-53-55.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 21-57-55.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 21-59-08.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 22-01-39.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 22-03-41.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 22-08-06.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 22-09-49.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 22-13-50.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 22-15-07.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 22-16-11.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 22-17-22.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 22-18-01.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 22-19-43.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 22-20-20.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 22-52-01.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 22-52-54.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 22-54-18.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 22-56-25.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 23-02-55.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 23-03-21.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 23-08-32.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 23-19-44.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 23-20-23.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 23-23-11.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 23-25-24.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 23-26-32.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-09 23-28-45.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-14 19-52-22.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-14 19-59-46.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-14 20-02-16.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-14 20-04-20.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-14 20-10-01.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-14 20-11-13.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-14 20-12-50.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-15 11-19-59.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-15 11-22-10.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-15 11-25-55.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-15 11-26-44.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-15 13-25-06.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-15 13-39-51.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-17 15-06-36.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-17 18-06-43.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-18 19-27-43.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-18 19-28-25.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-05-18 19-30-12.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-06-23 14-16-47.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-06-23 14-18-10.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-06-23 14-19-06.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-06-23 18-28-06.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-06-23 18-39-20.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 00-58-42.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 01-03-17.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 01-06-16.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 12-26-52.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 12-54-49.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 12-57-55.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 13-05-54.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 13-13-35.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 13-18-17.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 13-20-09.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 13-23-06.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 14-19-19.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 14-43-01.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 14-43-47.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 14-45-58.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 14-47-36.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 14-48-25.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 14-49-37.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 15-04-43.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 15-05-43.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 15-07-22.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 15-10-23.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 15-13-03.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 15-21-56.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 15-23-36.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 15-26-36.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 15-27-08.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 15-29-55.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-24 19-53-18.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-25 13-07-14.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-25 13-21-48.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-25 17-36-39.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-25 17-40-07.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-25 17-45-30.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-25 17-48-28.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-25 17-50-08.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-28 12-12-45.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-28 12-14-35.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-28 12-19-42.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-28 14-11-10.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-28 14-40-51.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-28 14-42-20.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-28 15-27-52.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-28 17-07-02.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-28 17-38-06.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-28 17-42-13.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-28 17-46-01.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-28 17-47-38.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-28 17-52-12.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 10-06-47.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 11-49-59.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 11-52-34.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 11-53-57.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 11-57-58.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 12-06-13.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 12-12-03.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 14-43-49.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 14-45-32.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 14-48-19.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 14-49-43.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 15-01-31.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 15-18-03.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 15-20-45.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 15-22-29.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 15-23-51.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 15-40-03.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 15-40-17.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 15-40-40.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 15-44-09.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 15-47-59.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 15-51-53.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 15-53-11.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 15-56-17.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 16-00-08.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 17-03-59.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 17-07-50.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 17-15-39.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 17-19-40.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 17-21-41.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 17-24-13.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 19-34-40.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 19-35-39.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 19-36-33.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 19-38-03.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 19-42-17.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 22-18-23.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 22-45-58.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 22-55-05.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 23-07-12.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 23-08-26.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 23-10-06.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 23-12-22.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 23-12-46.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 23-27-35.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 23-28-11.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 23-28-41.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 23-30-35.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 23-36-35.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 23-47-43.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 23-50-01.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 23-53-10.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 23-54-11.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-29 23-55-02.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-30 12-25-54.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-30 12-27-58.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-30 12-52-07.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-30 12-57-00.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-30 13-17-47.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-30 13-25-27.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-30 13-29-36.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-10-30 13-40-00.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-11-01 10-25-59.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-11-01 10-27-56.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-11-01 10-29-45.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-11-01 10-38-49.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-11-01 10-45-24.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-11-01 16-27-51.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-11-02 01-00-44.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-11-02 01-04-47.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-11-02 01-06-31.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-11-04 16-59-25.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2013-11-04 17-02-53.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2014-02-24 10-11-14.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2014-02-24 10-15-11.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2014-02-24 10-20-09.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2014-02-24 10-28-43.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2014-02-24 10-33-53.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2014-02-24 10-37-35.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2014-02-24 10-42-46.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2014-02-24 10-49-35.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2014-02-24 10-52-56.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2014-02-24 10-58-55.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2014-02-24 11-37-56.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2014-02-24 11-40-41.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2014-02-24 11-41-40.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2014-02-24 11-48-21.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2014-02-24 11-53-27.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2014-02-24 11-55-15.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2014-02-24 11-57-29.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2014-02-24 12-01-03.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2014-02-24 12-03-15.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2014-02-24 13-06-34.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2014-02-24 13-14-40.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2014-02-24 13-21-09.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logs/LOG_2014-02-24 13-27-24.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/Launch.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/Message.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/Observation.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/REP13.bgm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/RemoteBigActor.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/RemoteBigActorSchdl.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/RemoteBigraphManager.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/Sensor.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/SimpleQueryCompiler.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/Structure.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/TestStructureValues.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/airport.bmg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build.sbt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/qualsEx1.bgm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/qualsEx2.bgm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/simple.bgm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/testDI.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="BigActors.iws" />
@@ -134,7 +417,26 @@
     <favorites_list name="BigActors" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="5" selection-start="64" selection-end="64" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.sbt" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/build.sbt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="11" selection-start="256" selection-end="256" vertical-scroll-proportion="0.42352942" vertical-offset="0" max-vertical-offset="425">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -192,6 +494,7 @@
         <option value="$PROJECT_DIR$/src/main/scala/TestRemoteBigActorsDSL.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/QualsEx1.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/QualsEx2.scala" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -564,6 +867,37 @@
       <Port>5050</Port>
     </configuration>
   </component>
+  <component name="SbtLocalSettings">
+    <option name="availableProjects">
+      <map>
+        <entry>
+          <key>
+            <ExternalProjectPojo>
+              <option name="name" value="BigActors" />
+              <option name="path" value="$PROJECT_DIR$" />
+            </ExternalProjectPojo>
+          </key>
+          <value>
+            <list>
+              <ExternalProjectPojo>
+                <option name="name" value="bigactors" />
+                <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value="bigactors-build" />
+                <option name="path" value="$PROJECT_DIR$/project" />
+              </ExternalProjectPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="modificationStamps">
+      <map>
+        <entry key="$PROJECT_DIR$" value="1383156186000" />
+      </map>
+    </option>
+  </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
     <option name="USER" value="" />
@@ -780,7 +1114,11 @@
       <created>1393257804057</created>
       <updated>1393257804057</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Structure project to use along with SBT">
+      <created>1395010254174</created>
+      <updated>1395010254174</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -813,24 +1151,24 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2495935" sideWeight="0.92705166" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="SBT Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32991204" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="SBT Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991204" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33617023" sideWeight="0.63671875" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32986537" sideWeight="0.70364743" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32826748" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33577713" sideWeight="0.36328125" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287879" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14390244" sideWeight="0.6106061" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.92705166" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20274636" sideWeight="0.66018516" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20274636" sideWeight="0.66018516" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33049646" sideWeight="0.94481057" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32592592" sideWeight="0.4967051" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33617023" sideWeight="0.36328125" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39933628" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -846,8 +1184,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Save BigActors addresses inside the scheduler so that I only need to use ids to send messages" />
-    <MESSAGE value="New send command. Less cluttered than ! (bang)" />
     <MESSAGE value="Solve some problems with calling BigActor commands using the DSL-like declaration. DSL solution is currently less safe than the API version." />
     <MESSAGE value="A bunch of implicits for making DSL less &quot;noisy&quot;." />
     <MESSAGE value="Some bugs fixed" />
@@ -871,7 +1207,9 @@
     <MESSAGE value="Define bigActor sensor template." />
     <MESSAGE value="Test branch&#10;" />
     <MESSAGE value="Seperated remote bigActors from regular bigActors. Cleaned up regular bigActors. No need for providing a name. New implicits for DSL syntax" />
-    <option name="LAST_COMMIT_MESSAGE" value="Seperated remote bigActors from regular bigActors. Cleaned up regular bigActors. No need for providing a name. New implicits for DSL syntax" />
+    <MESSAGE value="Structure project to use along with SBT" />
+    <MESSAGE value="Structure project to use along with SBT&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Structure project to use along with SBT&#10;" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1096,7 +1434,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="28" selection-start="59" selection-end="59" vertical-scroll-proportion="0.24475524" vertical-offset="0" max-vertical-offset="429">
+        <state line="7" column="5" selection-start="64" selection-end="64" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.sbt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="11" selection-start="256" selection-end="256" vertical-scroll-proportion="0.42352942" vertical-offset="0" max-vertical-offset="425">
           <folding />
         </state>
       </provider>

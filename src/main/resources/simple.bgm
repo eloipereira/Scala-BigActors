@@ -1,0 +1,13 @@
+%active u0_UAV : 1;
+%active u1_UAV : 1;
+%active l0_Location : 1;
+%active l1_Location : 1;
+
+%name x;
+%name y;
+
+%rule r0 l0_Location[x].(u0_UAV[z] | $0) | l1_Location[x].$1 -> l0_Location[x].$0 | l1_Location[x].(u0_UAV[z] | $1);
+
+l0_Location[x].(u0_UAV[y] | u1_UAV[y]) | l1_Location[x];
+
+%check

@@ -1,0 +1,2 @@
+room0_Room.(camera0_Camera[x])|srv0_Server[x]
+room0_Room.(p0_Person|camera0_Camera[x])|srv0_Server[x]

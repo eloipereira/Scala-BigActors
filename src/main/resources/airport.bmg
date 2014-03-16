@@ -1,0 +1,23 @@
+%active Landside : 0;
+%active Airside : 0;
+%active Gates : 0;
+%active Zone : 2;
+%active Gate : 1;
+%passive Pax : 1;
+%active DB : 0;
+%active PaxRecord : 2;
+
+%name Boarding;
+%name CheckIn;
+%name GateLounge;
+%name Gian;
+%name SK100;
+%name Security;
+
+%rule r_0 Zone[x,w].(Pax[y] | $1) || Zone[z,x].$2 -> Zone[x,w].$1 || Zone[z,x].($2 | Pax[y]);
+%rule r_1 Zone[Boarding,m].(Pax[y] | $1) || Gate[x].$2 || PaxRecord[y,x] | $3 -> Zone[Boarding,m].$1 || Gate[x].($2 | Pax[y]) || PaxRecord[y,x] | $3;
+%rule r_2 Gate[x].(Pax[y] | $1) -> Gate[x].$1;
+
+Landside.(Zone[CheckIn,-].Pax[Gian] | Zone[Security,CheckIn]) | Airside.(Zone[GateLounge,Security] | Zone[Boarding,GateLounge]) | Gates.(Gate[SK100] | Gate[-] | Gate[-]) | DB.PaxRecord[Gian,SK100];
+
+%check;

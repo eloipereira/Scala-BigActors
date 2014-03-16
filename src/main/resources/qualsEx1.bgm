@@ -1,0 +1,12 @@
+%active camera0_Camera : 1;
+%active srv0_Server : 1;
+%active p0_Person : 0;
+%active p1_Person : 0;
+%active p2_Person : 0;
+%active room0_Room : 0;
+
+%name x;
+
+room0_Room.(camera0_Camera[x]);
+
+%check
