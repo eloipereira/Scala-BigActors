@@ -1,19 +1,15 @@
-package test
+package main.scala
 
 import bigactors._
-import bigactors.BigActor._
-import scala.Symbol
 import edu.berkeley.eloi.bigraph.BRR
-import actors.Actor._
-
+import bigactors.BigActor._
+import scala.actors.Actor._
 
 object TestBigActors extends App{
   BigraphManager
   BigActorSchdl
 
-
-
-  val uav1 = BigActor hosted_at "u1" with_behavior {
+  val uav1 = BigActor hosted_at "u1" with_behavior{
     observe("children.parent.host")
     loop {
       react {

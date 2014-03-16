@@ -1,8 +1,8 @@
-package test
+package main.scala
 
-import bigactors._
+import bigactors.{Message, Observation, RemoteBigActor}
 import edu.berkeley.eloi.bigraph.{BRR, BigraphNode}
-
+;
 
 object TestBigActorsREP13 extends App{
 

@@ -1,9 +1,9 @@
-package test
+package main.scala
 
-import actors.Actor._
-import bigactors.RemoteBigActorImplicits._
 import bigactors._
-
+import bigactors.RemoteBigActor._
+import bigactors.RemoteBigActorImplicits._
+import scala.actors.Actor._
 
 object TestRemoteBigActorsDSL extends App{
  // BigActorSchdl.start
