@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1745a8c2-2d13-46d6-885b-7ddac145ee4e" name="Default" comment="Structure project to use along with SBT&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/BigActorSchdlAPI.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/RemoteUav0.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/RemoteUav1.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/test/TestRemoteUav0.scala" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules/BigActors-build.iml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/BigActorSchdl.scala" afterPath="$PROJECT_DIR$/src/main/scala/BigActorSchdl.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/GenerateConfig.scala" afterPath="$PROJECT_DIR$/src/main/scala/GenerateConfig.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/TestRemoteBigActors.scala" afterPath="$PROJECT_DIR$/src/main/scala/TestRemoteBigActors.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.properties" afterPath="$PROJECT_DIR$/config.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sbt.xml" afterPath="$PROJECT_DIR$/.idea/sbt.xml" />
+    <list default="true" id="1745a8c2-2d13-46d6-885b-7ddac145ee4e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="BigActors.iws" />
@@ -123,7 +112,7 @@
       <file leaf-file-name="RemoteBigActor.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/RemoteBigActor.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="121" selection-start="2104" selection-end="2104" vertical-scroll-proportion="1.7175573" vertical-offset="270" max-vertical-offset="2250">
+            <state line="70" column="121" selection-start="2104" selection-end="2104" vertical-scroll-proportion="2.40458" vertical-offset="0" max-vertical-offset="2250">
               <folding />
             </state>
           </provider>
@@ -923,7 +912,11 @@
       <created>1395010254174</created>
       <updated>1395010254174</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Remote BigActors examples">
+      <created>1395579013558</created>
+      <updated>1395579013559</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -948,7 +941,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="774" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962963" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -958,7 +951,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2495935" sideWeight="0.92705166" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SBT Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32844576" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33617023" sideWeight="0.63671875" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991204" sideWeight="0.40291262" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32986537" sideWeight="0.70364743" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32826748" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33431086" sideWeight="0.36328125" order="9" side_tool="false" content_ui="tabs" />
@@ -969,7 +962,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20307444" sideWeight="0.66018516" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32991204" sideWeight="0.94481057" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32991204" sideWeight="0.5970874" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -990,7 +983,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Solve some problems with calling BigActor commands using the DSL-like declaration. DSL solution is currently less safe than the API version." />
     <MESSAGE value="A bunch of implicits for making DSL less &quot;noisy&quot;." />
     <MESSAGE value="Some bugs fixed" />
     <MESSAGE value="Introduce visualization using bigvis" />
@@ -1015,7 +1007,8 @@
     <MESSAGE value="Seperated remote bigActors from regular bigActors. Cleaned up regular bigActors. No need for providing a name. New implicits for DSL syntax" />
     <MESSAGE value="Structure project to use along with SBT" />
     <MESSAGE value="Structure project to use along with SBT&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Structure project to use along with SBT&#10;" />
+    <MESSAGE value="Remote BigActors examples" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remote BigActors examples" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1241,7 +1234,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/RemoteBigActor.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="121" selection-start="2104" selection-end="2104" vertical-scroll-proportion="1.7175573" vertical-offset="270" max-vertical-offset="2250">
+        <state line="70" column="121" selection-start="2104" selection-end="2104" vertical-scroll-proportion="2.40458" vertical-offset="0" max-vertical-offset="2250">
           <folding />
         </state>
       </provider>
