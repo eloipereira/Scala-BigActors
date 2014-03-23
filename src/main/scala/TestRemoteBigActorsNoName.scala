@@ -1,11 +1,10 @@
-
 import bigactors.{Observation, Message, RemoteBigActor}
 import edu.berkeley.eloi.bigraph.BRR
-;
 
-object TestRemoteUav0 extends App{
 
- val uav1 = new RemoteBigActor( Symbol("uav1"), Symbol("u1")){
+object TestRemoteBigActorsNoName extends App{
+
+ val uav1 = new RemoteBigActor(Symbol("u1")){
     def behavior() {
       observe("children.parent.host")
       loop {
@@ -18,7 +17,7 @@ object TestRemoteUav0 extends App{
   }
   uav1.start
 
-  val uav0 = new RemoteBigActor( Symbol("uav0"), Symbol("u0")){
+  val uav0 = new RemoteBigActor(Symbol("u0")){
     def behavior() {
       observe("children.parent.host")
       react{

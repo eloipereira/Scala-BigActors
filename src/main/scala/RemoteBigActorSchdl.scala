@@ -11,12 +11,14 @@ import scala.actors.remote.Node
 import java.util.Properties
 import java.io.FileInputStream
 import scala.collection.mutable
+import java.util.UUID
 
 
 sealed trait RemoteBigActorSchdlAPI
-case class REMOTE_HOSTING_REQUEST(hostId: Symbol, bigActorID: Symbol, bigActor:RemoteBigActor) extends RemoteBigActorSchdlAPI
-case class REMOTE_HOSTING_REQUEST_(hostId: Symbol, bigActorID: Symbol) extends RemoteBigActorSchdlAPI
+case class REMOTE_HOSTING_REQUEST(hostId: Symbol, bigActorID: Symbol) extends RemoteBigActorSchdlAPI
+case class GET_ID_AND_HOST_REQUEST(hostId: Symbol) extends  RemoteBigActorSchdlAPI
 case object REMOTE_HOSTING_SUCCESSFUL extends RemoteBigActorSchdlAPI
+case class HOST_SUCCESSFUL_WITH_NAME(name: Symbol) extends RemoteBigActorSchdlAPI
 case class REMOTE_OBSERVATION_REQUEST(query: String, bigActorID: Symbol) extends RemoteBigActorSchdlAPI
 case class REMOTE_CONTROL_REQUEST(brr: BRR, bigActorID: Symbol) extends RemoteBigActorSchdlAPI
 case class REMOTE_MIGRATION_REQUEST(newHostId: Symbol, bigActorID: Symbol) extends RemoteBigActorSchdlAPI
@@ -28,7 +30,6 @@ object RemoteBigActorSchdl extends Actor with App {
   var debug = true
 
   private val hostRelation = new HashMap[Symbol,Symbol]
-  private val bigActorIDRelation = new HashMap[Symbol,RemoteBigActor]
 
   // configuration
   val prop = new Properties
@@ -55,25 +56,25 @@ object RemoteBigActorSchdl extends Actor with App {
 
     loop {
       react{
-        case REMOTE_HOSTING_REQUEST(hostId, bigActorID, bigActor) =>{
-          Debug.println("got a host request from " + bigActorID + " to be hosted at "+hostId,debug)
-          bigraphManager ! BIGRAPH_REQUEST
-          receive{
-            case BIGRAPH_RESPONSE(bigraph) => {
-              if (bigraph.getPlaces.contains(new BigraphNode(hostId.name))) {
-                Debug.println("Hosting BigActor at host " + hostId,debug)
-                hostRelation += bigActorID -> hostId
-                bigActorIDRelation += bigActorID -> bigActor
-                bigActor ! REMOTE_HOSTING_SUCCESSFUL
-              }
-              else {
-                System.err.println("BigActor cannot be hosted at " + hostId + ". Make sure host exists!")
-                System.exit(0)
-              }
-            }
-          }
-        }
-        case REMOTE_HOSTING_REQUEST_(hostId, bigActorID) =>{
+//        case GET_ID_AND_HOST_REQUEST(hostId) =>{
+//          Debug.println("got a host request from unnamed bigActor to be hosted at "+hostId,debug)
+//          val bigActorID = Symbol(UUID.randomUUID().toString)
+//          bigraphManager ! BIGRAPH_REQUEST
+//          receive{
+//            case BIGRAPH_RESPONSE(bigraph) => {
+//              if (bigraph.getPlaces.contains(new BigraphNode(hostId.name))) {
+//                Debug.println("Hosting BigActor at host " + hostId,debug)
+//                hostRelation += bigActorID -> hostId
+//                sender ! HOST_SUCCESSFUL_WITH_NAME(bigActorID)
+//              }
+//              else {
+//                System.err.println("BigActor cannot be hosted at " + hostId + ". Make sure host exists!")
+//                System.exit(0)
+//              }
+//            }
+//          }
+//        }
+        case REMOTE_HOSTING_REQUEST(hostId, bigActorID) =>{
           Debug.println("got a host request from " + bigActorID + " to be hosted at "+hostId,debug)
           bigraphManager ! BIGRAPH_REQUEST
           receive{
@@ -139,14 +140,10 @@ object RemoteBigActorSchdl extends Actor with App {
               val destHost = bigraph.getNode(hostRelation(receiverID).name)
               if (senderHost == destHost || !senderHost.getNames.intersect(destHost.getNames).isEmpty){
                 Debug.println("Hosts " + hostRelation(senderID).name + " and " +  hostRelation(receiverID).name + " are connected.",debug)
-                if (remote){
-                  val bigActorPort = prop.getProperty(receiverID.name + "Port").toInt
-                  val bigActorIP = prop.getProperty(receiverID.name +"IP")
-                  val rcv = select(Node(bigActorIP,bigActorPort), receiverID)
-                  rcv ! msg.message
-                } else {
-                  bigActorIDRelation(receiverID) ! msg.message
-                }
+                val bigActorPort = prop.getProperty(receiverID.name + "Port").toInt
+                val bigActorIP = prop.getProperty(receiverID.name +"IP")
+                val rcv = select(Node(bigActorIP,bigActorPort), receiverID)
+                rcv ! msg.message
               } else {
                 System.err.println("Hosts " + hostRelation(senderID).name + " and " +  hostRelation(receiverID).name + " are not connected.")
                 System.exit(0)

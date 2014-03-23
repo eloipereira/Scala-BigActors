@@ -6,8 +6,10 @@ import scala.actors.Actor._
 import scala.actors.remote._
 import scala.actors.remote.RemoteActor._
 import edu.berkeley.eloi.bgm2java.Debug
-import java.util.Properties
+import java.util.{UUID, Properties}
 import java.io.FileInputStream
+import java.net._
+
 
 trait RemoteBigActorTrait{
   val bigActorID: Symbol
@@ -39,73 +41,61 @@ trait RemoteBigActorTrait{
 
 }
 
-abstract class RemoteBigActor(val bigActorID: Symbol, var hostID: Symbol) extends Actor with RemoteBigActorTrait {
 
-     
+
+
+
+
+abstract class RemoteBigActor(val bigActorID: Symbol, var hostID: Symbol) extends Actor with RemoteBigActorTrait  {
+
+  def this(hostID: Symbol) = this(Symbol(UUID.randomUUID().toString), hostID)
+
   val debug: Boolean = true
 
   // configuration
   val prop = new Properties
   prop.load(new FileInputStream("config.properties"))
   val remote: Boolean = prop.getProperty("RemoteBigActors").toBoolean
-  var bigActorSchdl: AbstractActor = RemoteBigActorSchdl
-  if (remote) bigActorSchdl = select(Node(prop.getProperty("BigActorSchdlIP"),prop.getProperty("BigActorSchdlPort").toInt), 'bigActorSchdl)
+  if (!remote){
+    System.err.println("Configuration file not set for remote bigActors",debug)
+    System.exit(0)
+  }
 
-
-
-  //  override def !(msg:Any){
-  //    msg match {
-  //      case m: Message => bigActorSchdl ! SEND_REQUEST(m,bigActorID)
-  //      case _ => super.!(msg)
-  //    }
-  //  }
+  val port = prop.getProperty("BigActorsPort").toInt
+  val localhost = InetAddress.getLocalHost
+  val ip = localhost.getHostAddress
+  var bigActorSchdl =  select(Node(prop.getProperty("BigActorSchdlIP"),prop.getProperty("BigActorSchdlPort").toInt), 'bigActorSchdl)
 
   def behavior()
 
   def act() = {
-    //more configuration
-    if (remote){
-      val port = prop.getProperty(bigActorID.name + "Port").toInt
-      val ip = prop.getProperty(bigActorID.name + "IP")
-      Debug.println("BigActor " +bigActorID.name+ " operating remotely at IP "+ ip + " and port "+ port.toInt,debug)
-      //TODO - check if property actually matches with machine's IP
-      alive(port)
-      register(bigActorID, self)
-      bigActorSchdl ! REMOTE_HOSTING_REQUEST_(hostID, bigActorID)
-      receive{
-        case REMOTE_HOSTING_SUCCESSFUL => Debug.println("BigActor successfully hosted",debug)
-      }
-    } else {
-      Debug.println("BigActor " +bigActorID.name+ " operating locally",debug)
-
-      bigActorSchdl !  REMOTE_HOSTING_REQUEST(hostID, bigActorID, this)
-      receive{
-        case REMOTE_HOSTING_SUCCESSFUL => Debug.println("BigActor successfully hosted",debug)
-      }
+    alive(port)
+    register(this.bigActorID, self)
+    bigActorSchdl ! REMOTE_HOSTING_REQUEST(hostID, this.bigActorID)
+    receive{
+      case REMOTE_HOSTING_SUCCESSFUL => Debug.println("BigActor " + this.bigActorID +  " successfully hosted at " + hostID,debug)
     }
+
     behavior
   }
-  override
-  def toString: String =  bigActorID.name
 }
+
 
 
 object RemoteBigActor{
-  def apply(bigActorID: Symbol,  initialHostId: Symbol, body: => Unit) = {
-    val b = new RemoteBigActor( bigActorID: Symbol,  initialHostId: Symbol) {
-      override def behavior() = body
-    }
-    b
+
+  def remoteBigActor(bigActorID: Symbol)(hostId: Symbol)(body: => Unit): RemoteBigActor = new RemoteBigActor(bigActorID,hostId){
+    override def behavior() = body
+    this.start
   }
 
-  def bigActor(id: Symbol)(hostId: Symbol)(body: => Unit): RemoteBigActor = {
-    val b = new RemoteBigActor(id,hostId){
-      override def behavior() = body
-    }
-    b
+  def remoteBigActor(hostId: Symbol)(body: => Unit): RemoteBigActor = new RemoteBigActor(hostId){
+    override def behavior() = body
+    this.start
   }
 
 }
+
 
 
 object RemoteBigActorImplicits {

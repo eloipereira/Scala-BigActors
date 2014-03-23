@@ -2,7 +2,7 @@ package main.scala
 
 import bigactors.{Observation, Message, RemoteBigActor}
 import edu.berkeley.eloi.bigraph.BRR
-;
+
 
 object TestRemoteBigActors extends App{
 
