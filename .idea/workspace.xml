@@ -112,7 +112,7 @@
       <file leaf-file-name="RemoteBigActor.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/RemoteBigActor.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="121" selection-start="2104" selection-end="2104" vertical-scroll-proportion="2.40458" vertical-offset="0" max-vertical-offset="2250">
+            <state line="70" column="121" selection-start="2104" selection-end="2104" vertical-scroll-proportion="2.0229008" vertical-offset="150" max-vertical-offset="2250">
               <folding />
             </state>
           </provider>
@@ -916,7 +916,11 @@
       <created>1395579013558</created>
       <updated>1395579013559</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Remote BigActors examples&#10;">
+      <created>1395579077587</created>
+      <updated>1395579077599</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -941,7 +945,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="774" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962963" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -983,7 +987,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="A bunch of implicits for making DSL less &quot;noisy&quot;." />
     <MESSAGE value="Some bugs fixed" />
     <MESSAGE value="Introduce visualization using bigvis" />
     <MESSAGE value="Fix update for visualization" />
@@ -1008,7 +1011,8 @@
     <MESSAGE value="Structure project to use along with SBT" />
     <MESSAGE value="Structure project to use along with SBT&#10;" />
     <MESSAGE value="Remote BigActors examples" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remote BigActors examples" />
+    <MESSAGE value="Remote BigActors examples&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remote BigActors examples&#10;" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1234,7 +1238,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/RemoteBigActor.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="121" selection-start="2104" selection-end="2104" vertical-scroll-proportion="2.40458" vertical-offset="0" max-vertical-offset="2250">
+        <state line="70" column="121" selection-start="2104" selection-end="2104" vertical-scroll-proportion="2.0229008" vertical-offset="150" max-vertical-offset="2250">
           <folding />
         </state>
       </provider>
