@@ -1,10 +1,10 @@
-package main.scala
+package test
 
 import bigactors.{Observation, Message, RemoteBigActor}
 import edu.berkeley.eloi.bigraph.BRR
 ;
 
-object TestRemoteBigActors extends App{
+object TestRemoteUav0 extends App{
 
  val uav1 = new RemoteBigActor( Symbol("uav1"), Symbol("u1")){
     def behavior() {

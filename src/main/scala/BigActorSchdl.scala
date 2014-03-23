@@ -1,26 +1,10 @@
 package bigactors
 
-import scala.actors.{OutputChannel, AbstractActor, Actor}
-import scala.actors.remote.RemoteActor._
+import scala.actors.{OutputChannel, Actor}
 import edu.berkeley.eloi.bigraph._
 import scala.collection.JavaConversions._
 import edu.berkeley.eloi.bgm2java.Debug
 import scala.collection.mutable.HashMap
-import scala.actors.Actor._
-import scala.actors.remote.Node
-import java.util.Properties
-import java.io.FileInputStream
-import scala.collection.mutable
-
-
-sealed trait BigActorSchdlAPI
-case class HOSTING_REQUEST(hostId: Symbol) extends BigActorSchdlAPI
-case object HOSTING_SUCCESSFUL extends BigActorSchdlAPI
-case class OBSERVATION_REQUEST(query: String) extends BigActorSchdlAPI
-case class CONTROL_REQUEST(brr: BRR) extends BigActorSchdlAPI
-case class MIGRATION_REQUEST(newHostId: Symbol) extends BigActorSchdlAPI
-case class SEND_REQUEST(msg: Any, rcv:OutputChannel[Any]) extends BigActorSchdlAPI
-
 
 
 object BigActorSchdl extends Actor {

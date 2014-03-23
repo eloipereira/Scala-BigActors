@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BigActors.iml" filepath="$PROJECT_DIR$/BigActors.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/BigActors-build.iml" filepath="$PROJECT_DIR$/.idea/modules/BigActors-build.iml" />
     </modules>
   </component>
 </project>
