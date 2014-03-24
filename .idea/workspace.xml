@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1745a8c2-2d13-46d6-885b-7ddac145ee4e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/TestRemoteBigActorsNoName.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/BigraphManagerAPI.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/RemoteBigActorSchdlAPI.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/GenerateConfig.scala" afterPath="$PROJECT_DIR$/src/main/scala/GenerateConfig.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/RemoteBigActor.scala" afterPath="$PROJECT_DIR$/src/main/scala/RemoteBigActor.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/RemoteBigActorSchdl.scala" afterPath="$PROJECT_DIR$/src/main/scala/RemoteBigActorSchdl.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/RemoteBigraphManager.scala" afterPath="$PROJECT_DIR$/src/main/scala/RemoteBigraphManager.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/RemoteUav0.scala" afterPath="$PROJECT_DIR$/src/main/scala/RemoteUav0.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/TestRemoteBigActors.scala" afterPath="$PROJECT_DIR$/src/main/scala/TestRemoteBigActors.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/test/TestRemoteUav0.scala" afterPath="$PROJECT_DIR$/src/main/scala/test/TestRemoteUav0.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/TestRemoteBigActorsNoName.scala" afterPath="$PROJECT_DIR$/src/main/scala/TestRemoteBigActorsNoName.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.properties" afterPath="$PROJECT_DIR$/config.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="BigActors.iws" />
@@ -82,7 +82,7 @@
       <file leaf-file-name="RemoteBigActor.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/RemoteBigActor.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="113" selection-start="1170" selection-end="1170" vertical-scroll-proportion="1.6873316" vertical-offset="94" max-vertical-offset="2205">
+            <state line="32" column="0" selection-start="798" selection-end="798" vertical-scroll-proportion="1.221374" vertical-offset="0" max-vertical-offset="1995">
               <folding>
                 <element signature="e#19#61#0" expanded="true" />
               </folding>
@@ -90,11 +90,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BigActor.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/BigActor.scala">
+      <file leaf-file-name="GenerateConfig.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/GenerateConfig.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="15" selection-start="574" selection-end="574" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885">
+            <state line="31" column="39" selection-start="1034" selection-end="1034" vertical-scroll-proportion="0.0" vertical-offset="214" max-vertical-offset="900">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RemoteUav0.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/RemoteUav0.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="33" selection-start="129" selection-end="129" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+              <folding>
+                <element signature="e#0#55#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -102,28 +113,8 @@
       <file leaf-file-name="TestRemoteUav0.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/test/TestRemoteUav0.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="24" selection-start="267" selection-end="267" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="675">
+            <state line="26" column="39" selection-start="740" selection-end="744" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ICCPSBigActors.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/ICCPSBigActors.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="7" selection-start="159" selection-end="159" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestBigActors.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/TestBigActors.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="7" selection-start="140" selection-end="140" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="675">
-              <folding>
-                <element signature="e#20#38#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -131,7 +122,7 @@
       <file leaf-file-name="RemoteBigraphManager.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/RemoteBigraphManager.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="109" selection-start="1103" selection-end="1103" vertical-scroll-proportion="0.0" vertical-offset="806" max-vertical-offset="1200">
+            <state line="44" column="0" selection-start="1134" selection-end="1134" vertical-scroll-proportion="0.0" vertical-offset="749" max-vertical-offset="1155">
               <folding>
                 <element signature="e#19#80#0" expanded="true" />
               </folding>
@@ -139,13 +130,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestRemoteBigActors.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/TestRemoteBigActors.scala">
+      <file leaf-file-name="BigraphManagerAPI.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/BigraphManagerAPI.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="7" selection-start="122" selection-end="122" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
-              <folding>
-                <element signature="e#20#75#0" expanded="true" />
-              </folding>
+            <state line="10" column="71" selection-start="350" selection-end="350" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -153,16 +142,7 @@
       <file leaf-file-name="TestRemoteBigActorsNoName.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/TestRemoteBigActorsNoName.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="32" selection-start="505" selection-end="505" vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="675">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RemoteUav1.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/RemoteUav1.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="30" selection-start="713" selection-end="713" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+            <state line="16" column="12" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
               <folding />
             </state>
           </provider>
@@ -171,9 +151,9 @@
       <file leaf-file-name="RemoteBigActorSchdl.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/RemoteBigActorSchdl.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="29" selection-start="2401" selection-end="2435" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2745">
+            <state line="21" column="21" selection-start="570" selection-end="570" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2220">
               <folding>
-                <element signature="e#19#61#0" expanded="true" />
+                <element signature="e#20#60#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -237,15 +217,17 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/scala/BigActorSchdl.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/BigActorSchdlAPI.scala" />
-        <option value="$PROJECT_DIR$/config.properties" />
-        <option value="$PROJECT_DIR$/src/main/scala/RemoteBigraphManager.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/GenerateConfig.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/RemoteBigActorSchdl.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/RemoteUav0.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/RemoteUav1.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/test/TestRemoteUav0.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/TestRemoteBigActors.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/TestRemoteBigActorsNoName.scala" />
+        <option value="$PROJECT_DIR$/config.properties" />
+        <option value="$PROJECT_DIR$/src/main/scala/GenerateConfig.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/RemoteBigActorSchdlAPI.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/BigraphManagerAPI.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/RemoteBigraphManager.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/RemoteBigActorSchdl.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/RemoteBigActor.scala" />
       </list>
     </option>
@@ -368,58 +350,6 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scala" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BigActor.scala" />
-              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BigActors" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BigActors" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scala" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BigActors" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BigActors" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -481,7 +411,7 @@
       <recent name="$PROJECT_DIR$/lib" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.RemoteUav1">
+  <component name="RunManager" selected="Application.RemoteBigActorSchdl">
     <configuration default="false" name="BigraphManager" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="bigactors.RemoteBigraphManager" />
       <option name="VM_PARAMETERS" />
@@ -514,40 +444,40 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="TestRemoteBigActors" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="main.scala.TestRemoteBigActors" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="BigActors" />
-      <envs />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="RemoteUav0" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="RemoteUav0" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="BigActors" />
-      <envs />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
     <configuration default="false" name="RemoteUav1" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="RemoteUav1" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="BigActors" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="TestRemoteBigActorsNoName" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="TestRemoteBigActorsNoName" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="BigActors" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="GenerateConfig" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="bigactors.GenerateConfig" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -712,17 +642,17 @@
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.BigraphManager" />
       <item index="1" class="java.lang.String" itemvalue="Application.RemoteBigActorSchdl" />
-      <item index="2" class="java.lang.String" itemvalue="Application.TestRemoteBigActors" />
-      <item index="3" class="java.lang.String" itemvalue="Application.RemoteUav0" />
-      <item index="4" class="java.lang.String" itemvalue="Application.RemoteUav1" />
+      <item index="2" class="java.lang.String" itemvalue="Application.RemoteUav1" />
+      <item index="3" class="java.lang.String" itemvalue="Application.TestRemoteBigActorsNoName" />
+      <item index="4" class="java.lang.String" itemvalue="Application.GenerateConfig" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.RemoteUav1" />
-        <item index="1" class="java.lang.String" itemvalue="Application.RemoteUav0" />
-        <item index="2" class="java.lang.String" itemvalue="Application.RemoteBigActorSchdl" />
-        <item index="3" class="java.lang.String" itemvalue="Application.BigraphManager" />
-        <item index="4" class="java.lang.String" itemvalue="Application.TestRemoteBigActors" />
+        <item index="0" class="java.lang.String" itemvalue="Application.TestRemoteBigActorsNoName" />
+        <item index="1" class="java.lang.String" itemvalue="Application.RemoteBigActorSchdl" />
+        <item index="2" class="java.lang.String" itemvalue="Application.BigraphManager" />
+        <item index="3" class="java.lang.String" itemvalue="Application.GenerateConfig" />
+        <item index="4" class="java.lang.String" itemvalue="Application.RemoteUav1" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -993,7 +923,11 @@
       <created>1395579178481</created>
       <updated>1395579178482</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Bigactors with automatically generated UUID">
+      <created>1395607227105</created>
+      <updated>1395607227105</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1018,7 +952,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="774" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962963" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1026,7 +960,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991204" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2495935" sideWeight="0.92705166" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="SBT Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32844576" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="SBT Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32844576" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991204" sideWeight="0.40291262" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32986537" sideWeight="0.70364743" order="2" side_tool="true" content_ui="tabs" />
@@ -1038,8 +972,8 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.92705166" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2564725" sideWeight="0.66018516" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991204" sideWeight="0.5970874" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2564725" sideWeight="0.66018516" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32991204" sideWeight="0.5970874" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1060,7 +994,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Some bugs fixed" />
     <MESSAGE value="Introduce visualization using bigvis" />
     <MESSAGE value="Fix update for visualization" />
     <MESSAGE value="Introduce REP13 bgm and uav bigActor" />
@@ -1085,7 +1018,8 @@
     <MESSAGE value="Structure project to use along with SBT&#10;" />
     <MESSAGE value="Remote BigActors examples" />
     <MESSAGE value="Remote BigActors examples&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remote BigActors examples&#10;" />
+    <MESSAGE value="Bigactors with automatically generated UUID" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bigactors with automatically generated UUID" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1123,11 +1057,6 @@
     <entry file="file://$PROJECT_DIR$/config.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="0" selection-start="51" selection-end="51" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="180" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/BigraphManager.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="7" selection-start="528" selection-end="528" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="795" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/TestQuery.scala">
@@ -1173,11 +1102,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/scala/BigActorSchdl.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="25" selection-start="359" selection-end="359" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1665" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/BigActorSchdlAPI.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="78" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/Controller.scala">
@@ -1229,29 +1153,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="23" selection-start="274" selection-end="274" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/GenerateConfig.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="40" selection-start="1031" selection-end="1031" vertical-scroll-proportion="0.3226601" vertical-offset="319" max-vertical-offset="900">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/RemoteUav0.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="41" selection-start="137" selection-end="137" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/TestRemoteBigActorsDSL.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="7" selection-start="152" selection-end="152" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="705">
@@ -1262,13 +1163,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/scala/Observation.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="6" selection-start="60" selection-end="60" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/test/TestRemoteUav0.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="24" selection-start="267" selection-end="267" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="675">
           <folding />
         </state>
       </provider>
@@ -1284,7 +1178,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="7" selection-start="140" selection-end="140" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="675">
           <folding>
-            <element signature="e#20#38#0" expanded="true" />
+            <element signature="e#20#38#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1296,15 +1190,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/RemoteBigActorSchdl.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="29" selection-start="2401" selection-end="2435" vertical-scroll-proportion="0.0" vertical-offset="825" max-vertical-offset="2745">
-          <folding>
-            <element signature="e#19#61#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/RemoteUav1.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="30" selection-start="713" selection-end="713" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
@@ -1312,12 +1197,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/RemoteBigraphManager.scala">
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.10.3-sources.jar!/scala/collection/immutable/StringOps.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="109" selection-start="1103" selection-end="1103" vertical-scroll-proportion="0.0" vertical-offset="806" max-vertical-offset="1200">
-          <folding>
-            <element signature="e#19#80#0" expanded="true" />
-          </folding>
+        <state line="30" column="0" selection-start="1180" selection-end="1180" vertical-scroll-proportion="0.33159268" vertical-offset="233" max-vertical-offset="780">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1330,16 +1213,106 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/test/TestRemoteUav0.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="39" selection-start="740" selection-end="744" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/RemoteUav0.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="33" selection-start="129" selection-end="129" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/BigraphManager.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="7" selection-start="528" selection-end="528" vertical-scroll-proportion="0.25862068" vertical-offset="75" max-vertical-offset="795">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/BigActorSchdlAPI.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="17" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="8" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/GenerateConfig.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="39" selection-start="1034" selection-end="1034" vertical-scroll-proportion="0.0" vertical-offset="214" max-vertical-offset="900">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_15.jdk/Contents/Home/src.zip!/java/net/InetSocketAddress.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="148" column="0" selection-start="4090" selection-end="4090" vertical-scroll-proportion="0.9236453" vertical-offset="1365" max-vertical-offset="5895">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-actors/srcs/scala-actors-2.10.3-sources.jar!/scala/actors/ReactorTask.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="0" selection-start="1826" selection-end="1826" vertical-scroll-proportion="0.33497536" vertical-offset="659" max-vertical-offset="1065">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/RemoteBigActorSchdlAPI.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="91" selection-start="204" selection-end="204" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/RemoteBigraphManager.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="0" selection-start="1134" selection-end="1134" vertical-scroll-proportion="0.0" vertical-offset="749" max-vertical-offset="1155">
+          <folding>
+            <element signature="e#19#80#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/RemoteBigActorSchdl.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="21" selection-start="570" selection-end="570" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2220">
+          <folding>
+            <element signature="e#20#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/TestRemoteBigActorsNoName.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="32" selection-start="505" selection-end="505" vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="675">
+        <state line="16" column="12" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/BigraphManagerAPI.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="71" selection-start="350" selection-end="350" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/RemoteBigActor.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="113" selection-start="1170" selection-end="1170" vertical-scroll-proportion="1.6873316" vertical-offset="94" max-vertical-offset="2205">
+        <state line="32" column="0" selection-start="798" selection-end="798" vertical-scroll-proportion="1.221374" vertical-offset="0" max-vertical-offset="1995">
           <folding>
             <element signature="e#19#61#0" expanded="true" />
           </folding>

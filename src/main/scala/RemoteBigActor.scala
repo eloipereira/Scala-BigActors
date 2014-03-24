@@ -31,19 +31,7 @@ trait RemoteBigActorTrait{
     bigActorSchdl ! REMOTE_SEND_REQUEST(msg, bigActorID)
   }
 
-  def selectBigActor(name:Symbol)={
-    val prop = new Properties
-    prop.load(new FileInputStream("config.properties"))
-    val ip = prop.getProperty(name+"IP")
-    val port = prop.getProperty(name+"Port").toInt
-    select(Node(ip,port),name)
-  }
-
 }
-
-
-
-
 
 
 abstract class RemoteBigActor(val bigActorID: Symbol, var hostID: Symbol) extends Actor with RemoteBigActorTrait  {
@@ -61,19 +49,20 @@ abstract class RemoteBigActor(val bigActorID: Symbol, var hostID: Symbol) extend
     System.exit(0)
   }
 
-  val port = prop.getProperty("BigActorsPort").toInt
-  val localhost = InetAddress.getLocalHost
-  val ip = localhost.getHostAddress
   var bigActorSchdl =  select(Node(prop.getProperty("BigActorSchdlIP"),prop.getProperty("BigActorSchdlPort").toInt), 'bigActorSchdl)
 
   def behavior()
 
   def act() = {
+    val port = prop.getProperty("BigActorsPort").toInt
+    val localhost = InetAddress.getLocalHost
+    val ip = localhost.getHostAddress
+
     alive(port)
     register(this.bigActorID, self)
-    bigActorSchdl ! REMOTE_HOSTING_REQUEST(hostID, this.bigActorID)
+    bigActorSchdl ! REMOTE_HOSTING_REQUEST(this.bigActorID, ip,port,hostID)
     receive{
-      case REMOTE_HOSTING_SUCCESSFUL => Debug.println("BigActor " + this.bigActorID +  " successfully hosted at " + hostID,debug)
+      case REMOTE_HOSTING_SUCCESSFUL => Debug.println("Remote BigActor " + this.bigActorID +  " hosted at " + hostID + " with IP " + ip + " and port " + port ,debug)
     }
 
     behavior
@@ -118,18 +107,15 @@ object RemoteBigActorImplicits {
     val prop = new Properties
     prop.load(new FileInputStream("config.properties"))
     val remote: Boolean = prop.getProperty("RemoteBigActors").toBoolean
-    var bigActorSchdl: AbstractActor = RemoteBigActorSchdl
-    if (remote) bigActorSchdl = select(Node(prop.getProperty("BigActorSchdlIP"),prop.getProperty("BigActorSchdlPort").toInt), 'bigActorSchdl)
+    var bigActorSchdl: AbstractActor = select(Node(prop.getProperty("BigActorSchdlIP"),prop.getProperty("BigActorSchdlPort").toInt), 'bigActorSchdl)
 
     def hosted_at(hostName:Name): BigActorSignature = (bigActorID,Symbol(hostName))
     def send_message(msg: Any): MessageHeader = (bigActorID,msg)
-
   }
 
   class BigActorHelper(signature: BigActorSignature){
     def with_behavior (body : => Unit): RemoteBigActor = new RemoteBigActor(signature._1,signature._2) {
       def behavior() = body
-
       start
     }
   }

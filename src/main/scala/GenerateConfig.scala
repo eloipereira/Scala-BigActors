@@ -25,9 +25,9 @@ object GenerateConfig extends App {
     }
     case "localhostRemoteSimple" => {
       prop.setProperty("RemoteBigActors","true")
-      prop.setProperty("BigActorSchdlIP","localhost")
+      prop.setProperty("BigActorSchdlIP","172.21.5.61")
       prop.setProperty("BigActorSchdlPort","9010")
-      prop.setProperty("BigraphManagerIP","localhost")
+      prop.setProperty("BigraphManagerIP","172.21.5.61")
       prop.setProperty("BigraphManagerPort","9011")
       prop.setProperty("BigActorsPort","9012")
       prop.setProperty("bgmPath","/Users/eloipereira/Dropbox/IDEAWorkspace/BigActors/src/main/resources/simple.bgm")
