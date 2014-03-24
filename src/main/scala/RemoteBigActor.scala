@@ -13,7 +13,7 @@ import java.net._
 
 trait RemoteBigActorTrait{
   val bigActorID: Symbol
-  var bigActorSchdl: AbstractActor
+  val bigActorSchdl: AbstractActor
 
   def observe(query: String) = {
     bigActorSchdl ! REMOTE_OBSERVATION_REQUEST(query, bigActorID)
@@ -49,17 +49,24 @@ abstract class RemoteBigActor(val bigActorID: Symbol, var hostID: Symbol) extend
     System.exit(0)
   }
 
-  var bigActorSchdl =  select(Node(prop.getProperty("BigActorSchdlIP"),prop.getProperty("BigActorSchdlPort").toInt), 'bigActorSchdl)
+  val schdPort = prop.getProperty("BigActorSchdlPort").toInt
+  val schdlIP = prop.getProperty("BigActorSchdlIP")
+  val schdID = Symbol(prop.getProperty("BigActorSchdlID"))
+
+  val bigActorSchdl =  select(Node(schdlIP,schdPort), schdID)
 
   def behavior()
+
+  scala.actors.Debug.level_=(100)
 
   def act() = {
     val port = prop.getProperty("BigActorsPort").toInt
     val localhost = InetAddress.getLocalHost
     val ip = localhost.getHostAddress
 
-    alive(port)
+    //alive(port)
     register(this.bigActorID, self)
+
     bigActorSchdl ! REMOTE_HOSTING_REQUEST(this.bigActorID, ip,port,hostID)
     receive{
       case REMOTE_HOSTING_SUCCESSFUL => Debug.println("Remote BigActor " + this.bigActorID +  " hosted at " + hostID + " with IP " + ip + " and port " + port ,debug)
@@ -107,7 +114,7 @@ object RemoteBigActorImplicits {
     val prop = new Properties
     prop.load(new FileInputStream("config.properties"))
     val remote: Boolean = prop.getProperty("RemoteBigActors").toBoolean
-    var bigActorSchdl: AbstractActor = select(Node(prop.getProperty("BigActorSchdlIP"),prop.getProperty("BigActorSchdlPort").toInt), 'bigActorSchdl)
+    val bigActorSchdl: AbstractActor = select(Node(prop.getProperty("BigActorSchdlIP"),prop.getProperty("BigActorSchdlPort").toInt), 'bigActorSchdl)
 
     def hosted_at(hostName:Name): BigActorSignature = (bigActorID,Symbol(hostName))
     def send_message(msg: Any): MessageHeader = (bigActorID,msg)

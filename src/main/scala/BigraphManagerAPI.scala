@@ -9,4 +9,3 @@ sealed trait BigraphManagerAPI extends Serializable
 case class EXECUTE_BRR(brr: BRR) extends BigraphManagerAPI
 case object BIGRAPH_REQUEST extends BigraphManagerAPI
 case class BIGRAPH_RESPONSE(bigraph: Bigraph) extends BigraphManagerAPI
-case class REMOTE_BIGRAPH_REQUEST (name: Symbol, ip: String, port: Int) extends BigraphManagerAPI

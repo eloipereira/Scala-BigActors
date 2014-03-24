@@ -26,6 +26,10 @@ import java.net._
 
 object RemoteBigraphManager extends Actor with  App {
 
+  scala.actors.Debug.level_=(100)
+
+
+
   // configuration
   val prop = new Properties
   prop.load(new FileInputStream("config.properties"))
@@ -43,15 +47,21 @@ object RemoteBigraphManager extends Actor with  App {
   }
 
 
-  val port = prop.getProperty("BigraphManagerPort").toInt
 
-  val localhost = InetAddress.getLocalHost
-  val ip = localhost.getHostAddress // prop.getProperty("BigraphManagerIP")
 
   def act() {
-    Debug.println("BigraphManager operating remotely at IP "+ ip + " and port "+ port.toInt,debug)
-    alive(port)
-    register('bigraphManager, self)
+
+
+
+    val managerID = Symbol(prop.getProperty("BigraphManagerID"))
+    val managerPort = prop.getProperty("BigraphManagerPort").toInt
+    val localhost = InetAddress.getLocalHost
+    val managerIP = localhost.getHostAddress
+
+    alive(managerPort)
+    register(managerID, self)
+    Debug.println("BigraphManager operating remotely at IP "+ managerIP + " and port "+ managerPort,debug)
+
     loop{
       react{
         case EXECUTE_BRR(brr) => {
@@ -60,10 +70,9 @@ object RemoteBigraphManager extends Actor with  App {
           brs.applyRules(List(brr),2)
           Debug.println("New bigraph: " + brs,debug)
         }
-        case REMOTE_BIGRAPH_REQUEST(name,ip,port) => {
-          val requester = select(Node(ip,port),name)
-          Debug.println("Sending bigraph to " + requester,debug)
-          requester ! BIGRAPH_RESPONSE(brs.getBigraph)
+        case BIGRAPH_REQUEST => {
+          Debug.println("Sending bigraph to " + sender,debug)
+          sender ! BIGRAPH_RESPONSE(brs.getBigraph)
         }
       }
     }
