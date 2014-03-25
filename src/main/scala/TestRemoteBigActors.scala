@@ -1,6 +1,6 @@
 package main.scala
 
-import bigactors.{Observation, Message, RemoteBigActor}
+import bigactors.{Observation, RemoteBigActor}
 import edu.berkeley.eloi.bigraph.BRR
 
 
@@ -8,6 +8,7 @@ object TestRemoteBigActors extends App{
 
  val uav1 = new RemoteBigActor( Symbol("uav1"), Symbol("u1")){
     def behavior() {
+      control(new BRR("u1_UAV[network].$0 | $1 -> u1_UAV[network].($0 | uav1_BA) | $1"))
       observe("children.parent.host")
       loop {
         react {
@@ -17,17 +18,20 @@ object TestRemoteBigActors extends App{
       }
     }
   }
-  uav1.start
+
 
   val uav0 = new RemoteBigActor( Symbol("uav0"), Symbol("u0")){
     def behavior() {
-      observe("children.parent.host")
+      control(new BRR("u0_UAV[network].$0 | $1 -> u0_UAV[network].($0 | uav0_BA) | $1"))
+      observe("children.linkedTo.host")
+      Thread.sleep(5000)
       react{
         case obs: Observation => {
           println("New observation for uav0: "+ obs)
-          send(new Message(Symbol("uav1"),"Hello I'm a BigActor!"))
-          Thread.sleep(5000)
-          control(new BRR("l0_Location[x].(u0_UAV[z] | $0) | l1_Location[x].$1 -> l0_Location[x].$0 | l1_Location[x].(u0_UAV[z] | $1)"))
+          obs.bigraph.foreach(b =>
+            sendMsg("Hello I'm BigActor " + bigActorID,Symbol(b.toString))
+          )
+          control(new BRR("l0_Location.(u0_UAV[network].$0 | $1) | l1_Location.$2 -> l0_Location.($1) | l1_Location.(u0_UAV[network].$0 | $2)"))
           migrate(Symbol("u1"))
           observe("host")
           react{
@@ -37,6 +41,8 @@ object TestRemoteBigActors extends App{
       }
     }
   }
+
+  uav1.start
   uav0.start
 
 }

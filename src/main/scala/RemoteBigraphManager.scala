@@ -26,7 +26,7 @@ import java.net._
 
 object RemoteBigraphManager extends Actor with  App {
 
-  scala.actors.Debug.level_=(100)
+  //scala.actors.Debug.level_=(100)
 
 
 
@@ -46,13 +46,7 @@ object RemoteBigraphManager extends Actor with  App {
     System.exit(0)
   }
 
-
-
-
   def act() {
-
-
-
     val managerID = Symbol(prop.getProperty("BigraphManagerID"))
     val managerPort = prop.getProperty("BigraphManagerPort").toInt
     val localhost = InetAddress.getLocalHost
@@ -66,7 +60,7 @@ object RemoteBigraphManager extends Actor with  App {
       react{
         case EXECUTE_BRR(brr) => {
           Debug.println("Old bigraph: " + brs,debug)
-          Thread.sleep(2000)
+          Debug.println("BRR: " + brr,debug)
           brs.applyRules(List(brr),2)
           Debug.println("New bigraph: " + brs,debug)
         }

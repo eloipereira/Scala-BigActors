@@ -1,4 +1,4 @@
-import bigactors.{Observation, Message, RemoteBigActor}
+import bigactors.{Observation, RemoteBigActor}
 import edu.berkeley.eloi.bigraph.BRR
 ;
 
@@ -9,7 +9,7 @@ object RemoteUav0 extends RemoteBigActor( Symbol("uav0"), Symbol("u0")) with App
       case obs: Observation => {
         println("New observation for uav0: "+ obs)
         Thread.sleep(10000)
-        send(new Message(Symbol("uav1"),"Hello I'm a BigActor!"))
+        sendMsg("Hello I'm a BigActor!",Symbol("uav1"))
         control(new BRR("l0_Location[x].(u0_UAV[z] | $0) | l1_Location[x].$1 -> l0_Location[x].$0 | l1_Location[x].(u0_UAV[z] | $1)"))
         migrate(Symbol("u1"))
         observe("host")

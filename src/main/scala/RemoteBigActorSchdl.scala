@@ -18,7 +18,7 @@ import java.net.InetAddress
 object RemoteBigActorSchdl extends Actor with App {
   var debug = true
 
-  scala.actors.Debug.level_=(100)
+ // scala.actors.Debug.level_=(100)
 
   private val hostRelation = new HashMap[Symbol,Symbol]
  // private val remoteNodeMap = new HashMap[Symbol,Node]
@@ -58,6 +58,7 @@ object RemoteBigActorSchdl extends Actor with App {
         case REMOTE_HOSTING_REQUEST(bigActorID,ip,port,hostID) =>{
           Debug.println("got a host request from " + sender + " to be hosted at "+hostID,debug)
           val bigActor = sender
+
           bigraphManager ! BIGRAPH_REQUEST
           react {
             case BIGRAPH_RESPONSE(bigraph) => {
@@ -104,21 +105,20 @@ object RemoteBigActorSchdl extends Actor with App {
             }
           }
         }
-        case REMOTE_SEND_REQUEST(msg, bigActorID) => {
+        case REMOTE_SEND_REQUEST(msg, rcvID, bigActorID) => {
           val senderID = bigActorID
-          val receiverID = msg.receiverID
           Debug.println("got a snd request from " + bigActorID,debug)
           bigraphManager ! BIGRAPH_REQUEST
           react{
             case BIGRAPH_RESPONSE(bigraph) => {
               val senderHost = bigraph.getNode(hostRelation(senderID).name)
-              val destHost = bigraph.getNode(hostRelation(receiverID).name)
+              val destHost = bigraph.getNode(hostRelation(rcvID).name)
               if (senderHost == destHost || !senderHost.getNames.intersect(destHost.getNames).isEmpty){
-                Debug.println("Hosts " + hostRelation(senderID).name + " and " +  hostRelation(receiverID).name + " are connected.",debug)
-                val rcv = proxies(receiverID)
-                rcv ! msg.message
+                Debug.println("Hosts " + hostRelation(senderID).name + " and " +  hostRelation(rcvID).name + " are connected.",debug)
+                val rcv = proxies(rcvID)
+                rcv ! msg
               } else {
-                System.err.println("Hosts " + hostRelation(senderID).name + " and " +  hostRelation(receiverID).name + " are not connected.")
+                System.err.println("Hosts " + hostRelation(senderID).name + " and " +  hostRelation(rcvID).name + " are not connected.")
                 System.exit(0)
               }
             }

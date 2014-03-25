@@ -1,6 +1,6 @@
 package bigactors.templates
 
-import bigactors.{Message, Observation, RemoteBigActor}
+import bigactors.{Observation, RemoteBigActor}
 import edu.berkeley.eloi.bigraph.BRR
 
 /**

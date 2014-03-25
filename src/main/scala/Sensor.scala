@@ -1,6 +1,6 @@
 package bigactors.templates
 
-import bigactors.{RemoteBigActor, Message, Observation, BigActor}
+import bigactors.{RemoteBigActor, Observation, BigActor}
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,7 +14,7 @@ class Sensor(sensorID: Symbol, sensorHostID: Symbol, query: String, clients: Lis
     loop{
       observe(query)
       receive{
-        case obs: Observation => clients.map(c => send(new Message(c,obs)))
+        case obs: Observation => clients.map(c => sendMsg(obs,c))
       }
     }
   }

@@ -1,6 +1,6 @@
 package bigactors
 
-import scala.actors.{AbstractActor, Actor}
+import scala.actors.{OutputChannel, AbstractActor, Actor}
 import edu.berkeley.eloi.bigraph._
 import scala.actors.Actor._
 import scala.actors.remote._
@@ -9,6 +9,7 @@ import edu.berkeley.eloi.bgm2java.Debug
 import java.util.{UUID, Properties}
 import java.io.FileInputStream
 import java.net._
+import RemoteBigActorImplicits._
 
 
 trait RemoteBigActorTrait{
@@ -27,8 +28,12 @@ trait RemoteBigActorTrait{
     bigActorSchdl ! REMOTE_MIGRATION_REQUEST(newHostId, bigActorID)
   }
 
-  def send(msg: Message){
-    bigActorSchdl ! REMOTE_SEND_REQUEST(msg, bigActorID)
+//  def send(msg: Message){
+//    bigActorSchdl ! REMOTE_SEND_REQUEST(msg, bigActorID)
+//  }
+
+  def sendMsg(msg:Any, rcvID:Symbol){
+    bigActorSchdl ! REMOTE_SEND_REQUEST(msg,rcvID,bigActorID)
   }
 
 }
@@ -36,7 +41,9 @@ trait RemoteBigActorTrait{
 
 abstract class RemoteBigActor(val bigActorID: Symbol, var hostID: Symbol) extends Actor with RemoteBigActorTrait  {
 
-  def this(hostID: Symbol) = this(Symbol(UUID.randomUUID().toString), hostID)
+  def this(hostID: Symbol) = this(Symbol("uuid" + UUID.randomUUID().toString.replace('-','D')), hostID)
+
+
 
   val debug: Boolean = true
 
@@ -57,7 +64,7 @@ abstract class RemoteBigActor(val bigActorID: Symbol, var hostID: Symbol) extend
 
   def behavior()
 
-  scala.actors.Debug.level_=(100)
+  //scala.actors.Debug.level_=(100)
 
   def act() = {
     val port = prop.getProperty("BigActorsPort").toInt
@@ -100,6 +107,7 @@ object RemoteBigActorImplicits {
   type MessageHeader = (Symbol,Any)
 
   implicit def Name2Symbol(name: Name) = Symbol(name)
+  implicit def Symbol2String(symbol: Symbol) = symbol.name
   implicit def Name2BigActorIDHelper(bigActorName: Name) = new RemoteBigActorIDHelper(bigActorName)
   implicit def BigActorSignature2BigActorHelper(signature: BigActorSignature) = new  BigActorHelper(signature)
   implicit def MessageHeader2MessageHelper(msgHeader: MessageHeader) = new MessageHelper(msgHeader)
@@ -128,7 +136,7 @@ object RemoteBigActorImplicits {
   }
 
   class MessageHelper(msgHeader: MessageHeader) {
-    def to(rcv: Name) = msgHeader._1.name send(new Message(rcv,msgHeader._2))
+    def to(rcv: Name) = msgHeader._1.name sendMsg(msgHeader._2,rcv)
   }
 
 }

@@ -13,8 +13,8 @@ object TestBigActors extends App{
     observe("children.parent.host")
     loop {
       react {
-        case msg: Message => println("New mail for uav1: " + msg.message)
         case obs: Observation => println("New observation for uav1: " + obs)
+        case msg: Any => println("New mail for uav1: " + msg)
       }
     }
   }

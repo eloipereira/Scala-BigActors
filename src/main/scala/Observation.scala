@@ -1,11 +1,11 @@
 package bigactors
 import edu.berkeley.eloi.bigraph._
 
-class Observation (val obs : Array[Place]) extends Serializable {
+class Observation (val bigraph : Array[Place]) extends Serializable {
   override
-  def toString() = "[" + obs.deep.mkString(",") + "]"
+  def toString() = "[" + bigraph.deep.mkString(",") + "]"
 
-  def contains(node: Place): Boolean = obs.contains(node)
+  def contains(node: Place): Boolean = bigraph.contains(node)
 
 }
 
