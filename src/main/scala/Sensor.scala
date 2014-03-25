@@ -1,6 +1,8 @@
-package bigactors.templates
+package bigactors.remote.templates
 
-import bigactors.{RemoteBigActor, Observation, BigActor}
+import bigactors.Observation
+import bigactors.remote._
+
 
 /**
  * Created with IntelliJ IDEA.

@@ -1,4 +1,5 @@
 package bigactors
+package remote
 
 
 import scala.actors.remote.RemoteActor._

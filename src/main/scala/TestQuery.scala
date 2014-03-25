@@ -1,5 +1,3 @@
-package main.scala
-
 import bigactors.SimpleQueryCompiler
 import edu.berkeley.eloi.concreteBgm2Java.ConcreteBgm2JavaCompiler
 import edu.berkeley.eloi.bigraph.{BRR, BRS}

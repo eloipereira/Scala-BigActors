@@ -1,7 +1,7 @@
-package main.scala
+package bigactors
+package remote
 
-import bigactors.{Observation, RemoteBigActor}
-import bigactors.RemoteBigActorImplicits._
+import RemoteBigActorImplicits._
 
 object QualsEx1 extends App{
 

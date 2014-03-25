@@ -1,6 +1,7 @@
-package main.scala
+package bigactors
+package remote
 
-import bigactors.{Observation, RemoteBigActor}
+import bigactors.Observation
 import edu.berkeley.eloi.bigraph.{BRR, BigraphNode}
 ;
 

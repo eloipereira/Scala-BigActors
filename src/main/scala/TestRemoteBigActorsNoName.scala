@@ -1,4 +1,8 @@
-import bigactors.{RemoteBigActorImplicits, Observation, RemoteBigActor}
+package bigactors
+package remote
+
+import bigactors.Observation
+import RemoteBigActorImplicits._
 import edu.berkeley.eloi.bigraph.BRR
 
 object TestRemoteBigActorsNoName extends App{

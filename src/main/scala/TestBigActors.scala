@@ -1,4 +1,4 @@
-package main.scala
+package bigactors
 
 import bigactors._
 import edu.berkeley.eloi.bigraph.BRR

@@ -1,6 +1,7 @@
 package bigactors
+package remote
 
-import edu.berkeley.eloi.bigraph.{Control, BRR, Bigraph, BRS}
+import edu.berkeley.eloi.bigraph.BRS
 import scala.collection.JavaConversions._
 import edu.berkeley.eloi.bgm2java.Debug
 

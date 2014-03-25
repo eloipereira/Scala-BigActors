@@ -1,4 +1,6 @@
 package bigactors
+package remote
+
 import edu.berkeley.eloi.bigraph.BRR
 
 sealed trait RemoteBigActorSchdlAPI extends Serializable

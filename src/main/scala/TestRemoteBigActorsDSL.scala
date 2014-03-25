@@ -1,8 +1,8 @@
-package main.scala
+package bigactors
+package remote
 
 import bigactors._
-import bigactors.RemoteBigActor._
-import bigactors.RemoteBigActorImplicits._
+import RemoteBigActorImplicits._
 import scala.actors.Actor._
 
 object TestRemoteBigActorsDSL extends App{

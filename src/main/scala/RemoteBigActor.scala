@@ -1,4 +1,5 @@
 package bigactors
+package remote
 
 import scala.actors.{OutputChannel, AbstractActor, Actor}
 import edu.berkeley.eloi.bigraph._

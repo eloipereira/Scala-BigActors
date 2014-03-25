@@ -1,9 +1,8 @@
-package test
+package bigactors
+package remote
 
-import actors.Actor._
-import bigactors.RemoteBigActorImplicits._
-import bigactors._
-import edu.berkeley.eloi.bigraph.{BRR, BigraphNode}
+import RemoteBigActorImplicits._
+import scala.actors.Actor._
 
 
 object ICCPSBigActors extends App{
