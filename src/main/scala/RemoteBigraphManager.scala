@@ -29,8 +29,6 @@ object RemoteBigraphManager extends Actor with  App {
 
   //scala.actors.Debug.level_=(100)
 
-
-
   // configuration
   val prop = new Properties
   prop.load(new FileInputStream("config.properties"))
