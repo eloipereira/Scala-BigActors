@@ -4,6 +4,8 @@ version := "1.0"
 
 scalaVersion := "2.11.0-RC3"
 
+crossPaths := false
+
 resolvers += "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/"
 
 resolvers += "My bitbucket maven releases repo" at "https://bitbucket.org/eloipereira/maven-repo-releases/raw/master"
