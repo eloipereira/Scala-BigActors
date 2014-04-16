@@ -14,7 +14,6 @@ import java.util.Properties
 import java.io.FileInputStream
 import java.net._
 
-
 /**
  * Created with IntelliJ IDEA.
  * User: eloi

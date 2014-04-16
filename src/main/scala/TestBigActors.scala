@@ -26,7 +26,7 @@ object TestBigActors extends App{
         println("New observation for uav0: "+ obs)
         sendMsg("Hello I'm a BigActor!",uav1)
         Thread.sleep(1000)
-        control(new BRR("l0_Location[x].(u0_UAV[z] | $0) | l1_Location[x].$1 -> l0_Location[x].$0 | l1_Location[x].(u0_UAV[z] | $1)"))
+        control(new BRR("l0_Location.(u0_UAV[network] | $0) | l1_Location.$1 -> l0_Location.$0 | l1_Location.(u0_UAV[network] | $1)"))
         migrate(Symbol("u1"))
         observe("host")
         react{
