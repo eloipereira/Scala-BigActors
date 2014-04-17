@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1745a8c2-2d13-46d6-885b-7ddac145ee4e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BigActors.iml" afterPath="$PROJECT_DIR$/BigActors.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.sbt" afterPath="$PROJECT_DIR$/build.sbt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="1745a8c2-2d13-46d6-885b-7ddac145ee4e" name="Default" comment="" />
     <ignored path="BigActors.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -141,7 +137,7 @@
       <file leaf-file-name="build.sbt" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/build.sbt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="33" selection-start="293" selection-end="293" vertical-scroll-proportion="0.27272728" vertical-offset="0" max-vertical-offset="605">
+            <state line="24" column="92" selection-start="765" selection-end="765" vertical-scroll-proportion="0.59504133" vertical-offset="0" max-vertical-offset="605">
               <folding />
             </state>
           </provider>
@@ -1298,7 +1294,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/build.sbt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="33" selection-start="293" selection-end="293" vertical-scroll-proportion="0.27272728" vertical-offset="0" max-vertical-offset="605">
+        <state line="24" column="92" selection-start="765" selection-end="765" vertical-scroll-proportion="0.59504133" vertical-offset="0" max-vertical-offset="605">
           <folding />
         </state>
       </provider>
