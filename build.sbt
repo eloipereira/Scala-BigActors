@@ -22,4 +22,9 @@ libraryDependencies += "bgm2java" % "bgm2java" % "1.0"
 
 libraryDependencies += "bigraphvisualizer" % "bigraphvisualizer" % "1.0"
 
-publishTo := Some(Resolver.file("file",  new File( "/Users/eloipereira/maven-repo/releases" )) )
+publishTo <<= version { (v: String) =>
+  if (v.trim.endsWith("SNAPSHOT"))
+    Some(Resolver.file("file",  new File( Path.userHome.absolutePath+"/.m2/repository/snapshots" )) )
+  else
+    Some(Resolver.file("file",  new File( Path.userHome.absolutePath+"/.m2/repository/releases" )) )
+}

@@ -5,4 +5,9 @@ target/
 .classpath
 .project
 .settings
+.idea
 *.log
+target
+project/target
+*~
+BigActors.iml
