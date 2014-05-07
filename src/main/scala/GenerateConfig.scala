@@ -13,7 +13,7 @@ import java.io.FileOutputStream
 object GenerateConfig extends App {
   val prop = new Properties()
 
-  val config = "localhostRemoteSimple"
+  val config = "defaultSimple"
 
   config match {
     case "defaultSimple" => {

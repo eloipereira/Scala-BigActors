@@ -7,6 +7,8 @@ class Observation (val bigraph : Array[Place]) extends Serializable {
 
   def contains(node: Place): Boolean = bigraph.contains(node)
 
+
+
 }
 
 

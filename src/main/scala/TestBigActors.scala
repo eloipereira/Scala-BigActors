@@ -1,7 +1,7 @@
 package bigactors
 
 import bigactors._
-import edu.berkeley.eloi.bigraph.BRR
+import edu.berkeley.eloi.bigraph.{BigraphNode, BRR}
 import bigactors.BigActor._
 import scala.actors.Actor._
 
@@ -13,7 +13,10 @@ object TestBigActors extends App{
     observe("children.parent.host")
     loop {
       react {
-        case obs: Observation => println("New observation for uav1: " + obs)
+        case observation: Observation => {
+          if (observation contains "u0") println("I observed u0")
+
+        }
         case msg: Any => println("New mail for uav1: " + msg)
       }
     }

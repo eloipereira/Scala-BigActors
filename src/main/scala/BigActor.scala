@@ -1,7 +1,7 @@
 package bigactors
 
 import scala.actors.{Actor, OutputChannel}
-import edu.berkeley.eloi.bigraph.BRR
+import edu.berkeley.eloi.bigraph.{BigraphNode, BRR}
 import edu.berkeley.eloi.bgm2java.Debug
 import java.util.Properties
 import java.io.FileInputStream
@@ -48,6 +48,7 @@ object BigActor extends BigActorTrait with BigActorImplicits {
 trait BigActorImplicits{
   implicit def Symbol2BigActorHelper(hostID:Symbol) = new BigActorHelper(hostID)
   def hosted_at (hostName:String):Symbol = Symbol(hostName)
+  implicit def StringToBigraphNode (name: String) = new BigraphNode(name)
 }
 
 class BigActorHelper(hostID:Symbol){
