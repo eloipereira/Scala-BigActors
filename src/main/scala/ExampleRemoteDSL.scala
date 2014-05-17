@@ -4,10 +4,25 @@ package remote
 import bigactors._
 import RemoteBigActorImplicits._
 import scala.actors.Actor._
+import java.util.Properties
+import java.io.FileOutputStream
 
-object TestRemoteBigActorsDSL extends App{
- // BigActorSchdl.start
- // BigraphManager.start
+object ExampleRemoteDSL extends App{
+  // Configuration
+  val prop = new Properties()
+  prop.setProperty("RemoteBigActors","true")
+  prop.setProperty("BigActorSchdlIP","172.21.5.61")
+  prop.setProperty("BigActorSchdlPort","3000")
+  prop.setProperty("BigActorSchdlID","bigActorSchdl")
+  prop.setProperty("BigraphManagerIP","172.21.5.61")
+  prop.setProperty("BigraphManagerID","bigraphManager")
+  prop.setProperty("BigraphManagerPort","3001")
+  prop.setProperty("BigActorsPort","3000")
+  prop.setProperty("bgmPath","/Users/eloipereira/Dropbox/IDEAWorkspace/BigActors/src/main/resources/simple.bgm")
+  prop.setProperty("visualization","true")
+  prop.setProperty("debug","true")
+  prop.setProperty("log","false")
+  prop.store(new FileOutputStream("config.properties"),null)
 
 
   "uav1" hosted_at "u1" with_behavior {

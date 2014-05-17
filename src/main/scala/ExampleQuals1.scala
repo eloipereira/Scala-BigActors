@@ -2,8 +2,19 @@ package bigactors
 package remote
 
 import RemoteBigActorImplicits._
+import java.util.Properties
+import java.io.FileOutputStream
 
-object QualsEx1 extends App{
+object ExampleQuals1 extends App{
+
+  // Configuration
+  val prop = new Properties()
+  prop.setProperty("RemoteBigActors","false")
+  prop.setProperty("bgmPath","/Users/eloipereira/Dropbox/IDEAWorkspace/BigActors/src/main/resources/qualsEx1.bgm")
+  prop.setProperty("visualization","true")
+  prop.setProperty("debug","true")
+  prop.setProperty("log","false")
+  prop.store(new FileOutputStream("config.properties"),null)
 
   new RemoteBigActor("observer","camera0") {
     def behavior() {

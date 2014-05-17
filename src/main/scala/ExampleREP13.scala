@@ -3,11 +3,23 @@ package remote
 
 import bigactors.Observation
 import edu.berkeley.eloi.bigraph.{BRR, BigraphNode}
+import java.util.Properties
+import java.io.FileOutputStream
 ;
 
-object TestBigActorsREP13 extends App{
+object ExampleREP13 extends App{
 
-val ba0 = new RemoteBigActor( Symbol("uav0"), Symbol("u0")){
+  // Configuration
+  val prop = new Properties()
+  prop.setProperty("RemoteBigActors","false")
+  prop.setProperty("bgmPath","/Users/eloipereira/Dropbox/IDEAWorkspace/BigActors/src/main/resources/REP13.bgm")
+  prop.setProperty("visualization","true")
+  prop.setProperty("debug","true")
+  prop.setProperty("log","false")
+  prop.store(new FileOutputStream("config.properties"),null)
+
+  // BigActors
+  val ba0 = new RemoteBigActor( Symbol("uav0"), Symbol("u0")){
     def behavior() {
       var tankerNotFound = true
       control(new BRR("airfield_Location.(u0_UAV[wifi] | $0) | searchArea_Location.$1 -> airfield_Location.$0 | searchArea_Location.(u0_UAV[wifi] |$1)"))

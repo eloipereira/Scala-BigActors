@@ -4,11 +4,21 @@ import bigactors._
 import edu.berkeley.eloi.bigraph.{BigraphNode, BRR}
 import bigactors.BigActor._
 import scala.actors.Actor._
+import java.util.Properties
+import java.io.FileOutputStream
 
-object TestBigActors extends App{
-  BigraphManager
-  BigActorSchdl
+object ExampleSimple extends App{
 
+  // Configuration
+  val prop = new Properties()
+  prop.setProperty("RemoteBigActors","false")
+  prop.setProperty("bgmPath","/Users/eloipereira/Dropbox/IDEAWorkspace/BigActors/src/main/resources/simple.bgm")
+  prop.setProperty("visualization","true")
+  prop.setProperty("debug","true")
+  prop.setProperty("log","false")
+  prop.store(new FileOutputStream("config.properties"),null)
+
+ //BigActors
   val uav1 = BigActor hosted_at "u1" with_behavior{
     observe("children.parent.host")
     loop {

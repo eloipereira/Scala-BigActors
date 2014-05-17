@@ -3,11 +3,29 @@ package remote
 
 import bigactors.Observation
 import edu.berkeley.eloi.bigraph.BRR
+import java.util.Properties
+import java.io.FileOutputStream
 
 
-object TestRemoteBigActors extends App{
+object ExampleRemote extends App{
+  // Configuration
+  val prop = new Properties()
+  prop.setProperty("RemoteBigActors","true")
+  prop.setProperty("BigActorSchdlIP","172.21.5.61")
+  prop.setProperty("BigActorSchdlPort","3000")
+  prop.setProperty("BigActorSchdlID","bigActorSchdl")
+  prop.setProperty("BigraphManagerIP","172.21.5.61")
+  prop.setProperty("BigraphManagerID","bigraphManager")
+  prop.setProperty("BigraphManagerPort","3001")
+  prop.setProperty("BigActorsPort","3000")
+  prop.setProperty("bgmPath","/Users/eloipereira/Dropbox/IDEAWorkspace/BigActors/src/main/resources/simple.bgm")
+  prop.setProperty("visualization","true")
+  prop.setProperty("debug","true")
+  prop.setProperty("log","false")
+  prop.store(new FileOutputStream("config.properties"),null)
 
- val uav1 = new RemoteBigActor( Symbol("uav1"), Symbol("u1")){
+
+  val uav1 = new RemoteBigActor( Symbol("uav1"), Symbol("u1")){
     def behavior() {
       control(new BRR("u1_UAV[network].$0 | $1 -> u1_UAV[network].($0 | uav1_BA) | $1"))
       observe("children.parent.host")
