@@ -5,6 +5,7 @@ import edu.berkeley.eloi.bigraph.{BigraphNode, BRR}
 import edu.berkeley.eloi.bgm2java.Debug
 import java.util.Properties
 import java.io.FileInputStream
+import scala.actors.Actor._
 
 trait BigActorTrait{
   def observe(query: String) = {
@@ -19,6 +20,18 @@ trait BigActorTrait{
   def sendMsg(msg: Any,rcv: OutputChannel[Any]){
     BigActorSchdl ! SEND_REQUEST(msg,rcv)
   }
+
+  def synchronousObserve(query: String) = {
+    BigActorSchdl ! OBSERVATION_REQUEST(query)
+    receive {
+      case observation: Observation => observation
+    }
+  }
+
+  lazy val HOST = synchronousObserve("host")
+  lazy val PARENT_HOST = synchronousObserve("parent.host")
+  lazy val CHILDREN_PARENT_HOST = synchronousObserve("children.parent.host")
+
 }
 
 abstract class BigActor(hostID: Symbol) extends Actor with BigActorTrait with BigActorImplicits {
