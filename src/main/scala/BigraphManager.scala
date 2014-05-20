@@ -46,7 +46,7 @@ object BigraphManager extends Actor {
           Debug.println("[BigraphManager]:\t New bigraph: " + brs,debug)
         }
         case BIGRAPH_REQUEST => {
-          Debug.println("[BigraphManager]:\t Sending bigraph",debug)
+          Debug.println("[BigraphManager]:\t Sending bigraph: " + brs,debug)
           sender ! BIGRAPH_RESPONSE(brs.getBigraph)
         }
       }

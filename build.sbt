@@ -18,7 +18,7 @@ libraryDependencies += "org.scala-lang" % "scala-reflect" % "2.11.0-RC3"
 
 libraryDependencies += "org.antlr" % "antlr-complete" % "3.5.2"
 
-libraryDependencies += "bgm2java" % "bgm2java" % "1.0"
+libraryDependencies += "bgm2java" % "bgm2java" % "1.1"
 
 libraryDependencies += "bigraphvisualizer" % "bigraphvisualizer" % "1.0"
 

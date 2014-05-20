@@ -83,8 +83,8 @@ object RemoteBigActorSchdl extends Actor with App {
           bigraphManager ! BIGRAPH_REQUEST
           receive{
             case BIGRAPH_RESPONSE(bigraph) => {
-              val host = bigraph.getNode(hostRelation(bigActorID).name)
-              val obs = new Observation(SimpleQueryCompiler.generate(query,host,bigraph))
+              val hostId = hostRelation(bigActorID).name
+              val obs = new Observation(SimpleQueryCompiler.generate(query,hostId,bigraph))
               Debug.println("Observation: "+obs,debug)
               proxies(bigActorID) ! obs
 

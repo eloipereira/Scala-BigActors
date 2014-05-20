@@ -1,7 +1,7 @@
 package bigactors
 
 import scala.actors.{Actor, OutputChannel}
-import edu.berkeley.eloi.bigraph.{BigraphNode, BRR}
+import edu.berkeley.eloi.bigraph.{Place, BigraphNode, BRR}
 import edu.berkeley.eloi.bgm2java.Debug
 import java.util.Properties
 import java.io.FileInputStream
@@ -28,9 +28,10 @@ trait BigActorTrait{
     }
   }
 
-  lazy val HOST = synchronousObserve("host")
-  lazy val PARENT_HOST = synchronousObserve("parent.host")
-  lazy val CHILDREN_PARENT_HOST = synchronousObserve("children.parent.host")
+  def HOST = synchronousObserve("host")
+  def PARENT_HOST = synchronousObserve("parent.host")
+  def CHILDREN_PARENT_HOST = synchronousObserve("children.parent.host")
+  def MOVE_HOST_TO(loc: Place) = control(new BRR(PARENT_HOST.bigraph.head.toBgm + ".( $0 |" + HOST.bigraph.head.toBgm + ")||" +  loc.toBgm + ".($1) ->" + PARENT_HOST.bigraph.head.toBgm + ".( $0 ) || " + loc.toBgm +".($1|"+HOST.bigraph.head.toBgm + ")"))
 
 }
 

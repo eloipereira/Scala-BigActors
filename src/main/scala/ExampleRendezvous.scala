@@ -1,6 +1,6 @@
 import bigactors._
 
-import edu.berkeley.eloi.bigraph.{BigraphNode, BRR}
+import edu.berkeley.eloi.bigraph.{Place, BigraphNode, BRR}
 import bigactors.BigActor._
 import scala.actors.Actor._
 import java.util.Properties
@@ -18,8 +18,16 @@ object ExampleRendezvous extends App{
   prop.store(new FileOutputStream("config.properties"),null)
 
   //BigActors
-  BigActor hosted_at "r0" with_behavior{
-    println(PARENT_HOST)
+  val r0BA = BigActor hosted_at "r0" with_behavior{
+    val rvLoc = PARENT_HOST
+    r1BA ! rvLoc.bigraph.head
   }
 
+  val r1BA = BigActor hosted_at "r1" with_behavior{
+    react{
+      case loc: Place => {
+        MOVE_HOST_TO(loc)
+      }
+    }
+  }
 }

@@ -20,7 +20,7 @@ object BigActorSchdl extends Actor {
           BigraphManager ! BIGRAPH_REQUEST
           receive{
             case BIGRAPH_RESPONSE(bigraph) => {
-              if (bigraph.getPlaces.contains(new BigraphNode(hostId.name))) {
+              if (bigraph.getPlaces.map(p=>p.getId).contains(hostId.name)) {
                 Debug.println("[BigActorSchdl]:\t Hosting BigActor at host " + hostId,debug)
                 hostRelation += requester -> hostId
                 requester ! HOSTING_SUCCESSFUL
@@ -38,8 +38,8 @@ object BigActorSchdl extends Actor {
           BigraphManager ! BIGRAPH_REQUEST
           receive{
             case BIGRAPH_RESPONSE(bigraph) => {
-              val host = bigraph.getNode(hostRelation(requester).name)
-              val obs = new Observation(SimpleQueryCompiler.generate(query,host,bigraph))
+              val hostId: String = hostRelation(requester).name
+              val obs = new Observation(SimpleQueryCompiler.generate(query,hostId,bigraph))
               Debug.println("[BigActorSchdl]:\t Observation: "+obs,debug)
               requester ! obs
             }

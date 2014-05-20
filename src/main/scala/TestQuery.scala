@@ -7,7 +7,7 @@ object TestQuery {
   def main (args : Array[String]){
     val gen = ConcreteBgm2JavaCompiler.generate("/Users/eloipereira/Dropbox/IDEAWorkspace/BigActors/src/examples/REP13.bgm",true)
     val brs: BRS = new BRS(gen.signature, gen.names, gen.bigraph, gen.rules,false)
-    val result = SimpleQueryCompiler.generate("children.parent.host",brs.getBigraph.getNode("u0"),brs.getBigraph)
+    val result = SimpleQueryCompiler.generate("children.parent.host","u0",brs.getBigraph)
     for (r <- result){
       println(r)
     }
@@ -16,7 +16,7 @@ object TestQuery {
     val r: BRR = brs.getRules.get(0)
     brs.applyRules(List(r),2)
     println(brs)
-    val result1 = SimpleQueryCompiler.generate("children.parent.host",brs.getBigraph.getNode("u0"),brs.getBigraph)
+    val result1 = SimpleQueryCompiler.generate("children.parent.host","u0",brs.getBigraph)
     for (r <- result1){
       println(r)
     }
@@ -25,7 +25,7 @@ object TestQuery {
     val r1: BRR = brs.getRules.get(1)
     brs.applyRules(List(r1),2)
     println(brs)
-    val result2 = SimpleQueryCompiler.generate("children.parent.host",brs.getBigraph.getNode("u0"),brs.getBigraph)
+    val result2 = SimpleQueryCompiler.generate("children.parent.host","u0",brs.getBigraph)
     for (r <- result2){
       println(r)
     }
