@@ -1,15 +1,14 @@
 package bigactors
 package remote
 
-import bigactors.Observation
-import edu.berkeley.eloi.bigraph.BRR
+import edu.berkeley.eloi.bigraph.{Place, BRR}
 
 
 object RemoteUav0 extends RemoteBigActor( Symbol("uav0"), Symbol("u0")) with App{
   def behavior() {
     observe("children.parent.host")
     react{
-      case obs: Observation => {
+      case obs: Array[Place] => {
         println("New observation for uav0: "+ obs)
         Thread.sleep(10000)
         sendMsg("Hello I'm a BigActor!",Symbol("uav1"))
@@ -17,7 +16,7 @@ object RemoteUav0 extends RemoteBigActor( Symbol("uav0"), Symbol("u0")) with App
         migrate(Symbol("u1"))
         observe("host")
         react{
-          case obs: Observation => println("New observation for uav0: "+ obs)
+          case obs: Array[Place] => println("New observation for uav0: "+ obs)
         }
       }
     }

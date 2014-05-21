@@ -1,8 +1,7 @@
 package bigactors
 package remote
 
-import bigactors.Observation
-import edu.berkeley.eloi.bigraph.{BRR, BigraphNode}
+import edu.berkeley.eloi.bigraph.{Place, BRR, BigraphNode}
 import java.util.Properties
 import java.io.FileOutputStream
 ;
@@ -26,7 +25,7 @@ object ExampleREP13 extends App{
       while (tankerNotFound){
         observe("children.parent.host")
         react {
-          case obs: Observation =>
+          case obs: Array[Place] =>
             if (obs.contains(new BigraphNode("tanker0"))) {
               sendMsg(obs,Symbol("cs0"))
               control(new BRR("airfield_Location.$0 | searchArea_Location.(u0_UAV[x] | $1) -> airfield_Location.(u0_UAV[x] | $0) | searchArea_Location.$1"))

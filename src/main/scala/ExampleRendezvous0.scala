@@ -20,10 +20,10 @@ object ExampleRendezvous0 extends App{
   //BigActors
   val r0BA = BigActor hosted_at "r0" with_behavior{
     val rvLoc = PARENT_HOST
-    r1BA ! rvLoc.bigraph.head
-    r2BA ! rvLoc.bigraph.head
-    r3BA ! rvLoc.bigraph.head
-    r4BA ! rvLoc.bigraph.head
+    r1BA ! rvLoc.head
+    r2BA ! rvLoc.head
+    r3BA ! rvLoc.head
+    r4BA ! rvLoc.head
   }
 
   val r1BA = BigActor hosted_at "r1" with_behavior{

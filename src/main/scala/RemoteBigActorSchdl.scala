@@ -6,7 +6,7 @@ import scala.actors.remote.RemoteActor._
 import edu.berkeley.eloi.bigraph._
 import scala.collection.JavaConversions._
 import edu.berkeley.eloi.bgm2java.Debug
-import scala.collection.mutable.HashMap
+import scala.collection.mutable.{ArrayBuffer, HashMap}
 import scala.actors._
 import scala.actors.Actor._
 import scala.actors.remote.Node
@@ -19,10 +19,10 @@ import java.net.InetAddress
 object RemoteBigActorSchdl extends Actor with App {
   var debug = true
 
- // scala.actors.Debug.level_=(100)
+  // scala.actors.Debug.level_=(100)
 
   private val hostRelation = new HashMap[Symbol,Symbol]
- // private val remoteNodeMap = new HashMap[Symbol,Node]
+  // private val remoteNodeMap = new HashMap[Symbol,Node]
   private val proxies = new HashMap[Symbol,OutputChannel[Any]]
 
 
@@ -67,7 +67,7 @@ object RemoteBigActorSchdl extends Actor with App {
                 Debug.println("Hosting BigActor at host " + hostID,debug)
                 hostRelation += bigActorID -> hostID
                 val node = Node(ip,port)
-              //  remoteNodeMap += bigActorID -> node
+                //  remoteNodeMap += bigActorID -> node
                 proxies += bigActorID -> bigActor
                 bigActor ! REMOTE_HOSTING_SUCCESSFUL
               }
@@ -84,10 +84,28 @@ object RemoteBigActorSchdl extends Actor with App {
           receive{
             case BIGRAPH_RESPONSE(bigraph) => {
               val hostId = hostRelation(bigActorID).name
-              val obs = new Observation(SimpleQueryCompiler.generate(query,hostId,bigraph))
-              Debug.println("Observation: "+obs,debug)
-              proxies(bigActorID) ! obs
-
+              if(query.split('.').head == "hostedAt"){
+                val bigraphNodes = BigraphQueryCompiler.interpret(query.substring(9),hostId,bigraph)
+                val bigactors = ArrayBuffer.empty[Symbol]
+                val reverseHostRelation = hostRelation groupBy {_._2} map {case (key,value) => (key, value.unzip._1)}
+                bigraphNodes.foreach{b =>
+                  val id = Symbol(b.getId.asInstanceOf[String])
+                  if (reverseHostRelation.contains(id)){
+                    reverseHostRelation(id).foreach{a =>
+                      println(a)
+                      bigactors+=a
+                    }
+                  }
+                  if (!bigactors.isEmpty){
+                    Debug.println("[BigActorSchdl]:\t Observed BigActors: "+bigactors,debug)
+                    proxies(bigActorID) ! bigactors
+                  }
+                }
+              }else{
+                val bigraphNodes = BigraphQueryCompiler.interpret(query,hostId,bigraph)
+                Debug.println("[BigActorSchdl]:\t Observed Bigraph: "+bigraphNodes,debug)
+                proxies(bigActorID) ! bigraphNodes
+              }
             }
           }
         }

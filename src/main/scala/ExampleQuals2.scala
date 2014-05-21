@@ -4,6 +4,7 @@ package remote
 import RemoteBigActorImplicits._
 import java.util.Properties
 import java.io.FileOutputStream
+import edu.berkeley.eloi.bigraph.Place
 
 object ExampleQuals2 extends App{
 
@@ -21,14 +22,14 @@ object ExampleQuals2 extends App{
       loop {
         observe("children.parent.host")
         react {
-          case obs: Observation => {
+          case obs: Array[Place] => {
             println(obs)
             if (obs.contains("p0") || obs.contains("p1") || obs.contains("p2")){
               println(obs)
             } else{
               observe("linkedTo.host")
               react {
-                case obs1: Observation => migrate(obs1.bigraph.last.getId.asInstanceOf[Symbol])
+                case obs1: Array[Place] => migrate(obs1.last.getId.asInstanceOf[Symbol])
               }
             }
           }

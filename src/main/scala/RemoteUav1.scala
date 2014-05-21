@@ -1,7 +1,7 @@
 package bigactors
 package remote
 
-import bigactors.Observation
+import edu.berkeley.eloi.bigraph.Place
 
 
 object RemoteUav1 extends RemoteBigActor(Symbol("uav1"), Symbol("u1")) with App{
@@ -9,7 +9,7 @@ object RemoteUav1 extends RemoteBigActor(Symbol("uav1"), Symbol("u1")) with App{
     observe("children.parent.host")
     loop {
       react {
-        case obs: Observation => println("New observation for uav1: " + obs)
+        case obs: Array[Place] => println("New observation for uav1: " + obs)
         case msg: Any => println("New mail for uav1: " + msg)
       }
     }

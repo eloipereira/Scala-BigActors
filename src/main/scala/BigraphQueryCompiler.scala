@@ -1,12 +1,12 @@
 package bigactors
 
 import edu.berkeley.eloi.bigraph._
-import collection.mutable.ArrayBuffer
+import scala.collection.mutable.{ArrayBuffer}
 import scala.collection.JavaConversions._
 
-object SimpleQueryCompiler {
-  def generate (input: String, hostId : String, bigraph: Bigraph) :Array[Place] = {
-    val splitedInput = input.split('.').reverse
+object BigraphQueryCompiler {
+  def interpret (query: String, hostId : String, bigraph: Bigraph) :Array[Place] = {
+    val splitedInput = query.split('.').reverse
     val it = splitedInput.iterator
     var result = new ArrayBuffer[Place]()
     result += bigraph.getNode(hostId)

@@ -18,14 +18,49 @@ object ExampleRendezvous1 extends App{
   prop.store(new FileOutputStream("config.properties"),null)
 
   //BigActors
-  BigActor hosted_at "r0" with_behavior{
-    val rvLoc = PARENT_HOST.bigraph.head
-    val robots = LINKED_TO_HOST.bigraph
-    robots.foreach{r =>
-      BigActor hosted_at r.getId.asInstanceOf[String] with_behavior{
-        MOVE_HOST_TO(rvLoc)
+
+  val r0BA = BigActor hosted_at "r0" with_behavior{
+      val rvLoc = PARENT_HOST
+      val bigactors = HOSTED_AT_LINKED_TO_HOST
+      bigactors.foreach{b=>
+        println(b)
+        b ! rvLoc.head
+      }
+    }
+
+  val r1BA = BigActor hosted_at "r1" with_behavior{
+    react{
+      case loc: Place => {
+        MOVE_HOST_TO(loc)
       }
     }
   }
+
+  val r2BA = BigActor hosted_at "r2" with_behavior{
+    react{
+      case loc: Place => {
+        MOVE_HOST_TO(loc)
+      }
+    }
+  }
+
+  val r3BA = BigActor hosted_at "r3" with_behavior{
+    react{
+      case loc: Place => {
+        MOVE_HOST_TO(loc)
+      }
+    }
+  }
+
+  val r4BA = BigActor hosted_at "r4" with_behavior{
+    react{
+      case loc: Place => {
+        MOVE_HOST_TO(loc)
+      }
+    }
+  }
+
+
+
 
 }

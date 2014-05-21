@@ -3,6 +3,7 @@ package remote
 
 import RemoteBigActorImplicits._
 import scala.actors.Actor._
+import edu.berkeley.eloi.bigraph.Place
 
 
 object ICCPSBigActors extends App{
@@ -11,7 +12,7 @@ object ICCPSBigActors extends App{
     "searchOil" observe "children.parent.host"
     loop {
       react {
-        case obs: Observation => {
+        case obs: Array[Place] => {
           if (obs.contains("oilSpill")){
             "searchOil" control "uav0_UAV[c2,ais] || oilSpill_Location.($0)| $1 -> oilSpill_Location.($0 | uav0_UAV[c2,ais]) | $1"
             "searchOil" send_message obs to "deployDrifter"
@@ -31,7 +32,7 @@ object ICCPSBigActors extends App{
   "deployDrifter" hosted_at "vessel" with_behavior
     {
       react{
-        case msg: Observation => {
+        case msg: Array[Place] => {
           "deployDrifter" control "vessel_Vessel[c2].(drifter_Drifter[ais]|$0) || oilSpill_Location.($1) | $2 -> vessel_Vessel[c2].($0) || oilSpill_Location.($1|drifter_Drifter[ais]) | $2"
         }
       }

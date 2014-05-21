@@ -4,7 +4,7 @@ import scala.actors.{OutputChannel, Actor}
 import edu.berkeley.eloi.bigraph._
 import scala.collection.JavaConversions._
 import edu.berkeley.eloi.bgm2java.Debug
-import scala.collection.mutable.HashMap
+import scala.collection.mutable.{ArrayBuffer, HashMap}
 
 
 object BigActorSchdl extends Actor {
@@ -39,9 +39,28 @@ object BigActorSchdl extends Actor {
           receive{
             case BIGRAPH_RESPONSE(bigraph) => {
               val hostId: String = hostRelation(requester).name
-              val obs = new Observation(SimpleQueryCompiler.generate(query,hostId,bigraph))
-              Debug.println("[BigActorSchdl]:\t Observation: "+obs,debug)
-              requester ! obs
+              if(query.split('.').head == "hostedAt"){
+                val bigraphNodes = BigraphQueryCompiler.interpret(query.substring(9),hostId,bigraph)
+                val bigactors = ArrayBuffer.empty[OutputChannel[Any]]
+                val reverseHostRelation = hostRelation groupBy {_._2} map {case (key,value) => (key, value.unzip._1)}
+                bigraphNodes.foreach{b =>
+                  val id = Symbol(b.getId.asInstanceOf[String])
+                  if (reverseHostRelation.contains(id)){
+                    reverseHostRelation(id).foreach{a =>
+                      println(a)
+                      bigactors+=a
+                    }
+                  }
+                }
+                if (!bigactors.isEmpty){
+                  Debug.println("[BigActorSchdl]:\t Observed BigActors: "+bigactors,debug)
+                  requester ! bigactors
+                }
+              }else{
+                val bigraphNodes = BigraphQueryCompiler.interpret(query,hostId,bigraph)
+                Debug.println("[BigActorSchdl]:\t Observed Bigraph: "+bigraphNodes,debug)
+                requester ! bigraphNodes
+              }
             }
           }
         }

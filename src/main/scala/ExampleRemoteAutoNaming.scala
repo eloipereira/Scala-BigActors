@@ -1,9 +1,8 @@
 package bigactors
 package remote
 
-import bigactors.Observation
 import RemoteBigActorImplicits._
-import edu.berkeley.eloi.bigraph.BRR
+import edu.berkeley.eloi.bigraph.{Place, BRR}
 import java.util.Properties
 import java.io.FileOutputStream
 
@@ -30,7 +29,7 @@ object ExampleRemoteAutoNaming extends App{
       observe("children.parent.host")
       loop {
         react {
-          case obs: Observation => println("New observation for BigActor " + bigActorID.name + ": " + obs)
+          case obs: Array[Place] => println("New observation for BigActor " + bigActorID.name + ": " + obs)
           case msg: Any => println("New mail for BigActor " + bigActorID.name + ": " + msg)
         }
       }
@@ -44,16 +43,16 @@ object ExampleRemoteAutoNaming extends App{
       observe("children.linkedTo.host")
       Thread.sleep(5000)
       react{
-        case obs: Observation => {
+        case obs: Array[Place] => {
           println("New observation for uav0: "+ obs)
-          obs.bigraph.foreach(b =>
+          obs.foreach(b =>
             sendMsg("Hello I'm BigActor " + bigActorID.name ,Symbol(b.toString))
           )
           control(new BRR("l0_Location.(u0_UAV[network].$0 | $1) | l1_Location.$2 -> l0_Location.($1) | l1_Location.(u0_UAV[network].$0 | $2)"))
           migrate(Symbol("u1"))
           observe("host")
           react{
-            case obs: Observation => println("New observation for BigActor " + bigActorID.name + ": " + obs)
+            case obs: Array[Place] => println("New observation for BigActor " + bigActorID.name + ": " + obs)
           }
         }
       }

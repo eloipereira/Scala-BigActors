@@ -21,7 +21,7 @@ object ExampleQuals1 extends App{
       loop {
         observe("children.parent.host")
         react {
-          case obs: Observation => println(obs)
+          case obs => println(obs)
         }
       }
     }

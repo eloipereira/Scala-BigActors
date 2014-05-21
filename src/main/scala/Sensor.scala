@@ -1,7 +1,7 @@
 package bigactors.remote.templates
 
-import bigactors.Observation
 import bigactors.remote._
+import edu.berkeley.eloi.bigraph.Place
 
 
 /**
@@ -16,7 +16,7 @@ class Sensor(sensorID: Symbol, sensorHostID: Symbol, query: String, clients: Lis
     loop{
       observe(query)
       receive{
-        case obs: Observation => clients.map(c => sendMsg(obs,c))
+        case obs: Array[Place] => clients.map(c => sendMsg(obs,c))
       }
     }
   }
