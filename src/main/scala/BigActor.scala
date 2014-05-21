@@ -31,8 +31,9 @@ trait BigActorTrait{
   def HOST = synchronousObserve("host")
   def PARENT_HOST = synchronousObserve("parent.host")
   def CHILDREN_PARENT_HOST = synchronousObserve("children.parent.host")
+  def LINKED_TO_HOST = synchronousObserve("linkedTo.host")
   def MOVE_HOST_TO(loc: Place) = control(new BRR(PARENT_HOST.bigraph.head.toBgm + ".( $0 |" + HOST.bigraph.head.toBgm + ")||" +  loc.toBgm + ".($1) ->" + PARENT_HOST.bigraph.head.toBgm + ".( $0 ) || " + loc.toBgm +".($1|"+HOST.bigraph.head.toBgm + ")"))
-
+  // TODO - create CONNECT_HOST_TO(link: String)
 }
 
 abstract class BigActor(hostID: Symbol) extends Actor with BigActorTrait with BigActorImplicits {
