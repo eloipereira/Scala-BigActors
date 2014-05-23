@@ -65,6 +65,8 @@ abstract class BigActor(hostID: Symbol) extends Actor with BigActorTrait with Bi
 
 
 object BigActor extends BigActorTrait with BigActorImplicits {
+  def self = Actor.self.asInstanceOf[BigActor]
+
   def bigActor(hostID:Symbol) (body: => Unit): BigActor = new BigActor(hostID) {
     override def behavior: Unit = body
     this.start

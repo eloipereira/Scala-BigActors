@@ -26,7 +26,15 @@ object ExampleRendezvous0 extends App{
     r4BA ! rvLoc.head
   }
 
-  val r1BA = BigActor hosted_at "r1" with_behavior{
+  val r1BA = BigActor hosted_at "r1" with_behavior receiveLocationAndMove
+
+  val r2BA = BigActor hosted_at "r2" with_behavior receiveLocationAndMove
+
+  val r3BA = BigActor hosted_at "r3" with_behavior receiveLocationAndMove
+
+  val r4BA = BigActor hosted_at "r4" with_behavior receiveLocationAndMove
+
+  def receiveLocationAndMove = {
     react{
       case loc: Place => {
         MOVE_HOST_TO(loc)
@@ -34,27 +42,4 @@ object ExampleRendezvous0 extends App{
     }
   }
 
-  val r2BA = BigActor hosted_at "r2" with_behavior{
-      react{
-        case loc: Place => {
-          MOVE_HOST_TO(loc)
-        }
-      }
-    }
-
-  val r3BA = BigActor hosted_at "r3" with_behavior{
-      react{
-        case loc: Place => {
-          MOVE_HOST_TO(loc)
-        }
-      }
-    }
-
-  val r4BA = BigActor hosted_at "r4" with_behavior{
-      react{
-        case loc: Place => {
-          MOVE_HOST_TO(loc)
-        }
-      }
-    }
 }
