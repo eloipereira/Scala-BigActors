@@ -1,12 +1,13 @@
 package bigactors
 
+import bigactors.ExampleRendezvous3.RENDEZVOUS
 import edu.berkeley.eloi.bigraph.{Place, BigraphNode, BRR}
 import bigactors.BigActor._
 import scala.actors.Actor._
 import java.util.Properties
 import java.io.FileOutputStream
 
-object ExampleRendezvous3 extends App{
+object ExampleRendezvous4 extends App{
 
   // Configuration
   val prop = new Properties()
@@ -18,15 +19,12 @@ object ExampleRendezvous3 extends App{
   prop.store(new FileOutputStream("config.properties"),null)
 
   //BigActors
-  BigActor hosted_at "r0" with_behavior rendezvous
-
-  BigActor hosted_at "r1" with_behavior rendezvous
-
-  BigActor hosted_at "r2" with_behavior rendezvous
-
-  BigActor hosted_at "r3" with_behavior rendezvous
-
-  BigActor hosted_at "r4" with_behavior rendezvous
+  BigActor hosted_at "r0" with_behavior {
+    val robots = LINKED_TO_HOST ++ HOST
+    robots.foreach{r =>
+       BigActor hosted_at r with_behavior rendezvous
+    }
+  }
 
   def rendezvous = {
     var rvLoc = PARENT_HOST.head
@@ -48,7 +46,5 @@ object ExampleRendezvous3 extends App{
       }
     }
   }
-
-  case class RENDEZVOUS(leader: BigActor, location: Place)
 
 }

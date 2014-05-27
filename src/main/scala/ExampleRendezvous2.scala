@@ -22,7 +22,7 @@ object ExampleRendezvous2 extends App{
     val rvLoc = PARENT_HOST.head
     val robots = LINKED_TO_HOST
     robots.foreach{r =>
-      BigActor hosted_at r.getId.asInstanceOf[String] with_behavior{
+      BigActor hosted_at r with_behavior{
         MOVE_HOST_TO(rvLoc)
       }
     }
