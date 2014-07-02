@@ -1,5 +1,8 @@
 package bigactors
 
+import java.io.FileInputStream
+import java.util.Properties
+
 import scala.actors.{OutputChannel, Actor}
 import edu.berkeley.eloi.bigraph._
 import scala.collection.JavaConversions._
@@ -9,7 +12,11 @@ import scala.collection.mutable.{ArrayBuffer, HashMap}
 case object REQUEST_HOSTING_RELATION
 
 object BigActorSchdl extends Actor {
-  var debug = true
+  // configuration
+  val prop = new Properties
+  prop.load(new FileInputStream("config.properties"))
+  val debug = prop.getProperty("debug").toBoolean
+
   private val hostRelation = new HashMap[OutputChannel[Any],Symbol]
   def act() {
     loop {

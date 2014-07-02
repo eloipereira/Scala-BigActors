@@ -44,13 +44,17 @@ class TestQueries extends FunSuite {
   test("Children of children of parent of host"){
     assert(QueryInterpreter.evaluateBigraph(Children(Parent(Parent(Host))),"u0",bigraph).deep == QueryInterpreter.evaluateString("children.parent.parent.host","u0",bigraph).deep)
   }
-  test("Hosted at"){
-    val a = BigActor hosted_at "u0" with_behavior{}
+  test("Hosted at host"){
+    val a = BigActor hosted_at "u0" with_behavior{
+      receive{
+        case msg: String => assert(msg == "DONE")
+      }
+    }
     actor{
       BigActorSchdl ! REQUEST_HOSTING_RELATION
-      receive{
+      react{
         case h: HashMap[OutputChannel[Any],Symbol] => {
-          assert(QueryInterpreter.evaluateBigActors(Hosted_at(Host),"u0",bigraph,h).head == a)
+          QueryInterpreter.evaluateBigActors(Hosted_at(Host),"u0",bigraph,h).head ! "DONE"
         }
       }
     }
