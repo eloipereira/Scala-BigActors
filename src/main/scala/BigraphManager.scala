@@ -6,7 +6,6 @@ import scala.actors.{AbstractActor, Actor}
 import edu.berkeley.eloi.bgm2java.Debug
 import scala.actors.remote.RemoteActor._
 import scala.actors.Actor._
-import scala.actors.remote.Node
 import java.util.Properties
 import java.io.FileInputStream
 

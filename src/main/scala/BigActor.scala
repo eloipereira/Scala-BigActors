@@ -9,7 +9,7 @@ import scala.actors.Actor._
 import scala.collection.mutable.ArrayBuffer
 
 trait BigActorTrait{
-  def observe(query: String) = {
+  def observe(query: Query) = {
     BigActorSchdl ! OBSERVATION_REQUEST(query)
   }
   def control(brr: BRR){
@@ -22,25 +22,25 @@ trait BigActorTrait{
     BigActorSchdl ! SEND_REQUEST(msg,rcv)
   }
 
-  def observeAndWaitForBigraph(query: String) = {
+  def observeAndWaitForBigraph(query: Query) = {
     BigActorSchdl ! OBSERVATION_REQUEST(query)
     receive {
       case observation: Array[Place] => observation
     }
   }
 
-  def observeAndWaitForBigActors(query: String) = {
+  def observeAndWaitForBigActors(query: Query) = {
     BigActorSchdl ! OBSERVATION_REQUEST(query)
     receive {
       case observation: ArrayBuffer[OutputChannel[Any]] => observation
     }
   }
 
-  def HOST = observeAndWaitForBigraph("host")
-  def PARENT_HOST = observeAndWaitForBigraph("parent.host")
-  def CHILDREN_PARENT_HOST = observeAndWaitForBigraph("children.parent.host")
-  def LINKED_TO_HOST = observeAndWaitForBigraph("linkedTo.host")
-  def HOSTED_AT_LINKED_TO_HOST  = observeAndWaitForBigActors("hostedAt.linkedTo.host")
+  def HOST = observeAndWaitForBigraph(Host)
+  def PARENT_HOST = observeAndWaitForBigraph(Parent(Host))
+  def CHILDREN_PARENT_HOST = observeAndWaitForBigraph(Children(Parent(Host)))
+  def LINKED_TO_HOST = observeAndWaitForBigraph(Linked_to(Host))
+  def HOSTED_AT_LINKED_TO_HOST  = observeAndWaitForBigActors(Hosted_at(Linked_to(Host)))
   def MOVE_HOST_TO(loc: Place) = control(new BRR(PARENT_HOST.head.toBgm + ".( $0 |" + HOST.head.toBgm + ")||" +  loc.toBgm + ".($1) ->" + PARENT_HOST.head.toBgm + ".( $0 ) || " + loc.toBgm +".($1|"+HOST.head.toBgm + ")"))
   // TODO - create CONNECT_HOST_TO(link: String)
 

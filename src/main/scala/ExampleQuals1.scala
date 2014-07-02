@@ -1,6 +1,8 @@
 package bigactors
 package remote
 
+import java.nio.file.Paths
+
 import RemoteBigActorImplicits._
 import java.util.Properties
 import java.io.FileOutputStream
@@ -10,7 +12,8 @@ object ExampleQuals1 extends App{
   // Configuration
   val prop = new Properties()
   prop.setProperty("RemoteBigActors","false")
-  prop.setProperty("bgmPath","/Users/eloipereira/Dropbox/IDEAWorkspace/BigActors/src/main/resources/qualsEx1.bgm")
+  val p0 = Paths.get(System.getProperty("user.dir")).resolve("src/main/resources/qualsEx1.bgm")
+  prop.setProperty("bgmPath",p0.toString)
   prop.setProperty("visualization","true")
   prop.setProperty("debug","true")
   prop.setProperty("log","false")
@@ -19,7 +22,7 @@ object ExampleQuals1 extends App{
   new RemoteBigActor("observer","camera0") {
     def behavior() {
       loop {
-        observe("children.parent.host")
+        observe(Children(Parent(Host)))
         react {
           case obs => println(obs)
         }

@@ -84,31 +84,52 @@ object RemoteBigActorSchdl extends Actor with App {
           receive{
             case BIGRAPH_RESPONSE(bigraph) => {
               val hostId = hostRelation(bigActorID).name
-              if(query.split('.').head == "hostedAt"){
-                val bigraphNodes = BigraphQueryCompiler.interpret(query.substring(9),hostId,bigraph)
-                val bigactors = ArrayBuffer.empty[Symbol]
-                val reverseHostRelation = hostRelation groupBy {_._2} map {case (key,value) => (key, value.unzip._1)}
-                bigraphNodes.foreach{b =>
-                  val id = Symbol(b.getId.asInstanceOf[String])
-                  if (reverseHostRelation.contains(id)){
-                    reverseHostRelation(id).foreach{a =>
-                      println(a)
-                      bigactors+=a
-                    }
-                  }
-                  if (!bigactors.isEmpty){
-                    Debug.println("[BigActorSchdl]:\t Observed BigActors: "+bigactors,debug)
-                    proxies(bigActorID) ! bigactors
-                  }
+              val result = QueryInterpreter.evaluateRemote(query, hostId, bigraph, hostRelation)
+              result match {
+                case Left(b) => {
+                  Debug.println("[BigActorSchdl]:\t Observed Bigraph: " + b, debug)
+                  proxies(bigActorID) ! b
                 }
-              }else{
-                val bigraphNodes = BigraphQueryCompiler.interpret(query,hostId,bigraph)
-                Debug.println("[BigActorSchdl]:\t Observed Bigraph: "+bigraphNodes,debug)
-                proxies(bigActorID) ! bigraphNodes
+                case Right(a) => {
+                  Debug.println("[BigActorSchdl]:\t Observed BigActors: " + a, debug)
+                  proxies(bigActorID) ! a
+                }
               }
             }
           }
         }
+
+        //        case REMOTE_OBSERVATION_REQUEST(query, bigActorID) => {
+        //          Debug.println("got a obs request with query " + query + " from "+bigActorID,debug)
+        //          bigraphManager ! BIGRAPH_REQUEST
+        //          receive{
+        //            case BIGRAPH_RESPONSE(bigraph) => {
+        //              val hostId = hostRelation(bigActorID).name
+        //              if(query.split('.').head == "hostedAt"){
+        //                val bigraphNodes = QueryInterpreter.evaluateString(query.substring(9),hostId,bigraph)
+        //                val bigactors = ArrayBuffer.empty[Symbol]
+        //                val reverseHostRelation = hostRelation groupBy {_._2} map {case (key,value) => (key, value.unzip._1)}
+        //                bigraphNodes.foreach{b =>
+        //                  val id = Symbol(b.getId.asInstanceOf[String])
+        //                  if (reverseHostRelation.contains(id)){
+        //                    reverseHostRelation(id).foreach{a =>
+        //                      println(a)
+        //                      bigactors+=a
+        //                    }
+        //                  }
+        //                  if (!bigactors.isEmpty){
+        //                    Debug.println("[BigActorSchdl]:\t Observed BigActors: "+bigactors,debug)
+        //                    proxies(bigActorID) ! bigactors
+        //                  }
+        //                }
+        //              }else{
+        //                val bigraphNodes = QueryInterpreter.evaluateString(query,hostId,bigraph)
+        //                Debug.println("[BigActorSchdl]:\t Observed Bigraph: "+bigraphNodes,debug)
+        //                proxies(bigActorID) ! bigraphNodes
+        //              }
+        //            }
+        //          }
+        //        }
         case REMOTE_CONTROL_REQUEST(brr, bigActorID) => {
           Debug.println("got a ctr request " + brr,debug)
           bigraphManager ! BIGRAPH_REQUEST

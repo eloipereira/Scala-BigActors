@@ -1,5 +1,7 @@
 package bigactors
 
+import java.nio.file.Paths
+
 import edu.berkeley.eloi.bigraph.{Place, BigraphNode, BRR}
 import bigactors.BigActor._
 import scala.actors.Actor._
@@ -11,7 +13,8 @@ object ExampleRendezvous3 extends App{
   // Configuration
   val prop = new Properties()
   prop.setProperty("RemoteBigActors","false")
-  prop.setProperty("bgmPath","/Users/eloipereira/Dropbox/IDEAWorkspace/BigActors/src/main/resources/robots.bgm")
+  val p0 = Paths.get(System.getProperty("user.dir")).resolve("src/main/resources/robots.bgm")
+  prop.setProperty("bgmPath",p0.toString)
   prop.setProperty("visualization","true")
   prop.setProperty("debug","true")
   prop.setProperty("log","false")

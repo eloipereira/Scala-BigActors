@@ -9,7 +9,7 @@ import edu.berkeley.eloi.bigraph.Place
 object ICCPSBigActors extends App{
 
   "searchOil" hosted_at "uav0" with_behavior {
-    "searchOil" observe "children.parent.host"
+    "searchOil" observe Children(Parent(Host))
     loop {
       react {
         case obs: Array[Place] => {
@@ -21,7 +21,7 @@ object ICCPSBigActors extends App{
             if (obs.contains("drifter")){
               "searchOil" control "uav0_UAV[c2,ais] || drifter_Drifter[ais].($0)| $1 -> drifter_Drifter[ais].($0 | uav0_UAV[c2,ais])| $1"
             } else{
-              "searchOil" observe "children.parent.host"
+              "searchOil" observe Children(Parent(Host))
             }
           }
         }

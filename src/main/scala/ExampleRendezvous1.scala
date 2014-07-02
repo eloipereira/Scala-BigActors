@@ -1,5 +1,7 @@
 package bigactors
 
+import java.nio.file.Paths
+
 import edu.berkeley.eloi.bigraph.{Place, BigraphNode, BRR}
 import bigactors.BigActor._
 import scala.actors.Actor._
@@ -11,7 +13,8 @@ object ExampleRendezvous1 extends App{
   // Configuration
   val prop = new Properties()
   prop.setProperty("RemoteBigActors","false")
-  prop.setProperty("bgmPath","/Users/eloipereira/Dropbox/IDEAWorkspace/BigActors/src/main/resources/robots.bgm")
+  val p0 = Paths.get(System.getProperty("user.dir")).resolve("src/main/resources/robots.bgm")
+  prop.setProperty("bgmPath",p0.toString)
   prop.setProperty("visualization","true")
   prop.setProperty("debug","true")
   prop.setProperty("log","false")
@@ -19,13 +22,7 @@ object ExampleRendezvous1 extends App{
 
   //BigActors
 
-  BigActor hosted_at "r0" with_behavior{
-    val rvLoc = PARENT_HOST
-    val bigactors = HOSTED_AT_LINKED_TO_HOST
-    bigactors.foreach{b=>
-      b ! rvLoc.head
-    }
-  }
+  BigActor hosted_at "r0" with_behavior observeAndRequestRV
 
   BigActor hosted_at "r1" with_behavior receiveLocationAndMove
 
@@ -35,9 +32,17 @@ object ExampleRendezvous1 extends App{
 
   BigActor hosted_at "r4" with_behavior receiveLocationAndMove
 
+  def observeAndRequestRV = {
+      val rvLoc = PARENT_HOST.head
+      val bigactors = HOSTED_AT_LINKED_TO_HOST
+      bigactors.foreach{b=>
+        b ! RENDEZVOUS_AT_LOCATION(rvLoc)
+      }
+    }
+
   def receiveLocationAndMove = {
     react{
-      case loc: Place => {
+      case RENDEZVOUS_AT_LOCATION(loc) => {
         MOVE_HOST_TO(loc)
       }
     }

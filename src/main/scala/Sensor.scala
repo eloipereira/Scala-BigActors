@@ -1,5 +1,6 @@
 package bigactors.remote.templates
 
+import bigactors._
 import bigactors.remote._
 import edu.berkeley.eloi.bigraph.Place
 
@@ -11,7 +12,7 @@ import edu.berkeley.eloi.bigraph.Place
  * Time: 12:16 PM
  * To change this template use File | Settings | File Templates.
  */
-class Sensor(sensorID: Symbol, sensorHostID: Symbol, query: String, clients: List[Symbol]) extends RemoteBigActor(sensorID, sensorHostID) {
+class Sensor(sensorID: Symbol, sensorHostID: Symbol, query: Query, clients: List[Symbol]) extends RemoteBigActor(sensorID, sensorHostID) {
   def behavior{
     loop{
       observe(query)

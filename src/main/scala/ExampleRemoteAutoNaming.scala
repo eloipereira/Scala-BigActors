@@ -1,6 +1,8 @@
 package bigactors
 package remote
 
+import java.nio.file.Paths
+
 import RemoteBigActorImplicits._
 import edu.berkeley.eloi.bigraph.{Place, BRR}
 import java.util.Properties
@@ -17,7 +19,8 @@ object ExampleRemoteAutoNaming extends App{
   prop.setProperty("BigraphManagerID","bigraphManager")
   prop.setProperty("BigraphManagerPort","3001")
   prop.setProperty("BigActorsPort","3000")
-  prop.setProperty("bgmPath","/Users/eloipereira/Dropbox/IDEAWorkspace/BigActors/src/main/resources/simple.bgm")
+  val p0 = Paths.get(System.getProperty("user.dir")).resolve("src/main/resources/simple.bgm")
+  prop.setProperty("bgmPath",p0.toString)
   prop.setProperty("visualization","true")
   prop.setProperty("debug","true")
   prop.setProperty("log","false")
@@ -26,7 +29,7 @@ object ExampleRemoteAutoNaming extends App{
   val uav1 = new RemoteBigActor(Symbol("u1")){
     def behavior() {
       control(new BRR(hostID.name + "_UAV[network].$0 | $1 -> " + hostID.name +"_UAV[network].($0 | " + bigActorID.name + "_BA) | $1"))
-      observe("children.parent.host")
+      observe(Children(Parent(Host)))
       loop {
         react {
           case obs: Array[Place] => println("New observation for BigActor " + bigActorID.name + ": " + obs)
@@ -40,7 +43,7 @@ object ExampleRemoteAutoNaming extends App{
   val uav0 = new RemoteBigActor(Symbol("u0")){
     def behavior() {
       control(new BRR(hostID.name + "_UAV[network].$0 | $1 -> " + hostID.name + "_UAV[network].($0 | " + bigActorID.name + "_BA) | $1"))
-      observe("children.linkedTo.host")
+      observe(Children(Parent(Host))) // TODO make it children.linkedTo.host
       Thread.sleep(5000)
       react{
         case obs: Array[Place] => {
@@ -50,7 +53,7 @@ object ExampleRemoteAutoNaming extends App{
           )
           control(new BRR("l0_Location.(u0_UAV[network].$0 | $1) | l1_Location.$2 -> l0_Location.($1) | l1_Location.(u0_UAV[network].$0 | $2)"))
           migrate(Symbol("u1"))
-          observe("host")
+          observe(Host)
           react{
             case obs: Array[Place] => println("New observation for BigActor " + bigActorID.name + ": " + obs)
           }

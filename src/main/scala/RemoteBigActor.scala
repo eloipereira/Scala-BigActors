@@ -17,7 +17,7 @@ trait RemoteBigActorTrait{
   val bigActorID: Symbol
   val bigActorSchdl: AbstractActor
 
-  def observe(query: String) = {
+  def observe(query: Query) = {
     bigActorSchdl ! REMOTE_OBSERVATION_REQUEST(query, bigActorID)
   }
 

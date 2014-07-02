@@ -1,6 +1,8 @@
 package bigactors
 package remote
 
+import java.nio.file.Paths
+
 import edu.berkeley.eloi.bigraph.{Place, BRR}
 import java.util.Properties
 import java.io.FileOutputStream
@@ -17,7 +19,8 @@ object ExampleRemote extends App{
   prop.setProperty("BigraphManagerID","bigraphManager")
   prop.setProperty("BigraphManagerPort","3001")
   prop.setProperty("BigActorsPort","3000")
-  prop.setProperty("bgmPath","/Users/eloipereira/Dropbox/IDEAWorkspace/BigActors/src/main/resources/simple.bgm")
+  val p0 = Paths.get(System.getProperty("user.dir")).resolve("src/main/resources/simple.bgm")
+  prop.setProperty("bgmPath",p0.toString)
   prop.setProperty("visualization","true")
   prop.setProperty("debug","true")
   prop.setProperty("log","false")
@@ -27,7 +30,7 @@ object ExampleRemote extends App{
   val uav1 = new RemoteBigActor( Symbol("uav1"), Symbol("u1")){
     def behavior() {
       control(new BRR("u1_UAV[network].$0 | $1 -> u1_UAV[network].($0 | uav1_BA) | $1"))
-      observe("children.parent.host")
+      observe(Children(Parent(Host)))
       loop {
         react {
           case obs: Array[Place] => println("New observation for uav1: " + obs)
@@ -41,7 +44,7 @@ object ExampleRemote extends App{
   val uav0 = new RemoteBigActor( Symbol("uav0"), Symbol("u0")){
     def behavior() {
       control(new BRR("u0_UAV[network].$0 | $1 -> u0_UAV[network].($0 | uav0_BA) | $1"))
-      observe("children.linkedTo.host")
+      observe(Children(Parent(Host)))
       Thread.sleep(5000)
       react{
         case obs: Array[Place] => {
@@ -51,7 +54,7 @@ object ExampleRemote extends App{
           )
           control(new BRR("l0_Location.(u0_UAV[network].$0 | $1) | l1_Location.$2 -> l0_Location.($1) | l1_Location.(u0_UAV[network].$0 | $2)"))
           migrate(Symbol("u1"))
-          observe("host")
+          observe(Host)
           react{
             case obs: Array[Place] => println("New observation for uav0: "+ obs)
           }

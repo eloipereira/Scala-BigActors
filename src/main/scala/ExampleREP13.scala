@@ -1,6 +1,8 @@
 package bigactors
 package remote
 
+import java.nio.file.Paths
+
 import edu.berkeley.eloi.bigraph.{Place, BRR, BigraphNode}
 import java.util.Properties
 import java.io.FileOutputStream
@@ -11,7 +13,8 @@ object ExampleREP13 extends App{
   // Configuration
   val prop = new Properties()
   prop.setProperty("RemoteBigActors","false")
-  prop.setProperty("bgmPath","/Users/eloipereira/Dropbox/IDEAWorkspace/BigActors/src/main/resources/REP13.bgm")
+  val p0 = Paths.get(System.getProperty("user.dir")).resolve("src/main/resources/REP13.bgm")
+  prop.setProperty("bgmPath",p0.toString)
   prop.setProperty("visualization","true")
   prop.setProperty("debug","true")
   prop.setProperty("log","false")
@@ -23,7 +26,7 @@ object ExampleREP13 extends App{
       var tankerNotFound = true
       control(new BRR("airfield_Location.(u0_UAV[wifi] | $0) | searchArea_Location.$1 -> airfield_Location.$0 | searchArea_Location.(u0_UAV[wifi] |$1)"))
       while (tankerNotFound){
-        observe("children.parent.host")
+        observe(Children(Parent(Host)))
         react {
           case obs: Array[Place] =>
             if (obs.contains(new BigraphNode("tanker0"))) {
