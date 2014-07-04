@@ -9,7 +9,7 @@ import scala.collection.JavaConversions._
 import edu.berkeley.eloi.bgm2java.Debug
 import scala.collection.mutable.{ArrayBuffer, HashMap}
 
-case object REQUEST_HOSTING_RELATION
+
 
 object BigActorSchdl extends Actor {
   // configuration

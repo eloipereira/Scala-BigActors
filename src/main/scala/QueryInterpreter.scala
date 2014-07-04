@@ -1,5 +1,6 @@
 package bigactors
 
+import _root_.akka.actor.ActorRef
 import edu.berkeley.eloi.bigraph._
 import scala.actors.OutputChannel
 import scala.collection.mutable.{HashMap, ArrayBuffer}
@@ -18,7 +19,14 @@ case class Linked_to(n: Node) extends QueryBigraph
 case class Hosted_at(q: QueryBigraph) extends QueryBigActors
 
 object QueryInterpreter {
-  
+
+  def AkkaEvaluate (query: Query, hostId: String, bigraph: Bigraph, hostingRelation: HashMap[ActorRef,Symbol]):Either[Array[Place],ArrayBuffer[ActorRef]] = {
+    query match {
+      case query: QueryBigraph => Left(evaluateBigraph(query,hostId,bigraph))
+      case query: QueryBigActors => Right(AkkaEvaluateBigActors(query,hostId,bigraph,hostingRelation))
+    }
+  }
+
   def evaluate (query: Query, hostId: String, bigraph: Bigraph, hostingRelation: HashMap[OutputChannel[Any],Symbol]):Either[Array[Place],ArrayBuffer[OutputChannel[Any]]] = {
     query match {
       case query: QueryBigraph => Left(evaluateBigraph(query,hostId,bigraph))
@@ -40,6 +48,25 @@ object QueryInterpreter {
       case Hosted_at(q) => {
         val bigraphNodes = evaluateBigraph(q,hostId,bigraph)
         val bigactors = ArrayBuffer.empty[OutputChannel[Any]]
+        val reverseHostRelation = hostingRelation groupBy {_._2} map {case (key,value) => (key, value.unzip._1)}
+        bigraphNodes.foreach{b =>
+          val id = Symbol(b.getId.asInstanceOf[String])
+          if (reverseHostRelation.contains(id)){
+            reverseHostRelation(id).foreach{a =>
+              bigactors+=a
+            }
+          }
+        }
+        bigactors
+      }
+    }
+  }
+
+  def AkkaEvaluateBigActors(query: QueryBigActors, hostId: String, bigraph: Bigraph, hostingRelation: HashMap[ActorRef,Symbol]): ArrayBuffer[ActorRef] = {
+    query match {
+      case Hosted_at(q) => {
+        val bigraphNodes = evaluateBigraph(q,hostId,bigraph)
+        val bigactors = ArrayBuffer.empty[ActorRef]
         val reverseHostRelation = hostingRelation groupBy {_._2} map {case (key,value) => (key, value.unzip._1)}
         bigraphNodes.foreach{b =>
           val id = Symbol(b.getId.asInstanceOf[String])

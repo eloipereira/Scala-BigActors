@@ -10,6 +10,8 @@ resolvers += "Typesafe Repository" at "http://repo.typesafe.com/typesafe/release
 
 resolvers += "My bitbucket maven releases repo" at "https://bitbucket.org/eloipereira/maven-repo-releases/raw/master"
 
+resolvers += "Akka Snapshot Repository" at "http://repo.akka.io/snapshots/"
+
 resolvers += DefaultMavenRepository
 
 libraryDependencies += "org.scala-lang" % "scala-actors" % "2.10.0"
@@ -23,6 +25,8 @@ libraryDependencies += "bgm2java" % "bgm2java" % "1.1"
 libraryDependencies += "bigraphvisualizer" % "bigraphvisualizer" % "1.0"
 
 libraryDependencies += "org.scalatest" % "scalatest_2.10" % "2.0" % "test"
+
+libraryDependencies += "com.typesafe.akka" %% "akka-actor" % "2.4-SNAPSHOT"
 
 publishTo <<= version { (v: String) =>
   if (v.trim.endsWith("SNAPSHOT"))
