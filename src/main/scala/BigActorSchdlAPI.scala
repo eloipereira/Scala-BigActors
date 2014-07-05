@@ -6,7 +6,9 @@ import scala.actors.OutputChannel
 
 sealed trait BigActorSchdlAPI
 case class HOSTING_REQUEST(hostId: Symbol) extends BigActorSchdlAPI
+case class HOSTING_REQUEST_AKKA(hostId: Symbol, actor: ActorRef) extends BigActorSchdlAPI
 case object HOSTING_SUCCESSFUL extends BigActorSchdlAPI
+case object HOSTING_UNSUCCESSFUL extends BigActorSchdlAPI
 case class OBSERVATION_REQUEST(query: Query) extends BigActorSchdlAPI
 case class CONTROL_REQUEST(brr: BRR) extends BigActorSchdlAPI
 case class MIGRATION_REQUEST(newHostId: Symbol) extends BigActorSchdlAPI

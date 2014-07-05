@@ -1,16 +1,13 @@
 package bigactors.akka
 
-import java.io.FileInputStream
-import java.util.Properties
-
-import akka.actor.{ActorRef, Actor}
-import akka.event.Logging
+import _root_.akka.actor.{ActorRef, Actor}
+import _root_.akka.event.Logging
 import bigactors._
 import scala.collection.JavaConversions._
 import scala.collection.mutable.{ArrayBuffer, HashMap}
 
 
-object AkkaBigActorSchdl extends Actor {
+class AkkaBigActorSchdl(bigraphManager: ActorRef) extends Actor {
   import context._
 
   val logging = Logging(context.system, this)
@@ -18,15 +15,15 @@ object AkkaBigActorSchdl extends Actor {
 
 
   def receive = {
-    case HOSTING_REQUEST(hostId) =>{
-      logging.info("[BigActorSchdl]:\t got a host request from " + sender + " to be hosted at "+hostId)
+    case HOSTING_REQUEST_AKKA(hostId,actorRef) =>{
+      logging.info("[BigActorSchdl]:\t got a host request from " + actorRef + " to be hosted at "+hostId)
+      bigraphManager ! BIGRAPH_REQUEST
       val requester = sender
-      BigraphManager ! BIGRAPH_REQUEST
       become({
         case BIGRAPH_RESPONSE(bigraph) => {
           if (bigraph.getPlaces.map(p=>p.getId).contains(hostId.name)) {
             logging.info("[BigActorSchdl]:\t Hosting BigActor at host " + hostId)
-            hostRelation += requester -> hostId
+            hostRelation += actorRef -> hostId
             requester ! HOSTING_SUCCESSFUL
             unbecome()
           }
@@ -40,7 +37,7 @@ object AkkaBigActorSchdl extends Actor {
     case OBSERVATION_REQUEST(query) => {
       logging.info("[BigActorSchdl]:\t got a obs request with query " + query + " from " + sender)
       val requester = sender
-      BigraphManager ! BIGRAPH_REQUEST
+      bigraphManager ! BIGRAPH_REQUEST
       become({
         case BIGRAPH_RESPONSE(bigraph) => {
           val hostId: String = hostRelation(requester).name
@@ -62,12 +59,12 @@ object AkkaBigActorSchdl extends Actor {
     case CONTROL_REQUEST(brr) => {
       logging.info("[BigActorSchdl]:\t got a ctr request " + brr)
       val requester = sender
-      BigraphManager ! BIGRAPH_REQUEST
+      bigraphManager ! BIGRAPH_REQUEST
       become({
         case BIGRAPH_RESPONSE(bigraph) => {
           if (brr.getRedex.getNodes.contains(bigraph.getNode(hostRelation(requester).name))
             || brr.getReactum.getNodes.contains(bigraph.getNode(hostRelation(requester).name))){
-            BigraphManager ! EXECUTE_BRR(brr)
+            bigraphManager ! EXECUTE_BRR(brr)
           } else {
             System.err.println("[BigActorSchdl]:\t Host " + hostRelation(requester) + "is not included on redex/reactum of "+ brr)
             System.exit(0)
@@ -79,7 +76,7 @@ object AkkaBigActorSchdl extends Actor {
     case SEND_REQUEST_AKKA(msg,rcv) => {
       logging.info("[BigActorSchdl]:\t got a snd request from " + sender)
       val requester = sender
-      BigraphManager ! BIGRAPH_REQUEST
+      bigraphManager ! BIGRAPH_REQUEST
       become({
         case BIGRAPH_RESPONSE(bigraph) => {
           val senderHost = bigraph.getNode(hostRelation(requester).name)
@@ -98,7 +95,7 @@ object AkkaBigActorSchdl extends Actor {
     case MIGRATION_REQUEST(newHostId) => {
       logging.info("[BigActorSchdl]:\t got a mgrt request from " + hostRelation(sender) + " to " +newHostId)
       val requester = sender
-      BigraphManager ! BIGRAPH_REQUEST
+      bigraphManager ! BIGRAPH_REQUEST
       become({
         case BIGRAPH_RESPONSE(bigraph) => {
           val currentHost = bigraph.getNode(hostRelation(requester).name)

@@ -9,7 +9,8 @@ import java.nio.file.Paths
 import akka.actor.ActorDSL._
 import akka.actor.{Actor, ActorSystem, Props}
 import akka.event.Logging
-import bigactors.BIGRAPH_REQUEST
+import bigactors.{Host, Parent, BIGRAPH_REQUEST}
+import edu.berkeley.eloi.bigraph.Place
 
 object ExampleAkka extends App {
   implicit val system = ActorSystem("mySystem")
@@ -30,9 +31,26 @@ object ExampleAkka extends App {
       case msg => println(msg)
     }
   }
-
   )
+
+  val bigraphScheduler = system.actorOf(Props(classOf[AkkaBigActorSchdl], bigraphManager))
+
+  class MyBigActor extends AkkaBigActor('r0,bigraphScheduler){
+
+    val log = Logging(context.system, this)
+    observe(Parent(Host))
+    self ! "hello"
+    def receive = {
+      case obs: Array[Place] => log.info("received bigraph: " + obs.head)
+      case msg: Any => log.info("received unknown message: " + msg)
+    }
+  }
+
+  val a0 = system.actorOf(Props(classOf[MyBigActor]))
+
 }
+
+
 
 
 class MyActor extends Actor{

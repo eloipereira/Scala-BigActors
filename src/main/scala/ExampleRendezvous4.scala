@@ -4,7 +4,7 @@ import java.nio.file.Paths
 
 import bigactors.ExampleRendezvous3.RENDEZVOUS
 import edu.berkeley.eloi.bigraph.{Place, BigraphNode, BRR}
-import bigactors.BigActor._
+import BigActor._
 import scala.actors.Actor._
 import java.util.Properties
 import java.io.FileOutputStream

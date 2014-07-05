@@ -5,7 +5,7 @@ import java.util.Properties
 import bigactors._
 import edu.berkeley.eloi.bigraph.Bigraph
 import org.scalatest.FunSuite
-import bigactors.BigActor._
+import BigActor._
 import scala.actors.Actor._
 
 import scala.actors.OutputChannel
