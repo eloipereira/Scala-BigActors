@@ -1,49 +1,66 @@
-package bigactors.akka
+package bigactors.akkaBigActors
 
-import _root_.akka.actor.{ActorRef, Actor}
-import _root_.akka.event.Logging
-import _root_.akka.util.Timeout
+import akka.actor.{ActorRef, Actor}
+import akka.event.Logging
+import akka.util.Timeout
 import akka.pattern.ask
 import bigactors._
 import edu.berkeley.eloi.bigraph.{Bigraph, Place, BigraphNode, BRR}
 import scala.concurrent.Await
 import scala.concurrent.duration._
 
-abstract class AkkaBigActor(hostID: Symbol, bigActorSchdl: ActorRef) extends Actor {
-  import context._
+abstract class AkkaBigActor(var hostID: Symbol, bigActorSchdl: ActorRef) extends Actor {
   val logging = Logging(context.system, this)
 
-  implicit val timeout = Timeout(5 seconds)
-  val future = bigActorSchdl ? HOSTING_REQUEST_AKKA(hostID,self)
-  Await.result(future,timeout.duration) match {
+  hostBigActor
+
+  def hostBigActor = {
+    implicit val timeout = Timeout(5 seconds)
+    val future = bigActorSchdl ? HOSTING_REQUEST_AKKA(hostID, self)
+    Await.result(future, timeout.duration) match {
       case HOSTING_SUCCESSFUL => {
         logging.info("[BigActor]:\t\t\t BigActor " + this + " successfully hosted at " + hostID)
       }
       case HOSTING_UNSUCCESSFUL => logging.error("[BigActor]:\t\t\t BigActor " + this + " failed to be hosted at " + hostID + ". Make sure hust exists.")
+    }
   }
 
+
+
+//  bigActorSchdl ! HOSTING_REQUEST_AKKA(hostID,self)
+//
+//  def receive = {
+//    case HOSTING_SUCCESSFUL =>
+//      logging.info("[BigActor]:\t\t\t BigActor " + this + " successfully hosted at " + hostID)
+//      become(behavior, discardOld = false)
+//      self ! "start"
+//    case HOSTING_UNSUCCESSFUL => logging.error("[BigActor]:\t\t\t BigActor " + this + " failed to be hosted at " + hostID + ". Make sure host exists.")
+//  }
+//
+//  def behavior: Receive
+
   def observe(query: Query) = {
-    bigActorSchdl ! OBSERVATION_REQUEST(query)
+    bigActorSchdl ! OBSERVATION_REQUEST_AKKA(query,hostID)
   }
   def control(brr: BRR){
-    bigActorSchdl ! CONTROL_REQUEST(brr)
+    bigActorSchdl ! CONTROL_REQUEST_AKKA(brr,hostID)
   }
   def migrate(newHostId: Symbol){
-    bigActorSchdl ! MIGRATION_REQUEST(newHostId)
+    bigActorSchdl ! MIGRATION_REQUEST_AKKA(newHostId,hostID)
   }
   def sendMsg(msg: Any,rcv: ActorRef){
-    bigActorSchdl ! SEND_REQUEST_AKKA(msg,rcv)
+    bigActorSchdl ! SEND_REQUEST_AKKA(msg,rcv,hostID)
   }
 
   def observeAndWaitForBigraph(query: Query): Array[Place]= {
     implicit val timeout = Timeout(5 seconds)
-    val future = bigActorSchdl ? OBSERVATION_REQUEST(query)
+    val future = bigActorSchdl ? OBSERVATION_REQUEST_AKKA(query,hostID)
     Await.result(future,timeout.duration).asInstanceOf[Array[Place]]
   }
 
   def observeAndWaitForBigActors(query: Query): Array[ActorRef] = {
     implicit val timeout = Timeout(5 seconds)
-    val future = bigActorSchdl ? OBSERVATION_REQUEST(query)
+    val future = bigActorSchdl ? OBSERVATION_REQUEST_AKKA(query,hostID)
     Await.result(future,timeout.duration).asInstanceOf[Array[ActorRef]]
   }
 
