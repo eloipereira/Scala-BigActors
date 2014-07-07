@@ -34,7 +34,7 @@ class AkkaBigActorSchdl(bigraphManager: ActorRef) extends Actor {
       val bigraph = requestBigraph
       if (bigraph.getPlaces.map(p => p.getId).contains(hostId.name)) {
         logging.info("[BigActorSchdl]:\t Hosting BigActor at host " + hostId)
-        hostRelation += requester -> hostId
+        hostRelation += actorRef -> hostId
         requester ! HOSTING_SUCCESSFUL
       }
       else {
@@ -51,9 +51,9 @@ class AkkaBigActorSchdl(bigraphManager: ActorRef) extends Actor {
           logging.info("[BigActorSchdl]:\t Observed Bigraph: " + b)
           requester ! b
         }
-        case Right(a) => {
-          logging.info("[BigActorSchdl]:\t Observed BigActors: " + a)
-          requester ! a
+        case Right(as) => {
+          logging.info("[BigActorSchdl]:\t Observed BigActors: " + as.foldRight(" ")((b:ActorRef,a: String)=> a + b.toString ))
+          requester ! as
         }
       }
     }

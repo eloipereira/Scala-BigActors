@@ -35,7 +35,7 @@ trait BigActorTrait{
   def observeAndWaitForBigActors(query: Query) = {
     BigActorSchdl ! OBSERVATION_REQUEST(query)
     receive {
-      case observation: ArrayBuffer[OutputChannel[Any]] => observation
+      case observation: Array[OutputChannel[Any]] => observation
     }
   }
 
