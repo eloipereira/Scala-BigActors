@@ -50,5 +50,3 @@ object ExampleAkkaRendezvous4 extends App {
     }
   }
 }
-
-

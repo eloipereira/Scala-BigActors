@@ -12,6 +12,8 @@ resolvers += "My bitbucket maven releases repo" at "https://bitbucket.org/eloipe
 
 resolvers += "Akka Snapshot Repository" at "http://repo.akka.io/snapshots/"
 
+resolvers += "AFA Maven repo" at "https://bitbucket.org/pmosilva/maven2-release/raw/master/seagull-rosjava-libs"
+
 resolvers += DefaultMavenRepository
 
 libraryDependencies += "org.scala-lang" % "scala-actors" % "2.10.0"
@@ -27,6 +29,8 @@ libraryDependencies += "bigraphvisualizer" % "bigraphvisualizer" % "1.0"
 libraryDependencies += "org.scalatest" % "scalatest_2.10" % "2.0" % "test"
 
 libraryDependencies += "com.typesafe.akka" %% "akka-actor" % "2.4-SNAPSHOT"
+
+libraryDependencies += "pt.edu.academiafa" % "seagull-rosjava-lib" % "0.0.2"
 
 publishTo <<= version { (v: String) =>
   if (v.trim.endsWith("SNAPSHOT"))

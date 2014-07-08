@@ -3,13 +3,11 @@ package bigactors
 import java.io.FileInputStream
 import java.util.Properties
 
-import bigactors.{BigActorSchdl, HOSTING_REQUEST, HOSTING_SUCCESSFUL}
 import edu.berkeley.eloi.bgm2java.Debug
 import edu.berkeley.eloi.bigraph.{BRR, BigraphNode, Place}
 
 import scala.actors.Actor._
 import scala.actors.{Actor, OutputChannel}
-import scala.collection.mutable.ArrayBuffer
 
 trait BigActorTrait{
   def observe(query: Query) = {
