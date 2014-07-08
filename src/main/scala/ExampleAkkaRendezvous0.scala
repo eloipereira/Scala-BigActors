@@ -6,11 +6,8 @@ package bigactors.akkaBigActors
 
 import java.nio.file.Paths
 
-import akka.actor.{Actor, ActorSystem, Props}
-import akka.event.Logging
-import bigactors.BigActor._
-import bigactors.{Host, Parent, RENDEZVOUS_AT_LOCATION}
-import edu.berkeley.eloi.bigraph.Place
+import akka.actor.{ActorSystem, Props}
+import bigactors.RENDEZVOUS_AT_LOCATION
 
 object ExampleAkkaRendezvous0 extends App {
   implicit val system = ActorSystem("mySystem")

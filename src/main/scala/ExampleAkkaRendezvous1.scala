@@ -8,7 +8,6 @@ import java.nio.file.Paths
 
 import akka.actor.{ActorSystem, Props}
 import bigactors.RENDEZVOUS_AT_LOCATION
-import bigactors.akkaBigActors.{AkkaBigActor, AkkaBigActorSchdl, AkkaBigraphManager}
 
 object ExampleAkkaRendezvous1 extends App {
   implicit val system = ActorSystem("mySystem")
