@@ -9,25 +9,19 @@ import java.nio.file.Paths
 import akka.actor.{ActorRef, ActorSystem, Props}
 import edu.berkeley.eloi.bigraph.Place
 
-object ExampleAkkaRendezvous4 extends App {
+object ExampleAkkaRendezvous3 extends App {
   implicit val system = ActorSystem("mySystem")
 
-  val bigraphManager = system.actorOf(Props(classOf[AkkaBigraphManager], Paths.get(System.getProperty("user.dir")).resolve("src/main/resources/robots.bgm").toString, true, false))
-  val bigraphScheduler = system.actorOf(Props(classOf[AkkaBigActorSchdl], bigraphManager))
+  val bigraphManager = system.actorOf(Props(classOf[BigMCBigraphManager], Paths.get(System.getProperty("user.dir")).resolve("src/main/resources/robots.bgm").toString, true, false))
+  val bigraphScheduler = system.actorOf(Props(classOf[BigActorSchdl], bigraphManager))
 
-  system.actorOf(Props(classOf[DiscoverRobots], 'r0)) ! "start"
+  system.actorOf(Props(classOf[AgreeAndPursue], 'r0))
+  system.actorOf(Props(classOf[AgreeAndPursue], 'r1))
+  system.actorOf(Props(classOf[AgreeAndPursue], 'r2))
+  system.actorOf(Props(classOf[AgreeAndPursue], 'r3))
+  system.actorOf(Props(classOf[AgreeAndPursue], 'r4))
 
-  class DiscoverRobots(host: Symbol) extends AkkaBigActor(host,bigraphScheduler){
-    def receive = {
-      case "start" =>
-        val robots = LINKED_TO_HOST ++ HOST
-        robots.foreach{r =>
-          system.actorOf(Props(classOf[AgreeAndPursue], Symbol(r.getId.toString)))
-        }
-    }
-  }
-
-  class AgreeAndPursue(host: Symbol) extends AkkaBigActor(host,bigraphScheduler){
+  class AgreeAndPursue(host: Symbol) extends BigActor(host,bigraphScheduler){
     var leader: ActorRef = self
     var rvLoc: Place = PARENT_HOST.head
     broadcast
@@ -50,3 +44,6 @@ object ExampleAkkaRendezvous4 extends App {
     }
   }
 }
+
+case class RENDEZVOUS(leader: ActorRef, location: Place)
+

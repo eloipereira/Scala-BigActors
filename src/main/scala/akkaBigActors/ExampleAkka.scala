@@ -1,4 +1,4 @@
-package bigactors.akka
+package bigactors.akkaBigActors
 
 /**
  * Created by eloi on 03-07-2014.
@@ -9,7 +9,7 @@ import java.nio.file.Paths
 import akka.actor.ActorDSL._
 import akka.actor.{Actor, ActorSystem, Props}
 import akka.event.Logging
-import bigactors.{Host, Parent, BIGRAPH_REQUEST}
+import bigactors.{BIGRAPH_REQUEST, Host, Parent}
 import edu.berkeley.eloi.bigraph.Place
 
 object ExampleAkka extends App {
@@ -23,7 +23,7 @@ object ExampleAkka extends App {
   myActor ! "something else"
 
 
-  val bigraphManager = system.actorOf(Props(classOf[AkkaBigraphManager], Paths.get(System.getProperty("user.dir")).resolve("src/main/resources/robots.bgm").toString, false, false))
+  val bigraphManager = system.actorOf(Props(classOf[BigMCBigraphManager], Paths.get(System.getProperty("user.dir")).resolve("src/main/resources/robots.bgm").toString, false, false))
 
   actor(new Act{
     bigraphManager ! BIGRAPH_REQUEST
@@ -33,9 +33,9 @@ object ExampleAkka extends App {
   }
   )
 
-  val bigraphScheduler = system.actorOf(Props(classOf[AkkaBigActorSchdl], bigraphManager))
+  val bigraphScheduler = system.actorOf(Props(classOf[BigActorSchdl], bigraphManager))
 
-  class MyBigActor extends AkkaBigActor('r0,bigraphScheduler){
+  class MyBigActor(host: Symbol) extends BigActor(host,bigraphScheduler){
 
     val log = Logging(context.system, this)
     observe(Parent(Host))
@@ -46,7 +46,7 @@ object ExampleAkka extends App {
     }
   }
 
-  val a0 = system.actorOf(Props(classOf[MyBigActor]))
+  val a0 = system.actorOf(Props(classOf[MyBigActor], 'r0))
 
 }
 

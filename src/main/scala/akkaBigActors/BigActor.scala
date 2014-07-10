@@ -1,15 +1,16 @@
 package bigactors.akkaBigActors
 
-import akka.actor.{ActorRef, Actor}
+import akka.actor.{Actor, ActorRef}
 import akka.event.Logging
-import akka.util.Timeout
 import akka.pattern.ask
+import akka.util.Timeout
 import bigactors._
-import edu.berkeley.eloi.bigraph.{Bigraph, Place, BigraphNode, BRR}
+import edu.berkeley.eloi.bigraph.{BRR, Place}
+
 import scala.concurrent.Await
 import scala.concurrent.duration._
 
-abstract class AkkaBigActor(var hostID: Symbol, bigActorSchdl: ActorRef) extends Actor {
+abstract class BigActor(var hostID: Symbol, bigActorSchdl: ActorRef) extends Actor {
   val logging = Logging(context.system, this)
 
   hostBigActor
@@ -24,20 +25,6 @@ abstract class AkkaBigActor(var hostID: Symbol, bigActorSchdl: ActorRef) extends
       case HOSTING_UNSUCCESSFUL => logging.error("[BigActor]:\t\t\t BigActor " + this + " failed to be hosted at " + hostID + ". Make sure hust exists.")
     }
   }
-
-
-
-//  bigActorSchdl ! HOSTING_REQUEST_AKKA(hostID,self)
-//
-//  def receive = {
-//    case HOSTING_SUCCESSFUL =>
-//      logging.info("[BigActor]:\t\t\t BigActor " + this + " successfully hosted at " + hostID)
-//      become(behavior, discardOld = false)
-//      self ! "start"
-//    case HOSTING_UNSUCCESSFUL => logging.error("[BigActor]:\t\t\t BigActor " + this + " failed to be hosted at " + hostID + ". Make sure host exists.")
-//  }
-//
-//  def behavior: Receive
 
   def observe(query: Query) = {
     bigActorSchdl ! OBSERVATION_REQUEST_AKKA(query,hostID)

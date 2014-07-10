@@ -1,19 +1,19 @@
 package bigactors.akkaBigActors
 
-import akka.actor.{ActorRef, Actor}
+import akka.actor.{Actor, ActorRef}
 import akka.event.Logging
-import akka.util.{Timeout}
+import akka.pattern.ask
+import akka.util.Timeout
 import bigactors._
-import edu.berkeley.eloi.bigraph.{Bigraph, Place}
+import edu.berkeley.eloi.bigraph.Bigraph
+
 import scala.collection.JavaConversions._
-import scala.collection.mutable.{ArrayBuffer, HashMap}
+import scala.collection.mutable.HashMap
 import scala.concurrent.Await
 import scala.concurrent.duration._
-import akka.pattern.ask
 
 
-class AkkaBigActorSchdl(bigraphManager: ActorRef) extends Actor {
-  import context._
+class BigActorSchdl(bigraphManager: ActorRef) extends Actor {
 
   val logging = Logging(context.system, this)
   private implicit val hostRelation = new HashMap[ActorRef,Symbol]

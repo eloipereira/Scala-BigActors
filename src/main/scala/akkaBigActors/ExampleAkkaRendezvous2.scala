@@ -11,13 +11,13 @@ import bigactors.RENDEZVOUS_AT_LOCATION
 object ExampleAkkaRendezvous2 extends App {
   implicit val system = ActorSystem("mySystem")
 
-  val bigraphManager = system.actorOf(Props(classOf[AkkaBigraphManager], Paths.get(System.getProperty("user.dir")).resolve("src/main/resources/robots.bgm").toString, true, false))
-  val bigraphScheduler = system.actorOf(Props(classOf[AkkaBigActorSchdl], bigraphManager))
+  val bigraphManager = system.actorOf(Props(classOf[BigMCBigraphManager], Paths.get(System.getProperty("user.dir")).resolve("src/main/resources/robots.bgm").toString, true, false))
+  val bigraphScheduler = system.actorOf(Props(classOf[BigActorSchdl], bigraphManager))
 
   val r0BA = system.actorOf(Props(classOf[Leader], 'r0))
   r0BA ! "start"
 
-  class Leader(host: Symbol) extends AkkaBigActor(host,bigraphScheduler){
+  class Leader(host: Symbol) extends BigActor(host,bigraphScheduler){
 
     def receive = {
       case "start" =>
@@ -30,7 +30,7 @@ object ExampleAkkaRendezvous2 extends App {
     }
   }
 
-  class Follower(host: Symbol) extends AkkaBigActor(host,bigraphScheduler){
+  class Follower(host: Symbol) extends BigActor(host,bigraphScheduler){
     def receive = {
       case RENDEZVOUS_AT_LOCATION(loc) => {
         MOVE_HOST_TO(loc)
