@@ -46,6 +46,7 @@ object ROSBigraphSimulator extends App {
           val  str :std_msgs.String = publisher.newMessage()
           str.setData(brs.getBigraph.getTerm)
           publisher.publish(str)
+          log.info("Current Bigraph: "+ brs.getBigraph.getTerm)
           Thread.sleep(1000)
         }
       })

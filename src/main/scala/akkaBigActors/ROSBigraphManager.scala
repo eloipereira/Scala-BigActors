@@ -10,6 +10,7 @@ import java.net.URISyntaxException
 
 import org.apache.commons.logging.Log
 import org.ros.address.InetAddressFactory
+import org.ros.concurrent.CancellableLoop
 import org.ros.message.MessageListener
 import org.ros.namespace.GraphName
 import org.ros.node.AbstractNodeMain
@@ -17,8 +18,10 @@ import org.ros.node.ConnectedNode
 import org.ros.node.DefaultNodeMainExecutor
 import org.ros.node.NodeConfiguration
 import org.ros.node.NodeMainExecutor
-import org.ros.node.topic.Subscriber
+import org.ros.node.topic.{Publisher, Subscriber}
 
+import scala.collection.mutable
+import scala.collection.mutable.ArrayBuffer
 import scala.concurrent.Await
 import akka.event.Logging
 import akka.pattern.ask
@@ -32,49 +35,19 @@ case class BIGRAPH_REQUEST_WITH_REF(ref: ActorRef)
  */
 class ROSBigraphManager(host: String = "localhost", port: Int = 11311) extends BigraphManager {
 
-  import context._
+  val brrQueue: mutable.Queue[BRR] = new mutable.Queue[BRR]()
 
-  var configured = false
+  override def executeBRR(brr: BRR): Unit = brrQueue.enqueue(brr)
 
-  val handler = context.actorOf(Props(classOf[ROSBigraphHandler], "localhost", 11311))
+  override def getBigraph: Bigraph = bigraph
 
-
-  override def executeBRR(brr: BRR): Unit = handler
-
-  override def getBigraph: Bigraph = {
-    implicit val timeout = Timeout(5 seconds)
-    val future = handler ? BIGRAPH_REQUEST
-    Await.result(future, timeout.duration) match {
-      case BIGRAPH_RESPONSE(bg) => bg
-    }
-  }
-
-}
-
-class ROSBigraphHandler(host: String = "localhost", port: Int = 11311) extends Actor with Stash{
   var bigraph = new Bigraph()
-  import context._
 
-  var configured = false
-
-  def ready:Receive = {
-    case BIGRAPH_REQUEST =>
-      sender ! BIGRAPH_RESPONSE(bigraph)
-    case EXECUTE_BRR(brr) =>
-  }
-
-
-  def receive: Receive = {
-    case "configured" =>
-      unstashAll()
-      configured = true
-      become(ready, discardOld = false)
-    case _ => stash()
-  }
-
+  override def preStart = {
 
     val node: AbstractNodeMain = new AbstractNodeMain {
       override def getDefaultNodeName: GraphName = GraphName.of("bigraphManager/listener")
+
       override def onStart(connectedNode: ConnectedNode): Unit = {
         val log: Log = connectedNode.getLog
         val subscriber: Subscriber[std_msgs.String] = connectedNode.newSubscriber("bigraph", std_msgs.String._TYPE)
@@ -82,12 +55,20 @@ class ROSBigraphHandler(host: String = "localhost", port: Int = 11311) extends A
           override def onNewMessage(msg: std_msgs.String): Unit = {
             log.info("[BigraphManager]: received new bgm term message")
             bigraph = new Bigraph(msg.getData + ";")
-            if (!configured){
-              self ! "configured"
-            }
-
           }
         })
+
+        val publisher: Publisher[std_msgs.String] = connectedNode.newPublisher("brr", std_msgs.String._TYPE)
+        connectedNode.executeCancellableLoop(new CancellableLoop {
+          override def loop(): Unit = {
+            if(brrQueue.nonEmpty){
+              var brrStr: std_msgs.String = publisher.newMessage()
+              brrStr.setData(brrQueue.dequeue().toString)
+              publisher.publish(brrStr)
+            }
+          }
+        })
+
         super.onStart(connectedNode)
       }
     }
@@ -101,5 +82,6 @@ class ROSBigraphHandler(host: String = "localhost", port: Int = 11311) extends A
       }
     }
     def setupConfiguration: NodeConfiguration = NodeConfiguration.newPublic(InetAddressFactory.newNonLoopback.getHostName, getMasterUri)
-
+    while (bigraph.equals(new Bigraph())) {}
+  }
 }
