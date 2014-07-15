@@ -66,6 +66,7 @@ class ROSBigraphManager(host: String = "localhost", port: Int = 11311) extends B
               brrStr.setData(brrQueue.dequeue().toString)
               publisher.publish(brrStr)
             }
+            Thread.sleep(1000)
           }
         })
 

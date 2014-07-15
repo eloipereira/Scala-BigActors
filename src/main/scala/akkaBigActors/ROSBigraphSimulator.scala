@@ -1,6 +1,7 @@
 package bigactors.akkaBigActors
 
 import java.net.{URISyntaxException, URI}
+import java.nio.file.Paths
 
 import edu.berkeley.eloi.bigraph.{BRR, BRS, Bigraph}
 import org.apache.commons.logging.Log
@@ -22,11 +23,11 @@ object ROSBigraphSimulator extends App {
 
   val host = "localhost"
   val port = 11311
-  val initialBigraph: Bigraph = new Bigraph("l0_Location.r0_Robot[network] | l1_Location.r1_Robot[network] | l2_Location.r2_Robot[network] | l3_Location.r3_Robot[network] | l4_Location.r4_Robot[network];")
+  //val initialBigraph: Bigraph = new Bigraph("l0_Location.r0_Robot[network] | l1_Location.r1_Robot[network] | l2_Location.r2_Robot[network] | l3_Location.r3_Robot[network] | l4_Location.r4_Robot[network];")
   RosCore.newPublic( host,port).start()
 
-  val brs = new BRS(initialBigraph,false,false)
-
+  val brs = new BRS(Paths.get(System.getProperty("user.dir")).resolve("src/main/resources/robots.bgm").toString,false,true)
+  //brs.update(initialBigraph.getTerm)
   val node: AbstractNodeMain = new AbstractNodeMain {
     override def getDefaultNodeName: GraphName = GraphName.of("bigraphSimulator")
     override def onStart(connectedNode: ConnectedNode): Unit ={
