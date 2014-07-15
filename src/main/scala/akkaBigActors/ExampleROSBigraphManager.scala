@@ -7,25 +7,32 @@ package bigactors.akkaBigActors
 import java.nio.file.Paths
 
 import akka.actor.ActorDSL._
+import akka.event.Logging
 import akka.actor.{Actor, ActorSystem, Props}
 import akka.event.Logging
-import bigactors.{BIGRAPH_RESPONSE, BIGRAPH_REQUEST, Host, Parent}
+import akka.util.Timeout
+import bigactors._
 import edu.berkeley.eloi.bigraph.{Bigraph, Place}
-import org.ros.RosCore
+import akka.pattern.ask
 
-object ExampleROSBigraphManager extends App {
+import scala.concurrent.Await
+import scala.concurrent.duration._
+
+
+object ExampleROSBigraphManager extends App{
+
   implicit val system = ActorSystem("mySystem")
 
   val bigraphManager = system.actorOf(Props(classOf[ROSBigraphManager], "localhost", 11311))
 
-
-
-  actor(new Act{
-    bigraphManager ! BIGRAPH_REQUEST
-    override def receive = {
-      case BIGRAPH_RESPONSE(bg) => println(bg)
+  implicit val timeout = Timeout(5 seconds)
+  val future = bigraphManager ? BIGRAPH_REQUEST
+  Await.result(future, timeout.duration) match {
+    case BIGRAPH_RESPONSE(bg) => {
+      println("[Example]:\t\t\t Hello bigraph, " + bg)
     }
+    case _ => println("[Example]:\t\t\t Unknown reply.")
   }
-  )
+
 }
 

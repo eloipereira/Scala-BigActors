@@ -30,6 +30,8 @@ libraryDependencies += "org.scalatest" % "scalatest_2.10" % "2.0" % "test"
 
 libraryDependencies += "com.typesafe.akka" %% "akka-actor" % "2.4-SNAPSHOT"
 
+libraryDependencies += "com.typesafe.akka" %% "akka-remote" % "2.4-SNAPSHOT"
+
 libraryDependencies += "pt.edu.academiafa" % "seagull-rosjava-lib" % "0.0.2"
 
 publishTo <<= version { (v: String) =>
