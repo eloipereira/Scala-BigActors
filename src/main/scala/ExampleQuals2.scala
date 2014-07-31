@@ -1,11 +1,11 @@
 package bigactors
 package remote
 
-import java.nio.file.Paths
-
-import RemoteBigActorImplicits._
-import java.util.Properties
 import java.io.FileOutputStream
+import java.nio.file.Paths
+import java.util.Properties
+
+import bigactors.remote.RemoteBigActorImplicits._
 import edu.berkeley.eloi.bigraph.Place
 
 object ExampleQuals2 extends App{

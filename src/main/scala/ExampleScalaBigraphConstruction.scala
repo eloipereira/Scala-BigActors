@@ -1,6 +1,6 @@
 package scalaBigraph
 
-import ScalaBigraphImplicits._
+import scalaBigraph.ScalaBigraphImplicits._
 
 /**
  * Created by eloi on 7/28/14.
@@ -16,17 +16,20 @@ object  ExampleScalaBigraphConstruction extends App{
   val robot0 = Vehicle("robot0",List("network"))
   val robot1 = Vehicle("robot1",List("network"))
 
-  println(loc0 ~> (robot0 | robot1 | $(0) ) || loc1)
+  val bigraph = loc0 ~> (robot0 | robot1 | $(0) ) || loc1
+
+  println(bigraph)
 
 
-  println(
-    Location("loc0") ~> (
-      Vehicle("robot0",List("network")) |
-      Vehicle("robot1",List("network")) |
-      $(0))
-      ||
-    Location("loc1")
-  )
+  val bigraph1 = Location("loc0") ~> (Vehicle("robot0",List("network")) | Vehicle("robot1",List("network")) | $(0)) || Location("loc1")
+
+  new ScalaBigraph("loc0_Location") match {
+    case bigraph1 => println(true)
+    case _ => println(false)
+  }
+
+
+
 
 
 }

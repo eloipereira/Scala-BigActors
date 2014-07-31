@@ -1,12 +1,13 @@
 package bigactors
 
-import java.nio.file.{Paths, Path}
-
-import edu.berkeley.eloi.bigraph.{Place, BigraphNode, BRR}
-import BigActor._
-import scala.actors.Actor._
-import java.util.Properties
 import java.io.FileOutputStream
+import java.nio.file.Paths
+import java.util.Properties
+
+import bigactors.BigActor._
+import edu.berkeley.eloi.bigraph.Place
+
+import scala.actors.Actor._
 
 case class RENDEZVOUS_AT_LOCATION(loc: Place)
 

@@ -2,10 +2,10 @@ package bigactors
 
 import akka.actor.ActorRef
 import edu.berkeley.eloi.bigraph._
+
 import scala.actors.OutputChannel
-import scala.collection.mutable.{HashMap, ArrayBuffer}
 import scala.collection.JavaConversions._
-import scala.collection.JavaConverters._
+import scala.collection.mutable.{ArrayBuffer, HashMap}
 
 trait Query
 trait QueryBigraph extends Query

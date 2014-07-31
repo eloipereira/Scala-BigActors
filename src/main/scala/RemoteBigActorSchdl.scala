@@ -2,18 +2,20 @@ package bigactors
 package remote
 
 
-import scala.actors.remote.RemoteActor._
-import edu.berkeley.eloi.bigraph._
-import scala.collection.JavaConversions._
-import edu.berkeley.eloi.bgm2java.Debug
-import scala.collection.mutable.{ArrayBuffer, HashMap}
-import scala.actors._
-import scala.actors.Actor._
-import scala.actors.remote.Node
-import java.util.Properties
 import java.io.FileInputStream
-import scala.collection.mutable
 import java.net.InetAddress
+import java.util.Properties
+
+import edu.berkeley.eloi.bigraph._
+import edu.berkeley.eloi.concreteBgm2Java.Debug
+
+import scala.actors.{OutputChannel, Actor}
+import scala.actors.Actor._
+
+import scala.actors.remote.Node
+import scala.actors.remote.RemoteActor._
+import scala.collection.JavaConversions._
+import scala.collection.mutable.HashMap
 
 
 object RemoteBigActorSchdl extends Actor with App {

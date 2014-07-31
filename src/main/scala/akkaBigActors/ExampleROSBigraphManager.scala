@@ -4,16 +4,11 @@ package bigactors.akkaBigActors
  * Created by eloi on 03-07-2014.
  */
 
-import java.nio.file.Paths
-
-import akka.actor.ActorDSL._
-import akka.event.Logging
-import akka.actor.{Actor, ActorSystem, Props}
-import akka.event.Logging
+import akka.actor.{ActorSystem, Props}
+import akka.pattern.ask
 import akka.util.Timeout
 import bigactors._
-import edu.berkeley.eloi.bigraph.{BRR, Bigraph, Place}
-import akka.pattern.ask
+import edu.berkeley.eloi.bigraph.BRR
 
 import scala.concurrent.Await
 import scala.concurrent.duration._

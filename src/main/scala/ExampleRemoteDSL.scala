@@ -1,12 +1,14 @@
 package bigactors
 package remote
 
-import java.nio.file.Paths
-import RemoteBigActorImplicits._
-import scala.actors.Actor._
-import java.util.Properties
 import java.io.FileOutputStream
+import java.nio.file.Paths
+import java.util.Properties
+
+import bigactors.remote.RemoteBigActorImplicits._
 import edu.berkeley.eloi.bigraph.Place
+
+import scala.actors.Actor._
 
 object ExampleRemoteDSL extends App{
   // Configuration

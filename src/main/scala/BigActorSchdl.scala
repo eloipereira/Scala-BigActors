@@ -3,11 +3,11 @@ package bigactors
 import java.io.FileInputStream
 import java.util.Properties
 
-import scala.actors.{OutputChannel, Actor}
-import edu.berkeley.eloi.bigraph._
+import edu.berkeley.eloi.concreteBgm2Java.Debug
+
+import scala.actors.{Actor, OutputChannel}
 import scala.collection.JavaConversions._
-import edu.berkeley.eloi.bgm2java.Debug
-import scala.collection.mutable.{ArrayBuffer, HashMap}
+import scala.collection.mutable.HashMap
 
 
 

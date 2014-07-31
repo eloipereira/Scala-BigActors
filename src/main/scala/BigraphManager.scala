@@ -1,13 +1,13 @@
 package bigactors
 
-import edu.berkeley.eloi.bigraph.{Control, BRR, Bigraph, BRS}
-import scala.collection.JavaConversions._
-import scala.actors.{AbstractActor, Actor}
-import edu.berkeley.eloi.bgm2java.Debug
-import scala.actors.remote.RemoteActor._
-import scala.actors.Actor._
-import java.util.Properties
 import java.io.FileInputStream
+import java.util.Properties
+
+import edu.berkeley.eloi.bigraph.BRS
+import edu.berkeley.eloi.concreteBgm2Java.Debug
+import scala.collection.JavaConversions._
+
+import scala.actors.Actor
 
 /**
  * Created with IntelliJ IDEA.
@@ -25,9 +25,9 @@ object BigraphManager extends Actor {
   val prop = new Properties
   prop.load(new FileInputStream("config.properties"))
   val bgmPath: String = prop.getProperty("bgmPath")
-  val debug = prop.getProperty("debug").toBoolean
-  val visualization = prop.getProperty("visualization").toBoolean
-  val log = prop.getProperty("log").toBoolean
+  val debug: Boolean = prop.getProperty("debug").toBoolean
+  val visualization: Boolean = prop.getProperty("visualization").toBoolean
+  val log: Boolean = prop.getProperty("log").toBoolean
 
   var brs: BRS = new BRS(bgmPath,log,visualization)
 
@@ -41,7 +41,7 @@ object BigraphManager extends Actor {
         case EXECUTE_BRR(brr) => {
           Debug.println("[BigraphManager]:\t Old bigraph: " + brs,debug)
           Thread.sleep(2000)
-          brs.applyRules(List(brr),2)
+          brs.applyRules(List(brr))
           Debug.println("[BigraphManager]:\t New bigraph: " + brs,debug)
         }
         case BIGRAPH_REQUEST => {

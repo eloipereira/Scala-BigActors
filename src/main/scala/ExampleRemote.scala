@@ -1,11 +1,11 @@
 package bigactors
 package remote
 
-import java.nio.file.Paths
-
-import edu.berkeley.eloi.bigraph.{Place, BRR}
-import java.util.Properties
 import java.io.FileOutputStream
+import java.nio.file.Paths
+import java.util.Properties
+
+import edu.berkeley.eloi.bigraph.{BRR, Place}
 
 
 object ExampleRemote extends App{

@@ -1,9 +1,10 @@
 package bigactors
 package remote
 
-import RemoteBigActorImplicits._
-import scala.actors.Actor._
+import bigactors.remote.RemoteBigActorImplicits._
 import edu.berkeley.eloi.bigraph.Place
+
+import scala.actors.Actor._
 
 
 object ICCPSBigActors extends App{

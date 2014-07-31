@@ -1,16 +1,17 @@
 package bigactors
 package remote
 
-import scala.actors.{OutputChannel, AbstractActor, Actor}
-import edu.berkeley.eloi.bigraph._
-import scala.actors.Actor._
-import scala.actors.remote._
-import scala.actors.remote.RemoteActor._
-import edu.berkeley.eloi.bgm2java.Debug
-import java.util.{UUID, Properties}
 import java.io.FileInputStream
 import java.net._
-import RemoteBigActorImplicits._
+import java.util.{Properties, UUID}
+
+import edu.berkeley.eloi.bigraph._
+import edu.berkeley.eloi.concreteBgm2Java.Debug
+
+import scala.actors.Actor._
+import scala.actors.remote.RemoteActor._
+import scala.actors.remote._
+import scala.actors.{AbstractActor, Actor}
 
 
 trait RemoteBigActorTrait{

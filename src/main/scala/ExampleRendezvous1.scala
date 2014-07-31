@@ -1,12 +1,12 @@
 package bigactors
 
-import java.nio.file.Paths
-
-import edu.berkeley.eloi.bigraph.{Place, BigraphNode, BRR}
-import BigActor._
-import scala.actors.Actor._
-import java.util.Properties
 import java.io.FileOutputStream
+import java.nio.file.Paths
+import java.util.Properties
+
+import bigactors.BigActor._
+
+import scala.actors.Actor._
 
 object ExampleRendezvous1 extends App{
 

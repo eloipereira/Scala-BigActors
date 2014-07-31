@@ -4,8 +4,6 @@ package bigactors.akkaBigActors
  * Created by eloi on 03-07-2014.
  */
 
-import java.nio.file.Paths
-
 import akka.actor.{ActorSystem, Props}
 import bigactors.RENDEZVOUS_AT_LOCATION
 

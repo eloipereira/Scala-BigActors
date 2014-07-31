@@ -1,7 +1,7 @@
 package bigactors
 package remote
 
-import edu.berkeley.eloi.bigraph.{Place, BRR}
+import edu.berkeley.eloi.bigraph.{BRR, Place}
 
 
 object RemoteUav0 extends RemoteBigActor( Symbol("uav0"), Symbol("u0")) with App{

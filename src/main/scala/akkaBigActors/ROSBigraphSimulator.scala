@@ -1,9 +1,9 @@
 package bigactors.akkaBigActors
 
-import java.net.{URISyntaxException, URI}
+import java.net.{URI, URISyntaxException}
 import java.nio.file.Paths
 
-import edu.berkeley.eloi.bigraph.{BRR, BRS, Bigraph}
+import edu.berkeley.eloi.bigraph.{BRR, BRS}
 import org.apache.commons.logging.Log
 import org.ros.RosCore
 import org.ros.address.InetAddressFactory
@@ -13,8 +13,6 @@ import org.ros.namespace.GraphName
 import org.ros.node._
 import org.ros.node.topic._
 import scala.collection.JavaConversions._
-import scala.collection.mutable
-
 
 /**
  * Created by eloi on 09-07-2014.
@@ -37,7 +35,7 @@ object ROSBigraphSimulator extends App {
       subscriber.addMessageListener(new MessageListener[std_msgs.String] {
         override def onNewMessage(msg: std_msgs.String): Unit = {
           log.info("[ROSBigraphSimulator]: received brr")
-          brs.applyRules(List(new BRR(msg.getData)),2)
+          brs.applyRules(List(new BRR(msg.getData)))
         }
       })
 

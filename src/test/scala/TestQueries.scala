@@ -2,12 +2,12 @@ import java.io.FileOutputStream
 import java.nio.file.Paths
 import java.util.Properties
 
+import bigactors.BigActor._
 import bigactors._
 import edu.berkeley.eloi.bigraph.Bigraph
 import org.scalatest.FunSuite
-import BigActor._
-import scala.actors.Actor._
 
+import scala.actors.Actor._
 import scala.actors.OutputChannel
 import scala.collection.mutable._
 

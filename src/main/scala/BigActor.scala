@@ -3,8 +3,8 @@ package bigactors
 import java.io.FileInputStream
 import java.util.Properties
 
-import edu.berkeley.eloi.bgm2java.Debug
 import edu.berkeley.eloi.bigraph.{BRR, BigraphNode, Place}
+import edu.berkeley.eloi.concreteBgm2Java.Debug
 
 import scala.actors.Actor._
 import scala.actors.{Actor, OutputChannel}

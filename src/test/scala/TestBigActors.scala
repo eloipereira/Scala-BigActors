@@ -4,12 +4,10 @@ import java.util.Properties
 
 import bigactors.BigActor._
 import bigactors._
-import edu.berkeley.eloi.bigraph.{Place, Bigraph}
+import edu.berkeley.eloi.bigraph.Place
 import org.scalatest.FunSuite
 
 import scala.actors.Actor._
-import scala.actors.OutputChannel
-import scala.collection.mutable._
 
 /**
  * Created by eloi on 01-07-2014.
@@ -53,17 +51,17 @@ class TestBigActors extends FunSuite {
     }
   }
 
-  test("BRR MOVE_HOST_TO loc application"){
-    BigActor hosted_at "u0" with_behavior{
-      MOVE_HOST_TO("l1")
-      assert(PARENT_HOST.head.getId.asInstanceOf[String] == "l1")
-    }
-  }
+//  test("BRR MOVE_HOST_TO loc application"){
+//    BigActor hosted_at "u0" with_behavior{
+//      MOVE_HOST_TO("l1")
+//      assert(PARENT_HOST.head.getId.asInstanceOf[String] == "l1")
+//    }
+//  }
 
-  test("Migration"){
-    BigActor hosted_at "u0" with_behavior{
-      migrate('u1)
-      assert(HOST.head.getId.asInstanceOf[String] == "u1")
-    }
-  }
+//  test("Migration"){
+//    BigActor hosted_at "u0" with_behavior{
+//      migrate('u1)
+//      assert(HOST.head.getId.asInstanceOf[String] == "u1")
+//    }
+//  }
 }

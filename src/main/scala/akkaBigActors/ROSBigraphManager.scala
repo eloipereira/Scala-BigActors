@@ -1,31 +1,18 @@
 package bigactors.akkaBigActors
 
-import akka.actor.{ActorRef, Actor, ActorSystem, Props, Stash}
-import akka.event.Logging
-import akka.util.Timeout
-import bigactors.{EXECUTE_BRR, BIGRAPH_RESPONSE, OBSERVATION_REQUEST_AKKA, BIGRAPH_REQUEST}
-import edu.berkeley.eloi.bigraph.{Place, Bigraph, BRR}
-import java.net.URI
-import java.net.URISyntaxException
+import java.net.{URI, URISyntaxException}
 
+import akka.actor.ActorRef
+import edu.berkeley.eloi.bigraph.{BRR, Bigraph}
 import org.apache.commons.logging.Log
 import org.ros.address.InetAddressFactory
 import org.ros.concurrent.CancellableLoop
 import org.ros.message.MessageListener
 import org.ros.namespace.GraphName
-import org.ros.node.AbstractNodeMain
-import org.ros.node.ConnectedNode
-import org.ros.node.DefaultNodeMainExecutor
-import org.ros.node.NodeConfiguration
-import org.ros.node.NodeMainExecutor
+import org.ros.node.{AbstractNodeMain, ConnectedNode, DefaultNodeMainExecutor, NodeConfiguration, NodeMainExecutor}
 import org.ros.node.topic.{Publisher, Subscriber}
 
 import scala.collection.mutable
-import scala.collection.mutable.ArrayBuffer
-import scala.concurrent.Await
-import akka.event.Logging
-import akka.pattern.ask
-import scala.concurrent.duration._
 
 
 case class BIGRAPH_REQUEST_WITH_REF(ref: ActorRef)

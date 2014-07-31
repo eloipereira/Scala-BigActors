@@ -1,6 +1,7 @@
 package scalaBigraph
 
 import edu.berkeley.eloi.bigraph._
+
 import scala.collection.JavaConversions._
 
 
@@ -27,12 +28,24 @@ class Node(name: String, links: List[String]) extends BigraphNode(name, "Node",l
   def getCtrId = this.getClass.getSimpleName
   }
 
-class ScalaBigraph(term: String) extends Bigraph(term) with ScalaBigraphTrait
+class ScalaBigraph(term: String) extends Bigraph(term + ";") with ScalaBigraphTrait{
+  def matches(redex: ScalaBigraph): Boolean = {
+
+    val brs: BRS = new BRS(new Bigraph(term),false,false)
+
+    //TODO - introduce a method in BRS at Bgm2Bigraph to check the match
+
+    ???
+  }
+   //TODO - implement equals and hashCode
+
+
+}
 
 class ScalaBRR(redex: ScalaBigraph, reactum: ScalaBigraph) extends BRR("",redex,reactum)
 
 object ScalaBigraphImplicits {
-  implicit def scalaBigraphNode2ScalaBigraph(node: Node):ScalaBigraph = new ScalaBigraph(node.toBgm + ";")
-  implicit def scalaBigraphHole2ScalaBigraph(hole: ScalaBigraphHole):ScalaBigraph = new ScalaBigraph(hole.toBgm + ";")
+  implicit def scalaBigraphNode2ScalaBigraph(node: Node):ScalaBigraph = new ScalaBigraph(node.toBgm)
+  implicit def scalaBigraphHole2ScalaBigraph(hole: ScalaBigraphHole):ScalaBigraph = new ScalaBigraph(hole.toBgm)
   def $(i: Integer): ScalaBigraphHole = new ScalaBigraphHole(i)
 }

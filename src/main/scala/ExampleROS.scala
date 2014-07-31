@@ -2,17 +2,12 @@
  * Created by eloi on 08-07-2014.
  */
 
-import java.net.URI
-import java.net.URISyntaxException
+import java.net.{URI, URISyntaxException}
 
+import org.ros.RosCore
 import org.ros.address.InetAddressFactory
 import org.ros.namespace.GraphName
-import org.ros.node.AbstractNodeMain
-import org.ros.node.ConnectedNode
-import org.ros.node.DefaultNodeMainExecutor
-import org.ros.node.NodeConfiguration
-import org.ros.node.NodeMainExecutor
-import org.ros.RosCore
+import org.ros.node.{AbstractNodeMain, ConnectedNode, DefaultNodeMainExecutor, NodeConfiguration, NodeMainExecutor}
 
 object ExampleROS extends App{
 

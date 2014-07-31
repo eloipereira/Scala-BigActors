@@ -2,6 +2,7 @@ package bigactors
 
 import _root_.akka.actor.ActorRef
 import edu.berkeley.eloi.bigraph.BRR
+
 import scala.actors.OutputChannel
 
 sealed trait BigActorSchdlAPI

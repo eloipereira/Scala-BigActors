@@ -1,6 +1,6 @@
 package bigactors
 
-import edu.berkeley.eloi.bigraph.{Bigraph, BRR}
+import edu.berkeley.eloi.bigraph.{BRR, Bigraph}
 
 /**
  * Created by eloipereira on 3/24/14.

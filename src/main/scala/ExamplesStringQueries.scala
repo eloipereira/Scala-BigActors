@@ -1,6 +1,6 @@
 import bigactors.QueryInterpreter
-import edu.berkeley.eloi.concreteBgm2Java.ConcreteBgm2JavaCompiler
 import edu.berkeley.eloi.bigraph.{BRR, BRS}
+import edu.berkeley.eloi.concreteBgm2Java.ConcreteBgm2JavaCompiler
 import scala.collection.JavaConversions._
 
 object ExamplesStringQueries {
@@ -14,7 +14,7 @@ object ExamplesStringQueries {
     println(brs.getBigraph.getNode("tanker0").getParent)
     println("Apply rule")
     val r: BRR = brs.getRules.get(0)
-    brs.applyRules(List(r),2)
+    brs.applyRules(List(r))
     println(brs)
     val result1 = QueryInterpreter.evaluateString("children.parent.host","u0",brs.getBigraph)
     for (r <- result1){
@@ -23,7 +23,7 @@ object ExamplesStringQueries {
     println(brs.getBigraph.getNode("tanker0").getParent)
     println("Apply rule")
     val r1: BRR = brs.getRules.get(1)
-    brs.applyRules(List(r1),2)
+    brs.applyRules(List(r1))
     println(brs)
     val result2 = QueryInterpreter.evaluateString("children.parent.host","u0",brs.getBigraph)
     for (r <- result2){

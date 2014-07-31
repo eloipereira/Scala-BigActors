@@ -1,18 +1,18 @@
 package bigactors
 package remote
 
-import edu.berkeley.eloi.bigraph.BRS
-import scala.collection.JavaConversions._
-import edu.berkeley.eloi.bgm2java.Debug
-
-import scala.actors._
-import scala.actors.Actor._
-import scala.actors.remote._
-import scala.actors.remote.RemoteActor._
-
-import java.util.Properties
 import java.io.FileInputStream
 import java.net._
+import java.util.Properties
+
+import edu.berkeley.eloi.bigraph.BRS
+import edu.berkeley.eloi.concreteBgm2Java.Debug
+import scala.collection.JavaConversions._
+
+import scala.actors.Actor
+import scala.actors.Actor._
+
+import scala.actors.remote.RemoteActor._
 
 /**
  * Created with IntelliJ IDEA.
@@ -59,7 +59,7 @@ object RemoteBigraphManager extends Actor with  App {
         case EXECUTE_BRR(brr) => {
           Debug.println("Old bigraph: " + brs,debug)
           Debug.println("BRR: " + brr,debug)
-          brs.applyRules(List(brr),2)
+          brs.applyRules(List(brr))
           Debug.println("New bigraph: " + brs,debug)
         }
         case BIGRAPH_REQUEST => {
