@@ -23,7 +23,7 @@ object RemoteBigActorSchdl extends Actor with App {
 
   // scala.actors.Debug.level_=(100)
 
-  private val hostRelation = new HashMap[Symbol,Symbol]
+  private implicit val hostingRelation = new HashMap[Symbol,Symbol]
   // private val remoteNodeMap = new HashMap[Symbol,Node]
   private val proxies = new HashMap[Symbol,OutputChannel[Any]]
 
@@ -67,7 +67,7 @@ object RemoteBigActorSchdl extends Actor with App {
             case BIGRAPH_RESPONSE(bigraph) => {
               if (bigraph.getPlaces.contains(new BigraphNode(hostID.name))) {
                 Debug.println("Hosting BigActor at host " + hostID,debug)
-                hostRelation += bigActorID -> hostID
+                hostingRelation += bigActorID -> hostID
                 val node = Node(ip,port)
                 //  remoteNodeMap += bigActorID -> node
                 proxies += bigActorID -> bigActor
@@ -85,8 +85,8 @@ object RemoteBigActorSchdl extends Actor with App {
           bigraphManager ! BIGRAPH_REQUEST
           receive{
             case BIGRAPH_RESPONSE(bigraph) => {
-              val hostId = hostRelation(bigActorID).name
-              val result = QueryInterpreter.evaluateRemote(query, hostId, bigraph, hostRelation)
+              val hostId: Symbol = hostingRelation(bigActorID)
+              val result = QueryInterpreter.evaluate(query,hostId,bigraph,hostingRelation)
               result match {
                 case Left(b) => {
                   Debug.println("[BigActorSchdl]:\t Observed Bigraph: " + b, debug)
@@ -100,48 +100,16 @@ object RemoteBigActorSchdl extends Actor with App {
             }
           }
         }
-
-        //        case REMOTE_OBSERVATION_REQUEST(query, bigActorID) => {
-        //          Debug.println("got a obs request with query " + query + " from "+bigActorID,debug)
-        //          bigraphManager ! BIGRAPH_REQUEST
-        //          receive{
-        //            case BIGRAPH_RESPONSE(bigraph) => {
-        //              val hostId = hostRelation(bigActorID).name
-        //              if(query.split('.').head == "hostedAt"){
-        //                val bigraphNodes = QueryInterpreter.evaluateString(query.substring(9),hostId,bigraph)
-        //                val bigactors = ArrayBuffer.empty[Symbol]
-        //                val reverseHostRelation = hostRelation groupBy {_._2} map {case (key,value) => (key, value.unzip._1)}
-        //                bigraphNodes.foreach{b =>
-        //                  val id = Symbol(b.getId.asInstanceOf[String])
-        //                  if (reverseHostRelation.contains(id)){
-        //                    reverseHostRelation(id).foreach{a =>
-        //                      println(a)
-        //                      bigactors+=a
-        //                    }
-        //                  }
-        //                  if (!bigactors.isEmpty){
-        //                    Debug.println("[BigActorSchdl]:\t Observed BigActors: "+bigactors,debug)
-        //                    proxies(bigActorID) ! bigactors
-        //                  }
-        //                }
-        //              }else{
-        //                val bigraphNodes = QueryInterpreter.evaluateString(query,hostId,bigraph)
-        //                Debug.println("[BigActorSchdl]:\t Observed Bigraph: "+bigraphNodes,debug)
-        //                proxies(bigActorID) ! bigraphNodes
-        //              }
-        //            }
-        //          }
-        //        }
         case REMOTE_CONTROL_REQUEST(brr, bigActorID) => {
           Debug.println("got a ctr request " + brr,debug)
           bigraphManager ! BIGRAPH_REQUEST
           react{
             case BIGRAPH_RESPONSE(bigraph) => {
-              if (brr.getRedex.getNodes.contains(bigraph.getNode(hostRelation(bigActorID).name))
-                || brr.getReactum.getNodes.contains(bigraph.getNode(hostRelation(bigActorID).name))){
+              if (brr.getRedex.getNodes.contains(bigraph.getNode(hostingRelation(bigActorID).name))
+                || brr.getReactum.getNodes.contains(bigraph.getNode(hostingRelation(bigActorID).name))){
                 bigraphManager ! EXECUTE_BRR(brr)
               } else {
-                System.err.println("Host " + hostRelation(bigActorID) + "is not included on redex/reactum of "+ brr)
+                System.err.println("Host " + hostingRelation(bigActorID) + "is not included on redex/reactum of "+ brr)
                 System.exit(0)
               }
             }
@@ -153,31 +121,31 @@ object RemoteBigActorSchdl extends Actor with App {
           bigraphManager ! BIGRAPH_REQUEST
           react{
             case BIGRAPH_RESPONSE(bigraph) => {
-              val senderHost = bigraph.getNode(hostRelation(senderID).name)
-              val destHost = bigraph.getNode(hostRelation(rcvID).name)
+              val senderHost = bigraph.getNode(hostingRelation(senderID).name)
+              val destHost = bigraph.getNode(hostingRelation(rcvID).name)
               if (senderHost == destHost || !senderHost.getNames.intersect(destHost.getNames).isEmpty){
-                Debug.println("Hosts " + hostRelation(senderID).name + " and " +  hostRelation(rcvID).name + " are connected.",debug)
+                Debug.println("Hosts " + hostingRelation(senderID).name + " and " +  hostingRelation(rcvID).name + " are connected.",debug)
                 val rcv = proxies(rcvID)
                 rcv ! msg
               } else {
-                System.err.println("Hosts " + hostRelation(senderID).name + " and " +  hostRelation(rcvID).name + " are not connected.")
+                System.err.println("Hosts " + hostingRelation(senderID).name + " and " +  hostingRelation(rcvID).name + " are not connected.")
                 System.exit(0)
               }
             }
           }
         }
         case REMOTE_MIGRATION_REQUEST(newHostId, bigActorID) => {
-          Debug.println("got a mgrt request from " + hostRelation(bigActorID) + " to " +newHostId,debug)
+          Debug.println("got a mgrt request from " + hostingRelation(bigActorID) + " to " +newHostId,debug)
           bigraphManager ! BIGRAPH_REQUEST
           react{
             case BIGRAPH_RESPONSE(bigraph) => {
-              val currentHost = bigraph.getNode(hostRelation(bigActorID).name)
+              val currentHost = bigraph.getNode(hostingRelation(bigActorID).name)
               val destHost = bigraph.getNode(newHostId.name)
               if (!currentHost.getNames.intersect(destHost.getNames).isEmpty){
                 Debug.println("Hosts connected. Migrating...",debug)
-                hostRelation += bigActorID -> newHostId
+                hostingRelation += bigActorID -> newHostId
               } else {
-                System.err.println("Hosts " + hostRelation(bigActorID) + " and " + newHostId + " are not connected.")
+                System.err.println("Hosts " + hostingRelation(bigActorID) + " and " + newHostId + " are not connected.")
                 System.exit(0)
               }
             }
