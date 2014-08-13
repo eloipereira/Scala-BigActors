@@ -1,5 +1,9 @@
 package bigactors
 
+/**
+ * Deep embedding DSL for the bigactor querying language
+ */
+
 import akka.actor.ActorRef
 import edu.berkeley.eloi.bigraph._
 
@@ -25,7 +29,6 @@ object QueryInterpreter {
       case query: QueryBigraph => Left(evaluateBigraph(query,hostId,bigraph))
       case query: QueryBigActors =>
         val bas = AkkaEvaluateBigActors(query,hostId,bigraph,hostingRelation)
-        //bas.foreach(a=> println(a))
         Right(bas)
     }
   }
