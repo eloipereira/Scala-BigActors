@@ -12,7 +12,7 @@ import bigactors.RENDEZVOUS_AT_LOCATION
 object ExampleAkkaRendezvous0 extends App {
   implicit val system = ActorSystem("mySystem")
 
-  val bigraphManager = system.actorOf(Props(classOf[BigMCBigraphManager], Paths.get(System.getProperty("user.dir")).resolve("src/main/resources/robots.bgm").toString, true, false))
+  val bigraphManager = system.actorOf(Props(classOf[BigMCBigraphManager], Paths.get(System.getProperty("user.dir")).resolve("src/main/resources/robots.bgm").toString, true))
   val bigraphScheduler = system.actorOf(Props(classOf[BigActorSchdl], bigraphManager))
 
   val r0BA = system.actorOf(Props(classOf[Leader], 'r0))

@@ -31,7 +31,7 @@ class Node(name: String, links: List[String]) extends BigraphNode(name, "Node",l
 class ScalaBigraph(term: String) extends Bigraph(term + ";") with ScalaBigraphTrait{
   def matches(redex: ScalaBigraph): Boolean = {
 
-    val brs: BRS = new BRS(new Bigraph(term),false,false)
+    val brs: BRS = new BRS(new Bigraph(term),false)
 
     //TODO - introduce a method in BRS at Bgm2Bigraph to check the match
 

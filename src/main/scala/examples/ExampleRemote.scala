@@ -7,7 +7,8 @@ import java.util.Properties
 
 import edu.berkeley.eloi.bigraph.{BRR, Place}
 
-object ExampleRemoteAutoNaming extends App{
+
+object ExampleRemote extends App{
   // Configuration
   val prop = new Properties()
   prop.setProperty("RemoteBigActors","true")
@@ -21,40 +22,39 @@ object ExampleRemoteAutoNaming extends App{
   val p0 = Paths.get(System.getProperty("user.dir")).resolve("src/main/resources/simple.bgm")
   prop.setProperty("bgmPath",p0.toString)
   prop.setProperty("visualization","true")
-  prop.setProperty("debug","true")
-  prop.setProperty("log","false")
   prop.store(new FileOutputStream("config.properties"),null)
 
-  val uav1 = new RemoteBigActor(Symbol("u1")){
+
+  val uav1 = new RemoteBigActor( Symbol("uav1"), Symbol("u1")){
     def behavior() {
-      control(new BRR(hostID.name + "_UAV[network].$0 | $1 -> " + hostID.name +"_UAV[network].($0 | " + bigActorID.name + "_BA) | $1"))
+      control(new BRR("u1_UAV[network].$0 | $1 -> u1_UAV[network].($0 | uav1_BA) | $1"))
       observe(Children(Parent(Host)))
       loop {
         react {
-          case obs: Array[Place] => println("New observation for BigActor " + bigActorID.name + ": " + obs)
-          case msg: Any => println("New mail for BigActor " + bigActorID.name + ": " + msg)
+          case obs: Array[Place] => println("New observation for uav1: " + obs)
+          case msg: Any => println("New mail for uav1: " + msg)
         }
       }
     }
   }
 
 
-  val uav0 = new RemoteBigActor(Symbol("u0")){
+  val uav0 = new RemoteBigActor( Symbol("uav0"), Symbol("u0")){
     def behavior() {
-      control(new BRR(hostID.name + "_UAV[network].$0 | $1 -> " + hostID.name + "_UAV[network].($0 | " + bigActorID.name + "_BA) | $1"))
-      observe(Children(Parent(Host))) // TODO make it children.linkedTo.host
+      control(new BRR("u0_UAV[network].$0 | $1 -> u0_UAV[network].($0 | uav0_BA) | $1"))
+      observe(Children(Parent(Host)))
       Thread.sleep(5000)
       react{
         case obs: Array[Place] => {
           println("New observation for uav0: "+ obs)
           obs.foreach(b =>
-            sendMsg("Hello I'm BigActor " + bigActorID.name ,Symbol(b.toString))
+            sendMsg("Hello I'm BigActor " + bigActorID,Symbol(b.toString))
           )
           control(new BRR("l0_Location.(u0_UAV[network].$0 | $1) | l1_Location.$2 -> l0_Location.($1) | l1_Location.(u0_UAV[network].$0 | $2)"))
           migrate(Symbol("u1"))
           observe(Host)
           react{
-            case obs: Array[Place] => println("New observation for BigActor " + bigActorID.name + ": " + obs)
+            case obs: Array[Place] => println("New observation for uav0: "+ obs)
           }
         }
       }
@@ -63,4 +63,5 @@ object ExampleRemoteAutoNaming extends App{
 
   uav1.start
   uav0.start
+
 }

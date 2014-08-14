@@ -12,7 +12,7 @@ import edu.berkeley.eloi.bigraph.Place
 object ExampleAkkaRendezvous4 extends App {
   implicit val system = ActorSystem("mySystem")
 
-  val bigraphManager = system.actorOf(Props(classOf[BigMCBigraphManager], Paths.get(System.getProperty("user.dir")).resolve("src/main/resources/robots.bgm").toString, true, false))
+  val bigraphManager = system.actorOf(Props(classOf[BigMCBigraphManager], Paths.get(System.getProperty("user.dir")).resolve("src/main/resources/robots.bgm").toString, true))
   val bigraphScheduler = system.actorOf(Props(classOf[BigActorSchdl], bigraphManager))
 
   system.actorOf(Props(classOf[DiscoverRobots], 'r0)) ! "start"

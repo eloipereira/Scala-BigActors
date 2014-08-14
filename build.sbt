@@ -38,6 +38,10 @@ libraryDependencies += "com.typesafe.akka" %% "akka-remote" % "2.4-SNAPSHOT"
 
 libraryDependencies += "pt.edu.academiafa" % "seagull-rosjava-lib" % "0.0.2"
 
+libraryDependencies += "commons-logging" % "commons-logging" % "1.2"
+
+libraryDependencies += "log4j" % "log4j" % "1.2.17"
+
 publishTo <<= version { (v: String) =>
   if (v.trim.endsWith("SNAPSHOT"))
     Some(Resolver.file("file",  new File( Path.userHome.absolutePath+"/.m2/repository/snapshots" )) )

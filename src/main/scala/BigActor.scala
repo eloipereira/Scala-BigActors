@@ -4,7 +4,7 @@ import java.io.FileInputStream
 import java.util.Properties
 
 import edu.berkeley.eloi.bigraph.{BRR, BigraphNode, Place}
-import edu.berkeley.eloi.concreteBgm2Java.Debug
+import org.apache.commons.logging.{Log, LogFactory}
 
 import scala.actors.Actor._
 import scala.actors.{Actor, OutputChannel}
@@ -50,14 +50,14 @@ trait BigActorTrait{
 abstract class BigActor(hostID: Symbol) extends Actor with BigActorTrait with BigActorImplicits {
   val prop = new Properties
   prop.load(new FileInputStream("config.properties"))
-  val debug = prop.getProperty("debug").toBoolean
+  private val log: Log = LogFactory.getLog(classOf[BigActor])
 
   def behavior
 
   def act{
     BigActorSchdl !  HOSTING_REQUEST(hostID)
     receive{
-      case HOSTING_SUCCESSFUL => Debug.println("[BigActor]:\t\t\t BigActor " + this + " successfully hosted at " + hostID,debug)
+      case HOSTING_SUCCESSFUL => log.debug("BigActor " + this + " successfully hosted at " + hostID)
     }
     behavior
   }

@@ -9,8 +9,8 @@ import org.ros.address.InetAddressFactory
 import org.ros.concurrent.CancellableLoop
 import org.ros.message.MessageListener
 import org.ros.namespace.GraphName
-import org.ros.node.{AbstractNodeMain, ConnectedNode, DefaultNodeMainExecutor, NodeConfiguration, NodeMainExecutor}
 import org.ros.node.topic.{Publisher, Subscriber}
+import org.ros.node.{AbstractNodeMain, ConnectedNode, DefaultNodeMainExecutor, NodeConfiguration, NodeMainExecutor}
 
 import scala.collection.mutable
 

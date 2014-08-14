@@ -4,12 +4,10 @@ package bigactors
  * Deep embedding DSL for the bigactor querying language
  */
 
-import akka.actor.ActorRef
 import edu.berkeley.eloi.bigraph._
 
-import scala.actors.OutputChannel
 import scala.collection.JavaConversions._
-import scala.collection.mutable.{ArrayBuffer, HashMap}
+import scala.collection.mutable.HashMap
 import scala.reflect.ClassTag
 import scala.util.parsing.combinator.JavaTokenParsers
 

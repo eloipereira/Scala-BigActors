@@ -24,8 +24,6 @@ class TestQueries extends FunSuite {
   val p0 = Paths.get(System.getProperty("user.dir")).resolve("src/main/resources/simple.bgm")
   prop.setProperty("bgmPath",p0.toString)
   prop.setProperty("visualization","false")
-  prop.setProperty("debug","false")
-  prop.setProperty("log","false")
   prop.store(new FileOutputStream("config.properties"),null)
 
   test("Host"){

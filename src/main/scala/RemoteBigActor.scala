@@ -6,7 +6,7 @@ import java.net._
 import java.util.{Properties, UUID}
 
 import edu.berkeley.eloi.bigraph._
-import edu.berkeley.eloi.concreteBgm2Java.Debug
+import org.apache.commons.logging.{Log, LogFactory}
 
 import scala.actors.Actor._
 import scala.actors.remote.RemoteActor._
@@ -45,6 +45,7 @@ abstract class RemoteBigActor(val bigActorID: Symbol, var hostID: Symbol) extend
 
   def this(hostID: Symbol) = this(Symbol("uuid" + UUID.randomUUID().toString.replace('-','D')), hostID)
 
+  private val log: Log = LogFactory.getLog(classOf[RemoteBigActor])
 
 
   val debug: Boolean = true
@@ -78,7 +79,7 @@ abstract class RemoteBigActor(val bigActorID: Symbol, var hostID: Symbol) extend
 
     bigActorSchdl ! REMOTE_HOSTING_REQUEST(this.bigActorID, ip,port,hostID)
     receive{
-      case REMOTE_HOSTING_SUCCESSFUL => Debug.println("Remote BigActor " + this.bigActorID +  " hosted at " + hostID + " with IP " + ip + " and port " + port ,debug)
+      case REMOTE_HOSTING_SUCCESSFUL => log.debug("Remote BigActor " + this.bigActorID +  " hosted at " + hostID + " with IP " + ip + " and port " + port)
     }
 
     behavior

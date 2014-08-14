@@ -12,6 +12,7 @@ import org.ros.message.MessageListener
 import org.ros.namespace.GraphName
 import org.ros.node._
 import org.ros.node.topic._
+
 import scala.collection.JavaConversions._
 
 /**
@@ -24,7 +25,7 @@ object ROSBigraphSimulator extends App {
   //val initialBigraph: Bigraph = new Bigraph("l0_Location.r0_Robot[network] | l1_Location.r1_Robot[network] | l2_Location.r2_Robot[network] | l3_Location.r3_Robot[network] | l4_Location.r4_Robot[network];")
   RosCore.newPublic( host,port).start()
 
-  val brs = new BRS(Paths.get(System.getProperty("user.dir")).resolve("src/main/resources/robots.bgm").toString,false,true)
+  val brs = new BRS(Paths.get(System.getProperty("user.dir")).resolve("src/main/resources/robots.bgm").toString,true)
   //brs.update(initialBigraph.getTerm)
   val node: AbstractNodeMain = new AbstractNodeMain {
     override def getDefaultNodeName: GraphName = GraphName.of("bigraphSimulator")

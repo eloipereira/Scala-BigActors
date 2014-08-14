@@ -7,19 +7,21 @@ import java.net.InetAddress
 import java.util.Properties
 
 import edu.berkeley.eloi.bigraph._
-import edu.berkeley.eloi.concreteBgm2Java.Debug
+import org.apache.commons.logging.{Log, LogFactory}
 
-import scala.actors.{OutputChannel, Actor}
 import scala.actors.Actor._
-
 import scala.actors.remote.Node
 import scala.actors.remote.RemoteActor._
+import scala.actors.{Actor, OutputChannel}
 import scala.collection.JavaConversions._
 import scala.collection.mutable.HashMap
 
 
 object RemoteBigActorSchdl extends Actor with App {
   var debug = true
+
+  private val log: Log = LogFactory.getLog("RemoteBigActorSchdl")
+
 
   // scala.actors.Debug.level_=(100)
 
@@ -48,7 +50,7 @@ object RemoteBigActorSchdl extends Actor with App {
 
     alive(schdPort)
     register(schdID, self)
-    Debug.println("BigActorSchdl operating remotely at IP "+ schdlIP + " and port "+ schdPort.toInt,debug)
+    log.debug("BigActorSchdl operating remotely at IP "+ schdlIP + " and port "+ schdPort.toInt)
 
     val managerID = Symbol(prop.getProperty("BigraphManagerID"))
     val managerPort = prop.getProperty("BigraphManagerPort").toInt
@@ -59,14 +61,14 @@ object RemoteBigActorSchdl extends Actor with App {
     loop {
       react{
         case REMOTE_HOSTING_REQUEST(bigActorID,ip,port,hostID) =>{
-          Debug.println("got a host request from " + sender + " to be hosted at "+hostID,debug)
+          log.debug("Got a host request from " + sender + " to be hosted at "+hostID)
           val bigActor = sender
 
           bigraphManager ! BIGRAPH_REQUEST
           react {
             case BIGRAPH_RESPONSE(bigraph) => {
               if (bigraph.getPlaces.contains(new BigraphNode(hostID.name))) {
-                Debug.println("Hosting BigActor at host " + hostID,debug)
+                log.debug("Hosting BigActor at host " + hostID)
                 hostingRelation += bigActorID -> hostID
                 val node = Node(ip,port)
                 //  remoteNodeMap += bigActorID -> node
@@ -81,7 +83,7 @@ object RemoteBigActorSchdl extends Actor with App {
           }
         }
         case REMOTE_OBSERVATION_REQUEST(query, bigActorID) => {
-          Debug.println("got a obs request with query " + query + " from "+bigActorID,debug)
+          log.debug("Got a obs request with query " + query + " from "+bigActorID)
           bigraphManager ! BIGRAPH_REQUEST
           receive{
             case BIGRAPH_RESPONSE(bigraph) => {
@@ -89,11 +91,11 @@ object RemoteBigActorSchdl extends Actor with App {
               val result = QueryInterpreter.evaluate(query,hostId,bigraph,hostingRelation)
               result match {
                 case Left(b) => {
-                  Debug.println("[BigActorSchdl]:\t Observed Bigraph: " + b, debug)
+                  log.debug("Observed Bigraph: " + b)
                   proxies(bigActorID) ! b
                 }
                 case Right(a) => {
-                  Debug.println("[BigActorSchdl]:\t Observed BigActors: " + a, debug)
+                  log.debug("Observed BigActors: " + a)
                   proxies(bigActorID) ! a
                 }
               }
@@ -101,7 +103,7 @@ object RemoteBigActorSchdl extends Actor with App {
           }
         }
         case REMOTE_CONTROL_REQUEST(brr, bigActorID) => {
-          Debug.println("got a ctr request " + brr,debug)
+          log.debug("Got a ctr request " + brr)
           bigraphManager ! BIGRAPH_REQUEST
           react{
             case BIGRAPH_RESPONSE(bigraph) => {
@@ -117,41 +119,39 @@ object RemoteBigActorSchdl extends Actor with App {
         }
         case REMOTE_SEND_REQUEST(msg, rcvID, bigActorID) => {
           val senderID = bigActorID
-          Debug.println("got a snd request from " + bigActorID,debug)
+          log.debug("Got a snd request from " + bigActorID)
           bigraphManager ! BIGRAPH_REQUEST
           react{
             case BIGRAPH_RESPONSE(bigraph) => {
               val senderHost = bigraph.getNode(hostingRelation(senderID).name)
               val destHost = bigraph.getNode(hostingRelation(rcvID).name)
               if (senderHost == destHost || !senderHost.getNames.intersect(destHost.getNames).isEmpty){
-                Debug.println("Hosts " + hostingRelation(senderID).name + " and " +  hostingRelation(rcvID).name + " are connected.",debug)
+                log.debug("Hosts " + hostingRelation(senderID).name + " and " +  hostingRelation(rcvID).name + " are connected.")
                 val rcv = proxies(rcvID)
                 rcv ! msg
               } else {
-                System.err.println("Hosts " + hostingRelation(senderID).name + " and " +  hostingRelation(rcvID).name + " are not connected.")
-                System.exit(0)
+                log.warn("Hosts " + hostingRelation(senderID).name + " and " +  hostingRelation(rcvID).name + " are not connected.")
               }
             }
           }
         }
         case REMOTE_MIGRATION_REQUEST(newHostId, bigActorID) => {
-          Debug.println("got a mgrt request from " + hostingRelation(bigActorID) + " to " +newHostId,debug)
+          log.debug("Got a mgrt request from " + hostingRelation(bigActorID) + " to " +newHostId)
           bigraphManager ! BIGRAPH_REQUEST
           react{
             case BIGRAPH_RESPONSE(bigraph) => {
               val currentHost = bigraph.getNode(hostingRelation(bigActorID).name)
               val destHost = bigraph.getNode(newHostId.name)
               if (!currentHost.getNames.intersect(destHost.getNames).isEmpty){
-                Debug.println("Hosts connected. Migrating...",debug)
+                log.debug("Hosts connected. Migrating...")
                 hostingRelation += bigActorID -> newHostId
               } else {
-                System.err.println("Hosts " + hostingRelation(bigActorID) + " and " + newHostId + " are not connected.")
-                System.exit(0)
+                log.warn("Hosts " + hostingRelation(bigActorID) + " and " + newHostId + " are not connected.")
               }
             }
           }
         }
-        case _ => println("UNKNOWN REQUEST")
+        case _ => log.warn("Unknown request.")
       }
     }
   }

@@ -15,8 +15,6 @@ object ExampleQuals1 extends App{
   val p0 = Paths.get(System.getProperty("user.dir")).resolve("src/main/resources/qualsEx1.bgm")
   prop.setProperty("bgmPath",p0.toString)
   prop.setProperty("visualization","true")
-  prop.setProperty("debug","true")
-  prop.setProperty("log","false")
   prop.store(new FileOutputStream("config.properties"),null)
 
   new RemoteBigActor("observer","camera0") {

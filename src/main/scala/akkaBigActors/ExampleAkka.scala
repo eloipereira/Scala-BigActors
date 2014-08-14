@@ -23,7 +23,7 @@ object ExampleAkka extends App {
   myActor ! "something else"
 
 
-  val bigraphManager = system.actorOf(Props(classOf[BigMCBigraphManager], Paths.get(System.getProperty("user.dir")).resolve("src/main/resources/robots.bgm").toString, false, false))
+  val bigraphManager = system.actorOf(Props(classOf[BigMCBigraphManager], Paths.get(System.getProperty("user.dir")).resolve("src/main/resources/robots.bgm").toString, false))
 
   actor(new Act{
     bigraphManager ! BIGRAPH_REQUEST
