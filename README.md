@@ -1,3 +1,11 @@
+ ____  _          _        _                 
+| __ )(_) __ _   / \   ___| |_ ___  _ __ ___ 
+|  _ \| |/ _` | / _ \ / __| __/ _ \| '__/ __|
+| |_) | | (_| |/ ___ \ (__| || (_) | |  \__ \
+|____/|_|\__, /_/   \_\___|\__\___/|_|  |___/
+         |___/                               
+
+
 # The Scala BigActor Programming Language #
 
 The BigActor Programming Language is an implementation of the BigActor model [1] which brings together Hewitt and Agha's Actor model of concurrency and with Robin Milner's Bigraphs [3]. 
