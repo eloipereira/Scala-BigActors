@@ -21,8 +21,16 @@ The current implementation has been tested in Gnu/Linux distributions and Mac OS
     * [Follow the instructions here](http://www.scala-sbt.org/0.13/tutorial/Manual-Installation.html)
 
 2. Check out the bitbucket bigactors repository
-3. We use the Bigraph model checker BigMC as a bigraph. We provide a bash script to make BigMC installation easier. To build BigMC you need autoconf
+3. We use the Bigraph model checker BigMC as a bigraph. We provide a bash script to make BigMC installation easier.
     * Install autoconf (on Gnu/Linux): `sudo apt-get install autoconf`
+    
+    * Install libtool: `sudo apt-get install libtool`
+    
+    * Install bison: `sudo apt-get install bison`
+    
+    * Install flex: `sudo apt-get install flex`
+    
+    * Install yacc: `sudo apt-get install byacc`
   
     * `cd bigactors/bigmc`
   
