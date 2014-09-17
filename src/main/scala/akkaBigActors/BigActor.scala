@@ -1,4 +1,4 @@
-package bigactors.akkaBigActors
+package akkaBigActors
 
 import akka.actor.{Actor, ActorRef}
 import akka.event.Logging

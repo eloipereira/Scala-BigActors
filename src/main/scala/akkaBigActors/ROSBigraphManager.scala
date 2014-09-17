@@ -1,4 +1,4 @@
-package bigactors.akkaBigActors
+package akkaBigActors
 
 import java.net.{URI, URISyntaxException}
 

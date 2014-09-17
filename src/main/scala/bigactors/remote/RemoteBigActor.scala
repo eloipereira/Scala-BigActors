@@ -11,6 +11,7 @@ import scala.actors.Actor._
 import scala.actors.remote.RemoteActor._
 import scala.actors.remote._
 import scala.actors.{AbstractActor, Actor}
+import bigactors.Query
 
 
 trait RemoteBigActorTrait{

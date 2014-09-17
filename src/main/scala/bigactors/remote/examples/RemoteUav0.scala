@@ -1,5 +1,7 @@
 package bigactors.remote.examples
 
+import bigactors.{Host, Parent, Children}
+import bigactors.remote.RemoteBigActor
 import edu.berkeley.eloi.bigraph.{BRR, Place}
 
 

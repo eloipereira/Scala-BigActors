@@ -11,7 +11,7 @@ import scala.collection.JavaConversions._
 
 trait ScalaBigraphNodeTrait{
   def toBgm: String
-  def ~>(children: ScalaBigraph): ScalaBigraph = new ScalaBigraph(this.toBgm + ".(" + children.getTerm + ");")
+  def ~(children: ScalaBigraph): ScalaBigraph = new ScalaBigraph(this.toBgm + ".(" + children.getTerm + ");")
 }
 
 trait ScalaBigraphTrait{
@@ -23,7 +23,7 @@ trait ScalaBigraphTrait{
 
 class ScalaBigraphHole(i: Integer) extends Hole(i,new Region(0))
 
-class Node(name: String, links: List[String]) extends BigraphNode(name, "Node",links, new Region(0)) with ScalaBigraphNodeTrait{
+class ScalaBigraphNode(name: String,  links: List[String]) extends BigraphNode(name, "Node",links, new Region(0)) with ScalaBigraphNodeTrait{
   override
   def getCtrId = this.getClass.getSimpleName
   }
@@ -45,7 +45,7 @@ class ScalaBigraph(term: String) extends Bigraph(term + ";") with ScalaBigraphTr
 class ScalaBRR(redex: ScalaBigraph, reactum: ScalaBigraph) extends BRR("",redex,reactum)
 
 object ScalaBigraphImplicits {
-  implicit def scalaBigraphNode2ScalaBigraph(node: Node):ScalaBigraph = new ScalaBigraph(node.toBgm)
+  implicit def scalaBigraphNode2ScalaBigraph(node: ScalaBigraphNode):ScalaBigraph = new ScalaBigraph(node.toBgm)
   implicit def scalaBigraphHole2ScalaBigraph(hole: ScalaBigraphHole):ScalaBigraph = new ScalaBigraph(hole.toBgm)
   def $(i: Integer): ScalaBigraphHole = new ScalaBigraphHole(i)
 }

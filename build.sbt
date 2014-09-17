@@ -14,10 +14,6 @@ resolvers += "Akka Snapshot Repository" at "http://repo.akka.io/snapshots/"
 
 resolvers += "AFA Maven repo" at "https://bitbucket.org/pmosilva/maven2-release/raw/master/seagull-rosjava-libs"
 
-sonarSettings
-
-ScctPlugin.instrumentSettings
-
 resolvers += DefaultMavenRepository
 
 libraryDependencies += "org.scala-lang" % "scala-actors" % "2.10.0"

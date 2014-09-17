@@ -1,6 +1,7 @@
 package bigactors.remote
 
 import edu.berkeley.eloi.bigraph.BRR
+import bigactors.Query
 
 sealed trait RemoteBigActorSchdlAPI extends Serializable
 case class REMOTE_HOSTING_REQUEST(bigActorID: Symbol, ip: String, port: Int, hostId: Symbol) extends RemoteBigActorSchdlAPI

@@ -1,4 +1,4 @@
-package bigactors.akkaBigActors
+package akkaBigActors
 
 import edu.berkeley.eloi.bigraph.{BRR, BRS, Bigraph}
 

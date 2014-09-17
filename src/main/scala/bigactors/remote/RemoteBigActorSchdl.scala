@@ -4,7 +4,7 @@ import java.io.FileInputStream
 import java.net.InetAddress
 import java.util.Properties
 
-import bigactors.{BIGRAPH_RESPONSE, EXECUTE_BRR, QueryInterpreter}
+import bigactors.{BIGRAPH_REQUEST, BIGRAPH_RESPONSE, EXECUTE_BRR, QueryInterpreter}
 import edu.berkeley.eloi.bigraph._
 import org.apache.commons.logging.{Log, LogFactory}
 
