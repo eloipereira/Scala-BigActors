@@ -3,11 +3,11 @@ package bigactors.examples
 import java.io.FileOutputStream
 import java.nio.file.Paths
 import java.util.Properties
-
 import bigactors.BigActor
 import bigactors.BigActor._
-
 import scala.actors.Actor._
+import scala.collection.JavaConversions._
+
 
 object ExampleRendezvous1 extends App{
 
@@ -32,7 +32,7 @@ object ExampleRendezvous1 extends App{
   BigActor hosted_at "r4" with_behavior receiveLocationAndMove
 
   def observeAndRequestRV = {
-      val rvLoc = PARENT_HOST.head
+      val rvLoc = PARENT_HOST.getNodes.head
       val bigactors = HOSTED_AT_LINKED_TO_HOST
       bigactors.foreach{b=>
         b ! RENDEZVOUS_AT_LOCATION(rvLoc)

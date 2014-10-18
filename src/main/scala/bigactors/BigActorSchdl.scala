@@ -68,12 +68,12 @@ object BigActorSchdl extends Actor {
           BigraphManager ! BIGRAPH_REQUEST
           receive{
             case BIGRAPH_RESPONSE(bigraph) => {
-              if (brr.getRedex.getNodes.contains(bigraph.getNode(hostingRelation(requester).name))
+              if (brr.getRedex.getNodes.map(n=> n.getId).contains(bigraph.getNode(hostingRelation(requester).name).getId)
                 || brr.getReactum.getNodes.contains(bigraph.getNode(hostingRelation(requester).name))){
                 BigraphManager ! EXECUTE_BRR(brr)
               } else {
-                System.err.println("[BigActorSchdl]:\t Host " + hostingRelation(requester) + "is not included on redex/reactum of "+ brr)
-                System.exit(0)
+                BigraphManager ! EXECUTE_BRR(brr)
+                log.warn("Host " + hostingRelation(requester).name + " is not included on redex/reactum of "+ brr)
               }
             }
           }

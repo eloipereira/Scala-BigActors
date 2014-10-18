@@ -3,10 +3,10 @@ package bigactors.examples
 import java.io.FileOutputStream
 import java.nio.file.Paths
 import java.util.Properties
-
+import scala.collection.JavaConversions._
 import bigactors.BigActor
 import bigactors.BigActor._
-import edu.berkeley.eloi.bigraph.Place
+import edu.berkeley.eloi.bigraph.{BigraphNode, Bigraph, Place}
 
 import scala.actors.Actor._
 
@@ -32,7 +32,7 @@ object ExampleRendezvous3 extends App{
   BigActor hosted_at "r4" with_behavior rendezvous
 
   def rendezvous = {
-    var rvLoc = PARENT_HOST.head
+    var rvLoc = PARENT_HOST.getNodes.head
     var leader = BigActor.self
     loop{
       Thread.sleep(1000)
@@ -52,6 +52,6 @@ object ExampleRendezvous3 extends App{
     }
   }
 
-  case class RENDEZVOUS(leader: BigActor, location: Place)
+  case class RENDEZVOUS(leader: BigActor, location: BigraphNode)
 
 }

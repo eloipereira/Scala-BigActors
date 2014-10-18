@@ -3,10 +3,13 @@ package bigactors.examples
 import java.io.FileOutputStream
 import java.nio.file.Paths
 import java.util.Properties
+import scala.collection.JavaConversions._
+
 
 import bigactors.{Host, Parent, Children, BigActor}
 import bigactors.BigActor._
-import edu.berkeley.eloi.bigraph.{BRR, Place}
+import edu.berkeley.eloi.bigraph.{BigraphNode, Bigraph, BRR, Place}
+import org.apache.commons.logging.{LogFactory, Log}
 
 import scala.actors.Actor._
 
@@ -15,40 +18,33 @@ object ExampleSmartphone extends App{
   // Configuration
   val prop = new Properties()
   prop.setProperty("RemoteBigActors","false")
-  val p0 = Paths.get(System.getProperty("user.dir")).resolve("src/main/resources/simple.bgm")
+  val p0 = Paths.get(System.getProperty("user.dir")).resolve("src/main/resources/smartphone.bgm")
   prop.setProperty("bgmPath",p0.toString)
   prop.setProperty("visualization","true")
   prop.store(new FileOutputStream("config.properties"),null)
 
- //BigActors
-  val uav1 = BigActor hosted_at "u1" with_behavior{
-    observe(Children(Parent(Host)))
-    loop {
-      react {
-        case observation: Array[Place] => {
-          if (observation contains "u0") println("I observed u0")
+  private val log: Log = LogFactory.getLog("ExampleSmartphone")
+  //BigActors
 
-        }
-        case msg: Any => println("New mail for uav1: " + msg)
+  val server = BigActor hosted_at "srv" with_behavior{
+    loop{
+      react{
+        case msg: Bigraph => log.info("New msg: " + msg)
       }
     }
   }
 
-  val uav0 = bigActor(Symbol("u0")){
+  val app = BigActor hosted_at "sp" with_behavior{
+
+    MOVE_HOST_TO("street1")
     observe(Children(Parent(Host)))
-    react{
-      case obs: Array[Place] => {
-        println("New observation for uav0: "+ obs)
-        sendMsg("Hello I'm a BigActor!",uav1)
-        Thread.sleep(1000)
-        control(new BRR("l0_Location.(u0_UAV[network] | $0) | l1_Location.$1 -> l0_Location.$0 | l1_Location.(u0_UAV[network] | $1)"))
-        migrate(Symbol("u1"))
-        observe(Host)
-        react{
-          case obs: Array[Place] => println("New observation for uav0: "+ obs)
-        }
+    react {
+      case obs: Bigraph => {
+        log.info("New obs: " + obs)
+        MOVE_HOST_TO("street3")
+        CONNECT_HOST_TO_WLAN("wlan0")
+        sendMsg(obs,server)
       }
     }
   }
-
 }

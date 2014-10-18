@@ -1,6 +1,9 @@
+
 name := "BigActors"
 
-version := "1.0"
+//version := "1.0"
+
+releaseSettings
 
 scalaVersion := "2.10.0"
 
@@ -10,9 +13,11 @@ resolvers += "Typesafe Repository" at "http://repo.typesafe.com/typesafe/release
 
 resolvers += "My bitbucket maven releases repo" at "https://bitbucket.org/eloipereira/maven-repo-releases/raw/master"
 
+resolvers += "My bitbucket maven snapshots repo" at "https://bitbucket.org/eloipereira/maven-repo-snapshots/raw/master"
+
 resolvers += "Akka Snapshot Repository" at "http://repo.akka.io/snapshots/"
 
-resolvers += "AFA Maven repo" at "https://bitbucket.org/pmosilva/maven2-release/raw/master/seagull-rosjava-libs"
+resolvers += "AFA Maven repo" at "https://bitbucket.org/ciafa-sw/maven2-release/raw/master/seagull-rosjava-libs"
 
 resolvers += DefaultMavenRepository
 
@@ -22,7 +27,7 @@ libraryDependencies += "org.scala-lang" % "scala-reflect" % "2.10.0"
 
 libraryDependencies += "org.antlr" % "antlr-complete" % "3.5.2"
 
-libraryDependencies += "bgm2java" % "bgm2java" % "1.2"
+libraryDependencies += "bgm2java" % "bgm2java" % "0.1.2"
 
 libraryDependencies += "bigraphvisualizer" % "bigraphvisualizer" % "1.0"
 

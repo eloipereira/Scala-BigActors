@@ -3,7 +3,7 @@ package bigactors.examples
 import java.io.FileOutputStream
 import java.nio.file.Paths
 import java.util.Properties
-
+import scala.collection.JavaConversions._
 import bigactors.BigActor
 import bigactors.BigActor._
 
@@ -19,8 +19,8 @@ object ExampleRendezvous2 extends App{
 
   //BigActors
   BigActor hosted_at "r0" with_behavior{
-    val rvLoc = PARENT_HOST.head
-    val robots = LINKED_TO_HOST
+    val rvLoc = PARENT_HOST.getNodes.head
+    val robots = LINKED_TO_HOST.getNodes
     robots.foreach{r =>
       BigActor hosted_at r with_behavior{
         MOVE_HOST_TO(rvLoc)

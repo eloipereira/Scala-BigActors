@@ -41,7 +41,6 @@ object BigraphManager extends Actor {
       react{
         case EXECUTE_BRR(brr) => {
           log.debug("Old bigraph: " + brs)
-          Thread.sleep(2000)
           brs.applyRules(List(brr))
           log.debug("New bigraph: " + brs)
         }

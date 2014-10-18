@@ -3,12 +3,12 @@ package bigactors.examples
 import java.io.FileOutputStream
 import java.nio.file.Paths
 import java.util.Properties
-
 import bigactors.BigActor
 import bigactors.BigActor._
 import edu.berkeley.eloi.bigraph.Place
-
 import scala.actors.Actor._
+import scala.collection.JavaConversions._
+
 
 case class RENDEZVOUS_AT_LOCATION(loc: Place)
 
@@ -24,7 +24,7 @@ object ExampleRendezvous0 extends App{
 
   //BigActors
   BigActor hosted_at "r0" with_behavior{
-    val rvLoc = PARENT_HOST.head
+    val rvLoc = PARENT_HOST.getNodes.head
     r1BA ! RENDEZVOUS_AT_LOCATION(rvLoc)
     r2BA ! RENDEZVOUS_AT_LOCATION(rvLoc)
     r3BA ! RENDEZVOUS_AT_LOCATION(rvLoc)

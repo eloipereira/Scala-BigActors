@@ -4,9 +4,9 @@ import java.util.Properties
 
 import bigactors.BigActor._
 import bigactors._
-import edu.berkeley.eloi.bigraph.Place
+import edu.berkeley.eloi.bigraph.{Bigraph, Place}
 import org.scalatest.FunSuite
-
+import scala.collection.JavaConversions._
 import scala.actors.Actor._
 
 /**
@@ -44,22 +44,22 @@ class TestBigActors extends FunSuite {
 
   test("Synchronous observation"){
     BigActor hosted_at "u0" with_behavior{
-      val obs: Array[Place] = PARENT_HOST
-      assert(obs.head.getId.asInstanceOf[String] == "l0")
+      val obs: Bigraph = PARENT_HOST
+      assert(obs.getNodes.head.getId == "l0")
     }
   }
 
-//  test("BRR MOVE_HOST_TO loc application"){
-//    BigActor hosted_at "u0" with_behavior{
-//      MOVE_HOST_TO("l1")
-//      assert(PARENT_HOST.head.getId.asInstanceOf[String] == "l1")
-//    }
-//  }
+  test("BRR MOVE_HOST_TO loc application"){
+    BigActor hosted_at "u0" with_behavior{
+      MOVE_HOST_TO("l1")
+      assert(PARENT_HOST.getNodes.head.getId == "l1")
+    }
+  }
 
-//  test("Migration"){
-//    BigActor hosted_at "u0" with_behavior{
-//      migrate('u1)
-//      assert(HOST.head.getId.asInstanceOf[String] == "u1")
-//    }
-//  }
+  test("Migration"){
+    BigActor hosted_at "u0" with_behavior{
+      migrate('u1)
+      assert(HOST.getNodes.head.getId == "u1")
+    }
+  }
 }

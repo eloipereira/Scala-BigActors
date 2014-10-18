@@ -11,6 +11,8 @@ import scala.actors.Actor._
 import scala.actors.OutputChannel
 import scala.collection.mutable
 import scala.collection.mutable._
+import scala.collection.JavaConversions._
+
 
 /**
  * Created by eloi on 01-07-2014.
@@ -27,21 +29,21 @@ class TestQueries extends FunSuite {
   prop.store(new FileOutputStream("config.properties"),null)
 
   test("Host"){
-    assert(QueryInterpreter.evaluateBigraph(Host,'u0,bigraph).head.getId.asInstanceOf[String] == "u0")
-    assert(QueryInterpreter.evaluateString("host",'u0,bigraph, new mutable.HashMap[OutputChannel[Any],Symbol]()).left.get.head.getId.asInstanceOf[String] == "u0")
+    assert(QueryInterpreter.evaluateBigraph(Host,'u0,bigraph).getNodes.head.getId == "u0")
+    assert(QueryInterpreter.evaluateString("host",'u0,bigraph, new mutable.HashMap[OutputChannel[Any],Symbol]()).left.get.getNodes.head.getId.asInstanceOf[String] == "u0")
   }
   test("Parent of host"){
-    assert(QueryInterpreter.evaluateBigraph(Parent(Host),'u0,bigraph).head.getId.asInstanceOf[String] == "l0")
-    assert(QueryInterpreter.evaluateBigraph(Parent(Host),'u0,bigraph).head.getId.asInstanceOf[String] == "l0")
+    assert(QueryInterpreter.evaluateBigraph(Parent(Host),'u0,bigraph).getNodes.head.getId == "l0")
+    assert(QueryInterpreter.evaluateBigraph(Parent(Host),'u0,bigraph).getNodes.head.getId == "l0")
   }
   test("Linked to host"){
-    assert(QueryInterpreter.evaluateBigraph(Linked_to(Host),'u0,bigraph).deep == QueryInterpreter.evaluateString("linkedTo.host",'u0,bigraph, new mutable.HashMap[OutputChannel[Any],Symbol]()).left.get.deep)
+    assert(QueryInterpreter.evaluateBigraph(Linked_to(Host),'u0,bigraph) == QueryInterpreter.evaluateString("linkedTo.host",'u0,bigraph, new mutable.HashMap[OutputChannel[Any],Symbol]()).left.get)
   }
   test("Children of parent of host"){
-    assert(QueryInterpreter.evaluateBigraph(Children(Parent(Host)),'u0,bigraph).deep == QueryInterpreter.evaluateString("children.parent.host",'u0,bigraph, new mutable.HashMap[OutputChannel[Any],Symbol]()).left.get.deep)
+    assert(QueryInterpreter.evaluateBigraph(Children(Parent(Host)),'u0,bigraph) == QueryInterpreter.evaluateString("children.parent.host",'u0,bigraph, new mutable.HashMap[OutputChannel[Any],Symbol]()).left.get)
   }
-  test("Children of children of parent of host"){
-    assert(QueryInterpreter.evaluateBigraph(Children(Parent(Parent(Host))),'u0,bigraph).deep == QueryInterpreter.evaluateString("children.parent.parent.host",'u0,bigraph, new mutable.HashMap[OutputChannel[Any],Symbol]()).left.get.deep)
+  test("Children of parent of parent of host"){
+    assert(QueryInterpreter.evaluateBigraph(Children(Parent(Parent(Host))),'u0,bigraph) == QueryInterpreter.evaluateString("children.parent.parent.host",'u0,bigraph, new mutable.HashMap[OutputChannel[Any],Symbol]()).left.get)
   }
   test("Hosted at host"){
     val a = BigActor hosted_at "u0" with_behavior{

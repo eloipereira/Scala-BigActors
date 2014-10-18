@@ -1,7 +1,7 @@
 street0_Location[road].(f0_Feature | f1_Feature | f2_Feature) |
 street1_Location[road].(f3_Feature | f4_Feature) |
-street2_Location[road].(sp_SmartPhone[e0]) |
+street2_Location[road].(sp_Smartphone[e0]) |
 street3_Location[road].(wlan0_Wlan[network]) |
 street4_Location[road].(wlan1_Wlan[network]) |
-street5_Location[e1].(wlan2_Wlan[network].(srv[network]))
+street5_Location[e1].(wlan2_Wlan[network].(srv_Server[network]))
 ;

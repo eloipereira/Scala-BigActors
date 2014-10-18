@@ -7,7 +7,7 @@ import java.util.Properties
 
 import bigactors.{Host, Parent, Children, BigActor}
 import bigactors.BigActor._
-import edu.berkeley.eloi.bigraph.{BRR, Place}
+import edu.berkeley.eloi.bigraph.{Bigraph, BRR, Place}
 
 import scala.actors.Actor._
 
@@ -26,8 +26,8 @@ object ExampleSimple extends App{
     observe(Children(Parent(Host)))
     loop {
       react {
-        case observation: Array[Place] => {
-          if (observation contains "u0") println("I observed u0")
+        case observation: Bigraph => {
+          if (observation.getNodes contains "u0") println("I observed u0")
 
         }
         case msg: Any => println("New mail for uav1: " + msg)
@@ -38,7 +38,7 @@ object ExampleSimple extends App{
   val uav0 = bigActor(Symbol("u0")){
     observe(Children(Parent(Host)))
     react{
-      case obs: Array[Place] => {
+      case obs: Bigraph => {
         println("New observation for uav0: "+ obs)
         sendMsg("Hello I'm a BigActor!",uav1)
         Thread.sleep(1000)
@@ -46,7 +46,7 @@ object ExampleSimple extends App{
         migrate(Symbol("u1"))
         observe(Host)
         react{
-          case obs: Array[Place] => println("New observation for uav0: "+ obs)
+          case obs: Bigraph => println("New observation for uav0: "+ obs)
         }
       }
     }

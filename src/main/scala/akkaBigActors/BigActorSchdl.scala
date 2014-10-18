@@ -60,7 +60,7 @@ class BigActorSchdl(bigraphManager: ActorRef) extends Actor {
     case CONTROL_REQUEST_AKKA(brr,hostId) => {
       logging.info("[BigActorSchdl]:\t got a ctr request " + brr)
       val bigraph = requestBigraph
-      if (brr.getRedex.getNodes.contains(bigraph.getNode(hostId.name))
+      if (brr.getRedex.getNodes.map(n=>n.getId).contains(bigraph.getNode(hostId.name).getId)
         || brr.getReactum.getNodes.contains(bigraph.getNode(hostId.name))){
         bigraphManager ! EXECUTE_BRR(brr)
       } else {
