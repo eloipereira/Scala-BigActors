@@ -1,0 +1,15 @@
+segregated.(suspectLoc.(tanker0[suspect]
+                        |
+                        spill0[suspect].(sensor0[network])
+                        |
+                        auv0[network]
+                        |
+                        vessel0[network])
+            |
+            uav0[network])
+|
+shore.(vessel1[network].(auv1[network]))
+|
+airfield.(uav1[network].(sensor1[network]))
+|
+emsa[network]
