@@ -30,13 +30,14 @@ For an independent implementation and application of the BigActor Model for prog
 
 ## Install ##
 
-The current implementation has been tested in Gnu/Linux distributions and Mac OSX 
-
-1. We use a build tool named SBT [http://www.scala-sbt.org](http://www.scala-sbt.org)
+1. Download and install the SBT build tool [http://www.scala-sbt.org](http://www.scala-sbt.org)
     * [Follow the instructions here](http://www.scala-sbt.org/0.13/tutorial/Manual-Installation.html)
 
-2. Check out the bitbucket bigactors repository
-3. We use the Bigraph model checker BigMC as a bigraph. We provide a bash script to make BigMC installation easier.
+2. Clone the bigactors repository from one of the following locations:
+    * Github: [https://github.com/eloipereira/bigactors](https://github.com/eloipereira/bigactors)
+    * Bitbucket: [https://bitbucket.org/eloipereira/bigactors](https://bitbucket.org/eloipereira/bigactors)
+    
+3. Scala BigActors use the Bigraph model checker BigMC as a bigraph execution engine. Follow the instructions below to install BigMC:
     * Install autoconf (on Gnu/Linux): `sudo apt-get install autoconf`
     
     * Install libtool: `sudo apt-get install libtool`
