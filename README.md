@@ -1,12 +1,4 @@
 
-____  _          _        _                 
-| __ )(_) __ _   / \   ___| |_ ___  _ __ ___ 
-|  _ \| |/ _` | / _ \ / __| __/ _ \| '__/ __|
-| |_) | | (_| |/ ___ \ (__| || (_) | |  \__ \
-|____/|_|\__, /_/   \_\___|\__\___/|_|  |___/
-         |___/
-
-
 # Scala BigActors #
  
 Computers are becoming interactive, ubiquitous, and mobile. Smartphones and autonomous vehicles interact with their environment, by means of sensors and actuators, 
