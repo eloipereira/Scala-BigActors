@@ -30,6 +30,10 @@ Moreover, BigActors are equipped with means for observing and controlling their 
 A bigActor can observe the structure of the world, compute upon that information, and manipulate the structure by requesting control actions to change it, 
 such as requesting its hosts to move to another location or connect to another network.   
 
+For the formal specification of the BigActor model see (Pereira, 2015) and (Pereira et al., 2013).
+For examples of applications in the area of mobile robotics and implementation details of Scala BigActors see (Pereira, 2015), (Pereira et al., 2015), and (Pereira et al., 2013).
+For an independent implementation and application of the BigActor Model for programming Crowd Evacuation Systems see (Raj & Kar, 2015).
+
 ## Install ##
 
 The current implementation has been tested in Gnu/Linux distributions and Mac OSX 
@@ -66,8 +70,16 @@ The current implementation has been tested in Gnu/Linux distributions and Mac OS
 
 ## References ##
 
-[1] - Pereira, E., Kirsch, C. M., Sengupta, R., de Sousa, J. B. (2013). Bigactors - A Model for Structure-aware Computation. In ACM/IEEE 4th International Conference on Cyber-Physical Systems (pp. 199–208). Philadelphia, PA, USA: ACM/IEEE.
+E. Pereira. Mobile Reactive Systems over Bigraphical Machines - A Programming Model and its Implementation. PhD thesis, University of California at Berkeley, 2015.
 
-[2] - Agha, G. (1986). Actors: a model of concurrent computation in distributed systems. Cambridge, MA, USA: MIT Press.
+E. Pereira, C. Krainer, P. Marques Da Silva, C.M. Kirsch, and R. Sengupta. A runtime system for logical-space programming. In Proc. Workshop on the Swarm at the Edge of the Cloud (SWEC), April 2015.
 
-[3] - Milner, R. (2009). The Space and Motion of Communicating Agents (pp. I–XXI, 1–191). Cambridge University Press.
+E. Pereira, P. Marques, C. Krainer, C. M. Kirsch, J. Morgado, and R. Sengupta. A Networked Robotic System and its Use in an Oil Spill Monitoring Exercise. In Swarm at the Edge of the Cloud Workshop (ESWeek'13), volume 2, pages 1-2, Montreal, QC, Canada, 2013.
+
+E. Pereira, C. M. Kirsch, R. Sengupta, and J. B. de Sousa. Bigactors - A Model for Structure-aware Computation. In ACM/IEEE 4th International Conference on Cyber-Physical Systems, pages 199-208, Philadelphia, PA, USA, 2013. ACM/IEEE.
+
+P. G. Raj and S. Kar, "Design and Development of a Distributed Mobile Sensing Based Crowd Evacuation System: A Big Actor Approach," Computer Software and Applications Conference (COMPSAC), 2015 IEEE 39th Annual, Taichung, 2015, pp. 355-360.
+
+G. Agha, Actors: a model of concurrent computation in distributed systems. Cambridge, MA, USA: MIT Press, 1986.
+
+R. Milner, The Space and Motion of Communicating Agents. Cambridge University Press, 2009.
