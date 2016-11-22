@@ -24,6 +24,12 @@ Moreover, BigActors are equipped with means for observing and controlling their 
 A bigActor can observe the structure of the world, compute upon that information, and manipulate the structure by requesting control actions to change it, 
 such as requesting its hosts to move to another location or connect to another network.   
 
+The following figure depicts an example of a bigActor controlling an Unmanned Air Vehicle (UAV) searching and tracking for an oil-spill in the ocean.
+![alt text](https://github.com/eloipereira/bigactors/raw/master/img/oilSpillWebSite.png "Oil-spill search and track")
+First the UAV, nammed `uav0`, connects to a ground station, named `gcs1`, located at a vessel in the vicinities of the search area.
+After connecting, `uav0` moves to the search area and starts observing the space for the oil-spill.
+After observig the oil-spill, `uav0` moves to its location. 
+
 For the formal specification of the BigActor model see (Pereira, 2015) and (Pereira et al., 2013).
 For examples of applications in the area of mobile robotics and implementation details of Scala BigActors see (Pereira, 2015), (Pereira et al., 2015), and (Pereira et al., 2013).
 For an independent implementation and application of the BigActor Model for programming Crowd Evacuation Systems see (Raj & Kar, 2015).
