@@ -32,7 +32,9 @@ After observing `oilSpill0`, `uav0` moves to its location.
 Note that there are three bigraphical commands. `CONNECT_HOST_TO gcs` denotes a bigraph reaction rule that connects the host to `gcs` (this action models the hand-over of control authority of the host, i.e., the UAV, to the ground control station denoted by `gcs`).
 `MOVE_HOST_TO loc` denotes a bigraph reaction rule that moves the host of the bigActor to `loc`.
 `observe CHILDREN(PARENT(HOST))` is a query that retrieves a list of bigraph nodes containing the children of the parent of the host. The list is delivered as an actor message captured by the `react` body (`loop` and `react` are constructs from the Scala Actors library). 
- 
+
+The scenario described in the example was implemented in 2013, at Algarve, Portugal, using vehicles and means from the Portuguese Air Force and the Portuguese Navy. For more information see the video at [http://www.eloipereira.com/videos]([http://www.eloipereira.com/videos) or consult (Pereira et al., 2015), (Pereira et al., 2013), and (Pereira, 2015).
+
 For the formal specification of the BigActor model see (Pereira, 2015) and (Pereira et al., 2013).
 For examples of applications in the area of mobile robotics and implementation details of Scala BigActors see (Pereira, 2015), (Pereira et al., 2015), and (Pereira et al., 2013).
 For an independent implementation and application of the BigActor Model for programming Crowd Evacuation Systems see (Raj & Kar, 2015).

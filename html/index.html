@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="github-markdown.css">
+<style>
+  .markdown-body {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 45px;
+  }
+</style>
+<article class="markdown-body">
+<h1 id="scala-bigactors">Scala BigActors</h1>
+<p>Computers are becoming interactive, ubiquitous, and mobile. Smartphones and autonomous vehicles interact with their environment, by means of sensors and actuators, and with other devices using a network infrastructure. Computation running over these systems often depends upon the location of the physical platform. For example, a smartphone provides information about the place where it is located. Moreover, computation might even have effects on the mobility of the machine, e.g., a drone searching and tracking a target on the ground needs to dynamically change its location. While moving, these systems also often change their connectivity. For example, a smartphone moving from one location to another can detect and connect to different wifi networks. This mobility and dynamic connectivity exhibited by the computing machinery can make programming such systems a hard task. Scala BigActors addresses these issues by making location and connectivity first-class citizens that can be handled by the programmer.</p>
+<p>Scala BigActors is an implementation of the BigActor Model as a Scala Domain-Specific Language. The BigActor model (Pereira et al., 2013) is a model of computation that combines the Actor model of concurrency (Agha, 1986) with Bigraphs (Milner, 2009) for specifying computation embedded in mobile, networked computing systems. The location and connectivity of machines are abstracted as Bigraphs, which entails two graphical structures: a forest and a hypergraph. The forest models nested location, e.g., a smartphone is inside a room, the room is inside a building, and the building is inside a city. The hypergraph models connectivity, e.g., some computers inside a room are connected to a given wifi network while others are connected to another.</p>
+<p>A BigActor is an Actor that is hosted by a bigraph node denoting the computing machine where it is executing. BigActors can perform the regular actor computation, i.e., compute locally, communicate through asynchronous message passing, and spawn new bigActors.<br />Moreover, BigActors are equipped with means for observing and controlling their location and connectivity. A bigActor can observe the structure of the world, compute upon that information, and manipulate the structure by requesting control actions to change it, such as requesting its hosts to move to another location or connect to another network.</p>
+<p>The following figure depicts an example of a bigActor controlling an Unmanned Air Vehicle (UAV) searching and tracking for an oil-spill in the ocean. 
+  <div style="text-align: center;">
+    <img src="https://github.com/eloipereira/bigactors/raw/master/img/oilSpillWebSite.png" style="max-width: 80%; height: auto;" alt="alt text" title="Oil-spill search and track" />
+  </div>
+  First the UAV, named <code>uav0</code>, connects to a ground station, named <code>gcs1</code>, located at a vessel in the vicinities of the search area, named <code>searchArea0</code>. After connecting, <code>uav0</code> moves to <code>searchArea0</code> and starts observing for the oil-spill, named <code>oilSpill0</code>. After observing <code>oilSpill0</code>, <code>uav0</code> moves to its location. Note that there are three bigraphical commands. <code>CONNECT_HOST_TO gcs</code> denotes a bigraph reaction rule that connects the host to <code>gcs</code> (this action models the hand-over of control authority of the host, i.e., the UAV, to the ground control station denoted by <code>gcs</code>). <code>MOVE_HOST_TO loc</code> denotes a bigraph reaction rule that moves the host of the bigActor to <code>loc</code>. <code>observe CHILDREN(PARENT(HOST))</code> is a query that retrieves a list of bigraph nodes containing the children of the parent of the host. The list is delivered as an actor message captured by the <code>react</code> body (<code>loop</code> and <code>react</code> are constructs from the Scala Actors library).</p>
+<p>
+  The scenario described in the example was implemented in 2013, at Algarve, Portugal, using vehicles and means from the Portuguese Air Force and the Portuguese Navy. For more information see the video at <a href="http://www.eloipereira.com/videos">http://www.eloipereira.com/videos</a> or consult (Pereira et al., 2015), (Pereira et al., 2013), and (Pereira, 2015).
+</p>
+<p>For the formal specification of the BigActor model see (Pereira, 2015) and (Pereira et al., 2013). For examples of applications in the area of mobile robotics and implementation details of Scala BigActors see (Pereira, 2015), (Pereira et al., 2015), and (Pereira et al., 2013). For an independent implementation and application of the BigActor Model for programming Crowd Evacuation Systems see (Raj &amp; Kar, 2015).</p>
+<h2 id="install">Install</h2>
+<ol style="list-style-type: decimal">
+<li>Download and install the SBT build tool <a href="http://www.scala-sbt.org">http://www.scala-sbt.org</a>
+<ul>
+<li><a href="http://www.scala-sbt.org/0.13/tutorial/Manual-Installation.html">Follow the instructions here</a></li>
+</ul></li>
+<li>Clone the bigactors repository from one of the following locations:
+<ul>
+<li>Github: <a href="https://github.com/eloipereira/bigactors">https://github.com/eloipereira/bigactors</a></li>
+<li>Bitbucket: <a href="https://bitbucket.org/eloipereira/bigactors">https://bitbucket.org/eloipereira/bigactors</a></li>
+</ul></li>
+<li>Scala BigActors use the Bigraph model checker BigMC as a bigraph execution engine. Follow the instructions below to install BigMC:
+<ul>
+<li><p>Install autoconf (on Gnu/Linux): <code>sudo apt-get install autoconf</code></p></li>
+<li><p>Install libtool: <code>sudo apt-get install libtool</code></p></li>
+<li><p>Install bison: <code>sudo apt-get install bison</code></p></li>
+<li><p>Install flex: <code>sudo apt-get install flex</code></p></li>
+<li><p>Install yacc: <code>sudo apt-get install byacc</code></p></li>
+<li><p><code>cd bigactors/bigmc</code></p></li>
+<li><p><code>chmod +x build.sh</code></p></li>
+<li><p><code>./build.sh</code></p></li>
+<li><p><code>export bigmc.env</code> - In order to avoid exporting <code>bigmc.env</code> each time you may want to copy bigmc binary from <code>bigmc/bin/bigmc</code> to a standard location such as <code>/usr/local/bin</code> or include the location of the binary to your <code>PATH</code> variable</p></li>
+<li><p>Test BigMC by typing <code>bigmc</code> in your bash terminal</p></li>
+</ul></li>
+<li>Navigate to <code>cd bigactors</code></li>
+<li>Type <code>sbt compile</code>. The tool should download all the dependencies and compile the code.</li>
+<li>Type <code>sbt test</code>. If tests pass run an example.</li>
+<li>Type <code>sbt run</code> and choose one of the rendezvous examples, e.g. <code>bigactors.ExampleRendezvous4</code></li>
+</ol>
+<h2 id="references">References</h2>
+<p>E. Pereira. Mobile Reactive Systems over Bigraphical Machines - A Programming Model and its Implementation. PhD thesis, University of California at Berkeley, 2015.</p>
+<p>E. Pereira, C. Krainer, P. Marques Da Silva, C.M. Kirsch, and R. Sengupta. A runtime system for logical-space programming. In Proc. Workshop on the Swarm at the Edge of the Cloud (SWEC), April 2015.</p>
+<p>E. Pereira, P. Marques, C. Krainer, C. M. Kirsch, J. Morgado, and R. Sengupta. A Networked Robotic System and its Use in an Oil Spill Monitoring Exercise. In Swarm at the Edge of the Cloud Workshop (ESWeek'13), volume 2, pages 1-2, Montreal, QC, Canada, 2013.</p>
+<p>E. Pereira, C. M. Kirsch, R. Sengupta, and J. B. de Sousa. Bigactors - A Model for Structure-aware Computation. In ACM/IEEE 4th International Conference on Cyber-Physical Systems, pages 199-208, Philadelphia, PA, USA, 2013. ACM/IEEE.</p>
+<p>P. G. Raj and S. Kar, &quot;Design and Development of a Distributed Mobile Sensing Based Crowd Evacuation System: A Big Actor Approach,&quot; Computer Software and Applications Conference (COMPSAC), 2015 IEEE 39th Annual, Taichung, 2015, pp. 355-360.</p>
+<p>G. Agha, Actors: a model of concurrent computation in distributed systems. Cambridge, MA, USA: MIT Press, 1986.</p>
+<p>R. Milner, The Space and Motion of Communicating Agents. Cambridge University Press, 2009.</p>
+ </article>
