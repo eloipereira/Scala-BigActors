@@ -48,8 +48,8 @@ For an independent implementation and application of the BigActor Model for prog
     * Github: [https://github.com/eloipereira/bigactors](https://github.com/eloipereira/bigactors)
     * Bitbucket: [https://bitbucket.org/eloipereira/bigactors](https://bitbucket.org/eloipereira/bigactors)
     
-3. Scala BigActors use the Bigraph model checker BigMC as a bigraph execution engine. Follow the instructions below to install BigMC:
-    * Install autoconf (on Gnu/Linux): `sudo apt-get install autoconf`
+3. Scala BigActors use the Bigraph model checker BigMC as a bigraph execution engine. Find the source code at: [https://github.com/bigmc/bigmc](https://github.com/bigmc/bigmc). BigMC is no longer being supported and installation can be challenging. The instructions below should make the process easier (tested at Ubuntu 14.04):
+    * Install autoconf: `sudo apt-get install autoconf`
     
     * Install libtool: `sudo apt-get install libtool`
     
