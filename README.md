@@ -26,9 +26,9 @@ such as requesting its hosts to move to another location or connect to another n
 
 The following figure depicts an example of a bigActor controlling an Unmanned Air Vehicle (UAV) searching and tracking for an oil-spill in the ocean.
 ![alt text](https://github.com/eloipereira/bigactors/raw/master/img/oilSpillWebSite.png "Oil-spill search and track")
-First the UAV, nammed `uav0`, connects to a ground station, named `gcs1`, located at a vessel in the vicinities of the search area, named `searchArea0`.
+First the UAV, named `uav0`, connects to a ground station, named `gcs1`, located at a vessel in the vicinities of the search area, named `searchArea0`.
 After connecting, `uav0` moves to `searchArea0` and starts observing for the oil-spill, named `oilSpill0`.
-After observig `oilSpill0`, `uav0` moves to its location.
+After observing `oilSpill0`, `uav0` moves to its location.
 Note that there are three bigraphical commands. `CONNECT_HOST_TO gcs` denotes a bigraph reaction rule that connects the host to `gcs` (this action models the hand-over of control authority of the host, i.e., the UAV, to the ground control station denoted by `gcs`).
 `MOVE_HOST_TO loc` denotes a bigraph reaction rule that moves the host of the bigActor to `loc`.
 `observe CHILDREN(PARENT(HOST))` is a query that retrieves a list of bigraph nodes containing the children of the parent of the host. The list is delivered as an actor message captured by the `react` body (`loop` and `react` are constructs from the Scala Actors library). 
