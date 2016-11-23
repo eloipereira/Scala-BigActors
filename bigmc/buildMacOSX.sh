@@ -3,8 +3,9 @@
 PREFIX_PATH="`dirname \"$0\"`"
  
 # force absolute path 
-PREFIX_PATH=$(readlink -f $PREFIX_PATH)
- 
+
+PREFIX_PATH="`pwd -P`"
+
 # the build dir  
 BUILD_DIR=$PREFIX_PATH/bigmc_build
  
