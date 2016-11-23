@@ -48,7 +48,7 @@ For an independent implementation and application of the BigActor Model for prog
     * Github: [https://github.com/eloipereira/bigactors](https://github.com/eloipereira/bigactors)
     * Bitbucket: [https://bitbucket.org/eloipereira/bigactors](https://bitbucket.org/eloipereira/bigactors)
     
-3. Scala BigActors use the Bigraph model checker BigMC as a bigraph execution engine. Find the source code at: [https://github.com/bigmc/bigmc](https://github.com/bigmc/bigmc). BigMC is no longer being supported and installation can be challenging. We provide build scripts for GNU/Linux (tested with Ubuntu 14.04) and for MacOSX (tested with El Capitan)
+3. Install BigMC: Scala BigActors use the Bigraph model checker BigMC as a bigraph execution engine. Find the source code at: [https://github.com/bigmc/bigmc](https://github.com/bigmc/bigmc). BigMC is no longer being supported and installation can be challenging. We provide build scripts for GNU/Linux (tested with Ubuntu 14.04) and for MacOSX (tested with El Capitan)
     * Dependencies: autoconf, libtool, bison, flex, yacc
   
     * `cd bigactors/bigmc`
@@ -63,10 +63,16 @@ For an independent implementation and application of the BigActor Model for prog
 
     * NOTE: To avoid exporting `bigmc.env` each time you can copy `bigmc` binary to a system's directory or add `bin` to your path variable
 
-4. Return to `bigactors` directory
-5. Type `sbt compile`. The tool should download all the dependencies and compile the code.
-6. Type `sbt test`. If tests pass run an example.
-7. Type `sbt run` and choose one of the rendezvous examples, e.g. `bigactors.ExampleRendezvous4`
+4. Install Scala BigActors: 
+    * Dependencies: Java 7 JDK
+    
+    * Return to `bigactors` directory
+    
+    * `sbt compile`. The tool should download all the dependencies and compile the code.
+    
+    * `sbt test`. If tests pass run an example.
+    
+    * `sbt run` and choose one of the rendezvous examples, e.g. `bigactors.examples.ExampleRendezvous1`
 
 ## References ##
 
