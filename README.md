@@ -89,3 +89,6 @@ P. G. Raj and S. Kar, "Design and Development of a Distributed Mobile Sensing Ba
 G. Agha, Actors: a model of concurrent computation in distributed systems. Cambridge, MA, USA: MIT Press, 1986.
 
 R. Milner, The Space and Motion of Communicating Agents. Cambridge University Press, 2009.
+
+BigActors was supported in part by the National Science Foundation (CNS1136141), by the Fundacao para a Ciencia e Tecnologia
+(SFRH/BD/43596/2008), by the Portuguese MoD - project PITVANT, and by the National Research Network RiSE on Rigorous Systems Engineering (Austrian Science Fund S11404-N23).
