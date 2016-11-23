@@ -48,28 +48,22 @@ For an independent implementation and application of the BigActor Model for prog
     * Github: [https://github.com/eloipereira/bigactors](https://github.com/eloipereira/bigactors)
     * Bitbucket: [https://bitbucket.org/eloipereira/bigactors](https://bitbucket.org/eloipereira/bigactors)
     
-3. Scala BigActors use the Bigraph model checker BigMC as a bigraph execution engine. Find the source code at: [https://github.com/bigmc/bigmc](https://github.com/bigmc/bigmc). BigMC is no longer being supported and installation can be challenging. The instructions below should make the process easier (tested at Ubuntu 14.04):
-    * Install autoconf: `sudo apt-get install autoconf`
-    
-    * Install libtool: `sudo apt-get install libtool`
-    
-    * Install bison: `sudo apt-get install bison`
-    
-    * Install flex: `sudo apt-get install flex`
-    
-    * Install yacc: `sudo apt-get install byacc`
+3. Scala BigActors use the Bigraph model checker BigMC as a bigraph execution engine. Find the source code at: [https://github.com/bigmc/bigmc](https://github.com/bigmc/bigmc). BigMC is no longer being supported and installation can be challenging. We provide build scripts for GNU/Linux (tested with Ubuntu 14.04) and for MacOSX (tested with El Capitan)
+    * Dependencies: autoconf, libtool, bison, flex, yacc
   
     * `cd bigactors/bigmc`
   
-    * `chmod +x build.sh`
+    * `chmod +x buildUbuntu.sh` (GNU/Linux) or `chmod +x buildMacOSX.sh` (MacOSX)
   
-    * `./build.sh`
+    * `./buildUbuntu.sh` (Ubuntu) or `./buildMACOSX.sh` (MacOSX)
   
-    * `export bigmc.env` - In order to avoid exporting `bigmc.env` each time you may want to copy bigmc binary from `bigmc/bin/bigmc` to a standard location such as `/usr/local/bin` or include the location of the binary to your `PATH` variable
+    * `export bigmc.env`
 
-    * Test BigMC by typing `bigmc` in your bash terminal
+    * Test BigMC by typing `bigmc` in your bash terminal (you should get the bigmc terminal, type `exit` to leave)
 
-4. Navigate to `cd bigactors`
+    * NOTE: To avoid exporting `bigmc.env` each time you can copy `bigmc` binary to a system's directory or add `bin` to your path variable
+
+4. Return to `bigactors` directory
 5. Type `sbt compile`. The tool should download all the dependencies and compile the code.
 6. Type `sbt test`. If tests pass run an example.
 7. Type `sbt run` and choose one of the rendezvous examples, e.g. `bigactors.ExampleRendezvous4`
