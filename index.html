@@ -94,25 +94,28 @@ For an independent implementation and application of the BigActor Model for prog
 </ul>
 </li>
 <li>
-<p>Scala BigActors use the Bigraph model checker BigMC as a bigraph execution engine. Follow the instructions below to install BigMC:</p>
+<p>Install BigMC: Scala BigActors use the Bigraph model checker BigMC as a bigraph execution engine. Find the source code at: <a href="https://github.com/bigmc/bigmc">https://github.com/bigmc/bigmc</a>. BigMC is no longer being supported and installation can be challenging. We provide build scripts for GNU/Linux (tested with Ubuntu 14.04) and for MacOSX (tested with El Capitan)</p>
 
 <ul>
-<li><p>Install autoconf (on Gnu/Linux): <code>sudo apt-get install autoconf</code></p></li>
-<li><p>Install libtool: <code>sudo apt-get install libtool</code></p></li>
-<li><p>Install bison: <code>sudo apt-get install bison</code></p></li>
-<li><p>Install flex: <code>sudo apt-get install flex</code></p></li>
-<li><p>Install yacc: <code>sudo apt-get install byacc</code></p></li>
+<li><p>Dependencies: autoconf, libtool, bison, flex, yacc</p></li>
 <li><p><code>cd bigactors/bigmc</code></p></li>
-<li><p><code>chmod +x build.sh</code></p></li>
-<li><p><code>./build.sh</code></p></li>
-<li><p><code>export bigmc.env</code> - In order to avoid exporting <code>bigmc.env</code> each time you may want to copy bigmc binary from <code>bigmc/bin/bigmc</code> to a standard location such as <code>/usr/local/bin</code> or include the location of the binary to your <code>PATH</code> variable</p></li>
-<li><p>Test BigMC by typing <code>bigmc</code> in your bash terminal</p></li>
+<li><p><code>chmod +x buildUbuntu.sh</code> (GNU/Linux) or <code>chmod +x buildMacOSX.sh</code> (MacOSX)</p></li>
+<li><p><code>./buildUbuntu.sh</code> (Ubuntu) or <code>./buildMACOSX.sh</code> (MacOSX)</p></li>
+<li><p><code>export bigmc.env</code></p></li>
+<li><p>Test BigMC by typing <code>bigmc</code> in your bash terminal (you should get the bigmc terminal, type <code>exit</code> to leave)</p></li>
+<li><p>NOTE: To avoid exporting <code>bigmc.env</code> each time you can copy <code>bigmc</code> binary to a system's directory or add <code>bin</code> to your path variable</p></li>
 </ul>
 </li>
-<li><p>Navigate to <code>cd bigactors</code></p></li>
-<li>Type <code>sbt compile</code>. The tool should download all the dependencies and compile the code.</li>
-<li>Type <code>sbt test</code>. If tests pass run an example.</li>
-<li>Type <code>sbt run</code> and choose one of the rendezvous examples, e.g. <code>bigactors.ExampleRendezvous4</code>
+<li>
+<p>Install Scala BigActors: </p>
+
+<ul>
+<li><p>Dependencies: Java 7 JDK</p></li>
+<li><p>Return to <code>bigactors</code> directory</p></li>
+<li><p><code>sbt compile</code>. The tool should download all the dependencies and compile the code.</p></li>
+<li><p><code>sbt test</code>. If tests pass run an example.</p></li>
+<li><p><code>sbt run</code> and choose one of the rendezvous examples, e.g. <code>bigactors.examples.ExampleRendezvous1</code></p></li>
+</ul>
 </li>
 </ol>
 
