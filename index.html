@@ -96,24 +96,30 @@ For an independent implementation and application of the BigActor Model for prog
 <p>Install BigMC: Scala BigActors use the Bigraph model checker BigMC as a bigraph execution engine. Find the source code at: <a href="https://github.com/bigmc/bigmc">https://github.com/bigmc/bigmc</a>. BigMC is no longer being supported and installation can be challenging. We provide build scripts for GNU/Linux (tested with Ubuntu 14.04) and for MacOSX (tested with El Capitan)</p>
 
 <ul>
-<li><p>Dependencies: autoconf, libtool, bison, flex, yacc</p></li>
-<li><p><code>cd bigactors/bigmc</code></p></li>
-<li><p><code>chmod +x buildUbuntu.sh</code> (GNU/Linux) or <code>chmod +x buildMacOSX.sh</code> (MacOSX)</p></li>
-<li><p><code>./buildUbuntu.sh</code> (Ubuntu) or <code>./buildMACOSX.sh</code> (MacOSX)</p></li>
-<li><p><code>export bigmc.env</code></p></li>
-<li><p>Test BigMC by typing <code>bigmc</code> in your bash terminal (you should get the bigmc terminal, type <code>exit</code> to leave)</p></li>
-<li><p>NOTE: To avoid exporting <code>bigmc.env</code> each time you can copy <code>bigmc</code> binary to a system's directory or add <code>bin</code> to your path variable</p></li>
+<li>Dependencies: autoconf, libtool, bison, flex, yacc</li>
+<li><code>cd bigactors/bigmc</code></li>
+<li>
+<code>chmod +x buildUbuntu.sh</code> (GNU/Linux) or <code>chmod +x buildMacOSX.sh</code> (MacOSX)</li>
+<li>
+<code>./buildUbuntu.sh</code> (Ubuntu) or <code>./buildMACOSX.sh</code> (MacOSX)</li>
+<li><code>export bigmc.env</code></li>
+<li>Test BigMC by typing <code>bigmc</code> in your bash terminal (you should get the bigmc terminal, type <code>exit</code> to leave)</li>
+<li>NOTE: To avoid exporting <code>bigmc.env</code> each time you can copy <code>bigmc</code> binary to a system's directory or add <code>bin</code> to your path variable</li>
 </ul>
 </li>
 <li>
 <p>Install Scala BigActors: </p>
 
 <ul>
-<li><p>Dependencies: Java 7 JDK</p></li>
-<li><p>Return to <code>bigactors</code> directory</p></li>
-<li><p><code>sbt compile</code>. The tool should download all the dependencies and compile the code.</p></li>
-<li><p><code>sbt test</code>. If tests pass run an example.</p></li>
-<li><p><code>sbt run</code> and choose one of the rendezvous examples, e.g. <code>bigactors.examples.ExampleRendezvous1</code></p></li>
+<li>Dependencies: Java 7 JDK</li>
+<li>Return to <code>bigactors</code> directory</li>
+<li>
+<code>sbt compile</code>. The tool should download all the dependencies and compile the code.</li>
+<li>
+<code>sbt test</code>. If tests pass run an example.</li>
+<li>
+<code>sbt run</code> and choose one of the rendezvous examples, e.g. <code>bigactors.examples.ExampleRendezvous1</code>
+</li>
 </ul>
 </li>
 </ol>
