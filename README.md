@@ -50,28 +50,18 @@ For an independent implementation and application of the BigActor Model for prog
     
 3. Install BigMC: Scala BigActors use the Bigraph model checker BigMC as a bigraph execution engine. Find the source code at: [https://github.com/bigmc/bigmc](https://github.com/bigmc/bigmc). BigMC is no longer being supported and installation can be challenging. We provide build scripts for GNU/Linux (tested with Ubuntu 14.04) and for MacOSX (tested with El Capitan)
     * Dependencies: autoconf, libtool, bison, flex, yacc
-  
     * `cd bigactors/bigmc`
-  
     * `chmod +x buildUbuntu.sh` (GNU/Linux) or `chmod +x buildMacOSX.sh` (MacOSX)
-  
     * `./buildUbuntu.sh` (Ubuntu) or `./buildMACOSX.sh` (MacOSX)
-  
     * `export bigmc.env`
-
     * Test BigMC by typing `bigmc` in your bash terminal (you should get the bigmc terminal, type `exit` to leave)
-
     * NOTE: To avoid exporting `bigmc.env` each time you can copy `bigmc` binary to a system's directory or add `bin` to your path variable
 
 4. Install Scala BigActors: 
     * Dependencies: Java 7 JDK
-    
     * Return to `bigactors` directory
-    
     * `sbt compile`. The tool should download all the dependencies and compile the code.
-    
     * `sbt test`. If tests pass run an example.
-    
     * `sbt run` and choose one of the rendezvous examples, e.g. `bigactors.examples.ExampleRendezvous1`
 
 ## References ##
